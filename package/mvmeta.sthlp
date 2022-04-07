@@ -531,7 +531,7 @@ The likelihood is coded using mata and appears on initial tests to be 2-5 times 
 {cmd:bscorr} and {cmd:bscov} have been renamed {cmd:print(bscorr)} and {cmd:print(bscov)}.
 
 
-{title:Changes from version 2.3 to version 3.1}{marker changes3}
+{title:Changes from version 2.3 to version 4.0}{marker changes3}
 
 {phang}
 The command has been modified to work with the new {help network} suite for network meta-analysis.
@@ -570,7 +570,18 @@ The options {cmd:augment}, {cmd:augquiet}, {cmd:missest(#)} and {cmd:missvar(#)}
 
 {phang}
 A bug in the estimation procedure for the {cmd:wscorr(riley)} method which led to wrong answers has been fixed.
-A number of minor bugs have also been fixed. 
+
+{phang} 
+The {cmd:bubble} option has been added.
+
+{phang}
+The {cmd:bscov(exch)} option has been added, with the ability to estimate the between-studies correlation.
+
+{phang}
+Constrained estimation can now be done: see {helpb constraint}.
+
+{phang}
+A number of minor bugs have been fixed, and the output improved. 
 
 
 {title:Examples}{marker examples}
@@ -604,11 +615,10 @@ order to ensure that it is non-negative definite.
 {* The forest option of {cmd:mvmeta} requires the additional programs {help coefplot}.}{...}
 
 {p 0 0 0}
-Parts of {cmd:mvmeta} require the additional programs {help sencode}.
+Parts of {cmd:mvmeta} require the additional program {help sencode}.
 
 {p 0 0 0}
-{cmd:mvmeta} has been tested under Stata versions 12 and later. 
-I hope it also works under Stata versions 9-11.
+{cmd:mvmeta} aims to work under all Stata versions 9 and later, but I have been unable to test it on all versions.
 
 
 {title:Known problems}{marker problems}
