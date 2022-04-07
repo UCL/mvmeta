@@ -24,6 +24,5 @@ mvmeta:
 ## Installation within Stata
 You should be able to install this package from SSC.
 
-To install it from github, use one of these:
-- `github install UCL/mvmeta, path(package)`
+To install it from github, use
 - `net from https://raw.githubusercontent.com/UCL/mvmeta/master/package/`
