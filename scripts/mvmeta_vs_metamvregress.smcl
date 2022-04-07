@@ -1,0 +1,233 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}c:\ado\ian\mvmeta\scripts\mvmeta_vs_metamvregress.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}18 Nov 2021, 19:03:41
+{txt}
+{com}. /*
+> mvmeta_vs_metamvregress.do
+> IW 18/11/2021
+> Comparison of mvmeta with "official" meta mvregress
+> mvmeta appears more robust to reordering variables
+> */
+. 
+. use telomerase2, clear
+{txt}(Riley's telomerase data)
+
+{com}. 
+. mvmeta y S study, bscov(uns) nounc var(y1 y2)
+{txt}Note: using method {res}reml
+{txt}Note: regressing {res}y1{txt} on {res}study
+{txt}Note: regressing {res}y2{txt} on {res}study
+{txt}Note: {res}10{txt} observations on {res}2{txt} variables
+{res}{txt}Note: variance-covariance matrix is {res}unstructured
+
+{txt}initial:       log likelihood = {res}-26.577652
+{txt}rescale:       log likelihood = {res}-26.577652
+{txt}rescale eq:    log likelihood = {res}-26.574163
+{txt}Iteration 0:{col 16}log likelihood = {res}-26.574163{txt}  
+{res}{txt}Iteration 1:{col 16}log likelihood = {res}-26.555116{txt}  
+{res}{txt}Iteration 2:{col 16}log likelihood = {res}-26.555078{txt}  
+{res}{txt}Iteration 3:{col 16}log likelihood = {res}-26.555078{txt}  
+
+Multivariate meta-analysis
+Variance-covariance matrix = {res}unstructured
+{txt}Method = {res}reml{col 48}{txt}Number of dimensions {col 72}={res}     2
+{txt}Restricted log likelihood = {res}-26.555078{col 48}{txt}Number of observations {col 72}={res}    10
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}y1           {txt}{c |}
+{space 7}study {c |}{col 14}{res}{space 2} .0011207{col 26}{space 2} .0699718{col 37}{space 1}    0.02{col 46}{space 3}0.987{col 54}{space 4}-.1360216{col 67}{space 3}  .138263
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.146843{col 26}{space 2} .4212506{col 37}{space 1}    2.72{col 46}{space 3}0.006{col 54}{space 4} .3212075{col 67}{space 3} 1.972479
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}y2           {txt}{c |}
+{space 7}study {c |}{col 14}{res}{space 2}-.1627416{col 26}{space 2} .1925649{col 37}{space 1}   -0.85{col 46}{space 3}0.398{col 54}{space 4}-.5401618{col 67}{space 3} .2146785
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 2.949419{col 26}{space 2} 1.202276{col 37}{space 1}    2.45{col 46}{space 3}0.014{col 54}{space 4} .5930002{col 67}{space 3} 5.305837
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+Note: these standard errors ignore uncertainty in Sigma.
+
+Estimated between-studies SDs and correlation matrix
+{hline 52}
+           SD         y1         y2
+y1  {res} .4700341          1          .
+{txt}y2  {res}1.6163599         -1          1
+{txt}{hline 52}
+
+{com}. mat mvmeta12 = e(Sigma)
+{txt}
+{com}. 
+. mvmeta y S study, bscov(uns) nounc var(y2 y1)
+{txt}Note: using method {res}reml
+{txt}Note: regressing {res}y2{txt} on {res}study
+{txt}Note: regressing {res}y1{txt} on {res}study
+{txt}Note: {res}10{txt} observations on {res}2{txt} variables
+{res}{txt}Note: variance-covariance matrix is {res}unstructured
+
+{txt}initial:       log likelihood = {res}-26.577652
+{txt}rescale:       log likelihood = {res}-26.577652
+{txt}rescale eq:    log likelihood = {res}-26.571267
+{txt}Iteration 0:{col 16}log likelihood = {res}-26.571267{txt}  
+{res}{txt}Iteration 1:{col 16}log likelihood = {res}-26.555101{txt}  
+{res}{txt}Iteration 2:{col 16}log likelihood = {res}-26.555078{txt}  
+{res}{txt}Iteration 3:{col 16}log likelihood = {res}-26.555078{txt}  
+
+Multivariate meta-analysis
+Variance-covariance matrix = {res}unstructured
+{txt}Method = {res}reml{col 48}{txt}Number of dimensions {col 72}={res}     2
+{txt}Restricted log likelihood = {res}-26.555078{col 48}{txt}Number of observations {col 72}={res}    10
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}y2           {txt}{c |}
+{space 7}study {c |}{col 14}{res}{space 2}-.1627416{col 26}{space 2} .1925648{col 37}{space 1}   -0.85{col 46}{space 3}0.398{col 54}{space 4}-.5401618{col 67}{space 3} .2146785
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 2.949419{col 26}{space 2} 1.202276{col 37}{space 1}    2.45{col 46}{space 3}0.014{col 54}{space 4} .5930003{col 67}{space 3} 5.305837
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}y1           {txt}{c |}
+{space 7}study {c |}{col 14}{res}{space 2} .0011207{col 26}{space 2} .0699718{col 37}{space 1}    0.02{col 46}{space 3}0.987{col 54}{space 4}-.1360216{col 67}{space 3}  .138263
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.146843{col 26}{space 2} .4212506{col 37}{space 1}    2.72{col 46}{space 3}0.006{col 54}{space 4} .3212075{col 67}{space 3} 1.972479
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+Note: these standard errors ignore uncertainty in Sigma.
+
+Estimated between-studies SDs and correlation matrix
+{hline 52}
+           SD         y2         y1
+y2  {res}1.6163598          1          .
+{txt}y1  {res}.47003409         -1          1
+{txt}{hline 52}
+
+{com}. mat mvmeta21 = e(Sigma)
+{txt}
+{com}. 
+. meta mvregress y1 y2 = study, wcovvar(S11 S12 S22) random(,cov(uns))
+{res}
+{txt}Performing EM optimization ...
+{res}
+{txt}Performing gradient-based optimization: {res}
+{txt}Iteration 0:{space 3}log restricted-likelihood = {res:-29.692786}  
+Iteration 1:{space 3}log restricted-likelihood = {res:-28.151131}  
+Iteration 2:{space 3}log restricted-likelihood = {res:-27.301795}  
+Iteration 3:{space 3}log restricted-likelihood = {res:-26.570848}  
+Iteration 4:{space 3}log restricted-likelihood = {res:-26.555113}  
+Iteration 5:{space 3}log restricted-likelihood = {res:-26.555086}  
+Iteration 6:{space 3}log restricted-likelihood = {res:-26.555079}  
+Iteration 7:{space 3}log restricted-likelihood = {res:-26.555077}  
+{res}
+{txt}Multivariate random-effects meta-regression{col 49}Number of obs{col 67}={col 69}{res}        20
+{txt}Method: REML{col 49}Number of studies{col 67}={col 70}{res}       10
+{txt}{col 49}Obs per study:
+{col 63}min{col 67}={col 69}{res}         2
+{txt}{col 63}avg{col 67}={col 69}{res}       2.0
+{txt}{col 63}max{col 67}={col 69}{res}         2
+{col 49}{txt}Wald chi2({res}2{txt}){col 67}={col 70}{res}     1.32
+{txt}Log restricted-likelihood = {res}-26.555077{col 49}{txt}Prob > chi2{col 67}={col 73}{res}0.5177
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}y1           {txt}{c |}
+{space 7}study {c |}{col 14}{res}{space 2} .0011214{col 26}{space 2} .0699665{col 37}{space 1}    0.02{col 46}{space 3}0.987{col 54}{space 4}-.1360104{col 67}{space 3} .1382532
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.146833{col 26}{space 2} .4212165{col 37}{space 1}    2.72{col 46}{space 3}0.006{col 54}{space 4} .3212641{col 67}{space 3} 1.972402
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}y2           {txt}{c |}
+{space 7}study {c |}{col 14}{res}{space 2}-.1627465{col 26}{space 2} .1925132{col 37}{space 1}   -0.85{col 46}{space 3}0.398{col 54}{space 4}-.5400653{col 67}{space 3} .2145724
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 2.949354{col 26}{space 2} 1.201957{col 37}{space 1}    2.45{col 46}{space 3}0.014{col 54}{space 4} .5935614{col 67}{space 3} 5.305146
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+Test of homogeneity: Q_M = chi2({res}16{txt}) = {res}83.17{txt}{col 60}Prob > Q_M = {res}0.0000
+
+{txt}{hline 29}{c TT}{hline 11}
+{col 4}Random-effects parameters{col 30}{c |}{col 34}Estimate
+{hline 29}{c +}{hline 11}
+Unstructured:{col 30}{c |}
+{col 23}sd(y1){col 30}{c |}{res}{col 33} .4699678
+{txt}{col 23}sd(y2){col 30}{c |}{res}{col 33} 1.615859
+{txt}{col 18}corr(y1,y2){col 30}{c |}{res}{col 33}       -1
+{txt}{hline 29}{c BT}{hline 11}
+{res}{txt}
+{com}. estat recovariance
+
+{txt}{p 0 0 2}Between-study covariance matrix{p_end}
+
+{space 0}{space 0}{ralign 12:}{space 1}{c |}{space 1}{ralign 9:y1}{space 1}{space 1}{ralign 9:y2}{space 1}
+{space 0}{hline 13}{c   +}{hline 11}{hline 11}
+{space 0}{space 0}{ralign 12:y1}{space 1}{c |}{space 1}{ralign 9:{res:{sf: .2208697}}}{space 1}{space 1}{ralign 9:{res:{sf:{space 9}}}}{space 1}
+{space 0}{space 0}{ralign 12:y2}{space 1}{c |}{space 1}{ralign 9:{res:{sf:-.7594015}}}{space 1}{space 1}{ralign 9:{res:{sf:    2.611}}}{space 1}
+
+{com}. mat meta12 = r(cov)
+{txt}
+{com}. 
+. meta mvregress y2 y1 = study, wcovvar(S22 S12 S11) random(,cov(uns))
+{res}
+{txt}Performing EM optimization ...
+{res}
+{txt}Performing gradient-based optimization: {res}
+{txt}Iteration 0:{space 3}log restricted-likelihood = {res:-29.692786}  
+Iteration 1:{space 3}log restricted-likelihood = {res:-29.021706}  
+Iteration 2:{space 3}log restricted-likelihood = {res:-27.027763}  
+Iteration 3:{space 3}log restricted-likelihood = {res:-26.570612}  
+Iteration 4:{space 3}log restricted-likelihood = {res:-26.555121}  
+Iteration 5:{space 3}log restricted-likelihood = {res:-26.555088}  
+Iteration 6:{space 3}log restricted-likelihood = {res: -26.55508}  
+Iteration 7:{space 3}log restricted-likelihood = {res:-26.555078}  
+{res}
+{txt}Multivariate random-effects meta-regression{col 49}Number of obs{col 67}={col 69}{res}        20
+{txt}Method: REML{col 49}Number of studies{col 67}={col 70}{res}       10
+{txt}{col 49}Obs per study:
+{col 63}min{col 67}={col 69}{res}         2
+{txt}{col 63}avg{col 67}={col 69}{res}       2.0
+{txt}{col 63}max{col 67}={col 69}{res}         2
+{col 49}{txt}Wald chi2({res}2{txt}){col 67}={col 70}{res}     1.32
+{txt}Log restricted-likelihood = {res}-26.555078{col 49}{txt}Prob > chi2{col 67}={col 73}{res}0.5179
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}y2           {txt}{c |}
+{space 7}study {c |}{col 14}{res}{space 2}  -.16274{col 26}{space 2}  .192577{col 37}{space 1}   -0.85{col 46}{space 3}0.398{col 54}{space 4}-.5401839{col 67}{space 3}  .214704
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 2.949373{col 26}{space 2} 1.202351{col 37}{space 1}    2.45{col 46}{space 3}0.014{col 54}{space 4} .5928095{col 67}{space 3} 5.305937
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}y1           {txt}{c |}
+{space 7}study {c |}{col 14}{res}{space 2}  .001125{col 26}{space 2} .0699855{col 37}{space 1}    0.02{col 46}{space 3}0.987{col 54}{space 4} -.136044{col 67}{space 3}  .138294
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.146825{col 26}{space 2} .4213376{col 37}{space 1}    2.72{col 46}{space 3}0.006{col 54}{space 4} .3210189{col 67}{space 3} 1.972632
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+Test of homogeneity: Q_M = chi2({res}16{txt}) = {res}83.17{txt}{col 60}Prob > Q_M = {res}0.0000
+
+{txt}{hline 29}{c TT}{hline 11}
+{col 4}Random-effects parameters{col 30}{c |}{col 34}Estimate
+{hline 29}{c +}{hline 11}
+Unstructured:{col 30}{c |}
+{col 23}sd(y2){col 30}{c |}{res}{col 33} 1.616484
+{txt}{col 23}sd(y1){col 30}{c |}{res}{col 33} .4701992
+{txt}{col 18}corr(y2,y1){col 30}{c |}{res}{col 33}-.9999999
+{txt}{hline 29}{c BT}{hline 11}
+{res}{txt}
+{com}. estat recovariance
+
+{txt}{p 0 0 2}Between-study covariance matrix{p_end}
+
+{space 0}{space 0}{ralign 12:}{space 1}{c |}{space 1}{ralign 9:y2}{space 1}{space 1}{ralign 9:y1}{space 1}
+{space 0}{hline 13}{c   +}{hline 11}{hline 11}
+{space 0}{space 0}{ralign 12:y2}{space 1}{c |}{space 1}{ralign 9:{res:{sf:  2.61302}}}{space 1}{space 1}{ralign 9:{res:{sf:{space 9}}}}{space 1}
+{space 0}{space 0}{ralign 12:y1}{space 1}{c |}{space 1}{ralign 9:{res:{sf:-.7600693}}}{space 1}{space 1}{ralign 9:{res:{sf: .2210873}}}{space 1}
+
+{com}. mat meta21 = r(cov)
+{txt}
+{com}. 
+. foreach method in mvmeta meta {c -(}
+{txt}  2{com}.         local res12 = sqrt(`method'12[1,1])
+{txt}  3{com}.         local res21 = sqrt(`method'21[2,2])
+{txt}  4{com}.         di as text "`method' discrepancy: " as result `res12' " vs " `res21' ", diff = " `res12' - `res21'
+{txt}  5{com}. {c )-}
+{txt}mvmeta discrepancy: {res}.4700341 vs .47003409, diff = 1.754e-08
+{txt}meta discrepancy: {res}.46996776 vs .4701992, diff = -.00023144
+{txt}
+{com}. 
+{txt}end of do-file
+      name:  {res}<unnamed>
+       {txt}log:  {res}c:\ado\ian\mvmeta\scripts\mvmeta_vs_metamvregress.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}18 Nov 2021, 19:03:43
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

@@ -1,0 +1,823 @@
+-------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\ado\ian\mvmeta\scripts\mvmeta_penalty.log
+  log type:  text
+ opened on:  16 Jun 2020, 19:08:10
+Log file mvmeta_penalty.log opened on 16 Jun 2020 at 19:08:10
+
+. /*
+> Demonstrate the new penalty option
+> IW 15jun2020
+> */
+. 
+. pda
+
+. use "N:\Home\meta\Julieta Galante\weird\ma_cognitive_functioning_cp", clear
+
+. misstable pattern cp_est*, freq
+
+   Missing-value patterns
+     (1 means complete)
+
+              |   Pattern
+    Frequency |  1  2  3
+  ------------+-------------
+            0 |  1  1  1
+              |
+           11 |  1  0  0
+           10 |  0  0  0
+            2 |  1  1  0
+  ------------+-------------
+           23 |
+
+  Variables are  (1) cp_est_pibl  (2) cp_est_5mbl  (3) cp_est_6mbl
+
+. 
+. * this one fails: there are only 2 studies with both outcomes
+. cap noi mvmeta cp_est_ cp_var_, wscorr(riley) iter(200)
+Note: using method reml
+Warning: variable cp_est_6mbl not used (no non-missing values)
+Note: using variables cp_est_pibl cp_est_5mbl
+Warning: 10 observations have all outcomes missing, and have been dropped from 
+> analysis
+Note: 13 observations on 2 variables
+Note: using Riley's overall correlation model
+Note: variance-covariance matrix is unstructured
+
+initial:       log likelihood = -14.655656
+rescale:       log likelihood = -7.9519079
+rescale eq:    log likelihood = -5.9575161
+Iteration 0:   log likelihood = -5.9575161  (not concave)
+Iteration 1:   log likelihood = -4.7452172  (not concave)
+Iteration 2:   log likelihood = -4.5672428  (not concave)
+Iteration 3:   log likelihood = -4.4298927  (not concave)
+Iteration 4:   log likelihood = -3.8412464  (not concave)
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 5:   log likelihood = -3.2440082  (not concave)
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 6:   log likelihood = -3.2271277  
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 7:   log likelihood = -3.2006861  (not concave)
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 8:   log likelihood = -3.1744351  (not concave)
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 9:   log likelihood = -3.1499164  (not concave)
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 10:  log likelihood = -3.1427712  (not concave)
+Iteration 11:  log likelihood =  -2.854011  (not concave)
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 12:  log likelihood = -2.6998463  (not concave)
+Iteration 13:  log likelihood = -2.6387624  (not concave)
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 14:  log likelihood = -2.6309152  (not concave)
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 15:  log likelihood = -2.6070313  (not concave)
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 16:  log likelihood = -2.6018007  (not concave)
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 17:  log likelihood = -2.5997318  (not concave)
+Iteration 18:  log likelihood = -2.5355066  (not concave)
+Iteration 19:  log likelihood = -2.5256442  (not concave)
+Iteration 20:  log likelihood =  -2.513654  
+Iteration 21:  log likelihood = -2.5124637  (not concave)
+Iteration 22:  log likelihood = -2.5114763  
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 23:  log likelihood = -2.5105278  (not concave)
+Iteration 24:  log likelihood = -2.5096136  (not concave)
+Iteration 25:  log likelihood = -2.5092275  (not concave)
+Iteration 26:  log likelihood =  -2.509076  (not concave)
+Iteration 27:  log likelihood = -2.5084373  (not concave)
+Iteration 28:  log likelihood = -2.5070481  (not concave)
+Iteration 29:  log likelihood = -2.5055184  
+Iteration 30:  log likelihood =  -2.503747  (not concave)
+Iteration 31:  log likelihood = -2.5035526  (not concave)
+Iteration 32:  log likelihood = -2.5027044  (not concave)
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 33:  log likelihood = -2.5026453  (not concave)
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 34:  log likelihood = -2.5026006  
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 35:  log likelihood = -2.5025951  (not concave)
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 36:  log likelihood = -2.5025583  (not concave)
+Iteration 37:  log likelihood = -2.5024609  (not concave)
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 38:  log likelihood = -2.5024103  (not concave)
+numerical derivatives are approximate
+flat or discontinuous region encountered
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 39:  log likelihood = -2.5023903  (not concave)
+Iteration 40:  log likelihood = -2.5021868  (not concave)
+Iteration 41:  log likelihood = -2.5021268  (not concave)
+Iteration 42:  log likelihood = -2.5021063  (not concave)
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 43:  log likelihood =  -2.502104  (not concave)
+Iteration 44:  log likelihood = -2.5021033  (not concave)
+Iteration 45:  log likelihood = -2.5021033  (not concave)
+Iteration 46:  log likelihood = -2.5021007  (not concave)
+Iteration 47:  log likelihood = -2.5021005  
+
+Multivariate meta-analysis
+Variance-covariance matrix = unstructured
+Method = reml                                  Number of dimensions    =     2
+Restricted log likelihood = -2.5021005         Number of observations  =    13
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+Overall_mean |
+ cp_est_pibl |   .2468066   .0000137  1.8e+04   0.000     .2467798    .2468334
+ cp_est_5mbl |  -.0970124      .0001  -970.36   0.000    -.0972083   -.0968164
+------------------------------------------------------------------------------
+
+Estimated between-studies SDs and OVERALL correlation matrix:
+                      SD  cp_est_pibl  cp_est_5mbl
+cp_est_pibl    .22312703            1            .
+cp_est_5mbl    .57634869           -1            1
+
+. est store riley
+
+. 
+. * this one works
+. mvmeta cp_est_ cp_var_, wscorr(riley) penalty(.1)
+Note: using method reml
+Note: log likelihood enhanced by penalty term .1 * log(det(corr(Sigma)))
+Warning: variable cp_est_6mbl not used (no non-missing values)
+Note: using variables cp_est_pibl cp_est_5mbl
+Warning: 10 observations have all outcomes missing, and have been dropped from 
+> analysis
+Note: 13 observations on 2 variables
+Note: using Riley's overall correlation model
+Note: variance-covariance matrix is unstructured
+
+initial:       log likelihood = -14.655656
+rescale:       log likelihood = -7.9519079
+rescale eq:    log likelihood = -5.9575161
+Iteration 0:   log likelihood = -5.9575161  (not concave)
+Iteration 1:   log likelihood = -5.0832842  (not concave)
+Iteration 2:   log likelihood = -4.9098407  (not concave)
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 3:   log likelihood = -4.4948846  (not concave)
+Iteration 4:   log likelihood = -3.9154345  (not concave)
+numerical derivatives are approximate
+flat or discontinuous region encountered
+Iteration 5:   log likelihood = -3.6766047  (not concave)
+Iteration 6:   log likelihood = -3.5742396  (not concave)
+Iteration 7:   log likelihood =  -3.544057  (not concave)
+Iteration 8:   log likelihood = -3.5176903  (not concave)
+Iteration 9:   log likelihood = -3.5124672  (not concave)
+Iteration 10:  log likelihood = -3.5075069  (not concave)
+Iteration 11:  log likelihood = -3.5005015  (not concave)
+Iteration 12:  log likelihood = -3.4959591  (not concave)
+Iteration 13:  log likelihood = -3.4917347  (not concave)
+Iteration 14:  log likelihood = -3.4874277  (not concave)
+Iteration 15:  log likelihood = -3.4832172  (not concave)
+Iteration 16:  log likelihood = -3.4804582  
+Iteration 17:  log likelihood = -3.4725212  (not concave)
+Iteration 18:  log likelihood =  -3.468467  (not concave)
+Iteration 19:  log likelihood = -3.4627011  (not concave)
+Iteration 20:  log likelihood = -3.4568615  (not concave)
+Iteration 21:  log likelihood = -3.4540272  (not concave)
+Iteration 22:  log likelihood = -3.4515587  (not concave)
+Iteration 23:  log likelihood = -3.4498156  (not concave)
+Iteration 24:  log likelihood = -3.4477828  (not concave)
+Iteration 25:  log likelihood =  -3.445793  (not concave)
+Iteration 26:  log likelihood = -3.4393116  
+Iteration 27:  log likelihood = -3.4269079  (not concave)
+Iteration 28:  log likelihood = -3.4248526  
+Iteration 29:  log likelihood = -3.4102485  (not concave)
+Iteration 30:  log likelihood = -3.4033167  
+Iteration 31:  log likelihood =  -3.402214  (not concave)
+Iteration 32:  log likelihood = -3.4006826  (not concave)
+Iteration 33:  log likelihood = -3.3991732  (not concave)
+Iteration 34:  log likelihood = -3.3985371  (not concave)
+Iteration 35:  log likelihood = -3.3982174  
+Iteration 36:  log likelihood = -3.3851452  (not concave)
+Iteration 37:  log likelihood = -3.3848482  
+Iteration 38:  log likelihood = -3.3848377  
+Iteration 39:  log likelihood = -3.3848218  (not concave)
+Iteration 40:  log likelihood = -3.3848218  
+
+Multivariate meta-analysis
+Variance-covariance matrix = unstructured
+Method = reml                                  Number of dimensions    =     2
+Restricted log likelihood = -3.3848218         Number of observations  =    13
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+Overall_mean |
+ cp_est_pibl |    .247876    .026965     9.19   0.000     .1950255    .3007265
+ cp_est_5mbl |  -.0986363   .0598049    -1.65   0.099    -.2158517    .0185791
+------------------------------------------------------------------------------
+
+Estimated between-studies SDs and OVERALL correlation matrix:
+                      SD  cp_est_pibl  cp_est_5mbl
+cp_est_pibl    .25591346            1            .
+cp_est_5mbl    .62480602   -.99991655            1
+
+. est store rileypen01
+
+. 
+. mvmeta cp_est_ cp_var_, wscorr(riley) penalty(1)
+Note: using method reml
+Note: log likelihood enhanced by penalty term 1 * log(det(corr(Sigma)))
+Warning: variable cp_est_6mbl not used (no non-missing values)
+Note: using variables cp_est_pibl cp_est_5mbl
+Warning: 10 observations have all outcomes missing, and have been dropped from 
+> analysis
+Note: 13 observations on 2 variables
+Note: using Riley's overall correlation model
+Note: variance-covariance matrix is unstructured
+
+initial:       log likelihood = -14.655656
+rescale:       log likelihood = -7.9519079
+rescale eq:    log likelihood = -5.9575161
+Iteration 0:   log likelihood = -5.9575161  
+Iteration 1:   log likelihood = -5.8520487  
+Iteration 2:   log likelihood = -5.8102768  
+Iteration 3:   log likelihood = -5.8090467  
+Iteration 4:   log likelihood = -5.8090442  
+Iteration 5:   log likelihood = -5.8090442  
+
+Multivariate meta-analysis
+Variance-covariance matrix = unstructured
+Method = reml                                  Number of dimensions    =     2
+Restricted log likelihood = -5.8090442         Number of observations  =    13
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+Overall_mean |
+ cp_est_pibl |   .2590957   .0933751     2.77   0.006     .0760839    .4421074
+ cp_est_5mbl |   .0610195   .2416986     0.25   0.801     -.412701    .5347401
+------------------------------------------------------------------------------
+
+Estimated between-studies SDs and OVERALL correlation matrix:
+                      SD  cp_est_pibl  cp_est_5mbl
+cp_est_pibl    .22935041            1            .
+cp_est_5mbl    .23863383   -.29702866            1
+
+. est store rileypen1
+
+. 
+. forvalues r=0/9 {
+  2.         mvmeta cp_est_ cp_var_, wscorr(0.`r')
+  3.         est store r0`r'
+  4. }
+Note: using method reml
+Warning: variable cp_est_6mbl not used (no non-missing values)
+Note: using variables cp_est_pibl cp_est_5mbl
+Warning: 10 observations have all outcomes missing, and have been dropped from 
+> analysis
+Note: 13 observations on 2 variables
+Note: wscorr(0.0) used for all covariances
+Note: variance-covariance matrix is unstructured
+
+initial:       log likelihood = -5.5893023
+rescale:       log likelihood = -5.5893023
+rescale eq:    log likelihood = -5.5889161
+Iteration 0:   log likelihood = -5.5889161  
+Iteration 1:   log likelihood = -5.5478954  
+Iteration 2:   log likelihood = -5.5476294  
+Iteration 3:   log likelihood = -5.5476288  
+
+Multivariate meta-analysis
+Variance-covariance matrix = unstructured
+Method = reml                                  Number of dimensions    =     2
+Restricted log likelihood = -5.5476288         Number of observations  =    13
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+Overall_mean |
+ cp_est_pibl |   .2532214   .0951761     2.66   0.008     .0666798    .4397631
+ cp_est_5mbl |  -.0134627   .2323107    -0.06   0.954    -.4687832    .4418579
+------------------------------------------------------------------------------
+
+Estimated between-studies SDs and correlation matrix:
+                      SD  cp_est_pibl  cp_est_5mbl
+cp_est_pibl    .23957888            1            .
+cp_est_5mbl    .37350731           -1            1
+Note: using method reml
+Warning: variable cp_est_6mbl not used (no non-missing values)
+Note: using variables cp_est_pibl cp_est_5mbl
+Warning: 10 observations have all outcomes missing, and have been dropped from 
+> analysis
+Note: 13 observations on 2 variables
+Note: wscorr(0.1) used for all covariances
+Note: variance-covariance matrix is unstructured
+
+initial:       log likelihood = -5.6265481
+rescale:       log likelihood = -5.6265481
+rescale eq:    log likelihood = -5.6265481
+Iteration 0:   log likelihood = -5.6265481  
+Iteration 1:   log likelihood = -5.5900629  
+Iteration 2:   log likelihood = -5.5897716  
+Iteration 3:   log likelihood = -5.5897714  
+
+Multivariate meta-analysis
+Variance-covariance matrix = unstructured
+Method = reml                                  Number of dimensions    =     2
+Restricted log likelihood = -5.5897714         Number of observations  =    13
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+Overall_mean |
+ cp_est_pibl |   .2528698   .0952041     2.66   0.008     .0662732    .4394664
+ cp_est_5mbl |  -.0078004   .2386955    -0.03   0.974    -.4756351    .4600342
+------------------------------------------------------------------------------
+
+Estimated between-studies SDs and correlation matrix:
+                      SD  cp_est_pibl  cp_est_5mbl
+cp_est_pibl     .2399667            1            .
+cp_est_5mbl    .37480033           -1            1
+Note: using method reml
+Warning: variable cp_est_6mbl not used (no non-missing values)
+Note: using variables cp_est_pibl cp_est_5mbl
+Warning: 10 observations have all outcomes missing, and have been dropped from 
+> analysis
+Note: 13 observations on 2 variables
+Note: wscorr(0.2) used for all covariances
+Note: variance-covariance matrix is unstructured
+
+initial:       log likelihood = -5.6650625
+rescale:       log likelihood = -5.6650625
+rescale eq:    log likelihood = -5.6647444
+Iteration 0:   log likelihood = -5.6647444  
+Iteration 1:   log likelihood = -5.6291431  
+Iteration 2:   log likelihood = -5.6287917  
+Iteration 3:   log likelihood = -5.6287914  
+
+Multivariate meta-analysis
+Variance-covariance matrix = unstructured
+Method = reml                                  Number of dimensions    =     2
+Restricted log likelihood = -5.6287914         Number of observations  =    13
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+Overall_mean |
+ cp_est_pibl |     .25251   .0953031     2.65   0.008     .0657193    .4393007
+ cp_est_5mbl |  -.0020817   .2450849    -0.01   0.993    -.4824393    .4782759
+------------------------------------------------------------------------------
+
+Estimated between-studies SDs and correlation matrix:
+                      SD  cp_est_pibl  cp_est_5mbl
+cp_est_pibl    .24036674            1            .
+cp_est_5mbl    .37682106           -1            1
+Note: using method reml
+Warning: variable cp_est_6mbl not used (no non-missing values)
+Note: using variables cp_est_pibl cp_est_5mbl
+Warning: 10 observations have all outcomes missing, and have been dropped from 
+> analysis
+Note: 13 observations on 2 variables
+Note: wscorr(0.3) used for all covariances
+Note: variance-covariance matrix is unstructured
+
+initial:       log likelihood = -5.7031138
+rescale:       log likelihood = -5.7031138
+rescale eq:    log likelihood = -5.7028256
+Iteration 0:   log likelihood = -5.7028256  
+Iteration 1:   log likelihood = -5.6656508  
+Iteration 2:   log likelihood =  -5.665171  
+Iteration 3:   log likelihood = -5.6651706  
+
+Multivariate meta-analysis
+Variance-covariance matrix = unstructured
+Method = reml                                  Number of dimensions    =     2
+Restricted log likelihood = -5.6651706         Number of observations  =    13
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+Overall_mean |
+ cp_est_pibl |   .2521442    .095383     2.64   0.008      .065197    .4390914
+ cp_est_5mbl |    .003695   .2514978     0.01   0.988    -.4892317    .4966216
+------------------------------------------------------------------------------
+
+Estimated between-studies SDs and correlation matrix:
+                      SD  cp_est_pibl  cp_est_5mbl
+cp_est_pibl    .24077568            1            .
+cp_est_5mbl    .37951525           -1            1
+Note: using method reml
+Warning: variable cp_est_6mbl not used (no non-missing values)
+Note: using variables cp_est_pibl cp_est_5mbl
+Warning: 10 observations have all outcomes missing, and have been dropped from 
+> analysis
+Note: 13 observations on 2 variables
+Note: wscorr(0.4) used for all covariances
+Note: variance-covariance matrix is unstructured
+
+initial:       log likelihood = -5.7413181
+rescale:       log likelihood = -5.7413181
+rescale eq:    log likelihood =  -5.741058
+Iteration 0:   log likelihood =  -5.741058  
+Iteration 1:   log likelihood =  -5.699982  
+Iteration 2:   log likelihood = -5.6992907  
+Iteration 3:   log likelihood = -5.6992901  
+
+Multivariate meta-analysis
+Variance-covariance matrix = unstructured
+Method = reml                                  Number of dimensions    =     2
+Restricted log likelihood = -5.6992901         Number of observations  =    13
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+Overall_mean |
+ cp_est_pibl |   .2517743   .0954467     2.64   0.008     .0647022    .4388463
+ cp_est_5mbl |   .0095319   .2579513     0.04   0.971    -.4960434    .5151072
+------------------------------------------------------------------------------
+
+Estimated between-studies SDs and correlation matrix:
+                      SD  cp_est_pibl  cp_est_5mbl
+cp_est_pibl    .24119077            1            .
+cp_est_5mbl    .38283088           -1            1
+Note: using method reml
+Warning: variable cp_est_6mbl not used (no non-missing values)
+Note: using variables cp_est_pibl cp_est_5mbl
+Warning: 10 observations have all outcomes missing, and have been dropped from 
+> analysis
+Note: 13 observations on 2 variables
+Note: wscorr(0.5) used for all covariances
+Note: variance-covariance matrix is unstructured
+
+initial:       log likelihood = -5.7796903
+rescale:       log likelihood = -5.7796903
+rescale eq:    log likelihood = -5.7794566
+Iteration 0:   log likelihood = -5.7794566  
+Iteration 1:   log likelihood = -5.7324809  
+Iteration 2:   log likelihood = -5.7314565  
+Iteration 3:   log likelihood = -5.7314556  
+Iteration 4:   log likelihood = -5.7314556  
+
+Multivariate meta-analysis
+Variance-covariance matrix = unstructured
+Method = reml                                  Number of dimensions    =     2
+Restricted log likelihood = -5.7314556         Number of observations  =    13
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+Overall_mean |
+ cp_est_pibl |   .2514019   .0955684     2.63   0.009     .0640912    .4387125
+ cp_est_5mbl |   .0154308    .264458     0.06   0.953    -.5028973    .5337589
+------------------------------------------------------------------------------
+
+Estimated between-studies SDs and correlation matrix:
+                      SD  cp_est_pibl  cp_est_5mbl
+cp_est_pibl    .24160972            1            .
+cp_est_5mbl    .38672005           -1            1
+Note: using method reml
+Warning: variable cp_est_6mbl not used (no non-missing values)
+Note: using variables cp_est_pibl cp_est_5mbl
+Warning: 10 observations have all outcomes missing, and have been dropped from 
+> analysis
+Note: 13 observations on 2 variables
+Note: wscorr(0.6) used for all covariances
+Note: variance-covariance matrix is unstructured
+
+initial:       log likelihood = -5.8182373
+rescale:       log likelihood = -5.8182373
+rescale eq:    log likelihood = -5.8180289
+Iteration 0:   log likelihood = -5.8180289  
+Iteration 1:   log likelihood = -5.7634375  
+Iteration 2:   log likelihood = -5.7619174  
+Iteration 3:   log likelihood = -5.7619161  
+Iteration 4:   log likelihood = -5.7619161  
+
+Multivariate meta-analysis
+Variance-covariance matrix = unstructured
+Method = reml                                  Number of dimensions    =     2
+Restricted log likelihood = -5.7619161         Number of observations  =    13
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+Overall_mean |
+ cp_est_pibl |   .2510283   .0956465     2.62   0.009     .0635646     .438492
+ cp_est_5mbl |   .0213948   .2710291     0.08   0.937    -.5098125    .5526021
+------------------------------------------------------------------------------
+
+Estimated between-studies SDs and correlation matrix:
+                      SD  cp_est_pibl  cp_est_5mbl
+cp_est_pibl    .24203052            1            .
+cp_est_5mbl    .39113439           -1            1
+Note: using method reml
+Warning: variable cp_est_6mbl not used (no non-missing values)
+Note: using variables cp_est_pibl cp_est_5mbl
+Warning: 10 observations have all outcomes missing, and have been dropped from 
+> analysis
+Note: 13 observations on 2 variables
+Note: wscorr(0.7) used for all covariances
+Note: variance-covariance matrix is unstructured
+
+initial:       log likelihood = -5.8569599
+rescale:       log likelihood = -5.8569599
+rescale eq:    log likelihood = -5.8567758
+Iteration 0:   log likelihood = -5.8567758  
+Iteration 1:   log likelihood = -5.7927655  
+Iteration 2:   log likelihood = -5.7908812  
+Iteration 3:   log likelihood = -5.7908761  
+Iteration 4:   log likelihood = -5.7908761  
+
+Multivariate meta-analysis
+Variance-covariance matrix = unstructured
+Method = reml                                  Number of dimensions    =     2
+Restricted log likelihood = -5.7908761         Number of observations  =    13
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+Overall_mean |
+ cp_est_pibl |   .2506548   .0957242     2.62   0.009     .0630389    .4382707
+ cp_est_5mbl |   .0274255   .2776692     0.10   0.921    -.5167961     .571647
+------------------------------------------------------------------------------
+
+Estimated between-studies SDs and correlation matrix:
+                      SD  cp_est_pibl  cp_est_5mbl
+cp_est_pibl    .24245153            1            .
+cp_est_5mbl    .39603063           -1            1
+Note: using method reml
+Warning: variable cp_est_6mbl not used (no non-missing values)
+Note: using variables cp_est_pibl cp_est_5mbl
+Warning: 10 observations have all outcomes missing, and have been dropped from 
+> analysis
+Note: 13 observations on 2 variables
+Note: wscorr(0.8) used for all covariances
+Note: variance-covariance matrix is unstructured
+
+initial:       log likelihood = -5.8958548
+rescale:       log likelihood = -5.8958548
+rescale eq:    log likelihood = -5.8956944
+Iteration 0:   log likelihood = -5.8956944  
+Iteration 1:   log likelihood = -5.8207363  
+Iteration 2:   log likelihood = -5.8185122  
+Iteration 3:   log likelihood = -5.8185056  
+Iteration 4:   log likelihood = -5.8185056  
+
+Multivariate meta-analysis
+Variance-covariance matrix = unstructured
+Method = reml                                  Number of dimensions    =     2
+Restricted log likelihood = -5.8185056         Number of observations  =    13
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+Overall_mean |
+ cp_est_pibl |   .2502825   .0958336     2.61   0.009     .0624521    .4381129
+ cp_est_5mbl |   .0335244   .2843866     0.12   0.906    -.5238632    .5909119
+------------------------------------------------------------------------------
+
+Estimated between-studies SDs and correlation matrix:
+                      SD  cp_est_pibl  cp_est_5mbl
+cp_est_pibl    .24287135            1            .
+cp_est_5mbl    .40136763           -1            1
+Note: using method reml
+Warning: variable cp_est_6mbl not used (no non-missing values)
+Note: using variables cp_est_pibl cp_est_5mbl
+Warning: 10 observations have all outcomes missing, and have been dropped from 
+> analysis
+Note: 13 observations on 2 variables
+Note: wscorr(0.9) used for all covariances
+Note: variance-covariance matrix is unstructured
+
+initial:       log likelihood = -5.9349156
+rescale:       log likelihood = -5.9349156
+rescale eq:    log likelihood = -5.9347782
+Iteration 0:   log likelihood = -5.9347782  
+Iteration 1:   log likelihood = -5.8476534  
+Iteration 2:   log likelihood = -5.8449562  
+Iteration 3:   log likelihood = -5.8449473  
+Iteration 4:   log likelihood = -5.8449473  
+
+Multivariate meta-analysis
+Variance-covariance matrix = unstructured
+Method = reml                                  Number of dimensions    =     2
+Restricted log likelihood = -5.8449473         Number of observations  =    13
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+Overall_mean |
+ cp_est_pibl |   .2499123   .0959434     2.60   0.009     .0618667    .4379579
+ cp_est_5mbl |   .0396927   .2911838     0.14   0.892     -.531017    .6104024
+------------------------------------------------------------------------------
+
+Estimated between-studies SDs and correlation matrix:
+                      SD  cp_est_pibl  cp_est_5mbl
+cp_est_pibl    .24328879            1            .
+cp_est_5mbl    .40710702           -1            1
+
+. est table _all, b se keep(cp*)
+
+-------------------------------------------------------------------------------
+    Variable |   riley      rileypen01   rileypen1       r00          r01      
+-------------+-----------------------------------------------------------------
+ cp_est_pibl |  .24680659    .24787601    .25909567    .25322144     .2528698  
+             |  .00001366    .02696504    .09337507    .09517607    .09520408  
+ cp_est_5mbl | -.09701236    -.0986363    .06101955   -.01346268   -.00780044  
+             |  .00009998    .05980488    .24169858    .23231067    .23869554  
+-------------------------------------------------------------------------------
+                                                                   legend: b/se
+
+
+-------------------------------------------------------------------------------
+    Variable |    r02          r03          r04          r05          r06      
+-------------+-----------------------------------------------------------------
+ cp_est_pibl |  .25251002    .25214423    .25177427    .25140186    .25102831  
+             |  .09530313    .09538298    .09544667    .09556842    .09564651  
+ cp_est_5mbl | -.00208166    .00369495    .00953189    .01543084    .02139479  
+             |  .24508492    .25149779    .25795133    .26445797    .27102912  
+-------------------------------------------------------------------------------
+                                                                   legend: b/se
+
+
+-----------------------------------------------------
+    Variable |    r07          r08          r09      
+-------------+---------------------------------------
+ cp_est_pibl |  .25065484    .25028254    .24991228  
+             |  .09572415     .0958336    .09594339  
+ cp_est_5mbl |  .02742545    .03352437     .0396927  
+             |  .27766917    .28438663    .29118377  
+-----------------------------------------------------
+                                         legend: b/se
+
+. 
+. 
+. 
+. use \stata\fscstage1, clear
+
+. su
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+      cohort |         31          16    9.092121          1         31
+     b_Ifg_2 |         31    .0102607    1.505199  -3.404669   5.946375
+     b_Ifg_3 |         31    .4822473    1.549903  -3.275806    5.41975
+     b_Ifg_4 |         31    1.082432    1.758392  -2.010066   6.088435
+     b_Ifg_5 |         31    1.452588    1.854105  -1.767182   7.057288
+-------------+---------------------------------------------------------
+V_Ifg_2_If~2 |         31     279.153    907.4267   .0130015   4193.548
+V_Ifg_2_If~3 |         31    67.43647    206.7851   .0076841   865.0413
+V_Ifg_2_If~4 |         31    69.04788    210.0023   .0077679   865.0315
+V_Ifg_2_If~5 |         31    69.05019    210.0093   .0076602   865.0731
+V_Ifg_3_If~3 |         31    161.5376    527.2709   .0124884   2521.714
+-------------+---------------------------------------------------------
+V_Ifg_3_If~4 |         31    69.78694    212.9293   .0079612   888.0345
+V_Ifg_3_If~5 |         31    69.78931    212.9358   .0078101   888.0727
+V_Ifg_4_If~4 |         31    71.41622    216.1216   .0129162   888.2783
+V_Ifg_4_If~5 |         31    71.34958     216.076   .0079258   888.0691
+V_Ifg_5_If~5 |         31    71.40477    216.0844     .01457   888.1627
+-------------+---------------------------------------------------------
+        _e_N |         31    4968.129     4904.52        418      22638
+    _ppfixed |         31    .1290323    .3407771          0          1
+  _ppremains |         31           0           0          0          0
+
+. mvmeta b V
+Note: using method reml
+Note: using variables b_Ifg_2 b_Ifg_3 b_Ifg_4 b_Ifg_5
+Note: 31 observations on 4 variables
+Note: variance-covariance matrix is unstructured
+
+initial:       log likelihood =  -80.51611
+rescale:       log likelihood =  -80.51611
+rescale eq:    log likelihood = -80.071916
+Iteration 0:   log likelihood = -80.071916  (not concave)
+Iteration 1:   log likelihood = -79.723602  
+Iteration 2:   log likelihood = -79.561193  
+Iteration 3:   log likelihood = -79.504785  (not concave)
+Iteration 4:   log likelihood = -79.500143  
+Iteration 5:   log likelihood =   -79.4929  (not concave)
+Iteration 6:   log likelihood = -79.491318  
+Iteration 7:   log likelihood = -79.489223  
+Iteration 8:   log likelihood = -79.489129  
+Iteration 9:   log likelihood = -79.489126  
+
+Multivariate meta-analysis
+Variance-covariance matrix = unstructured
+Method = reml                                  Number of dimensions    =     4
+Restricted log likelihood = -79.489126         Number of observations  =    31
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+Overall_mean |
+     b_Ifg_2 |    .161584   .0797009     2.03   0.043     .0053731     .317795
+     b_Ifg_3 |   .3926017   .0878155     4.47   0.000     .2204864     .564717
+     b_Ifg_4 |   .5620073   .0906108     6.20   0.000     .3844134    .7396012
+     b_Ifg_5 |   .8973286   .0942704     9.52   0.000     .7125619    1.082095
+------------------------------------------------------------------------------
+
+Estimated between-studies SDs and correlation matrix:
+                SD    b_Ifg_2    b_Ifg_3    b_Ifg_4    b_Ifg_5
+b_Ifg_2  .22734103          1          .          .          .
+b_Ifg_3  .28611312  .98953779          1          .          .
+b_Ifg_4  .30834254  .97421953  .99657554          1          .
+b_Ifg_5   .3274276  .70621484  .80097186  .84773404          1
+
+. mvmeta b V, penalty(0)
+Note: using method reml
+Note: using variables b_Ifg_2 b_Ifg_3 b_Ifg_4 b_Ifg_5
+Note: 31 observations on 4 variables
+Note: variance-covariance matrix is unstructured
+
+initial:       log likelihood =  -80.51611
+rescale:       log likelihood =  -80.51611
+rescale eq:    log likelihood = -80.071916
+Iteration 0:   log likelihood = -80.071916  (not concave)
+Iteration 1:   log likelihood = -79.723602  
+Iteration 2:   log likelihood = -79.561193  
+Iteration 3:   log likelihood = -79.504785  (not concave)
+Iteration 4:   log likelihood = -79.500143  
+Iteration 5:   log likelihood =   -79.4929  (not concave)
+Iteration 6:   log likelihood = -79.491318  
+Iteration 7:   log likelihood = -79.489223  
+Iteration 8:   log likelihood = -79.489129  
+Iteration 9:   log likelihood = -79.489126  
+
+Multivariate meta-analysis
+Variance-covariance matrix = unstructured
+Method = reml                                  Number of dimensions    =     4
+Restricted log likelihood = -79.489126         Number of observations  =    31
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+Overall_mean |
+     b_Ifg_2 |    .161584   .0797009     2.03   0.043     .0053731     .317795
+     b_Ifg_3 |   .3926017   .0878155     4.47   0.000     .2204864     .564717
+     b_Ifg_4 |   .5620073   .0906108     6.20   0.000     .3844134    .7396012
+     b_Ifg_5 |   .8973286   .0942704     9.52   0.000     .7125619    1.082095
+------------------------------------------------------------------------------
+
+Estimated between-studies SDs and correlation matrix:
+                SD    b_Ifg_2    b_Ifg_3    b_Ifg_4    b_Ifg_5
+b_Ifg_2  .22734103          1          .          .          .
+b_Ifg_3  .28611312  .98953779          1          .          .
+b_Ifg_4  .30834254  .97421953  .99657554          1          .
+b_Ifg_5   .3274276  .70621484  .80097186  .84773404          1
+
+. mvmeta b V, penalty(1)
+Note: using method reml
+Note: log likelihood enhanced by penalty term 1 * log(det(corr(Sigma)))
+Note: using variables b_Ifg_2 b_Ifg_3 b_Ifg_4 b_Ifg_5
+Note: 31 observations on 4 variables
+Note: variance-covariance matrix is unstructured
+
+initial:       log likelihood = -90.475413
+rescale:       log likelihood = -90.475413
+rescale eq:    log likelihood = -87.804279
+Iteration 0:   log likelihood = -87.804279  
+Iteration 1:   log likelihood = -83.761602  (not concave)
+Iteration 2:   log likelihood = -83.340143  (not concave)
+Iteration 3:   log likelihood = -83.138953  (not concave)
+Iteration 4:   log likelihood = -83.124133  (not concave)
+Iteration 5:   log likelihood = -82.984361  (not concave)
+Iteration 6:   log likelihood = -82.917435  (not concave)
+Iteration 7:   log likelihood = -82.900427  (not concave)
+Iteration 8:   log likelihood = -82.895945  
+Iteration 9:   log likelihood =  -82.89417  
+Iteration 10:  log likelihood = -82.893773  
+Iteration 11:  log likelihood = -82.893699  
+Iteration 12:  log likelihood = -82.893646  
+Iteration 13:  log likelihood = -82.893646  
+
+Multivariate meta-analysis
+Variance-covariance matrix = unstructured
+Method = reml                                  Number of dimensions    =     4
+Restricted log likelihood = -82.893646         Number of observations  =    31
+------------------------------------------------------------------------------
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+Overall_mean |
+     b_Ifg_2 |   .1980485   .0563825     3.51   0.000     .0875407    .3085562
+     b_Ifg_3 |   .4334134   .0504904     8.58   0.000     .3344541    .5323728
+     b_Ifg_4 |   .5959746   .0523578    11.38   0.000     .4933552     .698594
+     b_Ifg_5 |   .9339167   .0662729    14.09   0.000     .8040242    1.063809
+------------------------------------------------------------------------------
+
+Estimated between-studies SDs and correlation matrix:
+                 SD     b_Ifg_2     b_Ifg_3     b_Ifg_4     b_Ifg_5
+b_Ifg_2   .05351629           1           .           .           .
+b_Ifg_3   .00003605   .00038289           1           .           .
+b_Ifg_4   .05074971  -.05194586   .00038774           1           .
+b_Ifg_5   .19362158  -.25573845   .00020044   .35976968           1
+
+. 
+end of do-file
+Log file mvmeta_penalty.log completed on 16 Jun 2020 at 19:09:15
+      name:  <unnamed>
+       log:  C:\ado\ian\mvmeta\scripts\mvmeta_penalty.log
+  log type:  text
+ closed on:  16 Jun 2020, 19:09:15
+-------------------------------------------------------------------------------

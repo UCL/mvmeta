@@ -1,0 +1,33 @@
+v 3
+d mvmeta: multivariate random-effects meta-analysis and meta-regression
+d Program by Ian White
+d Version 4.0
+d Distribution-Date: 07apr2022
+
+* mvmeta: program and help files
+f mvmeta.ado
+f mvmeta.sthlp
+f mvmeta_bscov_correlation.ado
+f mvmeta_bscov_equals.ado
+f mvmeta_bscov_exchangeable.ado
+f mvmeta_bscov_proportional.ado
+f mvmeta_bscov_unstructured.ado
+f mvmeta_bscov_spec.txt
+f mvmeta_lmata.ado
+f mvmeta_mufromsigma.ado
+
+* mvmeta: files for demo and examples
+f mvmetademo_setup.sthlp
+f mvmetademo_run.sthlp
+f berkey.dta
+f p53.dta
+f fscfpama.dta
+f fscstage1.dta
+f fsc2cigraph.gph
+
+* mvmeta_make: all files
+f mvmeta_make.ado
+f mvmeta_make.sthlp
+f testdata_mi.dta
+f testdata_mixed.dta
+
