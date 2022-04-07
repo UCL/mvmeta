@@ -2915,21 +2915,30 @@ forvalues i=1/`newobs' {
         mat roweq `S' = ""
     }
     foreach var in `namelist' {
-        mat `value' = `y'[1,"`var'"]
-        qui replace `var' = `value'[1,1] in `i'
-        mat `value' = `S'["`var'","`var'"]
-        qui replace se_`var' = sqrt(`value'[1,1]) in `i'
+*        mat `value' = `y'[1,"`var'"]
+*        qui replace `var' = `value'[1,1] in `i'
+*        mat `value' = `S'["`var'","`var'"]
+*        qui replace se_`var' = sqrt(`value'[1,1]) in `i'
+*        if `i'<=e(N) & !mi("`wt'") {
+*            mat `value' = `wtdata'[`i',"`var'"] 
+*            qui replace wt_`var' = `value'[1,1] in `i'
+*        }
+		local r = colnumb(`y',"`var'")
+        qui replace `var' = `y'[1,`r'] in `i'
+        qui replace se_`var' = sqrt(`S'[`r',`r']) in `i'
         if `i'<=e(N) & !mi("`wt'") {
-            mat `value' = `wtdata'[`i',"`var'"] 
-            qui replace wt_`var' = `value'[1,1] in `i'
+            qui replace wt_`var' = `wtdata'[`i',`r'] in `i'
         }
     }
 	if !mi("`corr'") {
 		foreach var in `namelist' {
+			local r = colnumb(`y',"`var'")
             foreach var2 in `namelist' {
                 if "`var2'">="`var'" continue
-                mat `value' = `S'["`var'","`var2'"]
-                qui replace corr_`var2'_`var' = `value'[1,1] / (se_`var'*se_`var2') in `i'
+*                mat `value' = `S'["`var'","`var2'"]
+*                qui replace corr_`var2'_`var' = `value'[1,1] / (se_`var'*se_`var2') in `i'
+				local s = colnumb(`y',"`var2'")
+                qui replace corr_`var2'_`var' = `S'[`r',`s'] / (se_`var'*se_`var2') in `i'
             }
         }
     }
@@ -2994,7 +3003,9 @@ foreach yvar in `e(yvars)' {
 		local se  = [`yvar']_se[`xvar']
 	}
 	local pme = invnorm(`plevel') * `se'
-	local pmp = invttail(`df',1-`plevel') * sqrt(`se'^2 + `Sigma'["`yvar'","`yvar'"]) // 7apr2022 to allow Stata v12
+*	local pmp = invt(`df',`plevel') * sqrt(`se'^2 + `Sigma'["`yvar'","`yvar'"]) 
+	local r = colnumb(`y',"`var'")
+	local pmp = invttail(`df',1-`plevel') * sqrt(`se'^2 + `Sigma'[`r',`r'") // 7apr2022 to allow Stata v12
 	di `col1' as txt "`yvar'" `col2' as res `format' `est' `col3' `format' `est'-`pme' `col4' `format' `est'+`pme' `col5' `format' `est'-`pmp' `col6' `format' `est'+`pmp'
 }
 di as txt "{hline 70}"
