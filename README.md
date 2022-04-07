@@ -21,7 +21,9 @@ mvmeta:
 - bubble option (was previously undocumented)
 - I've made a number of minor bug fixes
 
-## Installation
-At the Stata prompt, type
+## Installation within Stata
+You should be able to install this package from SSC.
 
- github install mvmeta
+To install it from github, use one of these:
+- `github install UCL/mvmeta, path(package)`
+- `net from https://raw.githubusercontent.com/UCL/mvmeta/master/package/`
