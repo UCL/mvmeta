@@ -36,7 +36,7 @@ cap log close
 set linesize 79
 log using "`mvmetadir'testlogs\mvmeta_cscript.log", replace
 
-version 16
+version 12
 if c(version)>=13 cls
 cscript mvmeta
 prog drop _all
