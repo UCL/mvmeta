@@ -3003,9 +3003,11 @@ foreach yvar in `e(yvars)' {
 		local se  = [`yvar']_se[`xvar']
 	}
 	local pme = invnorm(`plevel') * `se'
-*	local pmp = invt(`df',`plevel') * sqrt(`se'^2 + `Sigma'["`yvar'","`yvar'"]) 
-	local r = colnumb(`y',"`var'")
-	local pmp = invttail(`df',1-`plevel') * sqrt(`se'^2 + `Sigma'[`r',`r'") // 7apr2022 to allow Stata v12
+
+*	local pmp = invt(`df',`plevel') * sqrt(`se'^2 + `Sigma'["`yvar'","`yvar'"]) // old way for stata17
+	local r = colnumb(`Sigma',"`yvar'")
+	local pmp = invttail(`df',1-`plevel') * sqrt(`se'^2 + `Sigma'[`r',`r']) // 7apr2022 to allow Stata v12
+
 	di `col1' as txt "`yvar'" `col2' as res `format' `est' `col3' `format' `est'-`pme' `col4' `format' `est'+`pme' `col5' `format' `est'-`pmp' `col6' `format' `est'+`pmp'
 }
 di as txt "{hline 70}"

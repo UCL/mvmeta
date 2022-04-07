@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  c:\ado\ian\mvmeta\testlogs\mvmeta_cscript.log
   log type:  text
- opened on:   7 Apr 2022, 18:29:55
+ opened on:   7 Apr 2022, 20:36:20
 
 . 
 . version 12
@@ -895,7 +895,6 @@ Estimated between-studies SDs and correlation matrix
 z1  .48321592          1          .
 z2  1.6110678         -1          1
 ----------------------------------------------------
-(file z.dta not found)
 
 Estimated probabilities (%) of each treatment having each rank
 - assuming the minimum parameter is the best
@@ -7329,5 +7328,5 @@ bcons   .42983063   .96497212   -.9899645  -.74205767           1
       name:  <unnamed>
        log:  c:\ado\ian\mvmeta\testlogs\mvmeta_cscript.log
   log type:  text
- closed on:   7 Apr 2022, 18:31:54
+ closed on:   7 Apr 2022, 20:38:19
 -------------------------------------------------------------------------------
