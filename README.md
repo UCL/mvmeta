@@ -3,7 +3,9 @@
 # mvmeta: Stata module to perform multivariate random-effects meta-analysis
 
 Author: Ian White
+
 Version: 4.0 
+
 Date: 7apr2022
 
 This package includes the mvmeta_make command which prepares data for mvmeta.
@@ -21,4 +23,5 @@ mvmeta:
 
 ## Installation
 At the Stata prompt, type
+
  github install mvmeta
