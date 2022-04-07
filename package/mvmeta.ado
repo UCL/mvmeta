@@ -1,5 +1,7 @@
 /******************************************************************************
-*! version 4.0 # Ian White # 07apr2022
+*! version 4.0.1 # Ian White # 07apr2022
+	change invt() to invtttail() to allow running under Stata v12
+version 4.0 # Ian White # 07apr2022
 	new release to UCL, github and SSC
 version 3.6 # Ian White # 8feb2022
 	warnings fixed
@@ -1934,7 +1936,7 @@ if !mi("`sd'") {
                     replace `parmid' = "``parmid'`k''" if parm==`k'
                 }
                 cap noi sencode `parmid', replace
-				if _rc==199 di "Please install sencode using {stata ssc install sencode}"
+				if _rc==199 noi di "Please install sencode using {stata ssc install sencode}"
 				if _rc exit _rc
             }
             drop parm
@@ -2992,7 +2994,7 @@ foreach yvar in `e(yvars)' {
 		local se  = [`yvar']_se[`xvar']
 	}
 	local pme = invnorm(`plevel') * `se'
-	local pmp = invt(`df',`plevel') * sqrt(`se'^2 + `Sigma'["`yvar'","`yvar'"])
+	local pmp = invttail(`df',1-`plevel') * sqrt(`se'^2 + `Sigma'["`yvar'","`yvar'"]) // 7apr2022 to allow Stata v12
 	di `col1' as txt "`yvar'" `col2' as res `format' `est' `col3' `format' `est'-`pme' `col4' `format' `est'+`pme' `col5' `format' `est'-`pmp' `col6' `format' `est'+`pmp'
 }
 di as txt "{hline 70}"
