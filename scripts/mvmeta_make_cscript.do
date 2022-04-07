@@ -1,5 +1,5 @@
 /*
-mvmeta_make_script.do: MAIN TEST SCRIPT FOR MVMETA_MAKE
+mvmeta_make_cscript.do: MAIN TEST SCRIPT FOR MVMETA_MAKE
 7apr2022: renamed mvmeta_make_cscript and automated log
 5apr2022: add tests of usevars, usecoefs, esave
 	add test with survival data, including counts() and Stephen K's countby()
