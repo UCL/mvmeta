@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  c:\ado\ian\mvmeta\testlogs\mvmeta_cscript.log
   log type:  text
- opened on:   7 Apr 2022, 12:35:17
+ opened on:   7 Apr 2022, 17:42:58
 
 . 
 . version 16
@@ -32,7 +32,7 @@
 . 
 . which mvmeta
 c:\ado\ian\mvmeta\package\mvmeta.ado
-*! version 4.0 # Ian White # 07apr2022
+*! version 4.0.1 # Ian White # 07apr2022
 
 . 
 . use telomerase2, clear
@@ -5526,7 +5526,9 @@ y3  .62181775  .76768947  .76768947          1          .
 y4  .62181775  .76768947  .76768947  .76768947          1
 ------------------------------------------------------------
 
-. assert mreldif(best5,e(b)) < 1E-7 // point estimates should be the same
+. mat eb = e(b)
+
+. assert mreldif(best5,eb) < 1E-7 // point estimates should be the same
 
 . assert _se[y1] < `se1' // SEs should be smaller
 
@@ -5572,7 +5574,9 @@ y3  .62181774  .76768928  .76768928          1          .
 y4  .62181774  .76768928  .76768928  .76768928          1
 ------------------------------------------------------------
 
-. assert mreldif(best6,e(b)) < 2E-7 // point estimates should be the same
+. mat eb = e(b)
+
+. assert mreldif(best6,eb) < 2E-7 // point estimates should be the same
 
 . di reldif(_se[y1], `se1') 
 5.355e-09
@@ -5903,7 +5907,9 @@ y2  1.6015111         -1          1
 . 
 . 
 . // CHECK THE STATA HELP FILES
-. * runhelpfile written 21dec2021 is in PERSONAL
+. * runhelpfile is in scripts
+. cap runhelpfile // just to load it
+
 . cd "`mvmetadir'package"
 c:\ado\ian\mvmeta\package
 
@@ -7323,5 +7329,5 @@ bcons   .42983063   .96497212   -.9899645  -.74205767           1
       name:  <unnamed>
        log:  c:\ado\ian\mvmeta\testlogs\mvmeta_cscript.log
   log type:  text
- closed on:   7 Apr 2022, 12:37:26
+ closed on:   7 Apr 2022, 17:44:59
 -------------------------------------------------------------------------------

@@ -1,5 +1,6 @@
 /*
 MAIN TEST SCRIPT FOR MVMETA
+07apr2022 avoid mreldif(b,e(b)) & change version to allow Stata v12; include runhelpfile.ado
 01mar2022 added check of MVMETA_obserror
 08feb2022 added checks of warning() 
 20jan2022 noposdef dropped from estimateoptstog
@@ -25,13 +26,14 @@ v2.1: added testsigma borrow qscalar randfix(y*)
 v1.9: options renamed
 v1.7: changed showchol to showall
 
-Note that cscripts sets linesize to 79
+Note that cscript sets linesize to 79
 */
 
 local mvmetadir c:\ado\ian\mvmeta\
 cd "`mvmetadir'scripts"
 adopath ++ `mvmetadir'package
 cap log close
+set linesize 79
 log using "`mvmetadir'testlogs\mvmeta_cscript.log", replace
 
 version 16
@@ -235,12 +237,14 @@ local se1 = _se[y1]
 
 * compare with bscov(exch #) for the estimated #
 mvmeta y S, wscorr(riley) iter(30) bscov(exch `rhoest')
-assert mreldif(best5,e(b)) < 1E-7 // point estimates should be the same
+mat eb = e(b)
+assert mreldif(best5,eb) < 1E-7 // point estimates should be the same
 assert _se[y1] < `se1' // SEs should be smaller
 
 * invariance to starting values
 mvmeta y S, wscorr(riley) iter(30) bscov(exch) start(2 0)
-assert mreldif(best6,e(b)) < 2E-7 // point estimates should be the same
+mat eb = e(b)
+assert mreldif(best6,eb) < 2E-7 // point estimates should be the same
 di reldif(_se[y1], `se1') 
 assert reldif(_se[y1], `se1') < 1E-7 // SEs should be the same
 
@@ -287,7 +291,8 @@ assert reldif(_se[y1],`se1') < 1E-7
 
 
 // CHECK THE STATA HELP FILES
-* runhelpfile written 21dec2021 is in PERSONAL
+* runhelpfile is in scripts
+cap runhelpfile // just to load it
 cd "`mvmetadir'package"
 runhelpfile using mvmeta.sthlp, skip(net)
 runhelpfile using mvmetademo_run.sthlp, skip(net)
