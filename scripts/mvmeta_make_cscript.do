@@ -10,24 +10,26 @@ Still to do: test perfect prediction
 */
 
 // PRELIMINARIES
-
 local mvmetadir c:\ado\ian\mvmeta\
 cd "`mvmetadir'scripts"
 adopath ++ `mvmetadir'package
 cap log close
 log using "`mvmetadir'testlogs\mvmeta_make_cscript.log", replace
 
-version 16
-if c(version)>=13 cls
+version 12
+if c(stata_version)>=13 cls
 cscript mvmeta
 prog drop _all
+set more off
+set trace off
 
+// VERSION NUMBERS
+di c(stata_version)
 which mvmeta_make
 which mvmeta
 
 
 // SIMPLE DATA: COMPARE CLASSIC AND PREFIX SYNTAXES
-
 use mvmeta_make_testdata_reg, clear
 
 mvmeta_make reg y x if id>2 [aw=x^2], by(study) saving(z1) replace mse1 
@@ -92,15 +94,17 @@ cap noi mvmeta_make, by(study) clear cons: mi estimate, post: reg y x, robust co
 mvmeta_make, by(study) clear usecons details: mi estimate, post: reg y x if id>2, robust coefl
 assert reldif(Sxx[1],`varx') < 1E-7
 
-
 // MIXED MODEL: CHECK COMPLEX PREFIX SYNTAX
-use mvmeta_make_testdata_mixed, clear
-gen x1=x*(time==1)
-gen x2=x*(time==2)
-mixed y time x1 x2 if id>2 & study==1 || id:, reml
-local varx1=_se[x1]^2
-mvmeta_make, by(study) clear: mixed y time x1 x2 if id>2 || id:, reml
-assert reldif(Sx1x1[1],`varx1') < 1E-7
+* mixed was new in Stata 13
+if c(stata_version)>=13 {
+	use mvmeta_make_testdata_mixed, clear
+	gen x1=x*(time==1)
+	gen x2=x*(time==2)
+	mixed y time x1 x2 if id>2 & study==1 || id:, reml
+	local varx1=_se[x1]^2
+	mvmeta_make, by(study) clear: mixed y time x1 x2 if id>2 || id:, reml
+	assert reldif(Sx1x1[1],`varx1') < 1E-7
+}
 
 
 // TWO BYVARS

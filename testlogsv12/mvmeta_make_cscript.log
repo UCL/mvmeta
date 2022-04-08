@@ -1,8 +1,8 @@
------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
       name:  <unnamed>
        log:  c:\ado\ian\mvmeta\testlogs\mvmeta_make_cscript.log
   log type:  text
- opened on:   8 Apr 2022, 09:25:15
+ opened on:   8 Apr 2022, 09:24:21
 
 . 
 . version 12
@@ -30,6 +30,7 @@ c:\ado\ian\mvmeta\package\mvmeta.ado
 . 
 . 
 . // SIMPLE DATA: COMPARE CLASSIC AND PREFIX SYNTAXES
+. 
 . use mvmeta_make_testdata_reg, clear
 
 . 
@@ -37,21 +38,20 @@ c:\ado\ian\mvmeta\package\mvmeta.ado
 Classic (non-prefix) syntax detected
 Learning equation names...
 Using coefficients: x 
-(file z1.dta not found)
 
 
 -> study==1
-(sum of wgt is 114.3414036690673)
+(sum of wgt is   1.1434e+02)
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =    230.86
-       Model |  230.858319         1  230.858319   Prob > F        =    0.0000
-    Residual |  1768.84063        98  18.0493941   R-squared       =    0.1154
--------------+----------------------------------   Adj R-squared   =    0.1245
-       Total |  1999.69894        97   20.615453   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =  230.86
+       Model |  230.858319     1  230.858319           Prob > F      =  0.0000
+    Residual |  1768.84063    98  18.0493941           R-squared     =  0.1154
+-------------+------------------------------           Adj R-squared =  0.1245
+       Total |  1999.69894    97   20.615453           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .8290686   .0545654    15.19   0.000     .7207853     .937352
        _cons |   1.658466   .1017512    16.30   0.000     1.456544    1.860388
@@ -59,17 +59,17 @@ Using coefficients: x
 
 
 -> study==2
-(sum of wgt is 112.1129437378425)
+(sum of wgt is   1.1211e+02)
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =     64.45
-       Model |  64.4539471         1  64.4539471   Prob > F        =    0.0000
-    Residual |  1802.83582        98  18.3962839   R-squared       =    0.0345
--------------+----------------------------------   Adj R-squared   =    0.0444
-       Total |  1867.28977        97    19.25041   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =   64.45
+       Model |  64.4539471     1  64.4539471           Prob > F      =  0.0000
+    Residual |  1802.83582    98  18.3962839           R-squared     =  0.0345
+-------------+------------------------------           Adj R-squared =  0.0444
+       Total |  1867.28977    97    19.25041           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .4331591   .0539539     8.03   0.000     .3260894    .5402288
        _cons |   1.623182   .1037183    15.65   0.000     1.417356    1.829007
@@ -77,17 +77,17 @@ Using coefficients: x
 
 
 -> study==3
-(sum of wgt is 104.6563663529086)
+(sum of wgt is   1.0466e+02)
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =    757.34
-       Model |  757.336391         1  757.336391   Prob > F        =    0.0000
-    Residual |  2335.55939        98  23.8322386   R-squared       =    0.2449
--------------+----------------------------------   Adj R-squared   =    0.2526
-       Total |  3092.89578        97  31.8855235   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =  757.34
+       Model |  757.336391     1  757.336391           Prob > F      =  0.0000
+    Residual |  2335.55939    98  23.8322386           R-squared     =  0.2449
+-------------+------------------------------           Adj R-squared =  0.2526
+       Total |  3092.89578    97  31.8855235           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   1.636802   .0594774    27.52   0.000     1.518771    1.754833
        _cons |   3.316196   .1029054    32.23   0.000     3.111983    3.520408
@@ -100,21 +100,20 @@ file z1.dta saved
 Prefix syntax detected
 Learning equation names...
 Using coefficients: x 
-(file z2.dta not found)
 
 
 -> study==1
-(sum of wgt is 114.3414036690673)
+(sum of wgt is   1.1434e+02)
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =    230.86
-       Model |  230.858319         1  230.858319   Prob > F        =    0.0000
-    Residual |  1768.84063        98  18.0493941   R-squared       =    0.1154
--------------+----------------------------------   Adj R-squared   =    0.1245
-       Total |  1999.69894        97   20.615453   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =  230.86
+       Model |  230.858319     1  230.858319           Prob > F      =  0.0000
+    Residual |  1768.84063    98  18.0493941           R-squared     =  0.1154
+-------------+------------------------------           Adj R-squared =  0.1245
+       Total |  1999.69894    97   20.615453           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .8290686   .0545654    15.19   0.000     .7207853     .937352
        _cons |   1.658466   .1017512    16.30   0.000     1.456544    1.860388
@@ -122,17 +121,17 @@ Using coefficients: x
 
 
 -> study==2
-(sum of wgt is 112.1129437378425)
+(sum of wgt is   1.1211e+02)
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =     64.45
-       Model |  64.4539471         1  64.4539471   Prob > F        =    0.0000
-    Residual |  1802.83582        98  18.3962839   R-squared       =    0.0345
--------------+----------------------------------   Adj R-squared   =    0.0444
-       Total |  1867.28977        97    19.25041   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =   64.45
+       Model |  64.4539471     1  64.4539471           Prob > F      =  0.0000
+    Residual |  1802.83582    98  18.3962839           R-squared     =  0.0345
+-------------+------------------------------           Adj R-squared =  0.0444
+       Total |  1867.28977    97    19.25041           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .4331591   .0539539     8.03   0.000     .3260894    .5402288
        _cons |   1.623182   .1037183    15.65   0.000     1.417356    1.829007
@@ -140,17 +139,17 @@ Using coefficients: x
 
 
 -> study==3
-(sum of wgt is 104.6563663529086)
+(sum of wgt is   1.0466e+02)
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =    757.34
-       Model |  757.336391         1  757.336391   Prob > F        =    0.0000
-    Residual |  2335.55939        98  23.8322386   R-squared       =    0.2449
--------------+----------------------------------   Adj R-squared   =    0.2526
-       Total |  3092.89578        97  31.8855235   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =  757.34
+       Model |  757.336391     1  757.336391           Prob > F      =  0.0000
+    Residual |  2335.55939    98  23.8322386           R-squared     =  0.2449
+-------------+------------------------------           Adj R-squared =  0.2526
+       Total |  3092.89578    97  31.8855235           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   1.636802   .0594774    27.52   0.000     1.518771    1.754833
        _cons |   3.316196   .1029054    32.23   0.000     3.111983    3.520408
@@ -192,7 +191,7 @@ Variance-covariance matrix = unstructured
 Method = reml                                  Number of dimensions    =     1
 Restricted log likelihood = -2.4094884         Number of observations  =     3
 ------------------------------------------------------------------------------
-             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+             |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
 Overall_mean |
           yx |   .9659791   .3540398     2.73   0.006     .2720738    1.659884
@@ -217,17 +216,17 @@ Using coefficients: x
 
 
 -> study==1
-(sum of wgt is 114.3414036690673)
+(sum of wgt is   1.1434e+02)
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =    230.86
-       Model |  230.858319         1  230.858319   Prob > F        =    0.0000
-    Residual |  1768.84063        98  18.0493941   R-squared       =    0.1154
--------------+----------------------------------   Adj R-squared   =    0.1245
-       Total |  1999.69894        97   20.615453   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =  230.86
+       Model |  230.858319     1  230.858319           Prob > F      =  0.0000
+    Residual |  1768.84063    98  18.0493941           R-squared     =  0.1154
+-------------+------------------------------           Adj R-squared =  0.1245
+       Total |  1999.69894    97   20.615453           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .8290686   .0545654    15.19   0.000     .7207853     .937352
        _cons |   1.658466   .1017512    16.30   0.000     1.456544    1.860388
@@ -235,17 +234,17 @@ Using coefficients: x
 
 
 -> study==2
-(sum of wgt is 112.1129437378425)
+(sum of wgt is   1.1211e+02)
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =     64.45
-       Model |  64.4539471         1  64.4539471   Prob > F        =    0.0000
-    Residual |  1802.83582        98  18.3962839   R-squared       =    0.0345
--------------+----------------------------------   Adj R-squared   =    0.0444
-       Total |  1867.28977        97    19.25041   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =   64.45
+       Model |  64.4539471     1  64.4539471           Prob > F      =  0.0000
+    Residual |  1802.83582    98  18.3962839           R-squared     =  0.0345
+-------------+------------------------------           Adj R-squared =  0.0444
+       Total |  1867.28977    97    19.25041           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .4331591   .0539539     8.03   0.000     .3260894    .5402288
        _cons |   1.623182   .1037183    15.65   0.000     1.417356    1.829007
@@ -253,17 +252,17 @@ Using coefficients: x
 
 
 -> study==3
-(sum of wgt is 104.6563663529086)
+(sum of wgt is   1.0466e+02)
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =    757.34
-       Model |  757.336391         1  757.336391   Prob > F        =    0.0000
-    Residual |  2335.55939        98  23.8322386   R-squared       =    0.2449
--------------+----------------------------------   Adj R-squared   =    0.2526
-       Total |  3092.89578        97  31.8855235   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =  757.34
+       Model |  757.336391     1  757.336391           Prob > F      =  0.0000
+    Residual |  2335.55939    98  23.8322386           R-squared     =  0.2449
+-------------+------------------------------           Adj R-squared =  0.2526
+       Total |  3092.89578    97  31.8855235           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   1.636802   .0594774    27.52   0.000     1.518771    1.754833
        _cons |   3.316196   .1029054    32.23   0.000     3.111983    3.520408
@@ -284,17 +283,17 @@ Using coefficients: x
 
 
 -> study==1
-(sum of wgt is 114.3414036690673)
+(sum of wgt is   1.1434e+02)
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =    230.86
-       Model |  230.858319         1  230.858319   Prob > F        =    0.0000
-    Residual |  1768.84063        98  18.0493941   R-squared       =    0.1154
--------------+----------------------------------   Adj R-squared   =    0.1245
-       Total |  1999.69894        97   20.615453   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =  230.86
+       Model |  230.858319     1  230.858319           Prob > F      =  0.0000
+    Residual |  1768.84063    98  18.0493941           R-squared     =  0.1154
+-------------+------------------------------           Adj R-squared =  0.1245
+       Total |  1999.69894    97   20.615453           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .8290686   .0545654    15.19   0.000     .7207853     .937352
        _cons |   1.658466   .1017512    16.30   0.000     1.456544    1.860388
@@ -302,17 +301,17 @@ Using coefficients: x
 
 
 -> study==2
-(sum of wgt is 112.1129437378425)
+(sum of wgt is   1.1211e+02)
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =     64.45
-       Model |  64.4539471         1  64.4539471   Prob > F        =    0.0000
-    Residual |  1802.83582        98  18.3962839   R-squared       =    0.0345
--------------+----------------------------------   Adj R-squared   =    0.0444
-       Total |  1867.28977        97    19.25041   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =   64.45
+       Model |  64.4539471     1  64.4539471           Prob > F      =  0.0000
+    Residual |  1802.83582    98  18.3962839           R-squared     =  0.0345
+-------------+------------------------------           Adj R-squared =  0.0444
+       Total |  1867.28977    97    19.25041           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .4331591   .0539539     8.03   0.000     .3260894    .5402288
        _cons |   1.623182   .1037183    15.65   0.000     1.417356    1.829007
@@ -320,17 +319,17 @@ Using coefficients: x
 
 
 -> study==3
-(sum of wgt is 104.6563663529086)
+(sum of wgt is   1.0466e+02)
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =    757.34
-       Model |  757.336391         1  757.336391   Prob > F        =    0.0000
-    Residual |  2335.55939        98  23.8322386   R-squared       =    0.2449
--------------+----------------------------------   Adj R-squared   =    0.2526
-       Total |  3092.89578        97  31.8855235   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =  757.34
+       Model |  757.336391     1  757.336391           Prob > F      =  0.0000
+    Residual |  2335.55939    98  23.8322386           R-squared     =  0.2449
+-------------+------------------------------           Adj R-squared =  0.2526
+       Total |  3092.89578    97  31.8855235           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   1.636802   .0594774    27.52   0.000     1.518771    1.754833
        _cons |   3.316196   .1029054    32.23   0.000     3.111983    3.520408
@@ -351,17 +350,17 @@ Using coefficients: x _cons
 
 
 -> study==1
-(sum of wgt is 114.3414036690673)
+(sum of wgt is   1.1434e+02)
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =    230.86
-       Model |  230.858319         1  230.858319   Prob > F        =    0.0000
-    Residual |  1768.84063        98  18.0493941   R-squared       =    0.1154
--------------+----------------------------------   Adj R-squared   =    0.1245
-       Total |  1999.69894        97   20.615453   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =  230.86
+       Model |  230.858319     1  230.858319           Prob > F      =  0.0000
+    Residual |  1768.84063    98  18.0493941           R-squared     =  0.1154
+-------------+------------------------------           Adj R-squared =  0.1245
+       Total |  1999.69894    97   20.615453           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .8290686   .0545654    15.19   0.000     .7207853     .937352
        _cons |   1.658466   .1017512    16.30   0.000     1.456544    1.860388
@@ -369,17 +368,17 @@ Using coefficients: x _cons
 
 
 -> study==2
-(sum of wgt is 112.1129437378425)
+(sum of wgt is   1.1211e+02)
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =     64.45
-       Model |  64.4539471         1  64.4539471   Prob > F        =    0.0000
-    Residual |  1802.83582        98  18.3962839   R-squared       =    0.0345
--------------+----------------------------------   Adj R-squared   =    0.0444
-       Total |  1867.28977        97    19.25041   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =   64.45
+       Model |  64.4539471     1  64.4539471           Prob > F      =  0.0000
+    Residual |  1802.83582    98  18.3962839           R-squared     =  0.0345
+-------------+------------------------------           Adj R-squared =  0.0444
+       Total |  1867.28977    97    19.25041           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .4331591   .0539539     8.03   0.000     .3260894    .5402288
        _cons |   1.623182   .1037183    15.65   0.000     1.417356    1.829007
@@ -387,17 +386,17 @@ Using coefficients: x _cons
 
 
 -> study==3
-(sum of wgt is 104.6563663529086)
+(sum of wgt is   1.0466e+02)
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =    757.34
-       Model |  757.336391         1  757.336391   Prob > F        =    0.0000
-    Residual |  2335.55939        98  23.8322386   R-squared       =    0.2449
--------------+----------------------------------   Adj R-squared   =    0.2526
-       Total |  3092.89578        97  31.8855235   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =  757.34
+       Model |  757.336391     1  757.336391           Prob > F      =  0.0000
+    Residual |  2335.55939    98  23.8322386           R-squared     =  0.2449
+-------------+------------------------------           Adj R-squared =  0.2526
+       Total |  3092.89578    97  31.8855235           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   1.636802   .0594774    27.52   0.000     1.518771    1.754833
        _cons |   3.316196   .1029054    32.23   0.000     3.111983    3.520408
@@ -426,17 +425,17 @@ Using coefficients: x
 
 
 -> study==1
-(sum of wgt is 114.3414036690673)
+(sum of wgt is   1.1434e+02)
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =    230.86
-       Model |  230.858319         1  230.858319   Prob > F        =    0.0000
-    Residual |  1768.84063        98  18.0493941   R-squared       =    0.1154
--------------+----------------------------------   Adj R-squared   =    0.1245
-       Total |  1999.69894        97   20.615453   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =  230.86
+       Model |  230.858319     1  230.858319           Prob > F      =  0.0000
+    Residual |  1768.84063    98  18.0493941           R-squared     =  0.1154
+-------------+------------------------------           Adj R-squared =  0.1245
+       Total |  1999.69894    97   20.615453           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .8290686   .0545654    15.19   0.000     .7207853     .937352
        _cons |   1.658466   .1017512    16.30   0.000     1.456544    1.860388
@@ -444,17 +443,17 @@ Using coefficients: x
 
 
 -> study==2
-(sum of wgt is 112.1129437378425)
+(sum of wgt is   1.1211e+02)
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =     64.45
-       Model |  64.4539471         1  64.4539471   Prob > F        =    0.0000
-    Residual |  1802.83582        98  18.3962839   R-squared       =    0.0345
--------------+----------------------------------   Adj R-squared   =    0.0444
-       Total |  1867.28977        97    19.25041   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =   64.45
+       Model |  64.4539471     1  64.4539471           Prob > F      =  0.0000
+    Residual |  1802.83582    98  18.3962839           R-squared     =  0.0345
+-------------+------------------------------           Adj R-squared =  0.0444
+       Total |  1867.28977    97    19.25041           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .4331591   .0539539     8.03   0.000     .3260894    .5402288
        _cons |   1.623182   .1037183    15.65   0.000     1.417356    1.829007
@@ -462,17 +461,17 @@ Using coefficients: x
 
 
 -> study==3
-(sum of wgt is 104.6563663529086)
+(sum of wgt is   1.0466e+02)
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =    757.34
-       Model |  757.336391         1  757.336391   Prob > F        =    0.0000
-    Residual |  2335.55939        98  23.8322386   R-squared       =    0.2449
--------------+----------------------------------   Adj R-squared   =    0.2526
-       Total |  3092.89578        97  31.8855235   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =  757.34
+       Model |  757.336391     1  757.336391           Prob > F      =  0.0000
+    Residual |  2335.55939    98  23.8322386           R-squared     =  0.2449
+-------------+------------------------------           Adj R-squared =  0.2526
+       Total |  3092.89578    97  31.8855235           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   1.636802   .0594774    27.52   0.000     1.518771    1.754833
        _cons |   3.316196   .1029054    32.23   0.000     3.111983    3.520408
@@ -497,7 +496,6 @@ mvmeta_make results are now loaded into memory
 Classic (non-prefix) syntax detected
 Learning equation names...
 Using coefficients: [1]x [2]x 
-(file z3.dta not found)
 
 
 -> study==1
@@ -508,13 +506,13 @@ Iteration 2:   log likelihood = -100.87809
 Iteration 3:   log likelihood = -100.87805  
 Iteration 4:   log likelihood = -100.87805  
 
-Multinomial logistic regression                         Number of obs =     98
-                                                        LR chi2(2)    =  12.58
-                                                        Prob > chi2   = 0.0019
-Log likelihood = -100.87805                             Pseudo R2     = 0.0587
+Multinomial logistic regression                   Number of obs   =         98
+                                                  LR chi2(2)      =      12.58
+                                                  Prob > chi2     =     0.0019
+Log likelihood = -100.87805                       Pseudo R2       =     0.0587
 
 ------------------------------------------------------------------------------
-          yg | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+          yg |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
 0            |  (base outcome)
 -------------+----------------------------------------------------------------
@@ -535,13 +533,13 @@ Iteration 1:   log likelihood = -106.24798
 Iteration 2:   log likelihood = -106.24254  
 Iteration 3:   log likelihood = -106.24254  
 
-Multinomial logistic regression                         Number of obs =     98
-                                                        LR chi2(2)    =   2.70
-                                                        Prob > chi2   = 0.2593
-Log likelihood = -106.24254                             Pseudo R2     = 0.0125
+Multinomial logistic regression                   Number of obs   =         98
+                                                  LR chi2(2)      =       2.70
+                                                  Prob > chi2     =     0.2593
+Log likelihood = -106.24254                       Pseudo R2       =     0.0125
 
 ------------------------------------------------------------------------------
-          yg | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+          yg |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
 0            |  (base outcome)
 -------------+----------------------------------------------------------------
@@ -562,13 +560,13 @@ Iteration 1:   log likelihood = -101.90941
 Iteration 2:   log likelihood = -101.90543  
 Iteration 3:   log likelihood = -101.90542  
 
-Multinomial logistic regression                         Number of obs =     98
-                                                        LR chi2(2)    =   2.41
-                                                        Prob > chi2   = 0.3001
-Log likelihood = -101.90542                             Pseudo R2     = 0.0117
+Multinomial logistic regression                   Number of obs   =         98
+                                                  LR chi2(2)      =       2.41
+                                                  Prob > chi2     =     0.3001
+Log likelihood = -101.90542                       Pseudo R2       =     0.0117
 
 ------------------------------------------------------------------------------
-          yg | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+          yg |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
 0            |  (base outcome)
 -------------+----------------------------------------------------------------
@@ -587,7 +585,6 @@ file z3.dta saved
 > usecoefs([1]x [2]x)
 Classic (non-prefix) syntax detected
 Using coefficients: [1]x [2]x 
-(file z4.dta not found)
 
 
 -> study==1
@@ -598,13 +595,13 @@ Iteration 2:   log likelihood = -100.87809
 Iteration 3:   log likelihood = -100.87805  
 Iteration 4:   log likelihood = -100.87805  
 
-Multinomial logistic regression                         Number of obs =     98
-                                                        LR chi2(2)    =  12.58
-                                                        Prob > chi2   = 0.0019
-Log likelihood = -100.87805                             Pseudo R2     = 0.0587
+Multinomial logistic regression                   Number of obs   =         98
+                                                  LR chi2(2)      =      12.58
+                                                  Prob > chi2     =     0.0019
+Log likelihood = -100.87805                       Pseudo R2       =     0.0587
 
 ------------------------------------------------------------------------------
-          yg | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+          yg |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
 0            |  (base outcome)
 -------------+----------------------------------------------------------------
@@ -625,13 +622,13 @@ Iteration 1:   log likelihood = -106.24798
 Iteration 2:   log likelihood = -106.24254  
 Iteration 3:   log likelihood = -106.24254  
 
-Multinomial logistic regression                         Number of obs =     98
-                                                        LR chi2(2)    =   2.70
-                                                        Prob > chi2   = 0.2593
-Log likelihood = -106.24254                             Pseudo R2     = 0.0125
+Multinomial logistic regression                   Number of obs   =         98
+                                                  LR chi2(2)      =       2.70
+                                                  Prob > chi2     =     0.2593
+Log likelihood = -106.24254                       Pseudo R2       =     0.0125
 
 ------------------------------------------------------------------------------
-          yg | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+          yg |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
 0            |  (base outcome)
 -------------+----------------------------------------------------------------
@@ -652,13 +649,13 @@ Iteration 1:   log likelihood = -101.90941
 Iteration 2:   log likelihood = -101.90543  
 Iteration 3:   log likelihood = -101.90542  
 
-Multinomial logistic regression                         Number of obs =     98
-                                                        LR chi2(2)    =   2.41
-                                                        Prob > chi2   = 0.3001
-Log likelihood = -101.90542                             Pseudo R2     = 0.0117
+Multinomial logistic regression                   Number of obs   =         98
+                                                  LR chi2(2)      =       2.41
+                                                  Prob > chi2     =     0.3001
+Log likelihood = -101.90542                       Pseudo R2       =     0.0117
 
 ------------------------------------------------------------------------------
-          yg | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+          yg |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
 0            |  (base outcome)
 -------------+----------------------------------------------------------------
@@ -677,7 +674,6 @@ file z4.dta saved
 > usecoefs([1]x [2]x [2]_cons)
 Classic (non-prefix) syntax detected
 Using coefficients: [1]x [2]x [2]_cons 
-(file z5.dta not found)
 
 
 -> study==1
@@ -688,13 +684,13 @@ Iteration 2:   log likelihood = -100.87809
 Iteration 3:   log likelihood = -100.87805  
 Iteration 4:   log likelihood = -100.87805  
 
-Multinomial logistic regression                         Number of obs =     98
-                                                        LR chi2(2)    =  12.58
-                                                        Prob > chi2   = 0.0019
-Log likelihood = -100.87805                             Pseudo R2     = 0.0587
+Multinomial logistic regression                   Number of obs   =         98
+                                                  LR chi2(2)      =      12.58
+                                                  Prob > chi2     =     0.0019
+Log likelihood = -100.87805                       Pseudo R2       =     0.0587
 
 ------------------------------------------------------------------------------
-          yg | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+          yg |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
 0            |  (base outcome)
 -------------+----------------------------------------------------------------
@@ -715,13 +711,13 @@ Iteration 1:   log likelihood = -106.24798
 Iteration 2:   log likelihood = -106.24254  
 Iteration 3:   log likelihood = -106.24254  
 
-Multinomial logistic regression                         Number of obs =     98
-                                                        LR chi2(2)    =   2.70
-                                                        Prob > chi2   = 0.2593
-Log likelihood = -106.24254                             Pseudo R2     = 0.0125
+Multinomial logistic regression                   Number of obs   =         98
+                                                  LR chi2(2)      =       2.70
+                                                  Prob > chi2     =     0.2593
+Log likelihood = -106.24254                       Pseudo R2       =     0.0125
 
 ------------------------------------------------------------------------------
-          yg | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+          yg |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
 0            |  (base outcome)
 -------------+----------------------------------------------------------------
@@ -742,13 +738,13 @@ Iteration 1:   log likelihood = -101.90941
 Iteration 2:   log likelihood = -101.90543  
 Iteration 3:   log likelihood = -101.90542  
 
-Multinomial logistic regression                         Number of obs =     98
-                                                        LR chi2(2)    =   2.41
-                                                        Prob > chi2   = 0.3001
-Log likelihood = -101.90542                             Pseudo R2     = 0.0117
+Multinomial logistic regression                   Number of obs   =         98
+                                                  LR chi2(2)      =       2.41
+                                                  Prob > chi2     =     0.3001
+Log likelihood = -101.90542                       Pseudo R2       =     0.0117
 
 ------------------------------------------------------------------------------
-          yg | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+          yg |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
 0            |  (base outcome)
 -------------+----------------------------------------------------------------
@@ -784,19 +780,19 @@ file z5.dta saved
 . 
 . mi estimate, post: reg y x if id>2 & study==1, robust coefl
 
-Multiple-imputation estimates                   Imputations       =          3
-Linear regression                               Number of obs     =         48
-                                                Average RVI       =     0.0605
-                                                Largest FMI       =     0.0796
-                                                Complete DF       =         46
-DF adjustment:   Small sample                   DF:     min       =      37.16
-                                                        avg       =      39.49
-                                                        max       =      41.81
-Model F test:       Equal FMI                   F(   1,   37.2)   =       2.97
-Within VCE type:       Robust                   Prob > F          =     0.0931
+Multiple-imputation estimates                     Imputations     =          3
+Linear regression                                 Number of obs   =         48
+                                                  Average RVI     =     0.0605
+                                                  Largest FMI     =     0.0796
+                                                  Complete DF     =         46
+DF adjustment:   Small sample                     DF:     min     =      37.16
+                                                          avg     =      39.49
+                                                          max     =      41.81
+Model F test:       Equal FMI                     F(   1,   37.2) =       2.97
+Within VCE type:       Robust                     Prob > F        =     0.0931
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   1.474819   .8556717     1.72   0.093    -.2586777    3.208315
        _cons |   1.757649   .7051929     2.49   0.017     .3343188    3.180979
@@ -824,19 +820,19 @@ Using coefficients: x _cons
 
 -> study==1
 
-Multiple-imputation estimates                   Imputations       =          3
-Linear regression                               Number of obs     =         48
-                                                Average RVI       =     0.0605
-                                                Largest FMI       =     0.0755
-                                                Complete DF       =         46
-DF adjustment:   Small sample                   DF:     min       =      37.16
-                                                        avg       =      39.49
-                                                        max       =      41.81
-Model F test:       Equal FMI                   F(   1,   37.2)   =       2.97
-Within VCE type:       Robust                   Prob > F          =     0.0931
+Multiple-imputation estimates                     Imputations     =          3
+Linear regression                                 Number of obs   =         48
+                                                  Average RVI     =     0.0605
+                                                  Largest FMI     =     0.0755
+                                                  Complete DF     =         46
+DF adjustment:   Small sample                     DF:     min     =      37.16
+                                                          avg     =      39.49
+                                                          max     =      41.81
+Model F test:       Equal FMI                     F(   1,   37.2) =       2.97
+Within VCE type:       Robust                     Prob > F        =     0.0931
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   1.474819   .8556717     1.72   0.093    -.2586777    3.208315
        _cons |   1.757649   .7051929     2.49   0.017     .3343188    3.180979
@@ -845,19 +841,19 @@ Within VCE type:       Robust                   Prob > F          =     0.0931
 
 -> study==2
 
-Multiple-imputation estimates                   Imputations       =          3
-Linear regression                               Number of obs     =         98
-                                                Average RVI       =     0.1754
-                                                Largest FMI       =     0.3047
-                                                Complete DF       =         96
-DF adjustment:   Small sample                   DF:     min       =      20.83
-                                                        avg       =      57.40
-                                                        max       =      93.97
-Model F test:       Equal FMI                   F(   1,   20.8)   =       5.42
-Within VCE type:       Robust                   Prob > F          =     0.0300
+Multiple-imputation estimates                     Imputations     =          3
+Linear regression                                 Number of obs   =         98
+                                                  Average RVI     =     0.1754
+                                                  Largest FMI     =     0.3047
+                                                  Complete DF     =         96
+DF adjustment:   Small sample                     DF:     min     =      20.83
+                                                          avg     =      57.40
+                                                          max     =      93.97
+Model F test:       Equal FMI                     F(   1,   20.8) =       5.42
+Within VCE type:       Robust                     Prob > F        =     0.0300
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   1.312209   .5635275     2.33   0.030     .1396986     2.48472
        _cons |    1.28925   .4702808     2.74   0.007     .3554925    2.223007
@@ -866,19 +862,19 @@ Within VCE type:       Robust                   Prob > F          =     0.0300
 
 -> study==3
 
-Multiple-imputation estimates                   Imputations       =          3
-Linear regression                               Number of obs     =        148
-                                                Average RVI       =     0.0176
-                                                Largest FMI       =     0.0338
-                                                Complete DF       =        146
-DF adjustment:   Small sample                   DF:     min       =     129.64
-                                                        avg       =     136.83
-                                                        max       =     144.02
-Model F test:       Equal FMI                   F(   1,  129.6)   =       6.67
-Within VCE type:       Robust                   Prob > F          =     0.0109
+Multiple-imputation estimates                     Imputations     =          3
+Linear regression                                 Number of obs   =        148
+                                                  Average RVI     =     0.0176
+                                                  Largest FMI     =     0.0338
+                                                  Complete DF     =        146
+DF adjustment:   Small sample                     DF:     min     =     129.64
+                                                          avg     =     136.83
+                                                          max     =     144.02
+Model F test:       Equal FMI                     F(   1,  129.6) =       6.67
+Within VCE type:       Robust                     Prob > F        =     0.0109
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   1.162395   .4499299     2.58   0.011     .2722394     2.05255
        _cons |   2.586986   .3834443     6.75   0.000      1.82908    3.344891
@@ -908,15 +904,15 @@ mvmeta_make results are now loaded into memory
 
 . reg y x if id>2 & study==1 & time==1, mse1
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =    110.81
-       Model |  110.812499         1  110.812499   Prob > F        =    0.0000
-    Residual |   2225.4775        98  22.7089541   R-squared       =    0.0474
--------------+----------------------------------   Adj R-squared   =    0.0572
-       Total |     2336.29        97   24.085464   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =  110.81
+       Model |  110.812499     1  110.812499           Prob > F      =  0.0000
+    Residual |   2225.4775    98  22.7089541           R-squared     =  0.0474
+-------------+------------------------------           Adj R-squared =  0.0572
+       Total |     2336.29    97   24.085464           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .9844747   .0935212    10.53   0.000     .7988849    1.170065
        _cons |   1.557455    .101018    15.42   0.000     1.356988    1.757922
@@ -932,15 +928,15 @@ Using coefficients: x
 
 -> study==1 time==1
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =    110.81
-       Model |  110.812499         1  110.812499   Prob > F        =    0.0000
-    Residual |   2225.4775        98  22.7089541   R-squared       =    0.0474
--------------+----------------------------------   Adj R-squared   =    0.0572
-       Total |     2336.29        97   24.085464   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =  110.81
+       Model |  110.812499     1  110.812499           Prob > F      =  0.0000
+    Residual |   2225.4775    98  22.7089541           R-squared     =  0.0474
+-------------+------------------------------           Adj R-squared =  0.0572
+       Total |     2336.29    97   24.085464           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .9844747   .0935212    10.53   0.000     .7988849    1.170065
        _cons |   1.557455    .101018    15.42   0.000     1.356988    1.757922
@@ -949,15 +945,15 @@ Using coefficients: x
 
 -> study==1 time==2
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =    318.79
-       Model |  318.793505         1  318.793505   Prob > F        =    0.0000
-    Residual |  2233.26209        98  22.7883887   R-squared       =    0.1249
--------------+----------------------------------   Adj R-squared   =    0.1338
-       Total |  2552.05559        97  26.3098515   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =  318.79
+       Model |  318.793505     1  318.793505           Prob > F      =  0.0000
+    Residual |  2233.26209    98  22.7883887           R-squared     =  0.1249
+-------------+------------------------------           Adj R-squared =  0.1338
+       Total |  2552.05559    97  26.3098515           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   1.669802   .0935212    17.85   0.000     1.484212    1.855392
        _cons |   1.908333    .101018    18.89   0.000     1.707866      2.1088
@@ -966,15 +962,15 @@ Using coefficients: x
 
 -> study==2 time==1
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =     18.69
-       Model |  18.6939132         1  18.6939132   Prob > F        =    0.0000
-    Residual |  2529.96511        98  25.8159705   R-squared       =    0.0073
--------------+----------------------------------   Adj R-squared   =    0.0175
-       Total |  2548.65902        97  26.2748353   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =   18.69
+       Model |  18.6939132     1  18.6939132           Prob > F      =  0.0000
+    Residual |  2529.96511    98  25.8159705           R-squared     =  0.0073
+-------------+------------------------------           Adj R-squared =  0.0175
+       Total |  2548.65902    97  26.2748353           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .4109909   .0950566     4.32   0.000     .2223543    .5996276
        _cons |    2.07326    .101671    20.39   0.000     1.871497    2.275023
@@ -983,15 +979,15 @@ Using coefficients: x
 
 -> study==2 time==2
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =     99.47
-       Model |  99.4699709         1  99.4699709   Prob > F        =    0.0000
-    Residual |  1859.51392        98  18.9746318   R-squared       =    0.0508
--------------+----------------------------------   Adj R-squared   =    0.0605
-       Total |  1958.98389        97  20.1957102   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =   99.47
+       Model |  99.4699709     1  99.4699709           Prob > F      =  0.0000
+    Residual |  1859.51392    98  18.9746318           R-squared     =  0.0508
+-------------+------------------------------           Adj R-squared =  0.0605
+       Total |  1958.98389    97  20.1957102           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   .9480432   .0950566     9.97   0.000     .7594065     1.13668
        _cons |   1.320766    .101671    12.99   0.000     1.119003    1.522529
@@ -1000,15 +996,15 @@ Using coefficients: x
 
 -> study==3 time==1
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =    229.97
-       Model |  229.966697         1  229.966697   Prob > F        =    0.0000
-    Residual |  2400.20802        98  24.4919186   R-squared       =    0.0874
--------------+----------------------------------   Adj R-squared   =    0.0967
-       Total |  2630.17472        97  27.1152033   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =  229.97
+       Model |  229.966697     1  229.966697           Prob > F      =  0.0000
+    Residual |  2400.20802    98  24.4919186           R-squared     =  0.0874
+-------------+------------------------------           Adj R-squared =  0.0967
+       Total |  2630.17472    97  27.1152033           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |   1.485578   .0979632    15.16   0.000     1.291173    1.679983
        _cons |   3.288885   .1012355    32.49   0.000     3.087987    3.489784
@@ -1017,15 +1013,15 @@ Using coefficients: x
 
 -> study==3 time==2
 
-      Source |       SS           df       MS      Number of obs   =        98
--------------+----------------------------------   F(1, 98)        =     83.66
-       Model |  83.6574289         1  83.6574289   Prob > F        =    0.0000
-    Residual |  2499.55632        98  25.5056767   R-squared       =    0.0324
--------------+----------------------------------   Adj R-squared   =    0.0423
-       Total |  2583.21375        97  26.6310696   Root MSE        =         1
+      Source |       SS       df       MS              Number of obs =      98
+-------------+------------------------------           F(  1,    98) =   83.66
+       Model |  83.6574289     1  83.6574289           Prob > F      =  0.0000
+    Residual |  2499.55632    98  25.5056767           R-squared     =  0.0324
+-------------+------------------------------           Adj R-squared =  0.0423
+       Total |  2583.21375    97  26.6310696           Root MSE      =       1
 
 ------------------------------------------------------------------------------
-           y | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+           y |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            x |    .896015   .0979632     9.15   0.000     .7016102     1.09042
        _cons |   3.381066   .1012355    33.40   0.000     3.180168    3.581965
@@ -1042,8 +1038,8 @@ mvmeta_make results are now loaded into memory
 
 . stcox z x if id>2 & study==3
 
-        Failure _d: d
-  Analysis time _t: t
+         failure _d:  d
+   analysis time _t:  t
 
 Iteration 0:   log likelihood = -132.76835
 Iteration 1:   log likelihood = -116.83722
@@ -1052,16 +1048,16 @@ Iteration 3:   log likelihood = -116.56305
 Refining estimates:
 Iteration 0:   log likelihood = -116.56305
 
-Cox regression with no ties
+Cox regression -- no ties
 
-No. of subjects =       88                              Number of obs =     88
-No. of failures =       31
-Time at risk    = 352.2293
-                                                        LR chi2(2)    =  32.41
-Log likelihood = -116.56305                             Prob > chi2   = 0.0000
+No. of subjects =           88                     Number of obs   =        88
+No. of failures =           31
+Time at risk    =  352.2292543
+                                                   LR chi2(2)      =     32.41
+Log likelihood  =   -116.56305                     Prob > chi2     =    0.0000
 
 ------------------------------------------------------------------------------
-          _t | Haz. ratio   Std. err.      z    P>|z|     [95% conf. interval]
+          _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            z |   .6057774   .2203167    -1.38   0.168      .296987    1.235631
            x |   2.997061   .6393693     5.15   0.000     1.972908    4.552858
@@ -1070,22 +1066,22 @@ Log likelihood = -116.56305                             Prob > chi2   = 0.0000
 . local se1 = _se[x]
 
 . count if id>2 & study==3
-  88
+   88
 
 . local n = r(N)
 
 . count if id>2 & study==3 & _d
-  31
+   31
 
 . local d = r(N)
 
 . count if id>2 & z==0 & study==3
-  38
+   38
 
 . local n0 = r(N)
 
 . count if id>2 & z==0 & study==3 & _d
-  17
+   17
 
 . local d0 = r(N)
 
@@ -1101,8 +1097,8 @@ Using coefficients: z x
 
 -> study==3
 
-        Failure _d: d
-  Analysis time _t: t
+         failure _d:  d
+   analysis time _t:  t
 
 Iteration 0:   log likelihood = -132.76835
 Iteration 1:   log likelihood = -116.83722
@@ -1111,16 +1107,16 @@ Iteration 3:   log likelihood = -116.56305
 Refining estimates:
 Iteration 0:   log likelihood = -116.56305
 
-Cox regression with no ties
+Cox regression -- no ties
 
-No. of subjects =       88                              Number of obs =     88
-No. of failures =       31
-Time at risk    = 352.2293
-                                                        LR chi2(2)    =  32.41
-Log likelihood = -116.56305                             Prob > chi2   = 0.0000
+No. of subjects =           88                     Number of obs   =        88
+No. of failures =           31
+Time at risk    =  352.2292543
+                                                   LR chi2(2)      =     32.41
+Log likelihood  =   -116.56305                     Prob > chi2     =    0.0000
 
 ------------------------------------------------------------------------------
-          _t | Haz. ratio   Std. err.      z    P>|z|     [95% conf. interval]
+          _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            z |   .6057774   .2203167    -1.38   0.168      .296987    1.235631
            x |   2.997061   .6393693     5.15   0.000     1.972908    4.552858
@@ -1129,8 +1125,8 @@ Log likelihood = -116.56305                             Prob > chi2   = 0.0000
 
 -> study==4
 
-        Failure _d: d
-  Analysis time _t: t
+         failure _d:  d
+   analysis time _t:  t
 
 Iteration 0:   log likelihood = -165.91091
 Iteration 1:   log likelihood = -141.55233
@@ -1139,16 +1135,16 @@ Iteration 3:   log likelihood = -141.45984
 Refining estimates:
 Iteration 0:   log likelihood = -141.45984
 
-Cox regression with no ties
+Cox regression -- no ties
 
-No. of subjects =       98                              Number of obs =     98
-No. of failures =       38
-Time at risk    = 387.9554
-                                                        LR chi2(2)    =  48.90
-Log likelihood = -141.45984                             Prob > chi2   = 0.0000
+No. of subjects =           98                     Number of obs   =        98
+No. of failures =           38
+Time at risk    =  387.9553927
+                                                   LR chi2(2)      =     48.90
+Log likelihood  =   -141.45984                     Prob > chi2     =    0.0000
 
 ------------------------------------------------------------------------------
-          _t | Haz. ratio   Std. err.      z    P>|z|     [95% conf. interval]
+          _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            z |   2.491136   .9104403     2.50   0.013     1.217047    5.099032
            x |   3.199794   .5742794     6.48   0.000     2.250887    4.548733
@@ -1157,8 +1153,8 @@ Log likelihood = -141.45984                             Prob > chi2   = 0.0000
 
 -> study==5
 
-        Failure _d: d
-  Analysis time _t: t
+         failure _d:  d
+   analysis time _t:  t
 
 Iteration 0:   log likelihood = -178.14324
 Iteration 1:   log likelihood = -163.51634
@@ -1168,16 +1164,16 @@ Iteration 4:   log likelihood = -162.60463
 Refining estimates:
 Iteration 0:   log likelihood = -162.60463
 
-Cox regression with no ties
+Cox regression -- no ties
 
-No. of subjects =       98                              Number of obs =     98
-No. of failures =       41
-Time at risk    = 367.7274
-                                                        LR chi2(2)    =  31.08
-Log likelihood = -162.60463                             Prob > chi2   = 0.0000
+No. of subjects =           98                     Number of obs   =        98
+No. of failures =           41
+Time at risk    =   367.727398
+                                                   LR chi2(2)      =     31.08
+Log likelihood  =   -162.60463                     Prob > chi2     =    0.0000
 
 ------------------------------------------------------------------------------
-          _t | Haz. ratio   Std. err.      z    P>|z|     [95% conf. interval]
+          _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            z |   1.327438   .4234037     0.89   0.375      .710415    2.480367
            x |   2.880458   .6444758     4.73   0.000      1.85786     4.46591
@@ -1193,8 +1189,8 @@ Using coefficients: z x
 
 -> study==3
 
-        Failure _d: d
-  Analysis time _t: t
+         failure _d:  d
+   analysis time _t:  t
 
 Iteration 0:   log likelihood = -132.76835
 Iteration 1:   log likelihood = -116.83722
@@ -1203,16 +1199,16 @@ Iteration 3:   log likelihood = -116.56305
 Refining estimates:
 Iteration 0:   log likelihood = -116.56305
 
-Cox regression with no ties
+Cox regression -- no ties
 
-No. of subjects =       88                              Number of obs =     88
-No. of failures =       31
-Time at risk    = 352.2293
-                                                        LR chi2(2)    =  32.41
-Log likelihood = -116.56305                             Prob > chi2   = 0.0000
+No. of subjects =           88                     Number of obs   =        88
+No. of failures =           31
+Time at risk    =  352.2292543
+                                                   LR chi2(2)      =     32.41
+Log likelihood  =   -116.56305                     Prob > chi2     =    0.0000
 
 ------------------------------------------------------------------------------
-          _t | Haz. ratio   Std. err.      z    P>|z|     [95% conf. interval]
+          _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            z |   .6057774   .2203167    -1.38   0.168      .296987    1.235631
            x |   2.997061   .6393693     5.15   0.000     1.972908    4.552858
@@ -1221,8 +1217,8 @@ Log likelihood = -116.56305                             Prob > chi2   = 0.0000
 
 -> study==4
 
-        Failure _d: d
-  Analysis time _t: t
+         failure _d:  d
+   analysis time _t:  t
 
 Iteration 0:   log likelihood = -165.91091
 Iteration 1:   log likelihood = -141.55233
@@ -1231,16 +1227,16 @@ Iteration 3:   log likelihood = -141.45984
 Refining estimates:
 Iteration 0:   log likelihood = -141.45984
 
-Cox regression with no ties
+Cox regression -- no ties
 
-No. of subjects =       98                              Number of obs =     98
-No. of failures =       38
-Time at risk    = 387.9554
-                                                        LR chi2(2)    =  48.90
-Log likelihood = -141.45984                             Prob > chi2   = 0.0000
+No. of subjects =           98                     Number of obs   =        98
+No. of failures =           38
+Time at risk    =  387.9553927
+                                                   LR chi2(2)      =     48.90
+Log likelihood  =   -141.45984                     Prob > chi2     =    0.0000
 
 ------------------------------------------------------------------------------
-          _t | Haz. ratio   Std. err.      z    P>|z|     [95% conf. interval]
+          _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            z |   2.491136   .9104403     2.50   0.013     1.217047    5.099032
            x |   3.199794   .5742794     6.48   0.000     2.250887    4.548733
@@ -1249,8 +1245,8 @@ Log likelihood = -141.45984                             Prob > chi2   = 0.0000
 
 -> study==5
 
-        Failure _d: d
-  Analysis time _t: t
+         failure _d:  d
+   analysis time _t:  t
 
 Iteration 0:   log likelihood = -178.14324
 Iteration 1:   log likelihood = -163.51634
@@ -1260,16 +1256,16 @@ Iteration 4:   log likelihood = -162.60463
 Refining estimates:
 Iteration 0:   log likelihood = -162.60463
 
-Cox regression with no ties
+Cox regression -- no ties
 
-No. of subjects =       98                              Number of obs =     98
-No. of failures =       41
-Time at risk    = 367.7274
-                                                        LR chi2(2)    =  31.08
-Log likelihood = -162.60463                             Prob > chi2   = 0.0000
+No. of subjects =           98                     Number of obs   =        98
+No. of failures =           41
+Time at risk    =   367.727398
+                                                   LR chi2(2)      =     31.08
+Log likelihood  =   -162.60463                     Prob > chi2     =    0.0000
 
 ------------------------------------------------------------------------------
-          _t | Haz. ratio   Std. err.      z    P>|z|     [95% conf. interval]
+          _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            z |   1.327438   .4234037     0.89   0.375      .710415    2.480367
            x |   2.880458   .6444758     4.73   0.000      1.85786     4.46591
@@ -1285,8 +1281,8 @@ Using coefficients: z x
 
 -> study==3
 
-        Failure _d: d
-  Analysis time _t: t
+         failure _d:  d
+   analysis time _t:  t
 
 Iteration 0:   log likelihood = -132.76835
 Iteration 1:   log likelihood = -116.83722
@@ -1295,16 +1291,16 @@ Iteration 3:   log likelihood = -116.56305
 Refining estimates:
 Iteration 0:   log likelihood = -116.56305
 
-Cox regression with no ties
+Cox regression -- no ties
 
-No. of subjects =       88                              Number of obs =     88
-No. of failures =       31
-Time at risk    = 352.2293
-                                                        LR chi2(2)    =  32.41
-Log likelihood = -116.56305                             Prob > chi2   = 0.0000
+No. of subjects =           88                     Number of obs   =        88
+No. of failures =           31
+Time at risk    =  352.2292543
+                                                   LR chi2(2)      =     32.41
+Log likelihood  =   -116.56305                     Prob > chi2     =    0.0000
 
 ------------------------------------------------------------------------------
-          _t | Haz. ratio   Std. err.      z    P>|z|     [95% conf. interval]
+          _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            z |   .6057774   .2203167    -1.38   0.168      .296987    1.235631
            x |   2.997061   .6393693     5.15   0.000     1.972908    4.552858
@@ -1313,8 +1309,8 @@ Log likelihood = -116.56305                             Prob > chi2   = 0.0000
 
 -> study==4
 
-        Failure _d: d
-  Analysis time _t: t
+         failure _d:  d
+   analysis time _t:  t
 
 Iteration 0:   log likelihood = -165.91091
 Iteration 1:   log likelihood = -141.55233
@@ -1323,16 +1319,16 @@ Iteration 3:   log likelihood = -141.45984
 Refining estimates:
 Iteration 0:   log likelihood = -141.45984
 
-Cox regression with no ties
+Cox regression -- no ties
 
-No. of subjects =       98                              Number of obs =     98
-No. of failures =       38
-Time at risk    = 387.9554
-                                                        LR chi2(2)    =  48.90
-Log likelihood = -141.45984                             Prob > chi2   = 0.0000
+No. of subjects =           98                     Number of obs   =        98
+No. of failures =           38
+Time at risk    =  387.9553927
+                                                   LR chi2(2)      =     48.90
+Log likelihood  =   -141.45984                     Prob > chi2     =    0.0000
 
 ------------------------------------------------------------------------------
-          _t | Haz. ratio   Std. err.      z    P>|z|     [95% conf. interval]
+          _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            z |   2.491136   .9104403     2.50   0.013     1.217047    5.099032
            x |   3.199794   .5742794     6.48   0.000     2.250887    4.548733
@@ -1341,8 +1337,8 @@ Log likelihood = -141.45984                             Prob > chi2   = 0.0000
 
 -> study==5
 
-        Failure _d: d
-  Analysis time _t: t
+         failure _d:  d
+   analysis time _t:  t
 
 Iteration 0:   log likelihood = -178.14324
 Iteration 1:   log likelihood = -163.51634
@@ -1352,16 +1348,16 @@ Iteration 4:   log likelihood = -162.60463
 Refining estimates:
 Iteration 0:   log likelihood = -162.60463
 
-Cox regression with no ties
+Cox regression -- no ties
 
-No. of subjects =       98                              Number of obs =     98
-No. of failures =       41
-Time at risk    = 367.7274
-                                                        LR chi2(2)    =  31.08
-Log likelihood = -162.60463                             Prob > chi2   = 0.0000
+No. of subjects =           98                     Number of obs   =        98
+No. of failures =           41
+Time at risk    =   367.727398
+                                                   LR chi2(2)      =     31.08
+Log likelihood  =   -162.60463                     Prob > chi2     =    0.0000
 
 ------------------------------------------------------------------------------
-          _t | Haz. ratio   Std. err.      z    P>|z|     [95% conf. interval]
+          _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            z |   1.327438   .4234037     0.89   0.375      .710415    2.480367
            x |   2.880458   .6444758     4.73   0.000      1.85786     4.46591
@@ -1377,8 +1373,8 @@ Using coefficients: z x
 
 -> study==3
 
-        Failure _d: d
-  Analysis time _t: t
+         failure _d:  d
+   analysis time _t:  t
 
 Iteration 0:   log likelihood = -132.76835
 Iteration 1:   log likelihood = -116.83722
@@ -1387,16 +1383,16 @@ Iteration 3:   log likelihood = -116.56305
 Refining estimates:
 Iteration 0:   log likelihood = -116.56305
 
-Cox regression with no ties
+Cox regression -- no ties
 
-No. of subjects =       88                              Number of obs =     88
-No. of failures =       31
-Time at risk    = 352.2293
-                                                        LR chi2(2)    =  32.41
-Log likelihood = -116.56305                             Prob > chi2   = 0.0000
+No. of subjects =           88                     Number of obs   =        88
+No. of failures =           31
+Time at risk    =  352.2292543
+                                                   LR chi2(2)      =     32.41
+Log likelihood  =   -116.56305                     Prob > chi2     =    0.0000
 
 ------------------------------------------------------------------------------
-          _t | Haz. ratio   Std. err.      z    P>|z|     [95% conf. interval]
+          _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            z |   .6057774   .2203167    -1.38   0.168      .296987    1.235631
            x |   2.997061   .6393693     5.15   0.000     1.972908    4.552858
@@ -1405,8 +1401,8 @@ Log likelihood = -116.56305                             Prob > chi2   = 0.0000
 
 -> study==4
 
-        Failure _d: d
-  Analysis time _t: t
+         failure _d:  d
+   analysis time _t:  t
 
 Iteration 0:   log likelihood = -165.91091
 Iteration 1:   log likelihood = -141.55233
@@ -1415,16 +1411,16 @@ Iteration 3:   log likelihood = -141.45984
 Refining estimates:
 Iteration 0:   log likelihood = -141.45984
 
-Cox regression with no ties
+Cox regression -- no ties
 
-No. of subjects =       98                              Number of obs =     98
-No. of failures =       38
-Time at risk    = 387.9554
-                                                        LR chi2(2)    =  48.90
-Log likelihood = -141.45984                             Prob > chi2   = 0.0000
+No. of subjects =           98                     Number of obs   =        98
+No. of failures =           38
+Time at risk    =  387.9553927
+                                                   LR chi2(2)      =     48.90
+Log likelihood  =   -141.45984                     Prob > chi2     =    0.0000
 
 ------------------------------------------------------------------------------
-          _t | Haz. ratio   Std. err.      z    P>|z|     [95% conf. interval]
+          _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            z |   2.491136   .9104403     2.50   0.013     1.217047    5.099032
            x |   3.199794   .5742794     6.48   0.000     2.250887    4.548733
@@ -1433,8 +1429,8 @@ Log likelihood = -141.45984                             Prob > chi2   = 0.0000
 
 -> study==5
 
-        Failure _d: d
-  Analysis time _t: t
+         failure _d:  d
+   analysis time _t:  t
 
 Iteration 0:   log likelihood = -178.14324
 Iteration 1:   log likelihood = -163.51634
@@ -1444,16 +1440,16 @@ Iteration 4:   log likelihood = -162.60463
 Refining estimates:
 Iteration 0:   log likelihood = -162.60463
 
-Cox regression with no ties
+Cox regression -- no ties
 
-No. of subjects =       98                              Number of obs =     98
-No. of failures =       41
-Time at risk    = 367.7274
-                                                        LR chi2(2)    =  31.08
-Log likelihood = -162.60463                             Prob > chi2   = 0.0000
+No. of subjects =           98                     Number of obs   =        98
+No. of failures =           41
+Time at risk    =   367.727398
+                                                   LR chi2(2)      =     31.08
+Log likelihood  =   -162.60463                     Prob > chi2     =    0.0000
 
 ------------------------------------------------------------------------------
-          _t | Haz. ratio   Std. err.      z    P>|z|     [95% conf. interval]
+          _t | Haz. Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
            z |   1.327438   .4234037     0.89   0.375      .710415    2.480367
            x |   2.880458   .6444758     4.73   0.000      1.85786     4.46591
@@ -1498,24 +1494,24 @@ file z4.dta saved
 . 
 . 
 . // WEB DATA REGARDING GENDER AS A STUDY: TEST STUDY NUMERIC/LABELLED/STRING
-. webuse mheart1s20, clear
+. use mheart1s20, clear
 (Fictional heart attack data; BMI missing)
 
 . * get truth
 . mi estimate, post: logit attack smokes age if female==1
 
-Multiple-imputation estimates                   Imputations       =         20
-Logistic regression                             Number of obs     =         38
-                                                Average RVI       =     0.0000
-                                                Largest FMI       =     0.0000
-DF adjustment:   Large sample                   DF:     min       =          .
-                                                        avg       =          .
-                                                        max       =          .
-Model F test:       Equal FMI                   F(   2,      .)   =       1.82
-Within VCE type:          OIM                   Prob > F          =     0.1621
+Multiple-imputation estimates                     Imputations     =         20
+Logistic regression                               Number of obs   =         38
+                                                  Average RVI     =     0.0000
+                                                  Largest FMI     =     0.0000
+DF adjustment:   Large sample                     DF:     min     =          .
+                                                          avg     =          .
+                                                          max     =          .
+Model F test:       Equal FMI                     F(   2,      .) =       1.82
+Within VCE type:          OIM                     Prob > F        =     0.1621
 
 ------------------------------------------------------------------------------
-      attack | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+      attack |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
       smokes |   .8268826   .7085577     1.17   0.243    -.5618649     2.21563
          age |    .036274   .0299098     1.21   0.225    -.0223482    .0948961
@@ -1534,18 +1530,18 @@ Using coefficients: smokes age
 
 -> female==0
 
-Multiple-imputation estimates                   Imputations       =         20
-Logistic regression                             Number of obs     =        116
-                                                Average RVI       =     0.0000
-                                                Largest FMI       =     0.0000
-DF adjustment:   Large sample                   DF:     min       =          .
-                                                        avg       =          .
-                                                        max       =          .
-Model F test:       Equal FMI                   F(   2,      .)   =       5.72
-Within VCE type:          OIM                   Prob > F          =     0.0033
+Multiple-imputation estimates                     Imputations     =         20
+Logistic regression                               Number of obs   =        116
+                                                  Average RVI     =     0.0000
+                                                  Largest FMI     =     0.0000
+DF adjustment:   Large sample                     DF:     min     =          .
+                                                          avg     =          .
+                                                          max     =          .
+Model F test:       Equal FMI                     F(   2,      .) =       5.72
+Within VCE type:          OIM                     Prob > F        =     0.0033
 
 ------------------------------------------------------------------------------
-      attack | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+      attack |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
       smokes |   1.245292   .4040347     3.08   0.002     .4533982    2.037185
          age |   .0316429   .0173879     1.82   0.069    -.0024368    .0657226
@@ -1555,18 +1551,18 @@ Within VCE type:          OIM                   Prob > F          =     0.0033
 
 -> female==1
 
-Multiple-imputation estimates                   Imputations       =         20
-Logistic regression                             Number of obs     =         38
-                                                Average RVI       =     0.0000
-                                                Largest FMI       =     0.0000
-DF adjustment:   Large sample                   DF:     min       =          .
-                                                        avg       =          .
-                                                        max       =          .
-Model F test:       Equal FMI                   F(   2,      .)   =       1.82
-Within VCE type:          OIM                   Prob > F          =     0.1621
+Multiple-imputation estimates                     Imputations     =         20
+Logistic regression                               Number of obs   =         38
+                                                  Average RVI     =     0.0000
+                                                  Largest FMI     =     0.0000
+DF adjustment:   Large sample                     DF:     min     =          .
+                                                          avg     =          .
+                                                          max     =          .
+Model F test:       Equal FMI                     F(   2,      .) =       1.82
+Within VCE type:          OIM                     Prob > F        =     0.1621
 
 ------------------------------------------------------------------------------
-      attack | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+      attack |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
       smokes |   .8268826   .7085577     1.17   0.243    -.5618649     2.21563
          age |    .036274   .0299098     1.21   0.225    -.0223482    .0948961
@@ -1583,25 +1579,25 @@ file z1.dta saved
 . mvmeta_make, by(female) saving(z2) replace: mi estimate, post: logit attack s
 > mokes age
 Prefix syntax detected
-file C:\Users\rmjwiww\AppData\Local\Temp\ST_25c4_000001.tmp saved
+file C:\Users\User\AppData\Local\Temp\ST_00000001.tmp saved
 Learning equation names...
 Using coefficients: smokes age 
 
 
 -> female==M
 
-Multiple-imputation estimates                   Imputations       =         20
-Logistic regression                             Number of obs     =        116
-                                                Average RVI       =     0.0000
-                                                Largest FMI       =     0.0000
-DF adjustment:   Large sample                   DF:     min       =          .
-                                                        avg       =          .
-                                                        max       =          .
-Model F test:       Equal FMI                   F(   2,      .)   =       5.72
-Within VCE type:          OIM                   Prob > F          =     0.0033
+Multiple-imputation estimates                     Imputations     =         20
+Logistic regression                               Number of obs   =        116
+                                                  Average RVI     =     0.0000
+                                                  Largest FMI     =     0.0000
+DF adjustment:   Large sample                     DF:     min     =          .
+                                                          avg     =          .
+                                                          max     =          .
+Model F test:       Equal FMI                     F(   2,      .) =       5.72
+Within VCE type:          OIM                     Prob > F        =     0.0033
 
 ------------------------------------------------------------------------------
-      attack | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+      attack |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
       smokes |   1.245292   .4040347     3.08   0.002     .4533982    2.037185
          age |   .0316429   .0173879     1.82   0.069    -.0024368    .0657226
@@ -1611,18 +1607,18 @@ Within VCE type:          OIM                   Prob > F          =     0.0033
 
 -> female==F
 
-Multiple-imputation estimates                   Imputations       =         20
-Logistic regression                             Number of obs     =         38
-                                                Average RVI       =     0.0000
-                                                Largest FMI       =     0.0000
-DF adjustment:   Large sample                   DF:     min       =          .
-                                                        avg       =          .
-                                                        max       =          .
-Model F test:       Equal FMI                   F(   2,      .)   =       1.82
-Within VCE type:          OIM                   Prob > F          =     0.1621
+Multiple-imputation estimates                     Imputations     =         20
+Logistic regression                               Number of obs   =         38
+                                                  Average RVI     =     0.0000
+                                                  Largest FMI     =     0.0000
+DF adjustment:   Large sample                     DF:     min     =          .
+                                                          avg     =          .
+                                                          max     =          .
+Model F test:       Equal FMI                     F(   2,      .) =       1.82
+Within VCE type:          OIM                     Prob > F        =     0.1621
 
 ------------------------------------------------------------------------------
-      attack | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+      attack |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
       smokes |   .8268826   .7085577     1.17   0.243    -.5618649     2.21563
          age |    .036274   .0299098     1.21   0.225    -.0223482    .0948961
@@ -1645,18 +1641,18 @@ Using coefficients: smokes age
 
 -> femalechar==F
 
-Multiple-imputation estimates                   Imputations       =         20
-Logistic regression                             Number of obs     =         38
-                                                Average RVI       =     0.0000
-                                                Largest FMI       =     0.0000
-DF adjustment:   Large sample                   DF:     min       =          .
-                                                        avg       =          .
-                                                        max       =          .
-Model F test:       Equal FMI                   F(   2,      .)   =       1.82
-Within VCE type:          OIM                   Prob > F          =     0.1621
+Multiple-imputation estimates                     Imputations     =         20
+Logistic regression                               Number of obs   =         38
+                                                  Average RVI     =     0.0000
+                                                  Largest FMI     =     0.0000
+DF adjustment:   Large sample                     DF:     min     =          .
+                                                          avg     =          .
+                                                          max     =          .
+Model F test:       Equal FMI                     F(   2,      .) =       1.82
+Within VCE type:          OIM                     Prob > F        =     0.1621
 
 ------------------------------------------------------------------------------
-      attack | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+      attack |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
       smokes |   .8268826   .7085577     1.17   0.243    -.5618649     2.21563
          age |    .036274   .0299098     1.21   0.225    -.0223482    .0948961
@@ -1666,18 +1662,18 @@ Within VCE type:          OIM                   Prob > F          =     0.1621
 
 -> femalechar==M
 
-Multiple-imputation estimates                   Imputations       =         20
-Logistic regression                             Number of obs     =        116
-                                                Average RVI       =     0.0000
-                                                Largest FMI       =     0.0000
-DF adjustment:   Large sample                   DF:     min       =          .
-                                                        avg       =          .
-                                                        max       =          .
-Model F test:       Equal FMI                   F(   2,      .)   =       5.72
-Within VCE type:          OIM                   Prob > F          =     0.0033
+Multiple-imputation estimates                     Imputations     =         20
+Logistic regression                               Number of obs   =        116
+                                                  Average RVI     =     0.0000
+                                                  Largest FMI     =     0.0000
+DF adjustment:   Large sample                     DF:     min     =          .
+                                                          avg     =          .
+                                                          max     =          .
+Model F test:       Equal FMI                     F(   2,      .) =       5.72
+Within VCE type:          OIM                     Prob > F        =     0.0033
 
 ------------------------------------------------------------------------------
-      attack | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+      attack |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
       smokes |   1.245292   .4040347     3.08   0.002     .4533982    2.037185
          age |   .0316429   .0173879     1.82   0.069    -.0024368    .0657226
@@ -1726,5 +1722,5 @@ file z3.dta saved
       name:  <unnamed>
        log:  c:\ado\ian\mvmeta\testlogs\mvmeta_make_cscript.log
   log type:  text
- closed on:   8 Apr 2022, 09:25:25
+ closed on:   8 Apr 2022, 09:24:36
 -------------------------------------------------------------------------------
