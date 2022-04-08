@@ -1,6 +1,7 @@
 /*
 mvmeta_make_data.do
 Create test datasets
+8/4/2022 store as v12
 IW 28/3/2022
 */
 
@@ -15,14 +16,14 @@ by study: gen id = _n
 gen x = rnormal()
 gen y = study+x+5*rnormal()
 gen yg = (y>0) + (y>4)
-save mvmeta_make_testdata_reg, replace
+saveold mvmeta_make_testdata_reg, replace version(12)
 
 * LONGITUDINAL DATA
 use mvmeta_make_testdata_reg, clear
 rename y y1
 gen y2 = study+x+5*rnormal()
 reshape long y, i(study id) j(time)
-save mvmeta_make_testdata_mixed, replace
+saveold mvmeta_make_testdata_mixed, replace version(12)
 
 * MULTIPLY IMPUTED DATA
 * DIFFERENT OBS BY STUDY
@@ -43,7 +44,7 @@ forvalues study=1/3 {
 	mi estimate, post: reg y x
 	est store study`study'
 	if study>1 mi append using mvmeta_make_testdata_mi
-	save mvmeta_make_testdata_mi, replace
+	saveold mvmeta_make_testdata_mi, replace version(12)
 }
 
 * 	SURVIVAL DATA AND NON-STANDARD STUDY NUMBERING
@@ -57,7 +58,7 @@ gen d = t<5
 replace t = min(t,5)
 tab study d
 stset t, failure(d)
-save mvmeta_make_testdata_surv, replace
+saveold mvmeta_make_testdata_surv, replace version(12)
 
 
 // Create test data for package
@@ -66,8 +67,8 @@ use mvmeta_make_testdata_mixed, clear
 drop yg
 rename x z
 label data "Simulated data to illustrate mvmeta_make with mixed"
-save ../package/testdata_mixed, replace
+saveold ../package/testdata_mixed, replace version(12)
 
 use mvmeta_make_testdata_mi, clear
 label data "Simulated data to illustrate mvmeta_make with mi estimate"
-save ../package/testdata_mi, replace
+saveold ../package/testdata_mi, replace version(12)

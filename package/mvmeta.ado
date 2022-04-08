@@ -1,6 +1,9 @@
 /******************************************************************************
+*! version 4.0.2 # Ian White # 08apr2022
+	skip pi option if no Sigma
+	fix pbest problem in Stata12: variable names were lost
 *! version 4.0.1 # Ian White # 07apr2022
-	change invt() to invtttail() to allow running under Stata v12
+	change invt() to invtttail() to allow running under Stata12
 version 4.0 # Ian White # 07apr2022
 	new release to UCL, github and SSC
 version 3.6 # Ian White # 8feb2022
@@ -1310,8 +1313,13 @@ if !missing(`"`forest'`forest2'"') {
 }
 
 *** PREDICTION INTERVAL
-if !mi("`pi2'") mvmeta_pi, `pi2'
-else if !mi("`pi'") mvmeta_pi
+if !mi("`pi'`pi2'") {
+	cap confirm matrix e(Sigma)
+	if "`e(bsest)'"=="fixed" di as error "Prediction intervals not reported - not meaningful after a fixed-effect model"
+	else if _rc di as error "Prediction intervals not reported - Sigma was not estimated"
+	else if !mi("`pi2'") mvmeta_pi, `pi2'
+	else if !mi("`pi'") mvmeta_pi
+}
 
 end
 
@@ -1422,7 +1430,10 @@ local smax = cond("`all'"=="all", `p' + ("`zero'"=="zero"), 1)
 forvalues s=1/`smax' {
     forvalues r=`rmin'/`p' {
         qui gen `pbest'`r'_`s'=0 if `touse'
-        if `r'>0 local thischarold = subinstr("`yvar_`r''","`stripprefix'","",1)
+        if `r'>0 { // 8apr2022: subinstr fails in Stata12 if "from" is missing
+			if mi("`stripprefix'") local thischarold `yvar_`r''
+			else local thischarold : subinstr local yvar_`r' "`stripprefix'" ""
+		}
         else local thischarold `zeroname'
 		local thischarnew
         forvalues i=1/`renamen' { // rename

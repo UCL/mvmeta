@@ -29,6 +29,7 @@ v1.7: changed showchol to showall
 Note that cscript sets linesize to 79
 */
 
+// PRELIMINARIES
 local mvmetadir c:\ado\ian\mvmeta\
 cd "`mvmetadir'scripts"
 adopath ++ `mvmetadir'package
@@ -37,7 +38,7 @@ set linesize 79
 log using "`mvmetadir'testlogs\mvmeta_cscript.log", replace
 
 version 12
-if c(version)>=13 cls
+if c(stata_version)>=13 cls
 cscript mvmeta
 prog drop _all
 set more off
@@ -46,13 +47,15 @@ pause off // on to check output in detail, off for fast run through
 global F5 exit;
 
 prog def dicmd
-* works for version (6?) 7 or 8
 noi di as input _newline(2) `"`0'"'
 `0'
 end
 
+// VERSION NUMBERS
+di c(stata_version)
 which mvmeta
 
+// SET UP DATA
 use telomerase2, clear
 gen id=_n
 gen one=1
