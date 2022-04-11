@@ -1,6 +1,5 @@
 {smcl}
-{* *! v4.0 07apr2022}{...}
-{* *! v3.6 08feb2022}{...}
+{* *! v4.0.2 11apr2022}{...}
 {vieweralsosee "mvmeta_make (if installed)" "mvmeta_make"}{...}
 {vieweralsosee "metan (if installed)" "metan"}{...}
 {vieweralsosee "metareg (if installed)" "metareg"}{...}
@@ -18,7 +17,7 @@
 {viewerjumpto "Between-studies covariance structures" "mvmeta##bscovstructures"}{...}
 {viewerjumpto "Studies in which some outcomes are unestimated" "mvmeta##missing"}{...}
 {viewerjumpto "Changes in mvmeta version 2.3" "mvmeta##changes2"}{...}
-{viewerjumpto "Changes from version 2.3 to version 3.1" "mvmeta##changes3"}{...}
+{viewerjumpto "Changes from version 2.3 to version 4.0" "mvmeta##changes4"}{...}
 {viewerjumpto "Examples" "mvmeta##examples"}{...}
 {viewerjumpto "Details" "mvmeta##details"}{...}
 {viewerjumpto "Known problems" "mvmeta##problems"}{...}
@@ -531,7 +530,7 @@ The likelihood is coded using mata and appears on initial tests to be 2-5 times 
 {cmd:bscorr} and {cmd:bscov} have been renamed {cmd:print(bscorr)} and {cmd:print(bscov)}.
 
 
-{title:Changes from version 2.3 to version 4.0}{marker changes3}
+{title:Changes from version 2.3 to version 4.0}{marker changes4}
 
 {phang}
 The command has been modified to work with the new {help network} suite for network meta-analysis.
@@ -572,7 +571,7 @@ The options {cmd:augment}, {cmd:augquiet}, {cmd:missest(#)} and {cmd:missvar(#)}
 A bug in the estimation procedure for the {cmd:wscorr(riley)} method which led to wrong answers has been fixed.
 
 {phang} 
-The {cmd:bubble} option has been added.
+The {cmd:bubble} and {cmd:pi} options have been added.
 
 {phang}
 The {cmd:bscov(exch)} option has been added, with the ability to estimate the between-studies correlation.
@@ -618,7 +617,7 @@ order to ensure that it is non-negative definite.
 Parts of {cmd:mvmeta} require the additional program {help sencode}.
 
 {p 0 0 0}
-{cmd:mvmeta} aims to work under all Stata versions 9 and later, but I have been unable to test it on all versions.
+{cmd:mvmeta} aims to work under all Stata versions 9 and later, but I have been unable to test it on versions 9-11.
 
 
 {title:Known problems}{marker problems}
