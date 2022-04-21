@@ -1,8 +1,8 @@
 v 3
 d mvmeta: multivariate random-effects meta-analysis and meta-regression
 d Program by Ian White
-d Version 4.0
-d Distribution-Date: 07apr2022
+d Version 4.0.2
+d Distribution-Date: 21apr2022
 
 * mvmeta: program and help files
 f mvmeta.ado

@@ -1,5 +1,7 @@
 /********************************************************************* 
-*! version 4.0 # Ian White # 07apr2022
+*! version 4.0.2 # Ian White # 21apr2022
+	last regression doesn't contaminate ereturn-ed values
+version 4.0 # Ian White # 07apr2022
 	version number changed to match mvmeta
 	new release to UCL, github and SSC
 version 0.23.1  Ian White   7apr2022

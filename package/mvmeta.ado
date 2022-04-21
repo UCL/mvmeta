@@ -1,5 +1,5 @@
 /******************************************************************************
-*! version 4.0.2 # Ian White # 08apr2022
+*! version 4.0.2 # Ian White # 21apr2022
 	skip pi option if no Sigma
 	fix pbest problem in Stata12: variable names were lost
 version 4.0.1 # Ian White # 07apr2022

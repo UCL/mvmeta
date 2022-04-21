@@ -1,5 +1,5 @@
 {smcl}
-{* *! v4.0 07apr2022}{...}
+{* *! v4.0.2 21apr2022}{...}
 {vieweralsosee "mvmeta (if installed)" "mvmeta"}{...}
 {viewerjumpto "Description" "mvmeta_make##description"}{...}
 {viewerjumpto "Syntax" "mvmeta_make##syntax"}{...}
@@ -406,5 +406,6 @@ Stata Journal 2009; 9: 40-56.
 {p}Ian White, MRC Clinical Trials Unit at UCL, London, UK. 
 Email {browse "mailto:ian.white@ucl.ac.uk":ian.white@ucl.ac.uk}.
 
-{p}You can get the latest version of this and my other Stata software using 
-{stata "net from http://www.homepages.ucl.ac.uk/~rmjwiww/stata/"}.
+{p}You can get the latest version of this package by visiting {browse "https://github.com/UCL/mvmeta"}
+or within Stata by running 
+{stata "net from https://raw.githubusercontent.com/UCL/mvmeta/master/package/"}.
