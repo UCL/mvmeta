@@ -343,10 +343,16 @@ with logistic regression.
 
 {title:Example}{marker examples}
 
-{p}{bf:Example 1.} Analysis of individual participant data (which are not publicly available) from the Fibrinogen Studies Collaboration data ({help mvmeta_make##White09:White, 2009}). 
+{p}{bf:Example 1.} Analysis of individual participant data using the classic syntax.
+The data are from the Fibrinogen Studies Collaboration ({help mvmeta_make##White09:White, 2009}); they are not publicly available. 
 The exposure of interest is fifth of fibrinogen stored in variable {cmd:fg} with levels 1-5.
 
 {phang}{cmd:. xi: mvmeta_make stcox ages i.fg, strata(sex tr) nohr saving(FSCstage1) replace by(cohort) usevars(i.fg) names(b V) esave(N)}
+
+{p}Note that {cmd:strata(sex tr)} and {cmd:nohr} are options for {cmd:stcox} while the other options are for {cmd:mvmeta_make}.
+The command would give exactly the same results using the prefix syntax:
+
+{phang}{cmd:. xi: mvmeta_make, saving(FSCstage1) replace by(cohort) usevars(i.fg) names(b V) esave(N): stcox ages i.fg, strata(sex tr) nohr}
 
 {p}The results would be then meta-analysed in the second stage:
 
