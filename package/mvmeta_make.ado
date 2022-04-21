@@ -883,6 +883,7 @@ if !mi("`clear'") {
 	if !mi("`savingorig'") di as text "mvmeta_make results are also loaded into memory"
 	else di as text "mvmeta_make results are now loaded into memory"
 	restore, not
+	ereturn post // removes ereturned results from last regression
 }
 else {
 	restore

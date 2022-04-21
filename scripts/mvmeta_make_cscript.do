@@ -1,5 +1,6 @@
 /*
 mvmeta_make_cscript.do: MAIN TEST SCRIPT FOR MVMETA_MAKE
+21apr2022: added checks of ereturned results
 7apr2022: renamed mvmeta_make_cscript and automated log
 5apr2022: add tests of usevars, usecoefs, esave
 	add test with survival data, including counts() and Stephen K's countby()
@@ -35,8 +36,16 @@ use mvmeta_make_testdata_reg, clear
 mvmeta_make reg y x if id>2 [aw=x^2], by(study) saving(z1) replace mse1 
 
 mvmeta_make, by(study) saving(z2) replace: reg y x if id>2 [aw=x^2], mse1
+* check ereturned results without clear
+assert e(sample) == id>2
+assert mi(e(N))
+assert e(cmd)=="mvmeta_make"
 
 mvmeta_make reg y x if id>2 [aw=x^2], by(study) clear mse1 nodetails
+* check ereturned results with clear
+assert e(sample) == 0
+assert mi(e(N))
+assert e(cmd)=="mvmeta_make"
 
 cf _all using z1
 cf _all using z2

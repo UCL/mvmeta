@@ -1,13 +1,13 @@
------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
       name:  <unnamed>
        log:  c:\ado\ian\mvmeta\testlogs\mvmeta_make_cscript.log
   log type:  text
- opened on:   8 Apr 2022, 09:25:15
+ opened on:  21 Apr 2022, 18:48:04
 
 . 
 . version 12
 
-. if c(version)>=13 cls
+. if c(stata_version)>=13 cls
 
 . cscript mvmeta
 -------------------------------------------------------------------BEGIN mvmeta
@@ -19,13 +19,17 @@
 . set trace off
 
 . 
+. // VERSION NUMBERS
+. di c(stata_version)
+17
+
 . which mvmeta_make
 c:\ado\ian\mvmeta\package\mvmeta_make.ado
 *! version 4.0 # Ian White # 07apr2022
 
 . which mvmeta
 c:\ado\ian\mvmeta\package\mvmeta.ado
-*! version 4.0.1 # Ian White # 07apr2022
+*! version 4.0.2 # Ian White # 08apr2022
 
 . 
 . 
@@ -158,6 +162,13 @@ Using coefficients: x
 
 file z2.dta saved
 
+. * check ereturned results without clear
+. assert e(sample) == id>2
+
+. assert mi(e(N))
+
+. assert e(cmd)=="mvmeta_make"
+
 . 
 . mvmeta_make reg y x if id>2 [aw=x^2], by(study) clear mse1 nodetails
 Classic (non-prefix) syntax detected
@@ -167,6 +178,13 @@ Using coefficients: x
 -> study==2
 -> study==3
 mvmeta_make results are now loaded into memory
+
+. * check ereturned results with clear
+. assert e(sample) == 0
+
+. assert mi(e(N))
+
+. assert e(cmd)=="mvmeta_make"
 
 . 
 . cf _all using z1
@@ -891,13 +909,180 @@ mvmeta_make results are now loaded into memory
 . 
 . // MIXED MODEL: CHECK COMPLEX PREFIX SYNTAX
 . * mixed was new in Stata 13
-. if c(version)>=13 {
+. if c(stata_version)>=13 {
 .         use mvmeta_make_testdata_mixed, clear
 .         gen x1=x*(time==1)
 .         gen x2=x*(time==2)
 .         mixed y time x1 x2 if id>2 & study==1 || id:, reml
+
+Performing EM optimization: 
+
+Performing gradient-based optimization: 
+
+Iteration 0:   log restricted-likelihood = -584.10262  
+Iteration 1:   log restricted-likelihood = -583.57789  
+Iteration 2:   log restricted-likelihood = -583.57787  
+
+Computing standard errors:
+
+Mixed-effects REML regression                   Number of obs     =        196
+Group variable: id                              Number of groups  =         98
+                                                Obs per group:
+                                                              min =          2
+                                                              avg =        2.0
+                                                              max =          2
+                                                Wald chi2(3)      =      18.03
+Log restricted-likelihood = -583.57787          Prob > chi2       =     0.0004
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        time |    .350878   .6714289     0.52   0.601    -.9650984    1.666854
+          x1 |   .9844747   .4506773     2.18   0.029     .1011634    1.867786
+          x2 |   1.669802   .4506773     3.71   0.000     .7864905    2.553113
+       _cons |   1.206577   1.067058     1.13   0.258    -.8848172    3.297972
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects parameters  |   Estimate   Std. err.     [95% conf. interval]
+-----------------------------+------------------------------------------------
+id: Identity                 |
+                  var(_cons) |   1.133804   2.372819      .0187563    68.53755
+-----------------------------+------------------------------------------------
+               var(Residual) |    22.0888   3.188135      16.64624    29.31085
+------------------------------------------------------------------------------
+LR test vs. linear model: chibar2(01) = 0.23          Prob >= chibar2 = 0.3161
 .         local varx1=_se[x1]^2
 .         mvmeta_make, by(study) clear: mixed y time x1 x2 if id>2 || id:, reml
+Prefix syntax detected
+Learning equation names...
+Using coefficients: time x1 x2 
+
+
+-> study==1
+
+Performing EM optimization: 
+
+Performing gradient-based optimization: 
+
+Iteration 0:   log restricted-likelihood = -584.10262  
+Iteration 1:   log restricted-likelihood = -583.57789  
+Iteration 2:   log restricted-likelihood = -583.57787  
+
+Computing standard errors:
+
+Mixed-effects REML regression                   Number of obs     =        196
+Group variable: id                              Number of groups  =         98
+                                                Obs per group:
+                                                              min =          2
+                                                              avg =        2.0
+                                                              max =          2
+                                                Wald chi2(3)      =      18.03
+Log restricted-likelihood = -583.57787          Prob > chi2       =     0.0004
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        time |    .350878   .6714289     0.52   0.601    -.9650984    1.666854
+          x1 |   .9844747   .4506773     2.18   0.029     .1011634    1.867786
+          x2 |   1.669802   .4506773     3.71   0.000     .7864905    2.553113
+       _cons |   1.206577   1.067058     1.13   0.258    -.8848172    3.297972
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects parameters  |   Estimate   Std. err.     [95% conf. interval]
+-----------------------------+------------------------------------------------
+id: Identity                 |
+                  var(_cons) |   1.133804   2.372819      .0187563    68.53755
+-----------------------------+------------------------------------------------
+               var(Residual) |    22.0888   3.188135      16.64624    29.31085
+------------------------------------------------------------------------------
+LR test vs. linear model: chibar2(01) = 0.23          Prob >= chibar2 = 0.3161
+
+
+-> study==2
+
+Performing EM optimization: 
+
+Performing gradient-based optimization: 
+
+Iteration 0:   log restricted-likelihood = -581.56748  
+Iteration 1:   log restricted-likelihood = -581.36112  
+Iteration 2:   log restricted-likelihood = -581.36112  
+
+Computing standard errors:
+
+Mixed-effects REML regression                   Number of obs     =        196
+Group variable: id                              Number of groups  =         98
+                                                Obs per group:
+                                                              min =          2
+                                                              avg =        2.0
+                                                              max =          2
+                                                Wald chi2(3)      =       5.92
+Log restricted-likelihood = -581.36112          Prob > chi2       =     0.1153
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        time |  -.7524942   .6419033    -1.17   0.241    -2.010602    .5056132
+          x1 |   .4109909   .4545043     0.90   0.366    -.4798211    1.301803
+          x2 |   .9480432   .4545043     2.09   0.037     .0572311    1.838855
+       _cons |   2.825754   1.029759     2.74   0.006     .8074646    4.844044
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects parameters  |   Estimate   Std. err.     [95% conf. interval]
+-----------------------------+------------------------------------------------
+id: Identity                 |
+                  var(_cons) |     2.9315   2.352427      .6081773    14.13024
+-----------------------------+------------------------------------------------
+               var(Residual) |   19.93037   2.876696      15.01949    26.44695
+------------------------------------------------------------------------------
+LR test vs. linear model: chibar2(01) = 1.59          Prob >= chibar2 = 0.1036
+
+
+-> study==3
+
+Performing EM optimization: 
+
+Performing gradient-based optimization: 
+
+Iteration 0:   log restricted-likelihood = -593.71796  
+Iteration 1:   log restricted-likelihood = -592.65551  
+Iteration 2:   log restricted-likelihood = -592.65441  
+Iteration 3:   log restricted-likelihood = -592.65441  
+
+Computing standard errors:
+
+Mixed-effects REML regression                   Number of obs     =        196
+Group variable: id                              Number of groups  =         98
+                                                Obs per group:
+                                                              min =          2
+                                                              avg =        2.0
+                                                              max =          2
+                                                Wald chi2(3)      =      12.29
+Log restricted-likelihood = -592.65441          Prob > chi2       =     0.0064
+
+------------------------------------------------------------------------------
+           y | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        time |   .0921811   .7232439     0.13   0.899    -1.325351    1.509713
+          x1 |   1.485578   .4948801     3.00   0.003     .5156309    2.455525
+          x2 |    .896015   .4948801     1.81   0.070    -.0739322    1.865962
+       _cons |   3.196704   1.143549     2.80   0.005     .9553892    5.438019
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects parameters  |   Estimate   Std. err.     [95% conf. interval]
+-----------------------------+------------------------------------------------
+id: Identity                 |
+                  var(_cons) |   3.13e-13   1.52e-12      2.26e-17    4.34e-09
+-----------------------------+------------------------------------------------
+               var(Residual) |   25.51961   2.604584      20.89289     31.1709
+------------------------------------------------------------------------------
+LR test vs. linear model: chibar2(01) = 2.3e-13       Prob >= chibar2 = 1.0000
+
+mvmeta_make results are now loaded into memory
 .         assert reldif(Sx1x1[1],`varx1') < 1E-7
 . }
 
@@ -1583,7 +1768,7 @@ file z1.dta saved
 . mvmeta_make, by(female) saving(z2) replace: mi estimate, post: logit attack s
 > mokes age
 Prefix syntax detected
-file C:\Users\rmjwiww\AppData\Local\Temp\ST_25c4_000001.tmp saved
+file C:\Users\rmjwiww\AppData\Local\Temp\ST_4cec_000001.tmp saved
 Learning equation names...
 Using coefficients: smokes age 
 
@@ -1726,5 +1911,5 @@ file z3.dta saved
       name:  <unnamed>
        log:  c:\ado\ian\mvmeta\testlogs\mvmeta_make_cscript.log
   log type:  text
- closed on:   8 Apr 2022, 09:25:25
+ closed on:  21 Apr 2022, 18:48:15
 -------------------------------------------------------------------------------
