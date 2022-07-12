@@ -1,5 +1,7 @@
 /********************************************************************* 
-*! version 4.0.2 # Ian White # 21apr2022
+*! version 4.0.3 # Ian White # 12jul2022
+	multiple commas warning only printed for classic syntax
+version 4.0.2 # Ian White # 21apr2022
 	last regression doesn't contaminate ereturn-ed values
 version 4.0 # Ian White # 07apr2022
 	version number changed to match mvmeta
@@ -166,13 +168,13 @@ else {
 }
 
 * PARSE CLASSIC (NON-PREFIX) SYNTAX
-* detect multiple commas
-gettoken left right : 0, parse(",") bind
-local right: subinstr local right "," "" 
-gettoken left right : right, parse(",") bind
-if !mi("`right'") di as error "Probable syntax error: multiple commas found"
-
 if "`syntype'"=="classic" {
+	* detect multiple commas
+	gettoken left right : 0, parse(",") bind
+	local right: subinstr local right "," "" 
+	gettoken left right : right, parse(",") bind
+	if !mi("`right'") di as error "Probable syntax error: multiple commas found"
+
 	syntax anything(equalok) [if] [in] [fweight aweight pweight iweight], ///
 		by(varlist) [`mvoptions' `cmdoptions']
 }
