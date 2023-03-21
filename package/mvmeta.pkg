@@ -30,4 +30,7 @@ f mvmeta_make.ado
 f mvmeta_make.sthlp
 f testdata_mi.dta
 f testdata_mixed.dta
-
+f mvmeta_make_testdata_mi.dta
+f mvmeta_make_testdata_mixed.dta
+f mvmeta_make_testdata_reg.dta
+f mvmeta_make_testdata_surv.dta
