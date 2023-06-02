@@ -1,5 +1,5 @@
 {smcl}
-{* *! v4.0.2 21apr2022}{...}
+{* *! v4.0.2.1 2jun2023}{...}
 {vieweralsosee "mvmeta_make (if installed)" "mvmeta_make"}{...}
 {vieweralsosee "metan (if installed)" "metan"}{...}
 {vieweralsosee "metareg (if installed)" "metareg"}{...}
@@ -22,6 +22,7 @@
 {viewerjumpto "Details" "mvmeta##details"}{...}
 {viewerjumpto "Known problems" "mvmeta##problems"}{...}
 {viewerjumpto "References" "mvmeta##references"}{...}
+{viewerjumpto "Citation" "mvmeta##citation"}{...}
 {viewerjumpto "Author and updates" "mvmeta##updates"}{...}
 {title:Title}
 
@@ -47,13 +48,14 @@ on a data-set of point estimates, variances and (optionally) within-study covari
 {help mvmetademo_setup:getting the data into mvmeta format} 
 and {help mvmetademo_run:running mvmeta}.
 
-{p 4 4 2}If you are doing network meta-analysis, please see my {help network} suite,
+{p 4 4 2}This is a user-written command: please cite it as shown {help mvmeta##citation:below}.
+If you are doing network meta-analysis, please see my {help network} suite,
 which includes commands to formulate and run {cmd:mvmeta} models for network meta-analysis.
 
 
 {title:Syntax}{marker syntax}
 
-{p 8 17 2}
+{p 8 12 2}
 {cmd:mvmeta} b V [xvars]
 {ifin}
 [{cmd:,} 
@@ -383,7 +385,7 @@ The default is {cmd:ciscale(sd)}.
 
 {phang}{cmd:qscalar} performs a global test for heterogeneity using the scalar Q statistic. 
 
-{phang}{cmd:pi} or {cmd:pi(}{it:suboptions}{cmd:)} reports prediction intervals for the mean of each outcome. Confidence intervals are also reported. Suboptions are
+{phang}{cmd:pi} or {cmd:pi(}{it:suboptions}{cmd:)} reports prediction intervals for the mean of each outcome. Confidence intervals are also reported. Suboptions are:
 
 {phang2}{cmd:format}({it:string}) specifies the numerical format of the values.
 
@@ -585,26 +587,26 @@ A number of minor bugs have been fixed, and the output improved.
 
 {title:Examples}{marker examples}
 
-{p 0 0 0}First stage, starting with individual participant data ({cmd:fg} has levels 1-5):
+{phang}First stage, starting with individual participant data ({cmd:fg} has levels 1-5):
 
-{phang}{cmd:. xi: mvmeta_make stcox ages i.fg, strata(sex tr) nohr saving(fscstage1) replace by(cohort) usevars(i.fg) names(b V) esave(N)}
+{pmore}{cmd:. xi: mvmeta_make stcox ages i.fg, strata(sex tr) nohr saving(fscstage1) replace by(cohort) usevars(i.fg) names(b V) esave(N)}
 
-{p 0 0 0}The individual participant data are not publicly available, but you can get the summary data produced by the above command using 
+{phang}The individual participant data are not publicly available, but you can get the summary data produced by the above command using 
 
         {com}. {stata "net get st0156, from(http://www.stata-journal.com/software/sj9-1)"}{txt}
 
-Second stage:
+{phang}Second stage:
 
         {com}. {stata use fscstage1, clear}{txt}
 
         {com}. {stata mvmeta b V}{txt}
 
-{p 0 0 0}For more examples, please see the {help mvmetademo_run:demonstration}.
+{phang}For more examples, please see the {help mvmetademo_run:demonstration}.
 
 
 {title:Details}{marker details}
 
-{p 0 0 0}
+{phang}
 The reml and ml methods use Newton-Raphson maximisation of the likelihood 
 or restricted likelihood using 
 {helpb ml}. 
@@ -613,18 +615,18 @@ via its Cholesky decomposition in
 order to ensure that it is non-negative definite.
 {* The forest option of {cmd:mvmeta} requires the additional programs {help coefplot}.}{...}
 
-{p 0 0 0}
+{phang}
 Parts of {cmd:mvmeta} require the additional program {help sencode}.
 
-{p 0 0 0}
+{phang}
 {cmd:mvmeta} aims to work under all Stata versions 9 and later, but I have been unable to test it on versions 9-11.
 
 
 {title:Known problems}{marker problems}
 
-{p 0 0 0}With methods of moments, none of wscorr(riley), bscov(prop) and bscov(corr) has been implemented: in fact we don't yet have methods.
+{phang}With methods of moments, none of wscorr(riley), bscov(prop) and bscov(corr) has been implemented: in fact we don't yet have methods.
 
-{p 0 0 0}Please report any other problems to ian.white@ucl.ac.uk.
+{phang}Please report any other problems to ian.white@ucl.ac.uk.
 
 
 {title:References}{marker references}
@@ -699,14 +701,29 @@ Consistency and inconsistency in network meta-analysis:
 Research Synthesis Methods 2012; 3: 111-125.
 {browse "http://onlinelibrary.wiley.com/doi/10.1002/jrsm.1045/abstract"}
 
-* Please use these references to cite this program.
+{phang}* Please use these references to cite this program.
+
+
+{title:Citation}{marker citation}
+
+{phang}If you find this command useful, please cite it as below (and please check for updates): 
+
+{phang}{marker White09}White IR. 
+Multivariate random-effects meta-analysis. 
+Stata Journal 2009; 9: 40-56.
+{browse "http://www.stata-journal.com/article.html?article=st0156"}
+
+{phang}{marker White11}White IR. 
+Multivariate random-effects meta-regression: Updates to mvmeta. 
+Stata Journal 2011; 11: 255-270.
+{browse "http://www.stata-journal.com/article.html?article=st0156_1"}
 
 
 {title:Author and updates}{marker updates}
 
-{p}Ian White, MRC Clinical Trials Unit at UCL, London, UK. 
+{phang}Ian White, MRC Clinical Trials Unit at UCL, London, UK. 
 Email {browse "mailto:ian.white@ucl.ac.uk":ian.white@ucl.ac.uk}.
 
-{p}You can get the latest version of this package by visiting {browse "https://github.com/UCL/mvmeta"}
+{phang}You can get the latest version of this package by visiting {browse "https://github.com/UCL/mvmeta"}
 or within Stata by running 
 {stata "net from https://raw.githubusercontent.com/UCL/mvmeta/master/package/"}.
