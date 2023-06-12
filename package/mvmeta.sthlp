@@ -727,3 +727,6 @@ Email {browse "mailto:ian.white@ucl.ac.uk":ian.white@ucl.ac.uk}.
 {phang}You can get the latest version of this package by visiting {browse "https://github.com/UCL/mvmeta"}
 or within Stata by running 
 {stata "net from https://raw.githubusercontent.com/UCL/mvmeta/master/package/"}.
+
+{pstd}You can browse my other Stata software using 
+{stata "net from http://www.homepages.ucl.ac.uk/~rmjwiww/stata/"}.
