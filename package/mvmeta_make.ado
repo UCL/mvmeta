@@ -133,9 +133,6 @@ version 0.2  28jun2007
 
 Ideas: make it a prefix command?
     would still need to use weights, strata from main command
-    
-PROBLEMS:
-    if y is string, -mvmeta_make logit y x, ...- doesn't fail! (just creates empty data)
 *********************************************************************/
 
 prog def mvmeta_make, eclass
