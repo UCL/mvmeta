@@ -147,7 +147,7 @@ Ideas: make it a prefix command?
 
 prog def mvmeta_make, eclass
 version 11
-
+ereturn hidden local mvmeta_make_version 4.1
 local mvoptions ///
 	SAVing(string) replace append clear /// save-file options
 	USEVars(varlist) USEConstant USEEqs(string) LEARNif(string) /// what results are stored
