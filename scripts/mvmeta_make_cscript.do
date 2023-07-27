@@ -8,13 +8,18 @@ mvmeta_make_cscript.do: MAIN TEST SCRIPT FOR MVMETA_MAKE
 	standardise line length
 28mar2022: major update to test prefix syntax
 IW 2nov2021
-Still to do: test perfect prediction
 */
 
 // PRELIMINARIES
 local mvmetadir c:\ian\git\mvmeta\
 cd "`mvmetadir'scripts"
 adopath ++ `mvmetadir'package
+set linesize 108
+forvalues i=1/5 {
+	cap erase z`i'.dta
+}
+cap erase c:\temp\z.dta
+
 cap log close
 log using "`mvmetadir'testlogs\mvmeta_make_cscript.log", replace
 
@@ -35,9 +40,9 @@ which mvmeta
 // SIMPLE DATA: COMPARE CLASSIC AND PREFIX SYNTAXES
 use mvmeta_make_testdata_reg, clear
 
-mvmeta_make reg y x if id>2 [aw=x^2], by(study) saving(z1) replace mse1 
+mvmeta_make reg y x if id>2 [aw=x^2], by(study) saving(z1) mse1 
 
-mvmeta_make, by(study) saving(z2) replace: reg y x if id>2 [aw=x^2], mse1
+mvmeta_make, by(study) saving(z2): reg y x if id>2 [aw=x^2], mse1
 * check ereturned results without clear
 assert e(sample) == id>2
 assert mi(e(N))
@@ -123,7 +128,7 @@ if c(stata_version)>=13 {
 use mvmeta_make_testdata_mixed, clear
 reg y x if id>2 & study==1 & time==1, mse1
 local varx=_se[x]^2
-mvmeta_make, by(study time) clear saving(c:\temp\z) replace: reg y x if id>2, mse1
+mvmeta_make, by(study time) clear saving(c:\temp\z): reg y x if id>2, mse1
 assert reldif(Sxx[1],`varx') < 1E-7
 
 

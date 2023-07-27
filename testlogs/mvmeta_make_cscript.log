@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  c:\ian\git\mvmeta\testlogs\mvmeta_make_cscript.log
   log type:  text
- opened on:  27 Jul 2023, 09:49:04
+ opened on:  27 Jul 2023, 19:13:39
 
 . 
 . version 12
@@ -14,7 +14,7 @@
 
 -> which mvmeta_make, usesysdir
 c:\ian\git\mvmeta\package\mvmeta_make.ado
-*! version 4.0.4 # Ian White # 27jul2023
+*! version 4.1 # Ian White # 27jul2023
 
 . prog drop _all
 
@@ -30,7 +30,7 @@ c:\ian\git\mvmeta\package\mvmeta_make.ado
 
 . which mvmeta_make
 c:\ian\git\mvmeta\package\mvmeta_make.ado
-*! version 4.0.4 # Ian White # 27jul2023
+*! version 4.1 # Ian White # 27jul2023
 
 . which mvmeta
 c:\ian\git\mvmeta\package\mvmeta.ado
@@ -42,7 +42,7 @@ c:\ian\git\mvmeta\package\mvmeta.ado
 . use mvmeta_make_testdata_reg, clear
 
 . 
-. mvmeta_make reg y x if id>2 [aw=x^2], by(study) saving(z1) replace mse1 
+. mvmeta_make reg y x if id>2 [aw=x^2], by(study) saving(z1) mse1 
 Classic (non-prefix) syntax detected
 Learning equation names...
 Using coefficients: x 
@@ -104,7 +104,7 @@ Using coefficients: x
 file z1.dta saved
 
 . 
-. mvmeta_make, by(study) saving(z2) replace: reg y x if id>2 [aw=x^2], mse1
+. mvmeta_make, by(study) saving(z2): reg y x if id>2 [aw=x^2], mse1
 Prefix syntax detected
 Learning equation names...
 Using coefficients: x 
@@ -200,11 +200,11 @@ Note: using variable yx
 Note: 3 observations on 1 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -2.4105812
-rescale:       log likelihood = -2.4105812
-rescale eq:    log likelihood = -2.4105812
-Iteration 0:   log likelihood = -2.4105812  
-Iteration 1:   log likelihood =  -2.409491  
+initial:       log likelihood = -2.4105811
+rescale:       log likelihood = -2.4105811
+rescale eq:    log likelihood = -2.4105811
+Iteration 0:   log likelihood = -2.4105811  
+Iteration 1:   log likelihood = -2.4094909  
 Iteration 2:   log likelihood = -2.4094884  
 Iteration 3:   log likelihood = -2.4094884  
 
@@ -222,7 +222,7 @@ Overall_mean |
 Estimated between-studies SDs and correlation matrix
 ----------------------------------------------------
            SD         yx
-yx  .61064754          1
+yx  .61064753          1
 ----------------------------------------------------
 
 . 
@@ -957,6 +957,7 @@ LR test vs. linear model: chibar2(01) = 0.23          Prob >= chibar2 = 0.3161
 .         local varx1=_se[x1]^2
 .         mvmeta_make, by(study) clear: mixed y time x1 x2 if id>2 || id:, reml
 Prefix syntax detected
+Warning: ppfix(check) has not been tested with mixed
 Learning equation names...
 Using coefficients: time x1 x2 
 
@@ -1111,12 +1112,10 @@ mvmeta_make results are now loaded into memory
 
 . local varx=_se[x]^2
 
-. mvmeta_make, by(study time) clear saving(c:\temp\z) replace: reg y x if id>2,
->  mse1
+. mvmeta_make, by(study time) clear saving(c:\temp\z): reg y x if id>2, mse1
 Prefix syntax detected
 Learning equation names...
 Using coefficients: x 
-(file c:\temp\z.dta not found)
 
 
 -> study==1 time==1
@@ -1918,5 +1917,5 @@ file z3.dta saved
       name:  <unnamed>
        log:  c:\ian\git\mvmeta\testlogs\mvmeta_make_cscript.log
   log type:  text
- closed on:  27 Jul 2023, 09:49:30
+ closed on:  27 Jul 2023, 19:13:50
 -------------------------------------------------------------------------------

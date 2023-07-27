@@ -1,5 +1,5 @@
 {smcl}
-{* *! v4.0.2 21apr2022}{...}
+{* *! v4.1 27jul2023}{...}
 {vieweralsosee "mvmeta (if installed)" "mvmeta"}{...}
 {viewerjumpto "Description" "mvmeta_make##description"}{...}
 {viewerjumpto "Syntax" "mvmeta_make##syntax"}{...}
@@ -194,7 +194,8 @@ only in studies where it is detected (the default), or in all studies.
 {phang}
 {cmdab:aug:wt(}{it:#}{cmd:)} determines the weight applied to added observations 
 in a study in which perfect prediction is detected (see Perfect Prediction below).
-The default is 0.01.
+The value is the total weight per variable in the regression model.
+The default is 0.0001.
 {cmd:augwt(0)} is the same as {cmd:ppfix(none)} 
 and specifies that no augmentation is to be performed.
 
