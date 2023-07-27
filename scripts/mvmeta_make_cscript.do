@@ -1,5 +1,6 @@
 /*
 mvmeta_make_cscript.do: MAIN TEST SCRIPT FOR MVMETA_MAKE
+27jul2023: added test of filepath in saving()
 21apr2022: added checks of ereturned results
 7apr2022: renamed mvmeta_make_cscript and automated log
 5apr2022: add tests of usevars, usecoefs, esave
@@ -11,7 +12,7 @@ Still to do: test perfect prediction
 */
 
 // PRELIMINARIES
-local mvmetadir c:\ado\ian\mvmeta\
+local mvmetadir c:\ian\git\mvmeta\
 cd "`mvmetadir'scripts"
 adopath ++ `mvmetadir'package
 cap log close
@@ -19,12 +20,13 @@ log using "`mvmetadir'testlogs\mvmeta_make_cscript.log", replace
 
 version 12
 if c(stata_version)>=13 cls
-cscript mvmeta
+cscript adofile mvmeta_make
 prog drop _all
 set more off
 set trace off
 
-// VERSION NUMBERS
+
+// VIEW VERSION NUMBERS
 di c(stata_version)
 which mvmeta_make
 which mvmeta
@@ -103,6 +105,7 @@ cap noi mvmeta_make, by(study) clear cons: mi estimate, post: reg y x, robust co
 mvmeta_make, by(study) clear usecons details: mi estimate, post: reg y x if id>2, robust coefl
 assert reldif(Sxx[1],`varx') < 1E-7
 
+
 // MIXED MODEL: CHECK COMPLEX PREFIX SYNTAX
 * mixed was new in Stata 13
 if c(stata_version)>=13 {
@@ -120,7 +123,7 @@ if c(stata_version)>=13 {
 use mvmeta_make_testdata_mixed, clear
 reg y x if id>2 & study==1 & time==1, mse1
 local varx=_se[x]^2
-mvmeta_make, by(study time) clear: reg y x if id>2, mse1
+mvmeta_make, by(study time) clear saving(c:\temp\z) replace: reg y x if id>2, mse1
 assert reldif(Sxx[1],`varx') < 1E-7
 
 
@@ -193,8 +196,10 @@ assert reldif(yage,`bage')<1E-7 if female=="F"
 
 // TIDY UP
 forvalues i=1/5 {
-	cap erase z`i'.dta
+	erase z`i'.dta
 }
+erase c:\temp\z.dta
+
 
 // REPORT SUCCESS
 di as result _n "********************************************" ///

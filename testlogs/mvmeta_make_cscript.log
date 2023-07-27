@@ -1,16 +1,20 @@
-------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  c:\ado\ian\mvmeta\testlogs\mvmeta_make_cscript.log
+       log:  c:\ian\git\mvmeta\testlogs\mvmeta_make_cscript.log
   log type:  text
- opened on:  21 Apr 2022, 18:48:04
+ opened on:  27 Jul 2023, 09:49:04
 
 . 
 . version 12
 
 . if c(stata_version)>=13 cls
 
-. cscript mvmeta
--------------------------------------------------------------------BEGIN mvmeta
+. cscript adofile mvmeta_make
+-------------------------------------------------------------------------BEGIN 
+
+-> which mvmeta_make, usesysdir
+c:\ian\git\mvmeta\package\mvmeta_make.ado
+*! version 4.0.4 # Ian White # 27jul2023
 
 . prog drop _all
 
@@ -19,17 +23,18 @@
 . set trace off
 
 . 
-. // VERSION NUMBERS
+. 
+. // VIEW VERSION NUMBERS
 . di c(stata_version)
 17
 
 . which mvmeta_make
-c:\ado\ian\mvmeta\package\mvmeta_make.ado
-*! version 4.0 # Ian White # 07apr2022
+c:\ian\git\mvmeta\package\mvmeta_make.ado
+*! version 4.0.4 # Ian White # 27jul2023
 
 . which mvmeta
-c:\ado\ian\mvmeta\package\mvmeta.ado
-*! version 4.0.2 # Ian White # 08apr2022
+c:\ian\git\mvmeta\package\mvmeta.ado
+*! version 4.0.2 # Ian White # 21apr2022
 
 . 
 . 
@@ -41,7 +46,6 @@ c:\ado\ian\mvmeta\package\mvmeta.ado
 Classic (non-prefix) syntax detected
 Learning equation names...
 Using coefficients: x 
-(file z1.dta not found)
 
 
 -> study==1
@@ -104,7 +108,6 @@ file z1.dta saved
 Prefix syntax detected
 Learning equation names...
 Using coefficients: x 
-(file z2.dta not found)
 
 
 -> study==1
@@ -826,7 +829,6 @@ Within VCE type:       Robust                   Prob > F          =     0.0931
 . cap noi mvmeta_make, by(study) clear cons: mi estimate, post: reg y x, robust
 >  coefl
 Prefix syntax detected
-Probable syntax error: multiple commas found
 option cons not allowed
 
 . * error: option cons not allowed
@@ -834,7 +836,6 @@ option cons not allowed
 . mvmeta_make, by(study) clear usecons details: mi estimate, post: reg y x if i
 > d>2, robust coefl
 Prefix syntax detected
-Probable syntax error: multiple commas found
 Robust standard error requested - ppfix set to none
 Learning equation names...
 Using coefficients: x _cons 
@@ -906,6 +907,7 @@ mvmeta_make results are now loaded into memory
 
 . assert reldif(Sxx[1],`varx') < 1E-7
 
+. 
 . 
 . // MIXED MODEL: CHECK COMPLEX PREFIX SYNTAX
 . * mixed was new in Stata 13
@@ -1109,10 +1111,12 @@ mvmeta_make results are now loaded into memory
 
 . local varx=_se[x]^2
 
-. mvmeta_make, by(study time) clear: reg y x if id>2, mse1
+. mvmeta_make, by(study time) clear saving(c:\temp\z) replace: reg y x if id>2,
+>  mse1
 Prefix syntax detected
 Learning equation names...
 Using coefficients: x 
+(file c:\temp\z.dta not found)
 
 
 -> study==1 time==1
@@ -1216,7 +1220,8 @@ Using coefficients: x
        _cons |   3.381066   .1012355    33.40   0.000     3.180168    3.581965
 ------------------------------------------------------------------------------
 
-mvmeta_make results are now loaded into memory
+file c:\temp\z.dta saved
+mvmeta_make results are also loaded into memory
 
 . assert reldif(Sxx[1],`varx') < 1E-7
 
@@ -1768,7 +1773,6 @@ file z1.dta saved
 . mvmeta_make, by(female) saving(z2) replace: mi estimate, post: logit attack s
 > mokes age
 Prefix syntax detected
-file C:\Users\rmjwiww\AppData\Local\Temp\ST_4cec_000001.tmp saved
 Learning equation names...
 Using coefficients: smokes age 
 
@@ -1892,9 +1896,12 @@ file z3.dta saved
 . 
 . // TIDY UP
 . forvalues i=1/5 {
-  2.         cap erase z`i'.dta
+  2.         erase z`i'.dta
   3. }
 
+. erase c:\temp\z.dta
+
+. 
 . 
 . // REPORT SUCCESS
 . di as result _n "********************************************" ///
@@ -1909,7 +1916,7 @@ file z3.dta saved
 . 
 . log close
       name:  <unnamed>
-       log:  c:\ado\ian\mvmeta\testlogs\mvmeta_make_cscript.log
+       log:  c:\ian\git\mvmeta\testlogs\mvmeta_make_cscript.log
   log type:  text
- closed on:  21 Apr 2022, 18:48:15
+ closed on:  27 Jul 2023, 09:49:30
 -------------------------------------------------------------------------------
