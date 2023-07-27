@@ -10,6 +10,8 @@ Date: 7apr2022
 
 This package includes the mvmeta_make command which prepares data for mvmeta.
 
+mvmeta_make version: 4.1, date 27jul2023
+
 ## What's new in version 4
 mvmeta_make: 
 - a prefix syntax makes the command work with complex Stata commands such as mixed and mi estimate 
