@@ -1,5 +1,8 @@
 /********************************************************************* 
-*! version 4.0.3 # Ian White # 12jul2022
+*! version 4.0.4 # Ian White # 27jul2023
+	bind option on gettoken avoids error when saving() includes a filepath
+	suppress unwanted output with labelled by() var
+version 4.0.3 # Ian White # 12jul2022
 	multiple commas warning only printed for classic syntax
 version 4.0.2 # Ian White # 21apr2022
 	last regression doesn't contaminate ereturn-ed values
@@ -181,7 +184,7 @@ if "`syntype'"=="classic" {
 
 * PARSE PREFIX SYNTAX
 else {
-	gettoken prefixpart anything : 0, parse(":")
+	gettoken prefixpart anything : 0, parse(":") bind
 	local anything = trim(subinstr("`anything'",":","",1))
 	
 	* parse the mvmeta_make options
@@ -192,7 +195,7 @@ else {
 	local prefixcmds bootstrap jackknife permute "mi estimate" 
 	while inlist(word("`anything'",1), "bootstrap", "jackknife", "permute", "mi") { 
 		// while a prefix command is detected
-		gettoken one anything : anything, parse(":")
+		gettoken one anything : anything, parse(":") bind
 		local prefix `prefix' `one':
 		local anything: subinstr local anything ":" ""
 	}
@@ -401,7 +404,7 @@ foreach byvar of local byvarlist {
 }
 if !mi("`labels2save'") {
     tempfile labelsfile
-    label save `labels2save' using `labelsfile'
+    qui label save `labels2save' using `labelsfile'
 }
 
 *********************** SORT OUT USEVARS ***********************
