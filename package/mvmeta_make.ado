@@ -166,7 +166,6 @@ local cmdoptions STrata(passthru) noCONstant coef or nohr  /// command options r
 * if first character after mvmeta_make is "," then we have prefix syntax, otherwise we have classic syntax
 if substr("`0'",1,1)=="," {
 	local syntype prefix
-	di as text "Prefix syntax detected"
 }
 else if substr("`0'",1,1)==" " {
 	di as text "Program error"
@@ -174,7 +173,6 @@ else if substr("`0'",1,1)==" " {
 }
 else {
 	local syntype classic
-	di as text "Classic (non-prefix) syntax detected"
 }
 
 * PARSE CLASSIC (NON-PREFIX) SYNTAX
@@ -222,7 +220,7 @@ _parse comma lhs rhs : postfix
 if mi("`rhs'") local postfix `postfix',
 
 if !mi("`debug'") {
-	di as input "Initial results of parsing:"
+	di as input "Initial results of parsing in `syntype' syntax:"
 	foreach thing in prefix anything by if in weight postfix options {
 		di as text _col(5) "`thing'" as result _col(16) "``thing''"
 	}	
@@ -305,10 +303,12 @@ if !mi("`robust'`cluster'") | "`weight'"=="pweight" { // Robust SE
 if inlist("`regcmd'","regress","mvreg","mixed","xtmixed") {
 	local ycts ycts // augment y as continuous variable
 }
-if "`ppfix'"=="" local ppfix check
-if inlist("`regcmd'","mvreg","mixed","xtmixed") & !inlist("`ppfix'","","none") {
-	di as error "Warning: ppfix(`ppfix') has not been tested with `regcmd'"
+if inlist("`regcmd'","mvreg","mixed","xtmixed") {
+	if !inlist("`ppfix'","","none") di as error "ppfix(`ppfix') changed to ppfix(none): augmentation does not work with `regcmd'"
+	* this is because these commands don't allow iweights
+	local ppfix none
 }
+if "`ppfix'"=="" local ppfix check
 if !inlist("`ppfix'","none","check","all") {
     di as error `"Please specify ppfix(none|check|all)"'
     exit 198
@@ -1118,12 +1118,12 @@ else {
     * larger matrix
     forvalues r=1/`dim' {
         if `anything'[`r',`r']<=0 {
-			di as error: `"varcheck: `anything' has variance<=0"'
+			di as error `"varcheck: `anything' has variance<=0"'
 			exit 498 
 		}
         forvalues s=1/`dim' {
             if (`anything'[`r',`s'])^2>`anything'[`r',`r']*`anything'[`s',`s'] {
-				di as error: `"varcheck: `anything' has correlation outside [-1,1]"'
+				di as error `"varcheck: `anything' has correlation outside [-1,1]"'
 				exit 498 
 			}
         }
