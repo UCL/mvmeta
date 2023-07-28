@@ -3,6 +3,34 @@ mvmeta_make_cscript_more.do
 IW 27jul2023
 */
 
+// PRELIMINARIES
+local mvmetadir c:\ian\git\mvmeta\
+cd "`mvmetadir'scripts"
+adopath ++ `mvmetadir'package
+set linesize 100
+forvalues i=1/5 {
+	cap erase z`i'.dta
+}
+cap erase c:\temp\z.dta
+
+cap log close
+log using "`mvmetadir'testlogs\mvmeta_make_cscript_more.log", replace
+
+version 16
+if c(stata_version)>=13 cls
+cscript adofile mvmeta_make
+prog drop _all
+set more off
+set trace off
+
+
+// VIEW VERSION NUMBERS
+di c(stata_version)
+which mvmeta_make
+which mvmeta
+
+
+// START TESTING
 foreach model in "logit hisbpl" "regress sbpl" {
 	* load data
 	use "N:\Home\meta\Interactions\deft_subgps\metadeft\problem jul 23\David hypothetical data (2)", clear
@@ -35,7 +63,7 @@ foreach model in "logit hisbpl" "regress sbpl" {
 	assert nmiss==0
 	mvmeta y S, fixed
 	di as text _n "Relative error is " as result mreldif(V1,e(V))
-	assert mreldif(V1,e(V))<1E-5
+	assert mreldif(V1,e(V))<1E-5 // NB this syntax requires Stata version >= 16
 
 	use z3, clear
 	egen nmiss = rowmiss(y* S*)
