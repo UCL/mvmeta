@@ -1,7 +1,17 @@
 /********************************************************************* 
-*! version 4.0.4 # Ian White # 27jul2023
-	bind option on gettoken avoids error when saving() includes a filepath
-	suppress unwanted output with labelled by() var
+*! version 4.1 # Ian White # 27jul2023
+	mvmeta_make now posts doubles. 
+		This makes it possible to reduce augwt() without introducing error. 
+		Different methods for estimating subgroup-specific treatment effects 
+		now agree very well for augwt<=0.001, which they didn't before.
+		Default reduced from augwt(0.01) to augwt(0.0001).
+	augmentation now allowed with regress
+	bugs fixed:
+		error when saving() includes a filepath (used bind option on gettoken)
+		model-omitted coefficients were retained in b but dropped from V (matdropo rewritten)
+	output improved
+		some missing output corrected
+		suppress unwanted output with labelled by() var
 version 4.0.3 # Ian White # 12jul2022
 	multiple commas warning only printed for classic syntax
 version 4.0.2 # Ian White # 21apr2022
@@ -130,24 +140,18 @@ version 0.2  28jun2007
     handle clogit row/colnames: e(b), e(V) labelled y:x1, y:x2 etc. instead of x1, x2 etc.;
     append option; 
     if/in bug removed
-
-Ideas: make it a prefix command?
-    would still need to use weights, strata from main command
-    
-PROBLEMS:
-    if y is string, -mvmeta_make logit y x, ...- doesn't fail! (just creates empty data)
 *********************************************************************/
 
 prog def mvmeta_make, eclass
 version 11
-
+ereturn hidden local mvmeta_make_version 4.1
 local mvoptions ///
 	SAVing(string) replace append clear /// save-file options
 	USEVars(varlist) USEConstant USEEqs(string) LEARNif(string) /// what results are stored
 	USECOEfs(string) esave(string) counts(string) COLLapse(string) /// what results are stored
     NAMEs(namelist min=2 max=2) infix(string) LONGnames keepmat /// how results are stored
     noDETails pause /// output 
-    PPFix(string) AUGwt(real 0.01) noAUGList PPCmd(string) /// perfect prediction behaviour 
+    PPFix(string) AUGwt(real 0.0001) noAUGList PPCmd(string) /// perfect prediction behaviour 
     hard /// estimation
     debug dryrun rsave(string) countby(varname) // undocumented options
 
@@ -159,7 +163,6 @@ local cmdoptions STrata(passthru) noCONstant coef or nohr  /// command options r
 * if first character after mvmeta_make is "," then we have prefix syntax, otherwise we have classic syntax
 if substr("`0'",1,1)=="," {
 	local syntype prefix
-	di as text "Prefix syntax detected"
 }
 else if substr("`0'",1,1)==" " {
 	di as text "Program error"
@@ -167,7 +170,6 @@ else if substr("`0'",1,1)==" " {
 }
 else {
 	local syntype classic
-	di as text "Classic (non-prefix) syntax detected"
 }
 
 * PARSE CLASSIC (NON-PREFIX) SYNTAX
@@ -215,7 +217,7 @@ _parse comma lhs rhs : postfix
 if mi("`rhs'") local postfix `postfix',
 
 if !mi("`debug'") {
-	di as input "Initial results of parsing:"
+	di as input "Initial results of parsing in `syntype' syntax:"
 	foreach thing in prefix anything by if in weight postfix options {
 		di as text _col(5) "`thing'" as result _col(16) "``thing''"
 	}	
@@ -228,6 +230,7 @@ local options `options' `robust' `cluster' `baseoutcome'
 * Find yvar and xvarlist
 gettoken regcmd regbody : anything, parse(" ")
 unabcmd `regcmd'
+local regcmd = r(cmd)
 local anything `prefix' `anything'
 if substr("`regcmd'",1,2)=="st" local xvarlist `regbody'
 else if "`regcmd'"=="mvreg" {
@@ -295,7 +298,11 @@ if !mi("`robust'`cluster'") | "`weight'"=="pweight" { // Robust SE
     }
 }
 if inlist("`regcmd'","regress","mvreg","mixed","xtmixed") {
-	if !inlist("`ppfix'","","none") di as error "ppfix(`ppfix') not available with `regcmd'"
+	local ycts ycts // augment y as continuous variable
+}
+if inlist("`regcmd'","mvreg","mixed","xtmixed") {
+	if !inlist("`ppfix'","","none") di as error "ppfix(`ppfix') changed to ppfix(none): augmentation does not work with `regcmd'"
+	* this is because these commands don't allow iweights
 	local ppfix none
 }
 if "`ppfix'"=="" local ppfix check
@@ -392,7 +399,7 @@ foreach byvar of local byvarlist {
     cap confirm string var `byvar'
     if _rc==0 { // string variables: find length
         tempvar length
-        gen `length'=length(`byvar')
+        gen int `length'=length(`byvar')
         summ `length', meanonly
         local bypost `bypost' str`=r(max)'
     }
@@ -576,8 +583,8 @@ if "`append'"=="append" {
     tempfile postfile
 }
 else local postfile `saving'
-postfile `post' `bypost' `bvars' `Svars' `evars' `rvars' `counts' `countsby' ///
-	_ppfixed _ppremains using "`postfile'", `replace'
+postfile `post' `bypost' double(`bvars' `Svars') `evars' `rvars' `counts' `countsby' ///
+	byte(_ppfixed _ppremains) using "`postfile'", `replace'
 
 if !mi("`debug'") {
     foreach thing in bvars Svars evars rvars counts {
@@ -590,8 +597,8 @@ if !mi("`debug'") {
 if !mi("`debug'") di as input `"Basic command is: `anything' `if' `in' `wtexp' `postfix' `strata' `constant' `eformopts' `options'"'
 
 tempvar esample individual
-gen `esample' = 0
-gen `individual' = _n
+gen byte `esample' = 0
+gen int `individual' = _n
 foreach level of local byvarnamelevels {
     `qui' di _newline
     if !mi("`debug'") di as input `"level `level'"'
@@ -656,6 +663,7 @@ foreach level of local byvarnamelevels {
                     }
                 }
             }
+			if "`regcmd'"=="regress" local df_r_orig = e(df_r)
         }
         else if `pptofix'==1 {            // WITH FIXING PP
 			if "`ppcmd'"!="" {
@@ -672,7 +680,7 @@ foreach level of local byvarnamelevels {
                 if "`regcmd'"=="clogit" local groupvar groupvar(`e(group)')
                 `qui' _augment if `touse' `wtexp', `list' `st' xvarlist(`xvarlist') ///
 					yvar(`yvar') subgroup(`byvarname'==`levelvalue') timesweight(`augwt') ///
-					wtvar(`wtvar') augvar(`augvar') `strata' `groupvar' `constant'
+					wtvar(`wtvar') augvar(`augvar') `strata' `groupvar' `constant' `ycts'
 				local wtexp2 [iweight=`wtvar']
                 if "`st'"=="st" {
                     qui stset _t _d if _st `wtexp2', time0(_t0)
@@ -685,7 +693,14 @@ foreach level of local byvarnamelevels {
         }
         if `regrc'==0 {
             mat `ymat'`level'=e(b)
-            mat `Smat'`level'=e(V)
+			if "`regcmd'"=="regress" & !mi("`df_r_orig'") {
+				local varscale = e(df_r) / `df_r_orig'
+				// regression variance is best calculated as RSS/RDF where RDF is from *unaugmented* regression
+			}
+			else local varscale 1
+			if `varscale'!=1 & !mi("`debug'") di as text "Scaling variance by ratio of residual df: " as result "`e(df_r)' / `df_r_orig'"
+            mat `Smat'`level'=`varscale'*e(V)
+
             if !mi("`debug'") {
                mat l `ymat'`level', title(e(b) for study `level')
                mat l `Smat'`level', title(e(V) for study `level')
@@ -694,6 +709,7 @@ foreach level of local byvarnamelevels {
 /*
 			*** change 20jan2022: reduce to the required matrix before checking for PP
 			* fails with logit - need to add the equation names to `row', `col'
+			* MISGUIDED since failure to estimate one coefficient casts otehrs in doubt
 			tempname SS
 			mat `SS'=J(`p',`p',.)
 			forvalues r=1/`p' {
@@ -706,7 +722,8 @@ foreach level of local byvarnamelevels {
 			if !mi("`debug'") mat l `SS', title("Variance matrix being checked")
             cap varcheck `SS', check(pd)
 */
-            cap varcheck `Smat'`level', check(pd)
+            matdropo `ymat'`level' `ymat'`level'
+			cap varcheck `Smat'`level', check(pd)
             if _rc {
                 `qui' di 
                 di as error `"`bydesc': perfect prediction or inestimable parameter"' 
@@ -742,8 +759,13 @@ foreach level of local byvarnamelevels {
         if "`ppfix'"=="all" | "`ppfix'"=="none" | `ppfound'==0 continue, break
         if `pass'==0 local pptofix `ppfound'
     }
-    if !mi("`debug'") di as input "Estimation completed for study `levelvalue'"
-	
+    if !mi("`debug'") di as input `"Estimation completed for study `levelvalue'"'
+
+if !mi("`debug'") {
+   mat l `ymat'`level', title(Ready to post: e(b) for study `level')
+   mat l `Smat'`level', title(Ready to post: e(V) for study `level')
+}
+
     * POST THE RESULTS 
     local blist
     local Slist
@@ -763,11 +785,11 @@ foreach level of local byvarnamelevels {
 			   local Svalue = `onevalue'[1,1]
 			}
 			else {
-			   di as error `"`bydesc': missing `S'`coefname`i'`coefname`j''"'
+			   di as error `"`bydesc': missing `S'`coefname`i''`coefname`j''"'
 			   local Svalue .
 			}
 			if `i'==`j' & `Svalue' == 0 {
-			   di as error `"`bydesc': missing `S'`coefname`i'`coefname`j''"'
+			   di as error `"`bydesc': missing `S'`coefname`i''`coefname`j''"'
 			   local Svalue .
 			}
 			local Slist `Slist' (`Svalue')
@@ -799,7 +821,7 @@ foreach level of local byvarnamelevels {
         }
         else if "`count'"==substr("subjects",1,length("`count'")) {
             tempvar isin 
-            gen `isin' = e(sample)
+            gen byte `isin' = e(sample)
             if "`regcmd'"=="stcox" { // identify unique obs per id
                 local id : char _dta[st_id]
                 if "`id'"!="" {
@@ -911,7 +933,7 @@ version 11
 syntax [if] [in] [fweight aweight pweight iweight], ///
 	xvarlist(varlist) subgroup(string) ///
 	[yvar(varlist) TOTALweight(real 0) TIMESweight(real 0) noPREServe list ///
-	wtvar(string) augvar(string) noequal st strata(varlist) ///
+	wtvar(string) augvar(string) noequal st ycts strata(varlist) ///
 	noconstant groupvar(string)]
 
 if mi("`yvar'`st'") {
@@ -923,15 +945,26 @@ if "`augvar'"=="" local augvar _augment
 confirm new var `wtvar' `augvar'
 
 tempvar augment wt
-if "`weight'"!="" gen `wt' `exp'
-else gen `wt' = 1
+if "`weight'"!="" gen float `wt' `exp'
+else gen float `wt' = 1
 
 marksample touseall
 tempvar touse
-gen `touse' = `touseall' & (`subgroup')
+gen byte `touse' = `touseall' & (`subgroup')
 
 // Sort out some locals
-if "`st'"=="" {
+if "`ycts'"=="ycts" {
+	qui summ `yvar'
+	if r(sd)<=0 {
+		di as error "Error in _augment: `yvar' does not vary"
+		exit 498
+	}
+	local ylow = r(mean)-r(sd)
+	local yupp = r(mean)+r(sd)
+	local nylevels 2
+	local ylevels `ylow' `yupp'	
+}
+else if "`st'"=="" {
     qui levelsof `yvar' if `touseall', local(ylevels) // NB and not if `subgroup'
     qui tab `yvar' if `touseall' [iw=`wt']
     local nylevels = r(r)
@@ -974,7 +1007,7 @@ di as text "with total weight " as result `totalweight'
 
 qui {
     set obs `Nnew'
-    gen `augment' = _n>`Nold'
+    gen byte `augment' = _n>`Nold'
     local thisobs `Nold'
     // Handle groupvar - intended for clogit
     if "`groupvar'"!="" {
@@ -988,6 +1021,9 @@ qui {
        if r(sd)==0 {
           * No variation in this cohort: use SD across all cohorts
           sum `x' [iw=`wt'] if !`augment'
+       }
+       if r(sd)==0 {
+          di as error "_augment: no variation in `x' found, even across all cohorts"
        }
        local mean = r(mean)
        local sd = r(sd)*sqrt((r(sum_w)-1)/r(sum_w))
@@ -1080,12 +1116,12 @@ else {
     * larger matrix
     forvalues r=1/`dim' {
         if `anything'[`r',`r']<=0 {
-			di as error: `"varcheck: `anything' has variance<=0"'
+			di as error `"varcheck: `anything' has variance<=0"'
 			exit 498 
 		}
         forvalues s=1/`dim' {
             if (`anything'[`r',`s'])^2>`anything'[`r',`r']*`anything'[`s',`s'] {
-				di as error: `"varcheck: `anything' has correlation outside [-1,1]"'
+				di as error `"varcheck: `anything' has correlation outside [-1,1]"'
 				exit 498 
 			}
         }
@@ -1113,35 +1149,35 @@ else if "`check'"=="pd" {
 end
 
 
-prog def matpart
-args matin matselect matout 
-* selects submatrix of matin indicated by matselect and stores it in matout
-mata {
-	sel=st_matrix("`matselect'")
-	matin=st_matrix("`matin'")
-	matout=select(select(matin,sel),sel')
-	st_matrix("`matout'",matout)
-}
-end
-
 prog def matdropo
 args matin matout 
 * selects submatrix of matin whose rownames don't start "o." and stores it in matout
-local rowfullnames : rowfullnames `matin'
-tempname select
-foreach rowfullname of local rowfullnames {
-	if strpos("`rowfullname'",":") {
-		gettoken roweq rowname : rowfullname, parse(":")
-		local rowname : subinstr local rowname ":" ""
+foreach rowcol in row col {
+	local `rowcol'fullnames : `rowcol'fullnames `matin'
+	tempname `rowcol'select
+	foreach `rowcol'fullname of local `rowcol'fullnames {
+		if strpos("``rowcol'fullname'",":") {
+			gettoken `rowcol'eq `rowcol'name : `rowcol'fullname, parse(":")
+			local `rowcol'name : subinstr local `rowcol'name ":" ""
+		}
+		else local `rowcol'name ``rowcol'fullname'
+		local ok = strpos("``rowcol'name'","o.")!=1
+		mat ``rowcol'select' = nullmat(``rowcol'select'),(`ok')
+		if `ok' local new`rowcol'fullnames `new`rowcol'fullnames' ``rowcol'fullname'
 	}
-	local ok = strpos("`rowname'","o.")!=1
-	mat `select' = nullmat(`select'),(`ok')
-	if `ok' local newrowfullnames `newrowfullnames' `rowfullname'
 }
-matpart `matin' `select' `matout'
+mata {
+	rowselect=st_matrix("`rowselect'")
+	colselect=st_matrix("`colselect'")
+	matin=st_matrix("`matin'")
+	matout=select(matin,rowselect')
+	matout=select(matout,colselect)
+	st_matrix("`matout'",matout)
+}
 mat rownames `matout' = `newrowfullnames'
-mat colnames `matout' = `newrowfullnames'
+mat colnames `matout' = `newcolfullnames'
 end
+
 
 prog def dicmd
 noi di as input `"`0'"'

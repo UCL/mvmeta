@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  c:\ian\git\mvmeta\testlogs\mvmeta_make_cscript.log
   log type:  text
- opened on:  27 Jul 2023, 09:49:04
+ opened on:  28 Jul 2023, 17:40:20
 
 . 
 . version 12
@@ -14,7 +14,7 @@
 
 -> which mvmeta_make, usesysdir
 c:\ian\git\mvmeta\package\mvmeta_make.ado
-*! version 4.0.4 # Ian White # 27jul2023
+*! version 4.1 # Ian White # 27jul2023
 
 . prog drop _all
 
@@ -30,7 +30,7 @@ c:\ian\git\mvmeta\package\mvmeta_make.ado
 
 . which mvmeta_make
 c:\ian\git\mvmeta\package\mvmeta_make.ado
-*! version 4.0.4 # Ian White # 27jul2023
+*! version 4.1 # Ian White # 27jul2023
 
 . which mvmeta
 c:\ian\git\mvmeta\package\mvmeta.ado
@@ -42,8 +42,7 @@ c:\ian\git\mvmeta\package\mvmeta.ado
 . use mvmeta_make_testdata_reg, clear
 
 . 
-. mvmeta_make reg y x if id>2 [aw=x^2], by(study) saving(z1) replace mse1 
-Classic (non-prefix) syntax detected
+. mvmeta_make reg y x if id>2 [aw=x^2], by(study) saving(z1) mse1 
 Learning equation names...
 Using coefficients: x 
 
@@ -104,8 +103,7 @@ Using coefficients: x
 file z1.dta saved
 
 . 
-. mvmeta_make, by(study) saving(z2) replace: reg y x if id>2 [aw=x^2], mse1
-Prefix syntax detected
+. mvmeta_make, by(study) saving(z2): reg y x if id>2 [aw=x^2], mse1
 Learning equation names...
 Using coefficients: x 
 
@@ -174,7 +172,6 @@ file z2.dta saved
 
 . 
 . mvmeta_make reg y x if id>2 [aw=x^2], by(study) clear mse1 nodetails
-Classic (non-prefix) syntax detected
 Learning equation names...
 Using coefficients: x 
 -> study==1
@@ -200,11 +197,11 @@ Note: using variable yx
 Note: 3 observations on 1 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -2.4105812
-rescale:       log likelihood = -2.4105812
-rescale eq:    log likelihood = -2.4105812
-Iteration 0:   log likelihood = -2.4105812  
-Iteration 1:   log likelihood =  -2.409491  
+initial:       log likelihood = -2.4105811
+rescale:       log likelihood = -2.4105811
+rescale eq:    log likelihood = -2.4105811
+Iteration 0:   log likelihood = -2.4105811  
+Iteration 1:   log likelihood = -2.4094909  
 Iteration 2:   log likelihood = -2.4094884  
 Iteration 3:   log likelihood = -2.4094884  
 
@@ -222,7 +219,7 @@ Overall_mean |
 Estimated between-studies SDs and correlation matrix
 ----------------------------------------------------
            SD         yx
-yx  .61064754          1
+yx  .61064753          1
 ----------------------------------------------------
 
 . 
@@ -231,7 +228,6 @@ yx  .61064754          1
 . use mvmeta_make_testdata_reg, clear
 
 . mvmeta_make reg y x if id>2 [aw=x^2], by(study) clear replace mse1 usevars(x)
-Classic (non-prefix) syntax detected
 replace ignored without saving()
 Learning equation names...
 Using coefficients: x 
@@ -299,7 +295,6 @@ mvmeta_make results are now loaded into memory
 
 . mvmeta_make reg y x if id>2 [aw=x^2], by(study) clear replace mse1 usecoefs(x
 > )
-Classic (non-prefix) syntax detected
 replace ignored without saving()
 Using coefficients: x 
 
@@ -365,7 +360,6 @@ mvmeta_make results are now loaded into memory
 . use mvmeta_make_testdata_reg, clear
 
 . mvmeta_make reg y x if id>2 [aw=x^2], by(study) clear replace mse1 usecons
-Classic (non-prefix) syntax detected
 replace ignored without saving()
 Learning equation names...
 Using coefficients: x _cons 
@@ -440,7 +434,6 @@ mvmeta_make results are now loaded into memory
 
 . mvmeta_make reg y x if id>2 [aw=x^2], by(study) clear replace mse1 esave(N ll
 > )
-Classic (non-prefix) syntax detected
 replace ignored without saving()
 Learning equation names...
 Using coefficients: x 
@@ -515,7 +508,6 @@ mvmeta_make results are now loaded into memory
 . use mvmeta_make_testdata_reg, clear
 
 . mvmeta_make mlogit yg x if id>2, by(study) saving(z3) replace baseoutcome(0)
-Classic (non-prefix) syntax detected
 Learning equation names...
 Using coefficients: [1]x [2]x 
 (file z3.dta not found)
@@ -606,7 +598,6 @@ file z3.dta saved
 
 . mvmeta_make mlogit yg x if id>2, by(study) saving(z4) replace baseoutcome(0) 
 > usecoefs([1]x [2]x)
-Classic (non-prefix) syntax detected
 Using coefficients: [1]x [2]x 
 (file z4.dta not found)
 
@@ -696,7 +687,6 @@ file z4.dta saved
 
 . mvmeta_make mlogit yg x if id>2, by(study) saving(z5) replace baseoutcome(0) 
 > usecoefs([1]x [2]x [2]_cons)
-Classic (non-prefix) syntax detected
 Using coefficients: [1]x [2]x [2]_cons 
 (file z5.dta not found)
 
@@ -828,14 +818,12 @@ Within VCE type:       Robust                   Prob > F          =     0.0931
 . 
 . cap noi mvmeta_make, by(study) clear cons: mi estimate, post: reg y x, robust
 >  coefl
-Prefix syntax detected
 option cons not allowed
 
 . * error: option cons not allowed
 . 
 . mvmeta_make, by(study) clear usecons details: mi estimate, post: reg y x if i
 > d>2, robust coefl
-Prefix syntax detected
 Robust standard error requested - ppfix set to none
 Learning equation names...
 Using coefficients: x _cons 
@@ -956,7 +944,6 @@ id: Identity                 |
 LR test vs. linear model: chibar2(01) = 0.23          Prob >= chibar2 = 0.3161
 .         local varx1=_se[x1]^2
 .         mvmeta_make, by(study) clear: mixed y time x1 x2 if id>2 || id:, reml
-Prefix syntax detected
 Learning equation names...
 Using coefficients: time x1 x2 
 
@@ -1111,12 +1098,9 @@ mvmeta_make results are now loaded into memory
 
 . local varx=_se[x]^2
 
-. mvmeta_make, by(study time) clear saving(c:\temp\z) replace: reg y x if id>2,
->  mse1
-Prefix syntax detected
+. mvmeta_make, by(study time) clear saving(c:\temp\z): reg y x if id>2, mse1
 Learning equation names...
 Using coefficients: x 
-(file c:\temp\z.dta not found)
 
 
 -> study==1 time==1
@@ -1284,7 +1268,6 @@ Log likelihood = -116.56305                             Prob > chi2   = 0.0000
 . local py0 = r(sum)
 
 . mvmeta_make stcox z x if id>2, by(study) saving(z1) replace 
-Classic (non-prefix) syntax detected
 Learning equation names...
 Using coefficients: z x 
 
@@ -1376,7 +1359,6 @@ Log likelihood = -162.60463                             Prob > chi2   = 0.0000
 file z1.dta saved
 
 . mvmeta_make, by(study) saving(z2) replace : stcox z x if id>2
-Prefix syntax detected
 Learning equation names...
 Using coefficients: z x 
 
@@ -1468,7 +1450,6 @@ Log likelihood = -162.60463                             Prob > chi2   = 0.0000
 file z2.dta saved
 
 . mvmeta_make, by(study) saving(z3) replace countby(z): stcox z x if id>2
-Prefix syntax detected
 Learning equation names...
 Using coefficients: z x 
 
@@ -1560,7 +1541,6 @@ Log likelihood = -162.60463                             Prob > chi2   = 0.0000
 file z3.dta saved
 
 . mvmeta_make, by(study) saving(z4) replace counts(r s f): stcox z x if id>2
-Prefix syntax detected
 Learning equation names...
 Using coefficients: z x 
 
@@ -1717,7 +1697,6 @@ Within VCE type:          OIM                   Prob > F          =     0.1621
 . * study as numeric
 . mvmeta_make, by(female) saving(z1) replace: mi estimate, post: logit attack s
 > mokes age
-Prefix syntax detected
 Learning equation names...
 Using coefficients: smokes age 
 
@@ -1772,7 +1751,6 @@ file z1.dta saved
 
 . mvmeta_make, by(female) saving(z2) replace: mi estimate, post: logit attack s
 > mokes age
-Prefix syntax detected
 Learning equation names...
 Using coefficients: smokes age 
 
@@ -1827,7 +1805,6 @@ file z2.dta saved
 
 . mvmeta_make, by(female) saving(z3) replace: mi estimate, post: logit attack s
 > mokes age
-Prefix syntax detected
 Learning equation names...
 Using coefficients: smokes age 
 
@@ -1918,5 +1895,5 @@ file z3.dta saved
       name:  <unnamed>
        log:  c:\ian\git\mvmeta\testlogs\mvmeta_make_cscript.log
   log type:  text
- closed on:  27 Jul 2023, 09:49:30
+ closed on:  28 Jul 2023, 17:40:33
 -------------------------------------------------------------------------------

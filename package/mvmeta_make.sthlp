@@ -1,5 +1,5 @@
 {smcl}
-{* *! v4.0.2 21apr2022}{...}
+{* *! v4.1 27jul2023}{...}
 {vieweralsosee "mvmeta (if installed)" "mvmeta"}{...}
 {viewerjumpto "Description" "mvmeta_make##description"}{...}
 {viewerjumpto "Syntax" "mvmeta_make##syntax"}{...}
@@ -194,7 +194,8 @@ only in studies where it is detected (the default), or in all studies.
 {phang}
 {cmdab:aug:wt(}{it:#}{cmd:)} determines the weight applied to added observations 
 in a study in which perfect prediction is detected (see Perfect Prediction below).
-The default is 0.01.
+The value is the total weight per variable in the regression model.
+The default is 0.0001.
 {cmd:augwt(0)} is the same as {cmd:ppfix(none)} 
 and specifies that no augmentation is to be performed.
 
@@ -232,12 +233,9 @@ the regression coefficients except the constant.
 {cmd:usevars()} restricts attention to a subset of coefficients
 and {cmd:useconstant} additionally uses the constant.
 
-{p}The above behaviour applies to single-equation regression commands;
-and all equations of {cmd:mlogit} and {cmd:mvreg};
-and the first equation of all other multiple-equation regression commands;
-
-{p}The other equations can be used via the {cmd:useeqs()} option, which specifies 
-the names of the other equations to be used. 
+{p}For multiple-equation regression commands except {cmd:mlogit} and {cmd:mvreg}, the above behaviour is applied to each equation.
+For {cmd:mlogit} and {cmd:mvreg}, the above behaviour is applied to the first equation only. 
+The equations to be used can be specified via the {cmd:useeqs()} option. 
 All coefficients in the specified equations (including the constant) are used. 
 
 {p}{cmd:mvmeta_make} starts by learning the equation names 
@@ -279,6 +277,7 @@ The records added at each design point depend on the form of regression model.
 For regression models with discrete outcomes, we add one observation with each outcome level.
 For survival analyses, we add one event at time tmin/2 and one censoring at time tmax+tmin/2, 
 where tmin and tmax are the earliest and latest follow-up times in the study. 
+For regression models with quantitative outcomes, we add two observations with outcome one standard deviation below and one standard deviation above the mean.
 For a stratified model, the augmentation is performed for each stratum.
 
 {p}
@@ -303,9 +302,9 @@ These are implemented by {helpb plogit} and {helpb stpcox}
 which should in future be able to handle perfect prediction.
 
 {p}
-The output data set contains variables _ppfix which indicates 
+The output data set contains variables {cmd:_ppfix} which indicates 
 whether the outputted results derive from a model in which perfect prediction was tackled,
-and _ppremains which indicates whether perfect prediction was detected in this final model.
+and {cmd:_ppremains} which indicates whether perfect prediction was detected in this final model.
 
 
 {title:Returned results}{marker returned}
@@ -335,10 +334,18 @@ with logistic regression.
 
 {phang}Prefix syntax created (v0.22). This allows {cmd:mvmeta_make} to be used with commands such as {helpb mixed} and {helpb mi estimate}. See examples 2 and 3 below.
 
+{phang}Version numbers match with {cmd:mvmeta} (so v4.0 follows v0.23.1).
+
+{phang}Augmentation works with regress and generally works better (v4.1).
+
+{phang}Results are stored as doubles. This makes small augmentation work much better, and the default is changed from {cmd:augwt(0.01)} to {cmd:augwt(0.0001)} (v4.1).
+
 
 {title:Limitations}{marker limitations}
 
-{pstd}{cmd:mvmeta_make} does not allow factor variables. Use {helpb xi}.
+{p}{cmd:mvmeta_make} does not allow factor variables. Use {helpb xi}.
+
+{p}Perfect prediction is not yet handled for multiply imputed data.
 
 
 {title:Example}{marker examples}
@@ -349,12 +356,12 @@ The exposure of interest is fifth of fibrinogen stored in variable {cmd:fg} with
 
 {phang}{cmd:. xi: mvmeta_make stcox ages i.fg, strata(sex tr) nohr saving(fscstage1) replace by(cohort) usevars(i.fg) names(b V) esave(N)}
 
-{p}Note that {cmd:strata(sex tr)} and {cmd:nohr} are options for {cmd:stcox} while the other options are for {cmd:mvmeta_make}.
+{pstd}Here, {cmd:strata(sex tr)} and {cmd:nohr} are options for {cmd:stcox} while the other options are for {cmd:mvmeta_make}.
 The command would give exactly the same results using the prefix syntax:
 
 {phang}{cmd:. xi: mvmeta_make, saving(fscstage1) replace by(cohort) usevars(i.fg) names(b V) esave(N): stcox ages i.fg, strata(sex tr) nohr}
 
-{p}The results would be then meta-analysed in the second stage:
+{pstd}The results would be then meta-analysed in the second stage:
 
 {phang}. {stata "use fscstage1, clear"}{txt}
 
@@ -366,15 +373,17 @@ The command would give exactly the same results using the prefix syntax:
 
 {phang}. {stata "mvmeta_make, by(study) clear usecons details: mi estimate, post: reg y x"}
 
-{p}Here for illustrative purposes we chose to store the constant as well as the coefficient of {cmd:x}.
+{pstd}Here for illustrative purposes we choose to store the constant as well as the coefficient of {cmd:x}.
 
-{p}Note that {cmd:mi estimate} only works correctly with {cmd:mvmeta_make} if each study contains the same number of imputed datasets. 
+{pstd}The {cmd:post} option of {cmd:mi estimate} is required to allow {cmd:mvmeta_make} to receive the estimation results.
+
+{pstd}{cmd:mi estimate} only works correctly with {cmd:mvmeta_make} if each study contains the same number of imputed datasets. 
 This is a feature of {cmd:mi estimate}. 
 If each study has been imputed separately then they may have different numbers of imputed datasets: 
 if so, you will need to create multiple combined datasets, each containing studies with the same number of imputed datasets, and run {cmd:mvmeta_make} on each combined dataset separately, using the {cmd:append} option after the first run.
 
 {p}{bf:Example 3.} Analysis of repeated measures data using the prefix syntax. 
-We have data from a randomised trial with outcomes at times 1 and 2. 
+We have data from a randomised trial with randomised group {cmd:z} and outcomes {cmd:y} observed at times 1 and 2. 
 We are interested in the treatment effects at each time, so we create variables {cmd:z1} and {cmd:z2} as treatment indicators at times 1 and 2, and use their coefficients.
 
 {phang}. {stata "use testdata_mixed, clear"}
@@ -389,7 +398,7 @@ We are interested in the treatment effects at each time, so we create variables 
 	
 {phang}. {stata "mvmeta_make, by(study) clear usecoefs([y]z1 [y]z2): mixed y time z1 z2 || id:, nocons res(uns, t(time)) reml"}
 
-{p}This example uses the {cmd:res(uns, t(time))} option of {mixed} to specify an unstructured variance-covariance matrix, which avoids making assumptions that would bias the standard errors if wrong.
+{pstd}This example uses the {cmd:res(uns, t(time))} option of {cmd:mixed} to specify an unstructured variance-covariance matrix, which avoids making assumptions that would bias the standard errors if wrong.
 This option causes {cmd:mixed} to fail if run on the whole data set, so we use the {cmd:usecoefs([y]z1 [y]z2)} option to specify which coefficients we want: note that the equation names must be specified. 
 An alternative would be {cmd:usevars(z1 z2) learnif(study==1)}.
 
