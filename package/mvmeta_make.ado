@@ -140,9 +140,6 @@ version 0.2  28jun2007
     handle clogit row/colnames: e(b), e(V) labelled y:x1, y:x2 etc. instead of x1, x2 etc.;
     append option; 
     if/in bug removed
-
-Ideas: make it a prefix command?
-    would still need to use weights, strata from main command
 *********************************************************************/
 
 prog def mvmeta_make, eclass
@@ -712,6 +709,7 @@ foreach level of local byvarnamelevels {
 /*
 			*** change 20jan2022: reduce to the required matrix before checking for PP
 			* fails with logit - need to add the equation names to `row', `col'
+			* MISGUIDED since failure to estimate one coefficient casts otehrs in doubt
 			tempname SS
 			mat `SS'=J(`p',`p',.)
 			forvalues r=1/`p' {
