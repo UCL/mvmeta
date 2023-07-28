@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  c:\ian\git\mvmeta\testlogs\mvmeta_make_cscript_more.log
   log type:  text
- opened on:  28 Jul 2023, 17:47:59
+ opened on:  28 Jul 2023, 18:02:09
 
 . 
 . version 16
@@ -2636,5 +2636,21 @@ Relative error is 4.344e-06
   3. }
 
 . 
-end of do-file
+. 
+. // REPORT SUCCESS
+. di as result _n "********************************************" ///
+>         _n "*** MVMETA_MAKE HAS PASSED ALL ITS TESTS ***" ///
+>         _n "********************************************"
 
+********************************************
+*** MVMETA_MAKE HAS PASSED ALL ITS TESTS ***
+********************************************
+
+. 
+. 
+. log close
+      name:  <unnamed>
+       log:  c:\ian\git\mvmeta\testlogs\mvmeta_make_cscript_more.log
+  log type:  text
+ closed on:  28 Jul 2023, 18:02:13
+-------------------------------------------------------------------------------

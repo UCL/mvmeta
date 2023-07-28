@@ -78,3 +78,12 @@ foreach model in "logit hisbpl" "regress sbpl" {
 forvalues i=1/3 {
 	erase z`i'.dta
 }
+
+
+// REPORT SUCCESS
+di as result _n "********************************************" ///
+	_n "*** MVMETA_MAKE HAS PASSED ALL ITS TESTS ***" ///
+	_n "********************************************"
+
+
+log close
