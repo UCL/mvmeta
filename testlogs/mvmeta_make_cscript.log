@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  c:\ian\git\mvmeta\testlogs\mvmeta_make_cscript.log
   log type:  text
- opened on:  28 Jul 2023, 18:01:47
+ opened on:   1 Aug 2023, 19:25:57
 
 . 
 . version 12
@@ -1667,6 +1667,136 @@ file z4.dta saved
 
 . 
 . 
+. // TEST WHETHER MVMETA_MAKE RESPECTS STRATA
+. use mvmeta_make_testdata_surv, clear
+
+. stcox x if id>2 & study==3, strata(z)
+
+        Failure _d: d
+  Analysis time _t: t
+
+Iteration 0:   log likelihood = -110.34613
+Iteration 1:   log likelihood = -95.482847
+Iteration 2:   log likelihood = -95.191162
+Iteration 3:   log likelihood = -95.190804
+Refining estimates:
+Iteration 0:   log likelihood = -95.190804
+
+Stratified Cox regression with no ties
+Strata variable: z
+
+No. of subjects =       88                              Number of obs =     88
+No. of failures =       31
+Time at risk    = 352.2293
+                                                        LR chi2(1)    =  30.31
+Log likelihood = -95.190804                             Prob > chi2   = 0.0000
+
+------------------------------------------------------------------------------
+          _t | Haz. ratio   Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+           x |   3.030696   .6596324     5.09   0.000     1.978236    4.643087
+------------------------------------------------------------------------------
+
+. local se1 = _se[x]
+
+. mvmeta_make, by(study) clear : stcox x if id>2, strata(z)
+Learning equation names...
+Using coefficients: x 
+
+
+-> study==3
+
+        Failure _d: d
+  Analysis time _t: t
+
+Iteration 0:   log likelihood = -110.34613
+Iteration 1:   log likelihood = -95.482847
+Iteration 2:   log likelihood = -95.191162
+Iteration 3:   log likelihood = -95.190804
+Refining estimates:
+Iteration 0:   log likelihood = -95.190804
+
+Stratified Cox regression with no ties
+Strata variable: z
+
+No. of subjects =       88                              Number of obs =     88
+No. of failures =       31
+Time at risk    = 352.2293
+                                                        LR chi2(1)    =  30.31
+Log likelihood = -95.190804                             Prob > chi2   = 0.0000
+
+------------------------------------------------------------------------------
+          _t | Haz. ratio   Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+           x |   3.030696   .6596324     5.09   0.000     1.978236    4.643087
+------------------------------------------------------------------------------
+
+
+-> study==4
+
+        Failure _d: d
+  Analysis time _t: t
+
+Iteration 0:   log likelihood = -141.11359
+Iteration 1:   log likelihood = -120.66108
+Iteration 2:   log likelihood = -120.64271
+Iteration 3:   log likelihood = -120.64271
+Refining estimates:
+Iteration 0:   log likelihood = -120.64271
+
+Stratified Cox regression with no ties
+Strata variable: z
+
+No. of subjects =       98                              Number of obs =     98
+No. of failures =       38
+Time at risk    = 387.9554
+                                                        LR chi2(1)    =  40.94
+Log likelihood = -120.64271                             Prob > chi2   = 0.0000
+
+------------------------------------------------------------------------------
+          _t | Haz. ratio   Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+           x |   3.061398   .5472785     6.26   0.000     2.156516    4.345973
+------------------------------------------------------------------------------
+
+
+-> study==5
+
+        Failure _d: d
+  Analysis time _t: t
+
+Iteration 0:   log likelihood = -149.56992
+Iteration 1:   log likelihood = -136.48088
+Iteration 2:   log likelihood = -135.51662
+Iteration 3:   log likelihood = -135.50821
+Iteration 4:   log likelihood = -135.50821
+Refining estimates:
+Iteration 0:   log likelihood = -135.50821
+
+Stratified Cox regression with no ties
+Strata variable: z
+
+No. of subjects =       98                              Number of obs =     98
+No. of failures =       41
+Time at risk    = 367.7274
+                                                        LR chi2(1)    =  28.12
+Log likelihood = -135.50821                             Prob > chi2   = 0.0000
+
+------------------------------------------------------------------------------
+          _t | Haz. ratio   Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+           x |   2.785263   .6106438     4.67   0.000     1.812374    4.280401
+------------------------------------------------------------------------------
+
+mvmeta_make results are now loaded into memory
+
+. di reldif(Sxx, `se1'^2)
+4.638e-17
+
+. assert reldif(Sxx, `se1'^2)<1E-10 if study==3
+
+. 
+. 
 . // WEB DATA REGARDING GENDER AS A STUDY: TEST STUDY NUMERIC/LABELLED/STRING
 . webuse mheart1s20, clear
 (Fictional heart attack data; BMI missing)
@@ -1895,5 +2025,5 @@ file z3.dta saved
       name:  <unnamed>
        log:  c:\ian\git\mvmeta\testlogs\mvmeta_make_cscript.log
   log type:  text
- closed on:  28 Jul 2023, 18:02:06
+ closed on:   1 Aug 2023, 19:26:09
 -------------------------------------------------------------------------------
