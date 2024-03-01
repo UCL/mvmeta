@@ -1,5 +1,6 @@
 /*
 mvmeta_make_cscript.do: MAIN TEST SCRIPT FOR MVMETA_MAKE
+01aug2023: added test of strata()
 27jul2023: added test of filepath in saving()
 21apr2022: added checks of ereturned results
 7apr2022: renamed mvmeta_make_cscript and automated log
@@ -170,6 +171,15 @@ assert failures==`d' if study==3
 * compare with other mvmeta_make commands
 drop records subjects failures
 cf _all using z1
+
+
+// TEST WHETHER MVMETA_MAKE RESPECTS STRATA
+use mvmeta_make_testdata_surv, clear
+stcox x if id>2 & study==3, strata(z)
+local se1 = _se[x]
+mvmeta_make, by(study) clear : stcox x if id>2, strata(z)
+di reldif(Sxx, `se1'^2)
+assert reldif(Sxx, `se1'^2)<1E-10 if study==3
 
 
 // WEB DATA REGARDING GENDER AS A STUDY: TEST STUDY NUMERIC/LABELLED/STRING

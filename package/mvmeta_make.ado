@@ -390,7 +390,7 @@ if wordcount("`by'")>1 {
 }
 else local byvarname `by'
 qui levelsof `byvarname' if `touse', local(byvarnamelevels)
-local nby : word count `bylevels'
+local nby : word count `byvarnamelevels'
 cap confirm numeric var `byvarname'
 local ischarbyvarname = _rc>0
 
@@ -693,11 +693,11 @@ foreach level of local byvarnamelevels {
         }
         if `regrc'==0 {
             mat `ymat'`level'=e(b)
+			local varscale 1
 			if "`regcmd'"=="regress" & !mi("`df_r_orig'") {
-				local varscale = e(df_r) / `df_r_orig'
+				if `df_r_orig' local varscale = e(df_r) / `df_r_orig'
 				// regression variance is best calculated as RSS/RDF where RDF is from *unaugmented* regression
 			}
-			else local varscale 1
 			if `varscale'!=1 & !mi("`debug'") di as text "Scaling variance by ratio of residual df: " as result "`e(df_r)' / `df_r_orig'"
             mat `Smat'`level'=`varscale'*e(V)
 
