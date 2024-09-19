@@ -1,4 +1,5 @@
 /******************************************************************************
+9jan2024 corrected typo in error message
 *! version 3.0.1  Ian White  27may2015
 26mar2015
 	better error message for mm2
@@ -45,7 +46,7 @@ if "`setup'"!="" {
     mat `Sigma' = `exp'(`start')^2 * ($MVMETA_sigma0)
     cap mvmeta_mufromsigma, sigma(`Sigma')
     if _rc {
-        di as error "mvmeta_bscov_proportional: mvmeta_mufrom sigma failed"
+        di as error "mvmeta_bscov_proportional: mvmeta_mufromsigma failed"
         mat l `Sigma', title(Sigma used)
         exit _rc
     }
