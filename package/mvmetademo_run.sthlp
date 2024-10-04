@@ -23,7 +23,7 @@
 
 {pstd}{stata "net from http://www.homepages.ucl.ac.uk/~rmjwiww/stata/"}
 
-{p}then click on {cmd:meta}, then on {cmd:mvmeta}, then on {cmd:(click here to install)}. This installs the package.
+{p}then click on {cmd:mvmeta}, then again on {cmd:mvmeta}, then on {cmd:(click here to install)}. This installs the package.
 
 {p}Now click on {cmd:(click here to return to the previous screen)} and {cmd:(click here to get)}. 
 This installs the associated data and graph files.
