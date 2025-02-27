@@ -2320,7 +2320,6 @@ local ly : var label `ymean'
 local lx : var label `xmean'
 if "`ly'"=="" local ly `ymean'
 if "`lx'"=="" local lx `xmean'
-local i 0
 
 if !mi("`group'") { 
     cap confirm numeric var `group'
@@ -2331,7 +2330,8 @@ if !mi("`group'") {
     }
 	qui levelsof `group', local(grouplevels)
 }
-local l 0
+local i 0 // counts pct values
+local l 0 // counts graphs
 foreach p of numlist `pct' {
     local ++i
     local a = sqrt(-2*log(1-`p'/100))
@@ -2340,18 +2340,23 @@ foreach p of numlist `pct' {
     qui replace `x'`i' = (`corr')*`y'`i' - sqrt(1-(`corr')^2)*`x'`i'
     qui replace `x'`i'=`xmean'+`xsd'*`x'`i'
     qui replace `y'`i'=`ymean'+`ysd'*`y'`i'
-    local s 0
+    local s 0 // counts groups
     if !mi("`group'") {
         foreach level in `grouplevels' {
             local ++s
             local cond `group'==`level'
+            if `i'==1 { // plot point estimate
+				local ++l
+				local graphlist `graphlist' ///
+					(scatter `ymean' `xmean' if `cond' & _theta==0, pstyle(p`s') `mcol`s'' `mopts')
+			}
+            local ++l
             local graphlist `graphlist' ///
-                (line `y'`i' `x'`i' if `cond', pstyle(p`s') c(l) cmissing(n) `lcol`s'' `lpatt`s'' `lwid`s'' `lopts') ///
-                (scatter `ymean' `xmean' if `cond' & _theta==0, pstyle(p`s') `mcol`s'' `mopts')
-            local ++l
-            if `i'==1 local legendorder `legendorder' `l'
-            if `i'==1 local legendlabel `legendlabel' label(`l' "`:label (`group') `level''")
-            local ++l
+                (line `y'`i' `x'`i' if `cond', pstyle(p`s') c(l) cmissing(n) `lcol`s'' `lpatt`s'' `lwid`s'' `lopts') 
+            if `i'==1 {
+				local legendorder `legendorder' `l'
+				local legendlabel `legendlabel' label(`l' "`:label (`group') `level''")
+			}
         }
     }
     else {
@@ -2367,7 +2372,8 @@ if !mi("`group'") {
     foreach p of numlist `pct' {
         local note `note' `p'%
     }
-    local note note("Showing `note' confidence region(s)")
+	if wordcount("`pct'")>1 local ss s
+    local note note("Showing `note' confidence region`ss'")
 }
 else {
 	local i1=`i'+1
