@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  c:\ian\git\mvmeta\testlogs\mvmeta_cscript.log
   log type:  text
- opened on:  27 Feb 2025, 19:55:20
+ opened on:  27 Feb 2025, 20:56:45
 
 . 
 . version 12
@@ -266,6 +266,8 @@ z2  1.7247102         -1          1
 . local bubble bubble(name(bubble,replace) yline(0) xline(0) ///
 >         col(blue green black =) lwidth(.2 = = .6) lpatt(solid = dash solid))
 
+. local bubble2 bubble(pct(30(10)90))
+
 . local forest forest(title(Forest plot) name(forest,replace) ///
 >         xli(0) subtitle(,size(large)) ///
 >         xlab(,labsize(large)) ylab(,labsize(large)) ///
@@ -281,7 +283,7 @@ z2  1.7247102         -1          1
 > ///
 >         nowt "`wtsd'" "`wtrv'" "`wtdpc'" testsigma qscalar randfix randfix(z*
 > ) ///
->         "`bubble'" pi "`pi'"
+>         "`bubble'" "`bubble2'" pi "`pi'"
 
 . 
 . local replayoptstog /// replay options to be run together
@@ -1418,6 +1420,50 @@ R statistic = ratio ^ (1/4)                     1.9029116
 
 mvmeta z S study, bubble(name(bubble,replace) yline(0) xline(0)         col(blu
 > e green black =) lwidth(.2 = = .6) lpatt(solid = dash solid))
+Note: using method reml
+Note: regressing z1 on study
+Note: regressing z2 on study
+Note: 10 observations on 2 variables
+Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
+Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
+Note: variance-covariance matrix is unstructured
+
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
+
+Multivariate meta-analysis
+Variance-covariance matrix = unstructured
+Method = reml                                  Number of dimensions    =     2
+Restricted log likelihood = -26.182666         Number of observations  =    10
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+z1           |
+       study |   .0082395   .0781606     0.11   0.916    -.1449524    .1614315
+       _cons |   1.098532   .4827421     2.28   0.023     .1523746    2.044689
+-------------+----------------------------------------------------------------
+z2           |
+       study |  -.1665985   .1928885    -0.86   0.388     -.544653    .2114559
+       _cons |   2.970853   1.207168     2.46   0.014     .6048473    5.336858
+------------------------------------------------------------------------------
+
+Estimated between-studies SDs and correlation matrix
+----------------------------------------------------
+           SD         z1         z2
+z1  .48321592          1          .
+z2  1.6110678         -1          1
+----------------------------------------------------
+Warning: bubble plot can't show summaries - last mvmeta run had covariates
+1 missing values found for z1 and displayed at z1=0
+
+
+mvmeta z S study, bubble(pct(30(10)90))
 Note: using method reml
 Note: regressing z1 on study
 Note: regressing z2 on study
@@ -7335,5 +7381,5 @@ bcons   .42983063   .96497212   -.9899645  -.74205767           1
       name:  <unnamed>
        log:  c:\ian\git\mvmeta\testlogs\mvmeta_cscript.log
   log type:  text
- closed on:  27 Feb 2025, 19:58:50
+ closed on:  27 Feb 2025, 21:00:15
 -------------------------------------------------------------------------------
