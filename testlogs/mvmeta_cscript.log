@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  c:\ian\git\mvmeta\testlogs\mvmeta_cscript.log
   log type:  text
- opened on:  27 Feb 2025, 16:43:17
+ opened on:  27 Feb 2025, 19:55:20
 
 . 
 . version 12
@@ -3659,9 +3659,9 @@ Iteration 2:  Log likelihood = -34.026289
 Iteration 3:  Log likelihood = -34.026283  
 Iteration 4:  Log likelihood = -34.026283  
 (option showall ignored with option nouncertainv)
-Option i2 is not available with wscorr(riley)
-Option qscalar is not available with wscorr(riley)
-Option testsigma is not available with wscorr(riley)
+Warning: option i2 is not available with wscorr(riley)
+Warning: option qscalar is not available with wscorr(riley)
+Warning: option testsigma is not available with wscorr(riley)
 
 Multivariate meta-analysis
 Variance-covariance matrix = proportional .5*I(2)+.5*J(2,2,1)
@@ -3765,7 +3765,7 @@ Details of unscaled weights:
     Total |    0.029     1.088     0.032     1.246
 --------------------------------------------------
 -----------------------------------------------------------------------
-option randfix ignored - mvmeta didn't estimate the fixed-effect model
+Warning: option randfix ignored - mvmeta didn't estimate the fixed-effect model
 
 Estimated probabilities (%) of each treatment having each rank
 - assuming the minimum parameter is the best
@@ -3846,9 +3846,9 @@ mvmeta, showall eform(EFORM) nouncertainv print(bscov) level(90)     dof(n-2) i
 >        xlab(,labsize(large)) ylab(,labsize(large))         xrescale uv(line p
 > redict) mv(line predict) weights(align(c)) ytick(none)) pi(xvar(one))
 (option showall ignored with option nouncertainv)
-Option i2 is not available with wscorr(riley)
-Option qscalar is not available with wscorr(riley)
-Option testsigma is not available with wscorr(riley)
+Warning: option i2 is not available with wscorr(riley)
+Warning: option qscalar is not available with wscorr(riley)
+Warning: option testsigma is not available with wscorr(riley)
 
 Multivariate meta-analysis
 Variance-covariance matrix = proportional .5*I(2)+.5*J(2,2,1)
@@ -3952,7 +3952,7 @@ Details of unscaled weights:
     Total |    0.029     1.088     0.032     1.246
 --------------------------------------------------
 -----------------------------------------------------------------------
-option randfix ignored - mvmeta didn't estimate the fixed-effect model
+Warning: option randfix ignored - mvmeta didn't estimate the fixed-effect model
 
 Estimated probabilities (%) of each treatment having each rank
 - assuming the minimum parameter is the best
@@ -7335,5 +7335,5 @@ bcons   .42983063   .96497212   -.9899645  -.74205767           1
       name:  <unnamed>
        log:  c:\ian\git\mvmeta\testlogs\mvmeta_cscript.log
   log type:  text
- closed on:  27 Feb 2025, 16:46:33
+ closed on:  27 Feb 2025, 19:58:50
 -------------------------------------------------------------------------------

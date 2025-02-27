@@ -333,11 +333,16 @@ so that the user can produce their own tabulations or graphs. This disables the 
 
 {phang}{cmd:line} draws a line graph of the probabilities.
 
-{phang}{cmdab:cum:ulative} changes the bar or line graph to show cumualtive probabilties. 
+{phang}{cmdab:cum:ulative} changes the bar or line graph to show cumulative probabilties. 
 The rankogram of {help mvmeta##Salanti++11:Salanti et al (2011)}
 is produced by specifying this together with the {cmd:line} suboption.
+This option does not affect the tabulated results.
 
-{phang}{cmd:mcse} adds the Monte Carlo standard errors to the tables.
+{phang}{cmd:mcse} adds the Monte Carlo standard errors (MCSEs) to the tables.
+
+{phang}{cmd:mcci} adds the Monte Carlo confidence intervals to the tables.
+These are computed by the Wald method (i.e. estimate +/- critical value times MCSE), 
+on the logit scale for probabilities and on the raw scale for mean rank and SUCRA.
 
 {phang}{cmdab:mean:rank} adds the mean rank and the SUCRA {help mvmeta##Salanti++11:(Salanti et al, 2011)} 
 to the table. 
@@ -545,7 +550,6 @@ and is the default if {cmd:mm} is specified.
 
 {phang}
 The following new suboptions for {cmd:pbest} allow various graphical displays, saving of results and numerical summaries of the estimated ranks: 
-{cmd:all}
 {cmd:saving(}{it:filename}{cmd:)} 
 {cmd:clear} 
 {cmd:bar} 

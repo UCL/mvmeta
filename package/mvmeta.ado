@@ -1,5 +1,14 @@
 /******************************************************************************
-*! version 4.0.2 # Ian White # 21apr2022
+*! version 4.0.3 # Ian White # 27feb2025
+	work on Monte Carlo errors for pbest:
+		added mcci suboption 
+		BUG FIX: corrected MC CIs for pbest, line 
+		BUG FIX: corrected MC SEs for mean rank and SUCRA
+		made pbest double 
+		MC CIs are logit+Wald via new subroutine bincipct
+	all warnings are not in red; only fatal errors print in red
+	BUG FIX: corrected bar graph for pbest (mean rank and SUCRA were wrongly included)
+version 4.0.2 # Ian White # 21apr2022
 	skip pi option if no Sigma
 	fix pbest problem in Stata12: variable names were lost
 version 4.0.1 # Ian White # 07apr2022
@@ -448,7 +457,7 @@ forvalues r=1/`p' {
 
 if "`bsest'"=="`fixed'" {
 	if !mi("`bscovariance'") {
-		di as error "fixed option used: bscovariance() ignored"
+		di as text "Warning: fixed option used: bscovariance() ignored"
 		local bscovariance
 	}
 	local jointcheck none
@@ -786,7 +795,7 @@ local warn warn`warning'
 foreach bit in `print' {
     if "`bit'"=="bscov" local printbscov on
     else if "`bit'"=="bscorr" local printbscorr on
-    else di as error "option `bit' ignored in print(`print')"
+    else di as test "Warning: option `bit' ignored in print(`print')"
 }
 if !mi("`eform2'") local eform eform(`eform2')
 else if !mi("`eform'") {
@@ -857,7 +866,7 @@ if mi(e(bsest)) { // if nothing to display, don't display anything
 }
 if "`e(wscorr)'"=="riley" {
     foreach opt in i2 qscalar testsigma randfix {
-        if !mi("``opt''") di as error "Option `opt' is not available with wscorr(riley)"
+        if !mi("``opt''") di as text "Warning: option `opt' is not available with wscorr(riley)"
         local `opt'
     }
 }
@@ -899,8 +908,8 @@ if "`estimates'"!="noestimates" {
             // here, _coef_table is better than ereturn display because it only exponentiates the first e(k_eform) equations - but older versions don't work with e(cmd) unset
             cap _coef_table, `eform' `levelopt' `cformat' `pformat' `sformat' `neq'
             if _rc {
-                di as error "_coef_table failed - you may be using a version older than 3.0.0"
-                di as error "All parameters will be exponentiated"
+                di as text "Warning: _coef_table failed - you may be using a version older than 3.0.0"
+                di as text "Warning: all parameters will be exponentiated"
                 ereturn display, `eform' `levelopt' `cformat' `pformat' `sformat' `neq' `coeflegend' 
             }
             else {
@@ -972,8 +981,8 @@ if ("`estimates'"!="noestimates" | "`printbscov'`printbscorr'"!="") & "`bsest'"!
 		forvalues r=1/`p' {
 			forvalues s=`r'/`p' {
 				if `s'<=`r' continue
-				if `corr'[`r',`s']>0.95 di as error "Warning: overall Riley correlation is near 1: estimates may be unstable"
-				if `corr'[`r',`s']<-0.95 di as error "Warning: overall Riley correlation is near -1: estimates may be unstable"
+				if `corr'[`r',`s']>0.95 di as text "Warning: overall Riley correlation is near 1: estimates may be unstable"
+				if `corr'[`r',`s']<-0.95 di as text "Warning: overall Riley correlation is near -1: estimates may be unstable"
 			}
 		}
 	}	
@@ -982,7 +991,7 @@ if ("`estimates'"!="noestimates" | "`printbscov'`printbscorr'"!="") & "`bsest'"!
 
 // PRINT WEIGHTS AND BOS
 if !mi("`wt'`wt2'") {
-    if "`e(parmtype)'"=="common" di as error "Option wt() ignored - incompatible with commonparm"
+    if "`e(parmtype)'"=="common" di as text "Warning: option wt() ignored - incompatible with commonparm"
     else mvmeta_wt, `wt2' `debug'
 }
 
@@ -993,7 +1002,7 @@ if "`i2'"=="i2" {
         cap confirm matrix e(`mat')
         local error = cond(_rc,1,`error')
     }
-    if `error' di as error "Method of moments failed when mvmeta ran, so I^2 cannot be computed"
+    if `error' di as text "Warning: method of moments failed when mvmeta ran, so I^2 cannot be computed"
     else {
         // SET UP
         local z = invnorm((100+`level')/200)
@@ -1073,7 +1082,7 @@ if "`i2'"=="i2" {
                             local droppedterms yes
                             local droppedterm`r' " *"
                         }
-                        else di as error "nlcom failed and couldn't be fixed"
+                        else di as text "Warning: nlcom failed and couldn't be fixed"
                     }
                     local tau sqrt(`tausq')
                 }
@@ -1137,7 +1146,7 @@ if "`i2'"=="i2" {
         local line7 as text _dup(`=`ylength1'+63') "{c -}"
 
         // OUTPUT BETWEEN-STUDY SDs AND I^2, WITH CIs
-        if "`e(cholnames)'"=="cholnames" di as error "Sorry, i2 option is not available with cholnames"
+        if "`e(cholnames)'"=="cholnames" di as text "Warning: sorry, i2 option is not available with cholnames"
         di as text _newline "Approximate confidence intervals for between-studies SDs and I^2:"
         di `line7'
         di as text "Variable" `col2' " SD" `col3' "[`level'% Conf. Interval]" `col5' " I^2" `col6' "[`level'% Conf. Interval]" _new `line7'
@@ -1149,7 +1158,7 @@ if "`i2'"=="i2" {
         if "`nlcomfails'"=="equals" di as text "Note: CIs are not appropriate with bscovariance(equals)"
         di as text "`i2footnote'"
         if "`cifootnote'"!="" di as text "`cifootnote'"
-        if "`heterogineeded'"=="yes" di as error "To get CIs, please install heterogi using {stata ssc install heterogi}"
+        if "`heterogineeded'"=="yes" di as text "To get CIs, please install heterogi using {stata ssc install heterogi}"
         if "`s2problem'"=="yes" di as text "Note: one or more values of I^2 weren't computed because Qa and/or Qb was missing"
         if "`droppedterms'"=="yes" di as text "* CI for I^2 ignores zero variance components"
 
@@ -1211,7 +1220,7 @@ if "`testsigma'"=="testsigma" {
         if `lrt'>0 di as text "P-value halved: see {help j_chibar:help j_chibar}"
     }
     else {
-        di _newline as error "testsigma option is only available with reml or ml estimation methods"
+        di _newline as text "Warning: testsigma option is only available with reml or ml estimation methods"
     }
 }
 
@@ -1225,13 +1234,13 @@ if !mi("`randfix'`randfix2'") {
     cap confirm matrix e(V_fixed)
     local noVfixed = _rc>0
     if "`e(bsest)'"=="" {
-        di as error "option randfix ignored - no estimation done"
+        di as text "Warning: option randfix ignored - no estimation done"
     }
     else if "`e(bsest)'"=="fixed" {
-        di as error "option randfix ignored - not appropriate with fixed-effect analysis"
+        di as text "Warning: option randfix ignored - not appropriate with fixed-effect analysis"
     }
     else if `noVfixed' {
-        di as error "option randfix ignored - mvmeta didn't estimate the fixed-effect model"
+        di as text "Warning: option randfix ignored - mvmeta didn't estimate the fixed-effect model"
     }
     else {
         di _new as text "Multivariate R statistic"
@@ -1296,7 +1305,7 @@ if !mi("`randfix'`randfix2'") {
 
 *** PBEST
 if "`pbest'"!="" {
-    if "`e(parmtype)'"!="long" di as error ///
+    if "`e(parmtype)'"!="long" di as text ///
         "Sorry, pbest() is only available after running mvmeta with the longparm option"
     else pbest `pbest'
 }
@@ -1309,14 +1318,14 @@ if !missing(`"`bubble'`bubble2'"') {
 *** FOREST PLOT
 if !missing(`"`forest'`forest2'"') {
     * mvmeta_forest, `forest2' `debug'
-    di as error "Sorry, forest plot is not yet available"
+    di as text "Sorry, forest plot is not yet available"
 }
 
 *** PREDICTION INTERVAL
 if !mi("`pi'`pi2'") {
 	cap confirm matrix e(Sigma)
-	if "`e(bsest)'"=="fixed" di as error "Prediction intervals not reported - not meaningful after a fixed-effect model"
-	else if _rc di as error "Prediction intervals not reported - Sigma was not estimated"
+	if "`e(bsest)'"=="fixed" di as text "Warning: prediction intervals not reported - not meaningful after a fixed-effect model"
+	else if _rc di as text "Warning: intervals not reported - Sigma was not estimated"
 	else if !mi("`pi2'") mvmeta_pi, `pi2'
 	else if !mi("`pi'") mvmeta_pi
 }
@@ -1333,7 +1342,7 @@ syntax anything [if] [in], [ ///
     REPs(int 1000) zero gen(string) seed(int -1) format(string) /// documented
     id(varname) PREDict BESTonly saving(string) replace clear bar line /// documented
     CUMulative TABDISPoptions(string) mcse MEANrank /// documented
-    zeroname(string) STRIPprefix(string) rename(string) all /// undocumented
+    zeroname(string) STRIPprefix(string) rename(string) all mcci cilevel(cilevel) /// undocumented
     title(passthru) note(passthru) *]
 local minmax `anything'
 if !inlist("`minmax'","min","max") {
@@ -1342,6 +1351,12 @@ if !inlist("`minmax'","min","max") {
 }
 if `seed'!=-1 set seed `seed'
 if mi("`zeroname'") local zeroname zero
+if "`format'"=="" local format %6.1f // best for table
+local zcrit = -invnorm((100-`cilevel')/200)
+if !mi("`bar'") & !mi("`line'") {
+	di as text "Pbest warning: bar specified, so line ignored"
+	local line
+}
 marksample touse
 
 if !mi("`bestonly'") {
@@ -1418,18 +1433,20 @@ forvalues r=1/`p' {
 }
 
 // initialise counters
-if mi("`clear'") tempvar pbest rank treat
+if mi("`clear'") tempvar pbest rank treat mcsevar mccivar
 else {
     local pbest _Pbest
     local rank _Rank
     local treat _Treat
+	local mcsevar _MCSE
+	local mccivar _MCCI
 }
 tempvar best rbest pred mvn
 local rmin = cond("`zero'"=="zero", 0, 1)
 local smax = cond("`all'"=="all", `p' + ("`zero'"=="zero"), 1)
 forvalues s=1/`smax' {
     forvalues r=`rmin'/`p' {
-        qui gen `pbest'`r'_`s'=0 if `touse'
+        qui gen double `pbest'`r'_`s'=0 if `touse' 
         if `r'>0 { // 8apr2022: subinstr fails in Stata12 if "from" is missing
 			if mi("`stripprefix'") local thischarold `yvar_`r''
 			else local thischarold : subinstr local yvar_`r' "`stripprefix'" ""
@@ -1548,13 +1565,8 @@ qui destring `rank', replace
 qui reshape long `pbest', i(`idnum' `rank') j(`treat')
 
 * MC error
-if !mi("`mcse'") {
-    tempvar mcse
-    gen `mcse' = sqrt(`pbest'*(100-`pbest')/`reps')
-    local dispvars `pbest' `mcse'
-    di as text _n "- figures are estimated probability (upper), Monte Carlo error (lower)" _c
-}
-else local dispvars `pbest'
+gen `mcsevar' = sqrt(`pbest'*(100-`pbest')/`reps')
+label var `mcsevar' "mcsevar"
 
 * label variables and values
 char `rank'[varname] Rank
@@ -1567,8 +1579,7 @@ label var `idnum' "`idname'"
 label var `pbest' "Pbest"
 label def `treat' `trtlabel'
 label val `treat' `treat'
-if "`format'"=="" local format %6.1f // best for table
-format `pbest' `mcse' `format'
+format `pbest' `mcsevar' `format'
 forvalues s=1/`smax' {
     if `s'==1 local text "Best"
     else if `s'==`smax' local text "Worst"
@@ -1598,26 +1609,48 @@ if !mi("`meanrank'") {
     qui replace `pbest'=. if `recordtype' 
     sort `idnum' `treat' `rank'
     qui by `idnum' `treat': gen `meanrank' = sum(`rank'*`pbest')/sum(`pbest')
+	label var `meanrank' "meanrank"
+	tempvar meanrank2
+	qui by `idnum' `treat': gen `meanrank2' = sum(`rank'^2*`pbest')/sum(`pbest')
+	label var `meanrank2' "meanrank2"
     qui replace `pbest' = `meanrank' if `recordtype'==1
     qui replace `pbest' = (`smax' - `meanrank') / (`smax' - 1) if `recordtype'==2
     label def `rank' `=`smax'+10' "MEAN RANK" `=`smax'+11' "SUCRA", add 
-    if !mi("`mcse'") {
-        tempvar meanrank2
-        qui by `idnum' `treat': gen `meanrank2' = sum(`rank'^2*`pbest')/sum(`pbest')
-        replace `mcse' = sqrt(`meanrank2' - `meanrank'^2)/sqrt(`reps') if `recordtype'
-        replace `mcse' = `mcse' / (`smax' - 1) if `recordtype'==2
-        drop `meanrank2'
-    }
+	qui replace `mcsevar' = sqrt(`meanrank2' - `meanrank'^2)/sqrt(`reps') if `recordtype'
+	qui replace `mcsevar' = `mcsevar' / (`smax' - 1) if `recordtype'==2
+	drop `meanrank' `meanrank2'
     // NB `smax' = #compared because meanrank option => all option
 }
 
-* tabulate
-/* old
-local byid by(`idnum') // could make this -if `multid'-?
-if `smax'==1 local tabcmd tabdisp `idnum' `treat', c(`dispvars') `tabdispoptions'
-else local tabcmd tabdisp `rank' `treat', `byid' c(`dispvars') `tabdispoptions'
-*/
-// could make this -if `multid'-?
+
+// Calculate Monte Carlo CIs
+* for probabilities, use Wald on logit scale
+tempvar selogit
+qui gen `selogit' = `mcsevar'/(`pbest'*(1-`pbest'/100))
+qui gen `pbest'_low = invlogit(logit(`pbest'/100)-`zcrit'*`selogit')*100 if !`recordtype'
+qui gen `pbest'_upp = invlogit(logit(`pbest'/100)+`zcrit'*`selogit')*100 if !`recordtype'
+drop `selogit'
+* for mean rank and SUCRA, use Wald on raw scale
+qui replace `pbest'_low = `pbest'-`zcrit'*`mcsevar' if `recordtype'
+qui replace `pbest'_upp = `pbest'+`zcrit'*`mcsevar' if `recordtype'
+* create string variable containing whole CI
+gen `mccivar' = string(`pbest'_low,"`format'") + ", " + string(`pbest'_upp,"`format'")
+qui replace `mccivar' = "-" if `mcsevar'==0
+label var `pbest'_low "pbest_low"
+label var `pbest'_upp "pbest_upp"
+label var `mccivar' "mccivar"
+
+local dispvars `pbest'
+if !mi("`mcse'") local dispvars `dispvars' `mcsevar'
+if !mi("`mcci'") local dispvars `dispvars' `mccivar'
+if !mi("`mcse'`mcci'") {
+	di as text _n "- figures are estimated probability (upper)" _c
+	if !mi("`mcse'") & !mi("`mcci'") di as text ", Monte Carlo error (middle)" _c
+	else if !mi("`mcse'") di as text ", Monte Carlo error (lower)" _c
+	if !mi("`mcci'") di as text ", Monte Carlo `cilevel'% CI (lower)" _c
+}
+
+// TABULATE
 if `multid' local byid by(`idnum') 
 local tabcmd tabdisp `rank' `treat', `byid' c(`dispvars') `tabdispoptions'
 `tabcmd'
@@ -1633,26 +1666,28 @@ if !mi("`bar'") {
     else local legendtitle title("Treatment")
     if `multid' local byid by(`idnum', `title' `note')
     else local byid `title' `note'
-    local graphcmd graph bar `pbest', `overrank' over(`treat') `byid' asy ytitle("Probability (%)") `stack' legend(`legendtitle') `options'
+    local graphcmd graph bar `pbest' if !`recordtype', `overrank' over(`treat') `byid' asy ytitle("Probability (%)") `stack' legend(`legendtitle') `options'
 }
 else if !mi("`line'") {
-    if `multid' di as error "Graphs for multiple records will be overlaid"
+    if `multid' di as text "Warning: graphs for multiple records will be overlaid"
     if !mi("`cumulative'") {
         sort `idnum' `treat' `rank'
         local pbestcum `pbest'cum
         qui by `idnum' `treat': gen `pbestcum' = sum(`pbest') if !`recordtype' 
-        local cumulative Cumulative
+		local cumulative Cumulative
         local pbestvar `pbestcum'
+		* now need its CI; again use Wald on logit scale
+		qui gen `selogit' = 1/sqrt(`reps'*(`pbestcum'/100)*(1-`pbestcum'/100))
+		qui gen `pbestcum'_low = invlogit(logit(`pbestcum'/100)-`zcrit'*`selogit')*100 if !`recordtype'
+		qui gen `pbestcum'_upp = invlogit(logit(`pbestcum'/100)+`zcrit'*`selogit')*100 if !`recordtype'
+		drop `selogit'
     }
     else local pbestvar `pbest'
-    if mi("`note'") local note note("")
-    if !mi("`mcse'") { // I THINK THE MCSEs ARE WRONG WITH CUMULATIVE OPTION??
-        if !mi("`cumulative'") qui replace `mcse' = `pbestcum' * (100-`pbestcum') / `reps' if !`recordtype'
-        tempvar pbestlow pbestupp
-        qui gen `pbestlow'=`pbestvar'-1.96*`mcse' if !`recordtype'
-        qui gen `pbestupp'=`pbestvar'+1.96*`mcse' if !`recordtype'
-        local rspike (rspike `pbestlow' `pbestupp' `rank' if !`recordtype', pstyle(p1))
+    if !mi("`mcse'`mcci'") {
+        local rspike (rspike `pbestvar'_low `pbestvar'_upp `rank' if !`recordtype', pstyle(p1))
+		di "Line graph shows `cilevel'% Monte Carlo intervals""
     }
+    if mi(`"`note'"') local note note("")
     local graphcmd twoway (line `pbestvar' `rank' if !`recordtype', c(L) pstyle(p1)) `rspike', by(`treat', `title' `note' imargin(medium) legend(off)) ytitle("`cumulative' Probability (%)") xlabel(minmax,val) `options'
     // imargin(medium) avoids "worst" of one column overlapping and "best" of next column
 }
@@ -1685,6 +1720,7 @@ else drop `pbest'* // not needed?
 end
 
 *============================= END OF PBEST PROGRAM ============================
+
 
 *========================== START OF DRAWBETA PROGRAM (for pbest) ==========================
 
@@ -1796,9 +1832,9 @@ if wordcount("`sd' `rv' `dpc'")>1 {
     exit 198
 }
 if mi("`sd'`rv'`dpc'") local sd sd // SD is default
-if !mi("`clear'") & (mi("`sd'") | mi("`details'")) di as error "mvmeta_wt: option clear ignored (only relevant with sd and details options)"
-if !mi("`wide'") & (mi("`sd'") | mi("`details'")) di as error "mvmeta_wt: option wide ignored (only relevant with sd and details options)"
-if !mi("`unscaled'") & mi("`sd'") di as error "mvmeta_wt: option unscaled ignored (only relevant with sd option)"
+if !mi("`clear'") & (mi("`sd'") | mi("`details'")) di as text "Warning: mvmeta_wt: option clear ignored (only relevant with sd and details options)"
+if !mi("`wide'") & (mi("`sd'") | mi("`details'")) di as text "Warning: mvmeta_wt: option wide ignored (only relevant with sd and details options)"
+if !mi("`unscaled'") & mi("`sd'") di as text "Warning: mvmeta_wt: option unscaled ignored (only relevant with sd option)"
 if mi("`format'") & !mi("`sd'`rv'") local format format(%6.1f)
 if mi("`e(V_uv)'") & !mi("`rv'") {
     di as error "mvmeta_wt: option rv is not allowed since univariate results were not found"
@@ -2405,7 +2441,7 @@ if "`estimates'"!="noestimates" & "`bsest'"=="" {
     exit 497
 }
 foreach type in est noest { // warnings for estimate and no-estimate parts
-	if "`warning`type''"=="" local warning`type' error
+	if "`warning`type''"=="" local warning`type' text
 	if !inlist("`warning`type''", "error", "text", "off") {
 		di as error "syntax: warning`type'(error|text|off)"
 		exit 198
@@ -3049,7 +3085,7 @@ program define warnerror
 foreach thing in txt text result  res {
 	local 0 : subinstr local 0 "as `thing' " "as error ", all
 }
-di as error "Warning: " `0'
+di as text "Warning: " `0'
 end
 
 program define warntext
