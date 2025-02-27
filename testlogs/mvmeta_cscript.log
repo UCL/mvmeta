@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  c:\ado\ian\mvmeta\testlogs\mvmeta_cscript.log
+       log:  c:\ian\git\mvmeta\testlogs\mvmeta_cscript.log
   log type:  text
- opened on:   8 Apr 2022, 11:15:25
+ opened on:  27 Feb 2025, 16:43:17
 
 . 
 . version 12
@@ -31,11 +31,11 @@
 . 
 . // VERSION NUMBERS
 . di c(stata_version)
-17
+18.5
 
 . which mvmeta
-c:\ado\ian\mvmeta\package\mvmeta.ado
-*! version 4.0.1 # Ian White # 07apr2022
+c:\ian\git\mvmeta\package\mvmeta.ado
+*! version 4.0.3 # Ian White # 27feb2025
 
 . 
 . // SET UP DATA
@@ -67,14 +67,14 @@ Note: regressing y2 on study
 Note: 9 observations on 2 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -24.507397
-rescale:       log likelihood = -24.507397
-rescale eq:    log likelihood = -24.507397
-Iteration 0:   log likelihood = -24.507397  
-Iteration 1:   log likelihood = -24.387844  
-Iteration 2:   log likelihood = -24.385388  
-Iteration 3:   log likelihood = -24.385379  
-Iteration 4:   log likelihood = -24.385379  
+Initial:      Log likelihood = -24.507397
+Rescale:      Log likelihood = -24.507397
+Rescale eq:   Log likelihood = -24.507397
+Iteration 0:  Log likelihood = -24.507397  
+Iteration 1:  Log likelihood = -24.387844  
+Iteration 2:  Log likelihood = -24.385388  
+Iteration 3:  Log likelihood = -24.385379  
+Iteration 4:  Log likelihood = -24.385379  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -115,14 +115,14 @@ Warning: 1 observation has observed outcome and missing covariate, and has been
 Note: 9 observations on 2 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -24.507397
-rescale:       log likelihood = -24.507397
-rescale eq:    log likelihood = -24.507397
-Iteration 0:   log likelihood = -24.507397  
-Iteration 1:   log likelihood = -24.387844  
-Iteration 2:   log likelihood = -24.385388  
-Iteration 3:   log likelihood = -24.385379  
-Iteration 4:   log likelihood = -24.385379  
+Initial:      Log likelihood = -24.507397
+Rescale:      Log likelihood = -24.507397
+Rescale eq:   Log likelihood = -24.507397
+Iteration 0:  Log likelihood = -24.507397  
+Iteration 1:  Log likelihood = -24.387844  
+Iteration 2:  Log likelihood = -24.385388  
+Iteration 3:  Log likelihood = -24.385379  
+Iteration 4:  Log likelihood = -24.385379  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -160,14 +160,14 @@ Warning: 1 observation has observed outcome and missing covariate, and has been
 Note: 9 observations on 2 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -24.507397
-rescale:       log likelihood = -24.507397
-rescale eq:    log likelihood = -24.507397
-Iteration 0:   log likelihood = -24.507397  
-Iteration 1:   log likelihood = -24.387844  
-Iteration 2:   log likelihood = -24.385388  
-Iteration 3:   log likelihood = -24.385379  
-Iteration 4:   log likelihood = -24.385379  
+Initial:      Log likelihood = -24.507397
+Rescale:      Log likelihood = -24.507397
+Rescale eq:   Log likelihood = -24.507397
+Iteration 0:  Log likelihood = -24.507397  
+Iteration 1:  Log likelihood = -24.387844  
+Iteration 2:  Log likelihood = -24.385388  
+Iteration 3:  Log likelihood = -24.385379  
+Iteration 4:  Log likelihood = -24.385379  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -213,14 +213,14 @@ Warning: 1 observation has all outcomes missing, and has been dropped from anal
 Note: 9 observations on 2 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -24.507397
-rescale:       log likelihood = -24.507397
-rescale eq:    log likelihood = -24.507397
-Iteration 0:   log likelihood = -24.507397  
-Iteration 1:   log likelihood = -24.387844  
-Iteration 2:   log likelihood = -24.385388  
-Iteration 3:   log likelihood = -24.385379  
-Iteration 4:   log likelihood = -24.385379  
+Initial:      Log likelihood = -24.507397
+Rescale:      Log likelihood = -24.507397
+Rescale eq:   Log likelihood = -24.507397
+Iteration 0:  Log likelihood = -24.507397  
+Iteration 1:  Log likelihood = -24.387844  
+Iteration 2:  Log likelihood = -24.385388  
+Iteration 3:  Log likelihood = -24.385379  
+Iteration 4:  Log likelihood = -24.385379  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -322,14 +322,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -376,14 +376,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -419,14 +419,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -461,14 +461,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -503,14 +503,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -546,14 +546,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -588,14 +588,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -630,14 +630,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -672,14 +672,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -715,14 +715,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -776,14 +776,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -868,14 +868,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -961,14 +961,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -1003,14 +1003,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -1104,14 +1104,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -1162,14 +1162,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -1231,14 +1231,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -1277,14 +1277,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -1321,14 +1321,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -1373,14 +1373,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -1426,14 +1426,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -1470,14 +1470,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -1520,14 +1520,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -1575,14 +1575,14 @@ Warning: at studychar=Study 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at studychar=Study 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -1757,14 +1757,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 (option showall ignored with option nouncertainv)
 
 Multivariate meta-analysis
@@ -2089,14 +2089,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -2131,14 +2131,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood =  -22.92849
-rescale:       log likelihood =  -22.92849
-rescale eq:    log likelihood = -22.897544
-Iteration 0:   log likelihood = -22.897544  
-Iteration 1:   log likelihood = -22.732728  
-Iteration 2:   log likelihood = -22.686598  
-Iteration 3:   log likelihood = -22.686576  
-Iteration 4:   log likelihood = -22.686576  
+Initial:      Log likelihood =  -22.92849
+Rescale:      Log likelihood =  -22.92849
+Rescale eq:   Log likelihood = -22.897544
+Iteration 0:  Log likelihood = -22.897544  
+Iteration 1:  Log likelihood = -22.732728  
+Iteration 2:  Log likelihood = -22.686598  
+Iteration 3:  Log likelihood = -22.686576  
+Iteration 4:  Log likelihood = -22.686576  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -2170,13 +2170,13 @@ Note: regressing z2 on study
 Note: 10 observations on 1 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -19.018393
-rescale:       log likelihood = -19.018393
-rescale eq:    log likelihood = -19.018393
-Iteration 0:   log likelihood = -19.018393  
-Iteration 1:   log likelihood =  -19.01651  
-Iteration 2:   log likelihood = -19.016505  
-Iteration 3:   log likelihood = -19.016505  
+Initial:      Log likelihood = -19.018393
+Rescale:      Log likelihood = -19.018393
+Rescale eq:   Log likelihood = -19.018393
+Iteration 0:  Log likelihood = -19.018393  
+Iteration 1:  Log likelihood =  -19.01651  
+Iteration 2:  Log likelihood = -19.016505  
+Iteration 3:  Log likelihood = -19.016505  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -2206,16 +2206,16 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -31.347171
-rescale:       log likelihood = -31.347171
-rescale eq:    log likelihood = -29.174082
-Iteration 0:   log likelihood = -29.174082  
-Iteration 1:   log likelihood = -28.983151  
-Iteration 2:   log likelihood = -26.752385  (backed up)
-Iteration 3:   log likelihood = -26.198993  
-Iteration 4:   log likelihood = -26.182726  
-Iteration 5:   log likelihood = -26.182666  
-Iteration 6:   log likelihood = -26.182666  
+Initial:      Log likelihood = -31.347171
+Rescale:      Log likelihood = -31.347171
+Rescale eq:   Log likelihood = -29.174082
+Iteration 0:  Log likelihood = -29.174082  
+Iteration 1:  Log likelihood = -28.983151  
+Iteration 2:  Log likelihood = -26.752385  (backed up)
+Iteration 3:  Log likelihood = -26.198993  
+Iteration 4:  Log likelihood = -26.182726  
+Iteration 5:  Log likelihood = -26.182666  
+Iteration 6:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -2260,14 +2260,14 @@ Starting value for Sigma (between-studies variance):
 z1   .28829192
 z2  -.83879778   2.4769517
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -2302,14 +2302,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -2345,14 +2345,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -2387,15 +2387,15 @@ Note: using Riley's overall correlation model (ignoring covariances)
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -31.347171
-rescale:       log likelihood = -31.347171
-rescale eq:    log likelihood = -29.174082
-Iteration 0:   log likelihood = -29.174082  (not concave)
-Iteration 1:   log likelihood = -26.940187  
-Iteration 2:   log likelihood = -26.740183  
-Iteration 3:   log likelihood = -26.569745  
-Iteration 4:   log likelihood = -26.569116  
-Iteration 5:   log likelihood = -26.569116  
+Initial:      Log likelihood = -31.347171
+Rescale:      Log likelihood = -31.347171
+Rescale eq:   Log likelihood = -29.174082
+Iteration 0:  Log likelihood = -29.174082  (not concave)
+Iteration 1:  Log likelihood = -26.940187  
+Iteration 2:  Log likelihood = -26.740183  
+Iteration 3:  Log likelihood = -26.569745  
+Iteration 4:  Log likelihood = -26.569116  
+Iteration 5:  Log likelihood = -26.569116  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -2462,14 +2462,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -2504,14 +2504,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -2546,14 +2546,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -2588,14 +2588,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -46.526099
-rescale:       log likelihood = -46.526099
-rescale eq:    log likelihood = -38.294492
-Iteration 0:   log likelihood = -38.294492  (not concave)
-Iteration 1:   log likelihood = -34.875597  
-Iteration 2:   log likelihood = -34.455927  
-Iteration 3:   log likelihood = -34.453287  
-Iteration 4:   log likelihood = -34.453285  
+Initial:      Log likelihood = -46.526099
+Rescale:      Log likelihood = -46.526099
+Rescale eq:   Log likelihood = -38.294492
+Iteration 0:  Log likelihood = -38.294492  (not concave)
+Iteration 1:  Log likelihood = -34.875597  
+Iteration 2:  Log likelihood = -34.455927  
+Iteration 3:  Log likelihood = -34.453287  
+Iteration 4:  Log likelihood = -34.453285  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -2628,14 +2628,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -2670,14 +2670,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -2712,14 +2712,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -2754,13 +2754,13 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is proportional to I(2)
 
-initial:       log likelihood = -31.347171
-rescale:       log likelihood = -31.347171
-rescale eq:    log likelihood = -31.347171
-Iteration 0:   log likelihood = -31.347171  
-Iteration 1:   log likelihood = -31.305113  
-Iteration 2:   log likelihood = -31.305105  
-Iteration 3:   log likelihood = -31.305105  
+Initial:      Log likelihood = -31.347171
+Rescale:      Log likelihood = -31.347171
+Rescale eq:   Log likelihood = -31.347171
+Iteration 0:  Log likelihood = -31.347171  
+Iteration 1:  Log likelihood = -31.305113  
+Iteration 2:  Log likelihood = -31.305105  
+Iteration 3:  Log likelihood = -31.305105  
 
 Multivariate meta-analysis
 Variance-covariance matrix = proportional I(2)
@@ -2827,14 +2827,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is correlation equal to P2
 
-initial:       log likelihood = -33.995223
-rescale:       log likelihood = -33.995223
-rescale eq:    log likelihood = -31.444598
-Iteration 0:   log likelihood = -31.444598  
-Iteration 1:   log likelihood =  -31.21539  
-Iteration 2:   log likelihood = -31.200501  
-Iteration 3:   log likelihood = -31.200458  
-Iteration 4:   log likelihood = -31.200458  
+Initial:      Log likelihood = -33.995223
+Rescale:      Log likelihood = -33.995223
+Rescale eq:   Log likelihood = -31.444598
+Iteration 0:  Log likelihood = -31.444598  
+Iteration 1:  Log likelihood =  -31.21539  
+Iteration 2:  Log likelihood = -31.200501  
+Iteration 3:  Log likelihood = -31.200458  
+Iteration 4:  Log likelihood = -31.200458  
 
 Multivariate meta-analysis
 Variance-covariance matrix = correlation P2
@@ -2869,13 +2869,13 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is proportional to .5*I(2)+.5*J(2,2,1)
 
-initial:       log likelihood = -33.995223
-rescale:       log likelihood = -33.995223
-rescale eq:    log likelihood = -33.995223
-Iteration 0:   log likelihood = -33.995223  
-Iteration 1:   log likelihood = -33.431716  
-Iteration 2:   log likelihood = -33.430445  
-Iteration 3:   log likelihood = -33.430445  
+Initial:      Log likelihood = -33.995223
+Rescale:      Log likelihood = -33.995223
+Rescale eq:   Log likelihood = -33.995223
+Iteration 0:  Log likelihood = -33.995223  
+Iteration 1:  Log likelihood = -33.431716  
+Iteration 2:  Log likelihood = -33.430445  
+Iteration 3:  Log likelihood = -33.430445  
 
 Multivariate meta-analysis
 Variance-covariance matrix = proportional .5*I(2)+.5*J(2,2,1)
@@ -2910,14 +2910,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is exchangeable
 
-initial:       log likelihood = -31.347171
-rescale:       log likelihood = -31.347171
-rescale eq:    log likelihood = -31.347171
-Iteration 0:   log likelihood = -31.347171  
-Iteration 1:   log likelihood = -30.642363  
-Iteration 2:   log likelihood = -30.602324  
-Iteration 3:   log likelihood = -30.602303  
-Iteration 4:   log likelihood = -30.602303  
+Initial:      Log likelihood = -31.347171
+Rescale:      Log likelihood = -31.347171
+Rescale eq:   Log likelihood = -31.347171
+Iteration 0:  Log likelihood = -31.347171  
+Iteration 1:  Log likelihood = -30.642363  
+Iteration 2:  Log likelihood = -30.602324  
+Iteration 3:  Log likelihood = -30.602303  
+Iteration 4:  Log likelihood = -30.602303  
 
 Multivariate meta-analysis
 Variance-covariance matrix = exchangeable
@@ -2952,14 +2952,14 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -2994,13 +2994,13 @@ Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at observation 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -27.395433
-rescale:       log likelihood = -27.395433
-rescale eq:    log likelihood = -27.393653
-Iteration 0:   log likelihood = -27.393653  
-Iteration 1:   log likelihood = -27.328897  
-Iteration 2:   log likelihood = -27.327961  
-Iteration 3:   log likelihood =  -27.32796  
+Initial:      Log likelihood = -27.395433
+Rescale:      Log likelihood = -27.395433
+Rescale eq:   Log likelihood = -27.393653
+Iteration 0:  Log likelihood = -27.393653  
+Iteration 1:  Log likelihood = -27.328897  
+Iteration 2:  Log likelihood = -27.327961  
+Iteration 3:  Log likelihood =  -27.32796  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -3033,14 +3033,14 @@ Warning: at study=1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at study=1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -3075,14 +3075,14 @@ Warning: at studychar=Study 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at studychar=Study 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -3117,14 +3117,14 @@ Warning: at studynum=Study 1, z1 is missing, so I'm ignoring non-missing S11
 Warning: at studynum=Study 1, z1 is missing, so I'm ignoring non-missing S12
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -3184,14 +3184,14 @@ Starting value for Sigma (between-studies variance):
 z1   .28829192
 z2  -.83879778   2.4769517
 
-initial:       log likelihood = -26.277184
-rescale:       log likelihood = -26.277184
-rescale eq:    log likelihood = -26.277184
-Iteration 0:   log likelihood = -26.277184  
-Iteration 1:   log likelihood = -26.198403  
-Iteration 2:   log likelihood =  -26.18294  
-Iteration 3:   log likelihood = -26.182667  
-Iteration 4:   log likelihood = -26.182666  
+Initial:      Log likelihood = -26.277184
+Rescale:      Log likelihood = -26.277184
+Rescale eq:   Log likelihood = -26.277184
+Iteration 0:  Log likelihood = -26.277184  
+Iteration 1:  Log likelihood = -26.198403  
+Iteration 2:  Log likelihood =  -26.18294  
+Iteration 3:  Log likelihood = -26.182667  
+Iteration 4:  Log likelihood = -26.182666  
 (option showall ignored with option nouncertainv)
 
 Multivariate meta-analysis
@@ -3650,14 +3650,14 @@ Starting value for Sigma (between-studies variance):
 r1   1
 r2  .5   1
 
-initial:       log likelihood = -35.690612
-rescale:       log likelihood = -35.690612
-rescale eq:    log likelihood = -35.002595
-Iteration 0:   log likelihood = -35.002595  
-Iteration 1:   log likelihood = -34.075438  
-Iteration 2:   log likelihood = -34.026289  
-Iteration 3:   log likelihood = -34.026283  
-Iteration 4:   log likelihood = -34.026283  
+Initial:      Log likelihood = -35.690612
+Rescale:      Log likelihood = -35.690612
+Rescale eq:   Log likelihood = -35.002595
+Iteration 0:  Log likelihood = -35.002595  
+Iteration 1:  Log likelihood = -34.075438  
+Iteration 2:  Log likelihood = -34.026289  
+Iteration 3:  Log likelihood = -34.026283  
+Iteration 4:  Log likelihood = -34.026283  
 (option showall ignored with option nouncertainv)
 Option i2 is not available with wscorr(riley)
 Option qscalar is not available with wscorr(riley)
@@ -4054,13 +4054,13 @@ Starting value for Sigma (between-studies variance):
 c1   1
 c2   0   1
 
-initial:       log likelihood = -31.347171
-rescale:       log likelihood = -31.347171
-rescale eq:    log likelihood = -29.174082
-Iteration 0:   log likelihood = -29.174082  
-Iteration 1:   log likelihood = -28.791213  
-Iteration 2:   log likelihood = -28.787914  
-Iteration 3:   log likelihood = -28.787912  
+Initial:      Log likelihood = -31.347171
+Rescale:      Log likelihood = -31.347171
+Rescale eq:   Log likelihood = -29.174082
+Iteration 0:  Log likelihood = -29.174082  
+Iteration 1:  Log likelihood = -28.791213  
+Iteration 2:  Log likelihood = -28.787914  
+Iteration 3:  Log likelihood = -28.787912  
 (option showall ignored with option nouncertainv)
 
 Multivariate meta-analysis
@@ -4503,14 +4503,14 @@ Starting value for Sigma (between-studies variance):
 r1   1
 r2   0   1
 
-initial:       log likelihood = -31.347171
-rescale:       log likelihood = -31.347171
-rescale eq:    log likelihood = -31.347171
-Iteration 0:   log likelihood = -31.347171  
-Iteration 1:   log likelihood = -30.642363  
-Iteration 2:   log likelihood = -30.602324  
-Iteration 3:   log likelihood = -30.602303  
-Iteration 4:   log likelihood = -30.602303  
+Initial:      Log likelihood = -31.347171
+Rescale:      Log likelihood = -31.347171
+Rescale eq:   Log likelihood = -31.347171
+Iteration 0:  Log likelihood = -31.347171  
+Iteration 1:  Log likelihood = -30.642363  
+Iteration 2:  Log likelihood = -30.602324  
+Iteration 3:  Log likelihood = -30.602303  
+Iteration 4:  Log likelihood = -30.602303  
 (option showall ignored with option nouncertainv)
 
 Multivariate meta-analysis
@@ -4931,13 +4931,13 @@ Note: using variables y1 y2
 Note: 10 observations on 2 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -24.474456
-rescale:       log likelihood = -24.474456
-rescale eq:    log likelihood = -24.472315
-Iteration 0:   log likelihood = -24.472315  
-Iteration 1:   log likelihood =  -24.41615  
-Iteration 2:   log likelihood = -24.415968  
-Iteration 3:   log likelihood = -24.415968  
+Initial:      Log likelihood = -24.474456
+Rescale:      Log likelihood = -24.474456
+Rescale eq:   Log likelihood = -24.472315
+Iteration 0:  Log likelihood = -24.472315  
+Iteration 1:  Log likelihood =  -24.41615  
+Iteration 2:  Log likelihood = -24.415968  
+Iteration 3:  Log likelihood = -24.415968  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -4971,13 +4971,13 @@ Note: using variables y1 y2
 Note: 10 observations on 2 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -24.474456
-rescale:       log likelihood = -24.474456
-rescale eq:    log likelihood = -24.472315
-Iteration 0:   log likelihood = -24.472315  
-Iteration 1:   log likelihood =  -24.41615  
-Iteration 2:   log likelihood = -24.415968  
-Iteration 3:   log likelihood = -24.415968  
+Initial:      Log likelihood = -24.474456
+Rescale:      Log likelihood = -24.474456
+Rescale eq:   Log likelihood = -24.472315
+Iteration 0:  Log likelihood = -24.472315  
+Iteration 1:  Log likelihood =  -24.41615  
+Iteration 2:  Log likelihood = -24.415968  
+Iteration 3:  Log likelihood = -24.415968  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -5015,15 +5015,15 @@ Note: 10 observations on 2 variables
 Note: using Riley's overall correlation model
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -31.257376
-rescale:       log likelihood = -31.257376
-rescale eq:    log likelihood =   -27.9627
-Iteration 0:   log likelihood =   -27.9627  (not concave)
-Iteration 1:   log likelihood = -25.293568  
-Iteration 2:   log likelihood =  -24.62806  
-Iteration 3:   log likelihood = -24.609924  
-Iteration 4:   log likelihood = -24.609892  
-Iteration 5:   log likelihood = -24.609892  
+Initial:      Log likelihood = -31.257376
+Rescale:      Log likelihood = -31.257376
+Rescale eq:   Log likelihood =   -27.9627
+Iteration 0:  Log likelihood =   -27.9627  (not concave)
+Iteration 1:  Log likelihood = -25.293568  
+Iteration 2:  Log likelihood =  -24.62806  
+Iteration 3:  Log likelihood = -24.609924  
+Iteration 4:  Log likelihood = -24.609892  
+Iteration 5:  Log likelihood = -24.609892  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -5076,13 +5076,13 @@ Warning: unstructured-variance method of moments failed - I2 statistic is not a
 > vailable
 Note: variance-covariance matrix is proportional to .5*I(3)+.5*J(3,3,1)
 
-initial:       log likelihood = -115.61006
-rescale:       log likelihood = -115.61006
-rescale eq:    log likelihood =  -110.8469
-Iteration 0:   log likelihood =  -110.8469  
-Iteration 1:   log likelihood = -109.58186  
-Iteration 2:   log likelihood =  -109.5751  
-Iteration 3:   log likelihood =  -109.5751  
+Initial:      Log likelihood = -115.61006
+Rescale:      Log likelihood = -115.61006
+Rescale eq:   Log likelihood =  -110.8469
+Iteration 0:  Log likelihood =  -110.8469  
+Iteration 1:  Log likelihood = -109.58186  
+Iteration 2:  Log likelihood =  -109.5751  
+Iteration 3:  Log likelihood =  -109.5751  
 
 Multivariate meta-analysis
 Variance-covariance matrix = proportional .5*I(3)+.5*J(3,3,1)
@@ -5117,13 +5117,13 @@ Warning: unstructured-variance method of moments failed - I2 statistic is not a
 > vailable
 Note: variance-covariance matrix is proportional to .5*I(3)+.5*J(3,3,1)
 
-initial:       log likelihood = -115.61006
-rescale:       log likelihood = -115.61006
-rescale eq:    log likelihood =  -110.8469
-Iteration 0:   log likelihood =  -110.8469  
-Iteration 1:   log likelihood = -109.58186  
-Iteration 2:   log likelihood =  -109.5751  
-Iteration 3:   log likelihood =  -109.5751  
+Initial:      Log likelihood = -115.61006
+Rescale:      Log likelihood = -115.61006
+Rescale eq:   Log likelihood =  -110.8469
+Iteration 0:  Log likelihood =  -110.8469  
+Iteration 1:  Log likelihood = -109.58186  
+Iteration 2:  Log likelihood =  -109.5751  
+Iteration 3:  Log likelihood =  -109.5751  
 
 Multivariate meta-analysis
 Variance-covariance matrix = proportional .5*I(3)+.5*J(3,3,1)
@@ -5152,13 +5152,13 @@ Note: using variables y1 y2 y3
 Note: 69 observations on 3 variables
 Note: variance-covariance matrix is proportional to .5*I(3)+.5*J(3,3,1)
 
-initial:       log likelihood = -115.61006
-rescale:       log likelihood = -115.61006
-rescale eq:    log likelihood =  -110.8469
-Iteration 0:   log likelihood =  -110.8469  
-Iteration 1:   log likelihood = -109.58186  
-Iteration 2:   log likelihood =  -109.5751  
-Iteration 3:   log likelihood =  -109.5751  
+Initial:      Log likelihood = -115.61006
+Rescale:      Log likelihood = -115.61006
+Rescale eq:   Log likelihood =  -110.8469
+Iteration 0:  Log likelihood =  -110.8469  
+Iteration 1:  Log likelihood = -109.58186  
+Iteration 2:  Log likelihood =  -109.5751  
+Iteration 3:  Log likelihood =  -109.5751  
 
 Multivariate meta-analysis
 Variance-covariance matrix = proportional .5*I(3)+.5*J(3,3,1)
@@ -5204,14 +5204,14 @@ Note: 33 observations on 2 variables
 Note: using Riley's overall correlation model
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -49.574654
-rescale:       log likelihood = -49.574654
-rescale eq:    log likelihood = -47.289012
-Iteration 0:   log likelihood = -47.289012  
-Iteration 1:   log likelihood = -46.765752  
-Iteration 2:   log likelihood = -46.700539  
-Iteration 3:   log likelihood = -46.699524  
-Iteration 4:   log likelihood = -46.699523  
+Initial:      Log likelihood = -49.574654
+Rescale:      Log likelihood = -49.574654
+Rescale eq:   Log likelihood = -47.289012
+Iteration 0:  Log likelihood = -47.289012  
+Iteration 1:  Log likelihood = -46.765752  
+Iteration 2:  Log likelihood = -46.700539  
+Iteration 3:  Log likelihood = -46.699524  
+Iteration 4:  Log likelihood = -46.699523  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -5242,14 +5242,14 @@ Note: 33 observations on 2 variables
 Note: using Riley's overall correlation model
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -49.574654
-rescale:       log likelihood = -49.574654
-rescale eq:    log likelihood = -47.289012
-Iteration 0:   log likelihood = -47.289012  
-Iteration 1:   log likelihood = -46.765752  
-Iteration 2:   log likelihood = -46.700539  
-Iteration 3:   log likelihood = -46.699524  
-Iteration 4:   log likelihood = -46.699523  
+Initial:      Log likelihood = -49.574654
+Rescale:      Log likelihood = -49.574654
+Rescale eq:   Log likelihood = -47.289012
+Iteration 0:  Log likelihood = -47.289012  
+Iteration 1:  Log likelihood = -46.765752  
+Iteration 2:  Log likelihood = -46.700539  
+Iteration 3:  Log likelihood = -46.699524  
+Iteration 4:  Log likelihood = -46.699523  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -5281,14 +5281,14 @@ Note: 33 observations on 2 variables
 Note: using Riley's overall correlation model
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -49.574654
-rescale:       log likelihood = -49.574654
-rescale eq:    log likelihood = -47.289012
-Iteration 0:   log likelihood = -47.289012  
-Iteration 1:   log likelihood = -46.759859  
-Iteration 2:   log likelihood = -46.703901  
-Iteration 3:   log likelihood = -46.703313  
-Iteration 4:   log likelihood = -46.703313  
+Initial:      Log likelihood = -49.574654
+Rescale:      Log likelihood = -49.574654
+Rescale eq:   Log likelihood = -47.289012
+Iteration 0:  Log likelihood = -47.289012  
+Iteration 1:  Log likelihood = -46.759859  
+Iteration 2:  Log likelihood = -46.703901  
+Iteration 3:  Log likelihood = -46.703313  
+Iteration 4:  Log likelihood = -46.703313  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -5328,40 +5328,40 @@ Note: 73 observations on 4 variables
 Note: using Riley's overall correlation model
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -144.18846
-rescale:       log likelihood = -144.18846
-rescale eq:    log likelihood = -136.94856
-Iteration 0:   log likelihood = -136.94856  (not concave)
-Iteration 1:   log likelihood = -132.92621  (not concave)
-Iteration 2:   log likelihood = -131.26203  (not concave)
-Iteration 3:   log likelihood = -130.45101  (not concave)
-Iteration 4:   log likelihood =  -129.0503  (not concave)
-Iteration 5:   log likelihood =  -119.9588  (not concave)
-Iteration 6:   log likelihood = -117.37941  (not concave)
-Iteration 7:   log likelihood = -115.31696  (not concave)
-Iteration 8:   log likelihood = -113.86301  (not concave)
-Iteration 9:   log likelihood = -112.86941  (not concave)
-Iteration 10:  log likelihood = -112.25866  (not concave)
-Iteration 11:  log likelihood = -111.81971  (not concave)
-Iteration 12:  log likelihood = -111.67593  (not concave)
-Iteration 13:  log likelihood = -111.59395  (not concave)
-Iteration 14:  log likelihood =  -111.5705  (not concave)
-Iteration 15:  log likelihood = -111.56279  (not concave)
-Iteration 16:  log likelihood = -111.55812  (not concave)
-Iteration 17:  log likelihood = -111.55728  (not concave)
-Iteration 18:  log likelihood = -111.55665  (not concave)
-Iteration 19:  log likelihood = -111.55625  (not concave)
-Iteration 20:  log likelihood = -111.55616  (not concave)
-Iteration 21:  log likelihood = -111.55604  (not concave)
-Iteration 22:  log likelihood = -111.55601  (not concave)
-Iteration 23:  log likelihood = -111.55599  (not concave)
-Iteration 24:  log likelihood = -111.55598  (not concave)
-Iteration 25:  log likelihood = -111.55598  (not concave)
-Iteration 26:  log likelihood = -111.55597  (not concave)
-Iteration 27:  log likelihood = -111.55597  (not concave)
-Iteration 28:  log likelihood = -111.55597  (not concave)
-Iteration 29:  log likelihood = -111.55597  (not concave)
-Iteration 30:  log likelihood = -111.55597  (not concave)
+Initial:      Log likelihood = -144.18846
+Rescale:      Log likelihood = -144.18846
+Rescale eq:   Log likelihood = -136.94856
+Iteration 0:  Log likelihood = -136.94856  (not concave)
+Iteration 1:  Log likelihood = -132.92621  (not concave)
+Iteration 2:  Log likelihood = -131.26203  (not concave)
+Iteration 3:  Log likelihood = -130.45101  (not concave)
+Iteration 4:  Log likelihood =  -129.0503  (not concave)
+Iteration 5:  Log likelihood =  -119.9588  (not concave)
+Iteration 6:  Log likelihood = -117.37941  (not concave)
+Iteration 7:  Log likelihood = -115.31696  (not concave)
+Iteration 8:  Log likelihood = -113.86301  (not concave)
+Iteration 9:  Log likelihood = -112.86941  (not concave)
+Iteration 10: Log likelihood = -112.25866  (not concave)
+Iteration 11: Log likelihood = -111.81971  (not concave)
+Iteration 12: Log likelihood = -111.67593  (not concave)
+Iteration 13: Log likelihood = -111.59395  (not concave)
+Iteration 14: Log likelihood =  -111.5705  (not concave)
+Iteration 15: Log likelihood = -111.56279  (not concave)
+Iteration 16: Log likelihood = -111.55812  (not concave)
+Iteration 17: Log likelihood = -111.55728  (not concave)
+Iteration 18: Log likelihood = -111.55665  (not concave)
+Iteration 19: Log likelihood = -111.55625  (not concave)
+Iteration 20: Log likelihood = -111.55616  (not concave)
+Iteration 21: Log likelihood = -111.55604  (not concave)
+Iteration 22: Log likelihood = -111.55601  (not concave)
+Iteration 23: Log likelihood = -111.55599  (not concave)
+Iteration 24: Log likelihood = -111.55598  (not concave)
+Iteration 25: Log likelihood = -111.55598  (not concave)
+Iteration 26: Log likelihood = -111.55597  (not concave)
+Iteration 27: Log likelihood = -111.55597  (not concave)
+Iteration 28: Log likelihood = -111.55597  (not concave)
+Iteration 29: Log likelihood = -111.55597  (not concave)
+Iteration 30: Log likelihood = -111.55597  (not concave)
 convergence not achieved
 
 Multivariate meta-analysis
@@ -5397,21 +5397,21 @@ Note: 73 observations on 4 variables
 Note: using Riley's overall correlation model
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -144.18846
-rescale:       log likelihood = -144.18846
-rescale eq:    log likelihood = -136.94856
-Iteration 0:   log likelihood = -136.94856  (not concave)
-Iteration 1:   log likelihood = -135.54169  (not concave)
-Iteration 2:   log likelihood =  -130.3421  (not concave)
-Iteration 3:   log likelihood = -129.24465  (not concave)
-Iteration 4:   log likelihood =  -122.1689  (not concave)
-Iteration 5:   log likelihood = -119.78686  (not concave)
-Iteration 6:   log likelihood = -119.14188  (not concave)
-Iteration 7:   log likelihood = -118.45416  
-Iteration 8:   log likelihood = -118.26256  
-Iteration 9:   log likelihood = -118.24442  
-Iteration 10:  log likelihood = -118.24393  
-Iteration 11:  log likelihood = -118.24393  
+Initial:      Log likelihood = -144.18846
+Rescale:      Log likelihood = -144.18846
+Rescale eq:   Log likelihood = -136.94856
+Iteration 0:  Log likelihood = -136.94856  (not concave)
+Iteration 1:  Log likelihood = -135.54169  (not concave)
+Iteration 2:  Log likelihood =  -130.3421  (not concave)
+Iteration 3:  Log likelihood = -129.24465  (not concave)
+Iteration 4:  Log likelihood =  -122.1689  (not concave)
+Iteration 5:  Log likelihood = -119.78686  (not concave)
+Iteration 6:  Log likelihood = -119.14188  (not concave)
+Iteration 7:  Log likelihood = -118.45416  
+Iteration 8:  Log likelihood = -118.26256  
+Iteration 9:  Log likelihood = -118.24442  
+Iteration 10: Log likelihood = -118.24393  
+Iteration 11: Log likelihood = -118.24393  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -5447,15 +5447,15 @@ Note: 73 observations on 4 variables
 Note: using Riley's overall correlation model
 Note: variance-covariance matrix is exchangeable
 
-initial:       log likelihood = -144.18846
-rescale:       log likelihood = -144.18846
-rescale eq:    log likelihood = -136.94856
-Iteration 0:   log likelihood = -136.94856  
-Iteration 1:   log likelihood = -126.53352  
-Iteration 2:   log likelihood = -124.33095  
-Iteration 3:   log likelihood = -124.05661  
-Iteration 4:   log likelihood = -124.05597  
-Iteration 5:   log likelihood = -124.05597  
+Initial:      Log likelihood = -144.18846
+Rescale:      Log likelihood = -144.18846
+Rescale eq:   Log likelihood = -136.94856
+Iteration 0:  Log likelihood = -136.94856  
+Iteration 1:  Log likelihood = -126.53352  
+Iteration 2:  Log likelihood = -124.33095  
+Iteration 3:  Log likelihood = -124.05661  
+Iteration 4:  Log likelihood = -124.05597  
+Iteration 5:  Log likelihood = -124.05597  
 
 Multivariate meta-analysis
 Variance-covariance matrix = exchangeable
@@ -5498,13 +5498,13 @@ Note: using Riley's overall correlation model
 Note: variance-covariance matrix is proportional to .2323105348437412*I(4)+.767
 > 6894651562588*J(4,4,1)
 
-initial:       log likelihood =  -131.1802
-rescale:       log likelihood =  -131.1802
-rescale eq:    log likelihood = -125.62277
-Iteration 0:   log likelihood = -125.62277  
-Iteration 1:   log likelihood = -124.06848  
-Iteration 2:   log likelihood = -124.05598  
-Iteration 3:   log likelihood = -124.05597  
+Initial:      Log likelihood =  -131.1802
+Rescale:      Log likelihood =  -131.1802
+Rescale eq:   Log likelihood = -125.62277
+Iteration 0:  Log likelihood = -125.62277  
+Iteration 1:  Log likelihood = -124.06848  
+Iteration 2:  Log likelihood = -124.05598  
+Iteration 3:  Log likelihood = -124.05597  
 
 Multivariate meta-analysis
 Variance-covariance matrix = proportional .2323105348437412*I(4)+.7676894651562
@@ -5545,15 +5545,15 @@ Note: 73 observations on 4 variables
 Note: using Riley's overall correlation model
 Note: variance-covariance matrix is exchangeable
 
-initial:       log likelihood = -180.50625
-rescale:       log likelihood = -166.86817
-rescale eq:    log likelihood = -137.78101
-Iteration 0:   log likelihood = -137.78101  
-Iteration 1:   log likelihood = -127.16264  
-Iteration 2:   log likelihood = -124.59219  
-Iteration 3:   log likelihood = -124.05925  
-Iteration 4:   log likelihood = -124.05598  
-Iteration 5:   log likelihood = -124.05597  
+Initial:      Log likelihood = -180.50625
+Rescale:      Log likelihood = -166.86817
+Rescale eq:   Log likelihood = -137.78101
+Iteration 0:  Log likelihood = -137.78101  
+Iteration 1:  Log likelihood = -127.16264  
+Iteration 2:  Log likelihood = -124.59219  
+Iteration 3:  Log likelihood = -124.05925  
+Iteration 4:  Log likelihood = -124.05598  
+Iteration 5:  Log likelihood = -124.05597  
 
 Multivariate meta-analysis
 Variance-covariance matrix = exchangeable
@@ -5606,13 +5606,13 @@ Note: 73 observations on 4 variables
 Note: wscorr(0.3) used for all covariances
 Note: variance-covariance matrix is proportional to I(4)
 
-initial:       log likelihood = -142.33576
-rescale:       log likelihood = -142.33576
-rescale eq:    log likelihood = -132.34847
-Iteration 0:   log likelihood = -132.34847  
-Iteration 1:   log likelihood =  -131.9295  
-Iteration 2:   log likelihood = -131.92872  
-Iteration 3:   log likelihood = -131.92872  
+Initial:      Log likelihood = -142.33576
+Rescale:      Log likelihood = -142.33576
+Rescale eq:   Log likelihood = -132.34847
+Iteration 0:  Log likelihood = -132.34847  
+Iteration 1:  Log likelihood =  -131.9295  
+Iteration 2:  Log likelihood = -131.92872  
+Iteration 3:  Log likelihood = -131.92872  
 
 Multivariate meta-analysis
 Variance-covariance matrix = proportional I(4)
@@ -5645,13 +5645,13 @@ Note: 73 observations on 4 variables
 Note: wscorr(0.3) used for all covariances
 Note: variance-covariance matrix is proportional to I(4)
 
-initial:       log likelihood = -203.50624
-rescale:       log likelihood = -177.72022
-rescale eq:    log likelihood =  -133.0867
-Iteration 0:   log likelihood =  -133.0867  
-Iteration 1:   log likelihood = -131.95488  
-Iteration 2:   log likelihood = -131.92873  
-Iteration 3:   log likelihood = -131.92872  
+Initial:      Log likelihood = -203.50624
+Rescale:      Log likelihood = -177.72022
+Rescale eq:   Log likelihood =  -133.0867
+Iteration 0:  Log likelihood =  -133.0867  
+Iteration 1:  Log likelihood = -131.95488  
+Iteration 2:  Log likelihood = -131.92873  
+Iteration 3:  Log likelihood = -131.92872  
 
 Multivariate meta-analysis
 Variance-covariance matrix = proportional I(4)
@@ -5684,16 +5684,16 @@ Note: 73 observations on 4 variables
 Note: wscorr(0.3) used for all covariances
 Note: variance-covariance matrix is exchangeable
 
-initial:       log likelihood = -142.33576
-rescale:       log likelihood = -142.33576
-rescale eq:    log likelihood = -132.34847
-Iteration 0:   log likelihood = -132.34847  
-Iteration 1:   log likelihood =  -128.0545  
-Iteration 2:   log likelihood = -126.47687  
-Iteration 3:   log likelihood =  -126.1131  
-Iteration 4:   log likelihood = -125.98338  
-Iteration 5:   log likelihood = -125.97829  
-Iteration 6:   log likelihood = -125.97829  
+Initial:      Log likelihood = -142.33576
+Rescale:      Log likelihood = -142.33576
+Rescale eq:   Log likelihood = -132.34847
+Iteration 0:  Log likelihood = -132.34847  
+Iteration 1:  Log likelihood =  -128.0545  
+Iteration 2:  Log likelihood = -126.47687  
+Iteration 3:  Log likelihood =  -126.1131  
+Iteration 4:  Log likelihood = -125.98338  
+Iteration 5:  Log likelihood = -125.97829  
+Iteration 6:  Log likelihood = -125.97829  
 
 Multivariate meta-analysis
 Variance-covariance matrix = exchangeable
@@ -5726,17 +5726,17 @@ Note: 73 observations on 4 variables
 Note: wscorr(0.3) used for all covariances
 Note: variance-covariance matrix is exchangeable
 
-initial:       log likelihood = -142.33576
-rescale:       log likelihood = -142.33576
-rescale eq:    log likelihood = -142.33576
-Iteration 0:   log likelihood = -142.33576  (not concave)
-Iteration 1:   log likelihood = -134.89066  (not concave)
-Iteration 2:   log likelihood = -132.09579  
-Iteration 3:   log likelihood = -126.24143  
-Iteration 4:   log likelihood = -125.99997  
-Iteration 5:   log likelihood =  -125.9783  
-Iteration 6:   log likelihood = -125.97829  
-Iteration 7:   log likelihood = -125.97829  
+Initial:      Log likelihood = -142.33576
+Rescale:      Log likelihood = -142.33576
+Rescale eq:   Log likelihood = -142.33576
+Iteration 0:  Log likelihood = -142.33576  (not concave)
+Iteration 1:  Log likelihood = -134.89066  (not concave)
+Iteration 2:  Log likelihood = -132.09579  
+Iteration 3:  Log likelihood = -126.24143  
+Iteration 4:  Log likelihood = -125.99997  
+Iteration 5:  Log likelihood =  -125.9783  
+Iteration 6:  Log likelihood = -125.97829  
+Iteration 7:  Log likelihood = -125.97829  
 
 Multivariate meta-analysis
 Variance-covariance matrix = exchangeable
@@ -5785,14 +5785,14 @@ Note: using variables y1 y2
 Note: 10 observations on 2 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood =   -22.8524
-rescale:       log likelihood =   -22.8524
-rescale eq:    log likelihood =   -22.8524
-Iteration 0:   log likelihood =   -22.8524  
-Iteration 1:   log likelihood = -22.783895  
-Iteration 2:   log likelihood = -22.764924  
-Iteration 3:   log likelihood = -22.764475  
-Iteration 4:   log likelihood = -22.764474  
+Initial:      Log likelihood =   -22.8524
+Rescale:      Log likelihood =   -22.8524
+Rescale eq:   Log likelihood =   -22.8524
+Iteration 0:  Log likelihood =   -22.8524  
+Iteration 1:  Log likelihood = -22.783895  
+Iteration 2:  Log likelihood = -22.764924  
+Iteration 3:  Log likelihood = -22.764475  
+Iteration 4:  Log likelihood = -22.764474  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -5876,12 +5876,12 @@ Note: using variables y1 y2
 Note: 10 observations on 2 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood =   -22.8524
-rescale:       log likelihood =   -22.8524
-rescale eq:    log likelihood =   -22.8524
-Iteration 0:   log likelihood = -22.767904  
-Iteration 1:   log likelihood = -22.764474  
-Iteration 2:   log likelihood = -22.764474  
+Initial:      Log likelihood =   -22.8524
+Rescale:      Log likelihood =   -22.8524
+Rescale eq:   Log likelihood =   -22.8524
+Iteration 0:  Log likelihood = -22.767904  
+Iteration 1:  Log likelihood = -22.764474  
+Iteration 2:  Log likelihood = -22.764474  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -5915,7 +5915,7 @@ y2  1.6015111         -1          1
 . cap runhelpfile // just to load it
 
 . cd "`mvmetadir'package"
-c:\ado\ian\mvmeta\package
+c:\ian\git\mvmeta\package
 
 . runhelpfile using mvmeta.sthlp, skip(net)
 Skipping command: net get st0156, from(http://www.stata-journal.com/software/sj
@@ -5927,18 +5927,18 @@ Note: using variables b_Ifg_2 b_Ifg_3 b_Ifg_4 b_Ifg_5
 Note: 31 observations on 4 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood =  -80.51611
-rescale:       log likelihood =  -80.51611
-rescale eq:    log likelihood = -80.071916
-Iteration 0:   log likelihood = -80.071916  (not concave)
-Iteration 1:   log likelihood = -79.723602  
-Iteration 2:   log likelihood = -79.561239  
-Iteration 3:   log likelihood = -79.504997  
-Iteration 4:   log likelihood = -79.492132  
-Iteration 5:   log likelihood = -79.489355  
-Iteration 6:   log likelihood = -79.489137  
-Iteration 7:   log likelihood = -79.489126  
-Iteration 8:   log likelihood = -79.489126  
+Initial:      Log likelihood =  -80.51611
+Rescale:      Log likelihood =  -80.51611
+Rescale eq:   Log likelihood = -80.071916
+Iteration 0:  Log likelihood = -80.071916  (not concave)
+Iteration 1:  Log likelihood = -79.723602  
+Iteration 2:  Log likelihood = -79.561239  
+Iteration 3:  Log likelihood = -79.504997  
+Iteration 4:  Log likelihood = -79.492132  
+Iteration 5:  Log likelihood = -79.489355  
+Iteration 6:  Log likelihood = -79.489137  
+Iteration 7:  Log likelihood = -79.489126  
+Iteration 8:  Log likelihood = -79.489126  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -5962,6 +5962,8 @@ b_Ifg_3  .28611308  .98953779          1          .          .
 b_Ifg_4  .30834248  .97421953  .99657554          1          .
 b_Ifg_5   .3274275    .706215    .800972  .84773414          1
 ----------------------------------------------------
+Skipping command: net from https://raw.githubusercontent.com/UCL/mvmeta/master/
+> package/
 Skipping command: net from http://www.homepages.ucl.ac.uk/~rmjwiww/stata/
 
 . runhelpfile using mvmetademo_run.sthlp, skip(net)
@@ -5989,14 +5991,14 @@ Note: using variables y1 y2
 Note: 5 observations on 2 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood =  1.7688025
-rescale:       log likelihood =  1.7688025
-rescale eq:    log likelihood =  2.0331186
-Iteration 0:   log likelihood =  2.0331186  
-Iteration 1:   log likelihood =  2.0800528  
-Iteration 2:   log likelihood =  2.0823255  
-Iteration 3:   log likelihood =  2.0823296  
-Iteration 4:   log likelihood =  2.0823296  
+Initial:      Log likelihood =  1.7688025
+Rescale:      Log likelihood =  1.7688025
+Rescale eq:   Log likelihood =  2.0331186
+Iteration 0:  Log likelihood =  2.0331186  
+Iteration 1:  Log likelihood =  2.0800528  
+Iteration 2:  Log likelihood =  2.0823255  
+Iteration 3:  Log likelihood =  2.0823296  
+Iteration 4:  Log likelihood =  2.0823296  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -6022,13 +6024,13 @@ Note: using variable y1
 Note: 5 observations on 1 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood =   1.350248
-rescale:       log likelihood =   1.350248
-rescale eq:    log likelihood =   1.350248
-Iteration 0:   log likelihood =   1.350248  
-Iteration 1:   log likelihood =  1.3588224  
-Iteration 2:   log likelihood =  1.3588365  
-Iteration 3:   log likelihood =  1.3588365  
+Initial:      Log likelihood =   1.350248
+Rescale:      Log likelihood =   1.350248
+Rescale eq:   Log likelihood =   1.350248
+Iteration 0:  Log likelihood =   1.350248  
+Iteration 1:  Log likelihood =  1.3588224  
+Iteration 2:  Log likelihood =  1.3588365  
+Iteration 3:  Log likelihood =  1.3588365  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -6158,14 +6160,14 @@ Note: regressing y2 on pubyear
 Note: 5 observations on 2 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -3.9342347
-rescale:       log likelihood = -3.9342347
-rescale eq:    log likelihood = -3.7117386
-Iteration 0:   log likelihood = -3.7117386  
-Iteration 1:   log likelihood =  -3.543716  
-Iteration 2:   log likelihood = -3.5399655  
-Iteration 3:   log likelihood = -3.5399546  
-Iteration 4:   log likelihood = -3.5399546  
+Initial:      Log likelihood = -3.9342347
+Rescale:      Log likelihood = -3.9342347
+Rescale eq:   Log likelihood = -3.7117386
+Iteration 0:  Log likelihood = -3.7117386  
+Iteration 1:  Log likelihood =  -3.543716  
+Iteration 2:  Log likelihood = -3.5399655  
+Iteration 3:  Log likelihood = -3.5399546  
+Iteration 4:  Log likelihood = -3.5399546  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -6220,12 +6222,12 @@ Note: 3 observations on 1 variables
 Note: variance-covariance matrix is unstructured
 mvmeta_bscov_unstructured: start() has trace zero: changed to I(1)
 
-initial:       log likelihood = -2.6192931
-rescale:       log likelihood = -2.2476841
-rescale eq:    log likelihood = -1.0691698
-Iteration 0:   log likelihood = -1.0691698  
-Iteration 1:   log likelihood =  -1.060856  
-Iteration 2:   log likelihood =  -1.060856  
+Initial:      Log likelihood = -2.6192931
+Rescale:      Log likelihood = -2.2476841
+Rescale eq:   Log likelihood = -1.0691698
+Iteration 0:  Log likelihood = -1.0691698  
+Iteration 1:  Log likelihood =  -1.060856  
+Iteration 2:  Log likelihood =  -1.060856  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -6250,15 +6252,15 @@ Note: 6 observations on 2 variables
 Note: wscorr(0.7) used for all covariances
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood =  -7.653669
-rescale:       log likelihood =  -7.653669
-rescale eq:    log likelihood = -7.5158116
-Iteration 0:   log likelihood = -7.5158116  
-Iteration 1:   log likelihood =  -7.032397  
-Iteration 2:   log likelihood = -6.9381085  
-Iteration 3:   log likelihood = -6.9260302  
-Iteration 4:   log likelihood = -6.9260036  
-Iteration 5:   log likelihood = -6.9260036  
+Initial:      Log likelihood =  -7.653669
+Rescale:      Log likelihood =  -7.653669
+Rescale eq:   Log likelihood = -7.5158116
+Iteration 0:  Log likelihood = -7.5158116  
+Iteration 1:  Log likelihood =  -7.032397  
+Iteration 2:  Log likelihood = -6.9381085  
+Iteration 3:  Log likelihood = -6.9260302  
+Iteration 4:  Log likelihood = -6.9260036  
+Iteration 5:  Log likelihood = -6.9260036  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -6374,110 +6376,110 @@ Note: 6 observations on 2 variables
 Note: using Riley's overall correlation model
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -9.6593596
-rescale:       log likelihood = -8.9269882
-rescale eq:    log likelihood = -7.7361107
-Iteration 0:   log likelihood = -7.7361107  (not concave)
-Iteration 1:   log likelihood = -7.6187485  (not concave)
-Iteration 2:   log likelihood = -7.6151104  (not concave)
-Iteration 3:   log likelihood = -7.5522903  (not concave)
-Iteration 4:   log likelihood = -7.4519409  (not concave)
-Iteration 5:   log likelihood =  -7.289418  (not concave)
-Iteration 6:   log likelihood = -6.6684806  (not concave)
-Iteration 7:   log likelihood = -6.5621804  (not concave)
-Iteration 8:   log likelihood = -6.5366625  (not concave)
-Iteration 9:   log likelihood = -6.5116867  (not concave)
-Iteration 10:  log likelihood = -6.5059096  (not concave)
-Iteration 11:  log likelihood = -6.5002363  (not concave)
-Iteration 12:  log likelihood = -6.4999659  (not concave)
-Iteration 13:  log likelihood = -6.4998365  (not concave)
-Iteration 14:  log likelihood = -6.4997678  (not concave)
-Iteration 15:  log likelihood = -6.4997013  (not concave)
-Iteration 16:  log likelihood =  -6.499679  (not concave)
-Iteration 17:  log likelihood = -6.4996678  (not concave)
-Iteration 18:  log likelihood =  -6.499656  (not concave)
-Iteration 19:  log likelihood = -6.4996532  (not concave)
-Iteration 20:  log likelihood = -6.4996504  (not concave)
-Iteration 21:  log likelihood = -6.4996497  (not concave)
-Iteration 22:  log likelihood =  -6.499649  (not concave)
-Iteration 23:  log likelihood = -6.4996489  (not concave)
-Iteration 24:  log likelihood = -6.4996488  (not concave)
-Iteration 25:  log likelihood = -6.4996488  (not concave)
-Iteration 26:  log likelihood = -6.4996482  (not concave)
-Iteration 27:  log likelihood = -6.4996477  (not concave)
-Iteration 28:  log likelihood = -6.4996476  (not concave)
-Iteration 29:  log likelihood = -6.4996475  (not concave)
-Iteration 30:  log likelihood = -6.4996468  (not concave)
-Iteration 31:  log likelihood = -6.4996456  (not concave)
-Iteration 32:  log likelihood = -6.4996454  (not concave)
-Iteration 33:  log likelihood = -6.4996454  (not concave)
-Iteration 34:  log likelihood = -6.4996453  (not concave)
-Iteration 35:  log likelihood = -6.4996453  (not concave)
-Iteration 36:  log likelihood = -6.4996452  (not concave)
-Iteration 37:  log likelihood = -6.4996452  (not concave)
-Iteration 38:  log likelihood = -6.4996452  (not concave)
-Iteration 39:  log likelihood = -6.4996451  (not concave)
-Iteration 40:  log likelihood = -6.4996451  (not concave)
-Iteration 41:  log likelihood = -6.4996451  (not concave)
-Iteration 42:  log likelihood =  -6.499645  (not concave)
-Iteration 43:  log likelihood =  -6.499645  (not concave)
-Iteration 44:  log likelihood =  -6.499645  (not concave)
-Iteration 45:  log likelihood = -6.4996449  (not concave)
-Iteration 46:  log likelihood = -6.4996449  (not concave)
-Iteration 47:  log likelihood = -6.4996448  (not concave)
-Iteration 48:  log likelihood = -6.4996448  (not concave)
-Iteration 49:  log likelihood = -6.4996448  (not concave)
-Iteration 50:  log likelihood = -6.4996447  (not concave)
-Iteration 51:  log likelihood = -6.4996447  (not concave)
-Iteration 52:  log likelihood = -6.4996447  (not concave)
-Iteration 53:  log likelihood = -6.4996446  (not concave)
-Iteration 54:  log likelihood = -6.4996446  (not concave)
-Iteration 55:  log likelihood = -6.4996446  (not concave)
-Iteration 56:  log likelihood = -6.4996445  (not concave)
-Iteration 57:  log likelihood = -6.4996445  (not concave)
-Iteration 58:  log likelihood = -6.4996445  (not concave)
-Iteration 59:  log likelihood = -6.4996444  (not concave)
-Iteration 60:  log likelihood = -6.4996444  (not concave)
-Iteration 61:  log likelihood = -6.4996443  (not concave)
-Iteration 62:  log likelihood = -6.4996443  (not concave)
-Iteration 63:  log likelihood = -6.4996443  (not concave)
-Iteration 64:  log likelihood = -6.4996442  (not concave)
-Iteration 65:  log likelihood = -6.4996442  (not concave)
-Iteration 66:  log likelihood = -6.4996442  (not concave)
-Iteration 67:  log likelihood = -6.4996441  (not concave)
-Iteration 68:  log likelihood = -6.4996441  (not concave)
-Iteration 69:  log likelihood = -6.4996441  (not concave)
-Iteration 70:  log likelihood =  -6.499644  (not concave)
-Iteration 71:  log likelihood =  -6.499644  (not concave)
-Iteration 72:  log likelihood =  -6.499644  (not concave)
-Iteration 73:  log likelihood = -6.4996439  (not concave)
-Iteration 74:  log likelihood = -6.4996439  (not concave)
-Iteration 75:  log likelihood = -6.4996438  (not concave)
-Iteration 76:  log likelihood = -6.4996438  (not concave)
-Iteration 77:  log likelihood = -6.4996438  (not concave)
-Iteration 78:  log likelihood = -6.4996437  (not concave)
-Iteration 79:  log likelihood = -6.4996437  (not concave)
-Iteration 80:  log likelihood = -6.4996437  (not concave)
-Iteration 81:  log likelihood = -6.4996436  (not concave)
-Iteration 82:  log likelihood = -6.4996436  (not concave)
-Iteration 83:  log likelihood = -6.4996436  (not concave)
-Iteration 84:  log likelihood = -6.4996435  (not concave)
-Iteration 85:  log likelihood = -6.4996435  (not concave)
-Iteration 86:  log likelihood = -6.4996434  (not concave)
-Iteration 87:  log likelihood = -6.4996434  (not concave)
-Iteration 88:  log likelihood = -6.4996434  (not concave)
-Iteration 89:  log likelihood = -6.4996433  (not concave)
-Iteration 90:  log likelihood = -6.4996433  (not concave)
-Iteration 91:  log likelihood = -6.4996433  (not concave)
-Iteration 92:  log likelihood = -6.4996432  (not concave)
-Iteration 93:  log likelihood = -6.4996432  (not concave)
-Iteration 94:  log likelihood = -6.4996432  (not concave)
-Iteration 95:  log likelihood = -6.4996431  (not concave)
-Iteration 96:  log likelihood = -6.4996431  (not concave)
-Iteration 97:  log likelihood =  -6.499643  (not concave)
-Iteration 98:  log likelihood =  -6.499643  (not concave)
-Iteration 99:  log likelihood =  -6.499643  (not concave)
-Iteration 100: log likelihood = -6.4996429  (not concave)
+Initial:      Log likelihood = -9.6593596
+Rescale:      Log likelihood = -8.9269882
+Rescale eq:   Log likelihood = -7.7361107
+Iteration 0:  Log likelihood = -7.7361107  (not concave)
+Iteration 1:  Log likelihood = -7.6187485  (not concave)
+Iteration 2:  Log likelihood = -7.6151104  (not concave)
+Iteration 3:  Log likelihood = -7.5522903  (not concave)
+Iteration 4:  Log likelihood = -7.4519409  (not concave)
+Iteration 5:  Log likelihood =  -7.289418  (not concave)
+Iteration 6:  Log likelihood = -6.6684806  (not concave)
+Iteration 7:  Log likelihood = -6.5621804  (not concave)
+Iteration 8:  Log likelihood = -6.5366625  (not concave)
+Iteration 9:  Log likelihood = -6.5116867  (not concave)
+Iteration 10: Log likelihood = -6.5059096  (not concave)
+Iteration 11: Log likelihood = -6.5002363  (not concave)
+Iteration 12: Log likelihood = -6.4999659  (not concave)
+Iteration 13: Log likelihood = -6.4998365  (not concave)
+Iteration 14: Log likelihood = -6.4997678  (not concave)
+Iteration 15: Log likelihood = -6.4997013  (not concave)
+Iteration 16: Log likelihood =  -6.499679  (not concave)
+Iteration 17: Log likelihood = -6.4996678  (not concave)
+Iteration 18: Log likelihood =  -6.499656  (not concave)
+Iteration 19: Log likelihood = -6.4996532  (not concave)
+Iteration 20: Log likelihood = -6.4996504  (not concave)
+Iteration 21: Log likelihood = -6.4996497  (not concave)
+Iteration 22: Log likelihood =  -6.499649  (not concave)
+Iteration 23: Log likelihood = -6.4996489  (not concave)
+Iteration 24: Log likelihood = -6.4996488  (not concave)
+Iteration 25: Log likelihood = -6.4996488  (not concave)
+Iteration 26: Log likelihood = -6.4996482  (not concave)
+Iteration 27: Log likelihood = -6.4996477  (not concave)
+Iteration 28: Log likelihood = -6.4996476  (not concave)
+Iteration 29: Log likelihood = -6.4996475  (not concave)
+Iteration 30: Log likelihood = -6.4996468  (not concave)
+Iteration 31: Log likelihood = -6.4996456  (not concave)
+Iteration 32: Log likelihood = -6.4996454  (not concave)
+Iteration 33: Log likelihood = -6.4996454  (not concave)
+Iteration 34: Log likelihood = -6.4996453  (not concave)
+Iteration 35: Log likelihood = -6.4996453  (not concave)
+Iteration 36: Log likelihood = -6.4996452  (not concave)
+Iteration 37: Log likelihood = -6.4996452  (not concave)
+Iteration 38: Log likelihood = -6.4996452  (not concave)
+Iteration 39: Log likelihood = -6.4996451  (not concave)
+Iteration 40: Log likelihood = -6.4996451  (not concave)
+Iteration 41: Log likelihood = -6.4996451  (not concave)
+Iteration 42: Log likelihood =  -6.499645  (not concave)
+Iteration 43: Log likelihood =  -6.499645  (not concave)
+Iteration 44: Log likelihood =  -6.499645  (not concave)
+Iteration 45: Log likelihood = -6.4996449  (not concave)
+Iteration 46: Log likelihood = -6.4996449  (not concave)
+Iteration 47: Log likelihood = -6.4996448  (not concave)
+Iteration 48: Log likelihood = -6.4996448  (not concave)
+Iteration 49: Log likelihood = -6.4996448  (not concave)
+Iteration 50: Log likelihood = -6.4996447  (not concave)
+Iteration 51: Log likelihood = -6.4996447  (not concave)
+Iteration 52: Log likelihood = -6.4996447  (not concave)
+Iteration 53: Log likelihood = -6.4996446  (not concave)
+Iteration 54: Log likelihood = -6.4996446  (not concave)
+Iteration 55: Log likelihood = -6.4996446  (not concave)
+Iteration 56: Log likelihood = -6.4996445  (not concave)
+Iteration 57: Log likelihood = -6.4996445  (not concave)
+Iteration 58: Log likelihood = -6.4996445  (not concave)
+Iteration 59: Log likelihood = -6.4996444  (not concave)
+Iteration 60: Log likelihood = -6.4996444  (not concave)
+Iteration 61: Log likelihood = -6.4996443  (not concave)
+Iteration 62: Log likelihood = -6.4996443  (not concave)
+Iteration 63: Log likelihood = -6.4996443  (not concave)
+Iteration 64: Log likelihood = -6.4996442  (not concave)
+Iteration 65: Log likelihood = -6.4996442  (not concave)
+Iteration 66: Log likelihood = -6.4996442  (not concave)
+Iteration 67: Log likelihood = -6.4996441  (not concave)
+Iteration 68: Log likelihood = -6.4996441  (not concave)
+Iteration 69: Log likelihood = -6.4996441  (not concave)
+Iteration 70: Log likelihood =  -6.499644  (not concave)
+Iteration 71: Log likelihood =  -6.499644  (not concave)
+Iteration 72: Log likelihood =  -6.499644  (not concave)
+Iteration 73: Log likelihood = -6.4996439  (not concave)
+Iteration 74: Log likelihood = -6.4996439  (not concave)
+Iteration 75: Log likelihood = -6.4996438  (not concave)
+Iteration 76: Log likelihood = -6.4996438  (not concave)
+Iteration 77: Log likelihood = -6.4996438  (not concave)
+Iteration 78: Log likelihood = -6.4996437  (not concave)
+Iteration 79: Log likelihood = -6.4996437  (not concave)
+Iteration 80: Log likelihood = -6.4996437  (not concave)
+Iteration 81: Log likelihood = -6.4996436  (not concave)
+Iteration 82: Log likelihood = -6.4996436  (not concave)
+Iteration 83: Log likelihood = -6.4996436  (not concave)
+Iteration 84: Log likelihood = -6.4996435  (not concave)
+Iteration 85: Log likelihood = -6.4996435  (not concave)
+Iteration 86: Log likelihood = -6.4996434  (not concave)
+Iteration 87: Log likelihood = -6.4996434  (not concave)
+Iteration 88: Log likelihood = -6.4996434  (not concave)
+Iteration 89: Log likelihood = -6.4996433  (not concave)
+Iteration 90: Log likelihood = -6.4996433  (not concave)
+Iteration 91: Log likelihood = -6.4996433  (not concave)
+Iteration 92: Log likelihood = -6.4996432  (not concave)
+Iteration 93: Log likelihood = -6.4996432  (not concave)
+Iteration 94: Log likelihood = -6.4996432  (not concave)
+Iteration 95: Log likelihood = -6.4996431  (not concave)
+Iteration 96: Log likelihood = -6.4996431  (not concave)
+Iteration 97: Log likelihood =  -6.499643  (not concave)
+Iteration 98: Log likelihood =  -6.499643  (not concave)
+Iteration 99: Log likelihood =  -6.499643  (not concave)
+Iteration 100: Log likelihood = -6.4996429  (not concave)
 convergence not achieved
 
 Multivariate meta-analysis
@@ -6505,20 +6507,20 @@ Note: 6 observations on 2 variables
 Note: using Riley's overall correlation model
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -9.6593596
-rescale:       log likelihood = -8.9269882
-rescale eq:    log likelihood = -7.7361107
-Iteration 0:   log likelihood = -7.7361107  (not concave)
-Iteration 1:   log likelihood = -7.6715811  (not concave)
-Iteration 2:   log likelihood = -7.6715565  (not concave)
-Iteration 3:   log likelihood = -7.4772316  (not concave)
-Iteration 4:   log likelihood = -7.0281259  (not concave)
-Iteration 5:   log likelihood = -6.7304177  (not concave)
-Iteration 6:   log likelihood = -6.5555782  (not concave)
-Iteration 7:   log likelihood = -6.3245561  
-Iteration 8:   log likelihood = -6.2992408  
-Iteration 9:   log likelihood = -6.2988275  
-Iteration 10:  log likelihood =  -6.298827  
+Initial:      Log likelihood = -9.6593596
+Rescale:      Log likelihood = -8.9269882
+Rescale eq:   Log likelihood = -7.7361107
+Iteration 0:  Log likelihood = -7.7361107  (not concave)
+Iteration 1:  Log likelihood = -7.6715811  (not concave)
+Iteration 2:  Log likelihood = -7.6715565  (not concave)
+Iteration 3:  Log likelihood = -7.4772316  (not concave)
+Iteration 4:  Log likelihood = -7.0281259  (not concave)
+Iteration 5:  Log likelihood = -6.7304177  (not concave)
+Iteration 6:  Log likelihood = -6.5555782  (not concave)
+Iteration 7:  Log likelihood = -6.3245561  
+Iteration 8:  Log likelihood = -6.2992408  
+Iteration 9:  Log likelihood = -6.2988275  
+Iteration 10: Log likelihood =  -6.298827  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -6597,13 +6599,13 @@ Warning: 17 observations have all outcomes missing, and have been dropped from
 Note: 14 observations on 1 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood =  4.0111584
-rescale:       log likelihood =  4.0111584
-rescale eq:    log likelihood =  4.0111584
-Iteration 0:   log likelihood =  4.0111584  
-Iteration 1:   log likelihood =   4.017017  
-Iteration 2:   log likelihood =  4.0170183  
-Iteration 3:   log likelihood =  4.0170183  
+Initial:      Log likelihood =  4.0111584
+Rescale:      Log likelihood =  4.0111584
+Rescale eq:   Log likelihood =  4.0111584
+Iteration 0:  Log likelihood =  4.0111584  
+Iteration 1:  Log likelihood =   4.017017  
+Iteration 2:  Log likelihood =  4.0170183  
+Iteration 3:  Log likelihood =  4.0170183  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -6627,14 +6629,14 @@ Note: using variables betafa betapa
 Note: 31 observations on 2 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood =  30.466484
-rescale:       log likelihood =  30.466484
-rescale eq:    log likelihood =  30.533576
-Iteration 0:   log likelihood =  30.533576  
-Iteration 1:   log likelihood =  31.101038  (backed up)
-Iteration 2:   log likelihood =   31.16933  
-Iteration 3:   log likelihood =  31.169653  
-Iteration 4:   log likelihood =  31.169653  
+Initial:      Log likelihood =  30.466484
+Rescale:      Log likelihood =  30.466484
+Rescale eq:   Log likelihood =  30.533576
+Iteration 0:  Log likelihood =  30.533576  
+Iteration 1:  Log likelihood =  31.101038  (backed up)
+Iteration 2:  Log likelihood =   31.16933  
+Iteration 3:  Log likelihood =  31.169653  
+Iteration 4:  Log likelihood =  31.169653  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -6731,18 +6733,18 @@ Note: using variables b_Ifg_2 b_Ifg_3 b_Ifg_4 b_Ifg_5
 Note: 31 observations on 4 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood =  -80.51611
-rescale:       log likelihood =  -80.51611
-rescale eq:    log likelihood = -80.071916
-Iteration 0:   log likelihood = -80.071916  (not concave)
-Iteration 1:   log likelihood = -79.723602  
-Iteration 2:   log likelihood = -79.561239  
-Iteration 3:   log likelihood = -79.504997  
-Iteration 4:   log likelihood = -79.492132  
-Iteration 5:   log likelihood = -79.489355  
-Iteration 6:   log likelihood = -79.489137  
-Iteration 7:   log likelihood = -79.489126  
-Iteration 8:   log likelihood = -79.489126  
+Initial:      Log likelihood =  -80.51611
+Rescale:      Log likelihood =  -80.51611
+Rescale eq:   Log likelihood = -80.071916
+Iteration 0:  Log likelihood = -80.071916  (not concave)
+Iteration 1:  Log likelihood = -79.723602  
+Iteration 2:  Log likelihood = -79.561239  
+Iteration 3:  Log likelihood = -79.504997  
+Iteration 4:  Log likelihood = -79.492132  
+Iteration 5:  Log likelihood = -79.489355  
+Iteration 6:  Log likelihood = -79.489137  
+Iteration 7:  Log likelihood = -79.489126  
+Iteration 8:  Log likelihood = -79.489126  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -6850,13 +6852,13 @@ Note: using variables b_Ifg_2 b_Ifg_3 b_Ifg_4 b_Ifg_5
 Note: 31 observations on 4 variables
 Note: variance-covariance matrix is proportional to B
 
-initial:       log likelihood = -134.15981
-rescale:       log likelihood =  -108.0511
-rescale eq:    log likelihood = -85.917006
-Iteration 0:   log likelihood = -85.917006  
-Iteration 1:   log likelihood = -85.664023  
-Iteration 2:   log likelihood = -85.662288  
-Iteration 3:   log likelihood = -85.662288  
+Initial:      Log likelihood = -134.15981
+Rescale:      Log likelihood =  -108.0511
+Rescale eq:   Log likelihood = -85.917006
+Iteration 0:  Log likelihood = -85.917006  
+Iteration 1:  Log likelihood = -85.664023  
+Iteration 2:  Log likelihood = -85.662288  
+Iteration 3:  Log likelihood = -85.662288  
 
 Multivariate meta-analysis
 Variance-covariance matrix = proportional B
@@ -6918,7 +6920,7 @@ b_Ifg_5   .3274275    .706215    .800972  .84773414          1
 Running command: graph use fsc2cigraph
 
 . cd "`mvmetadir'scripts"
-c:\ado\ian\mvmeta\scripts
+c:\ian\git\mvmeta\scripts
 
 . 
 . 
@@ -6946,13 +6948,13 @@ Note: using variables y1 y2
 Note: 10 observations on 2 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -24.474456
-rescale:       log likelihood = -24.474456
-rescale eq:    log likelihood = -24.472315
-Iteration 0:   log likelihood = -24.472315  
-Iteration 1:   log likelihood =  -24.41615  
-Iteration 2:   log likelihood = -24.415968  
-Iteration 3:   log likelihood = -24.415968  
+Initial:      Log likelihood = -24.474456
+Rescale:      Log likelihood = -24.474456
+Rescale eq:   Log likelihood = -24.472315
+Iteration 0:  Log likelihood = -24.472315  
+Iteration 1:  Log likelihood =  -24.41615  
+Iteration 2:  Log likelihood = -24.415968  
+Iteration 3:  Log likelihood = -24.415968  
 Warning: showchol option has been renamed showall
 
 Multivariate meta-analysis
@@ -6984,13 +6986,13 @@ Note: using variables y1 y2
 Note: 10 observations on 2 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -24.474456
-rescale:       log likelihood = -24.474456
-rescale eq:    log likelihood = -24.472315
-Iteration 0:   log likelihood = -24.472315  
-Iteration 1:   log likelihood =  -24.41615  
-Iteration 2:   log likelihood = -24.415968  
-Iteration 3:   log likelihood = -24.415968  
+Initial:      Log likelihood = -24.474456
+Rescale:      Log likelihood = -24.474456
+Rescale eq:   Log likelihood = -24.472315
+Iteration 0:  Log likelihood = -24.472315  
+Iteration 1:  Log likelihood =  -24.41615  
+Iteration 2:  Log likelihood = -24.415968  
+Iteration 3:  Log likelihood = -24.415968  
 Warning: showchol option has been renamed showall
 
 Multivariate meta-analysis
@@ -7019,13 +7021,13 @@ Note: using variables y1 y2
 Note: 10 observations on 2 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -24.474456
-rescale:       log likelihood = -24.474456
-rescale eq:    log likelihood = -24.472315
-Iteration 0:   log likelihood = -24.472315  
-Iteration 1:   log likelihood =  -24.41615  
-Iteration 2:   log likelihood = -24.415968  
-Iteration 3:   log likelihood = -24.415968  
+Initial:      Log likelihood = -24.474456
+Rescale:      Log likelihood = -24.474456
+Rescale eq:   Log likelihood = -24.472315
+Iteration 0:  Log likelihood = -24.472315  
+Iteration 1:  Log likelihood =  -24.41615  
+Iteration 2:  Log likelihood = -24.415968  
+Iteration 3:  Log likelihood = -24.415968  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -7133,26 +7135,26 @@ Warning: this may cause estimation to fail
 
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -4.0528698
-rescale:       log likelihood = -4.0528698
-rescale eq:    log likelihood = -1.8317916
-Iteration 0:   log likelihood = -1.8317916  (not concave)
-Iteration 1:   log likelihood = -1.4170243  (not concave)
-Iteration 2:   log likelihood =  -1.206974  (not concave)
-Iteration 3:   log likelihood =  -1.181411  (not concave)
-Iteration 4:   log likelihood = -1.1693458  (not concave)
-Iteration 5:   log likelihood = -1.1613045  (not concave)
-Iteration 6:   log likelihood = -1.1605093  (not concave)
-Iteration 7:   log likelihood = -1.1534407  (not concave)
-Iteration 8:   log likelihood = -1.1431655  (not concave)
-Iteration 9:   log likelihood = -1.1413669  
-Iteration 10:  log likelihood = -1.1178157  (not concave)
-Iteration 11:  log likelihood = -1.0983373  
-Iteration 12:  log likelihood = -1.0892157  
-Iteration 13:  log likelihood = -1.0868483  
-Iteration 14:  log likelihood = -1.0861302  
-Iteration 15:  log likelihood = -1.0861282  
-Iteration 16:  log likelihood = -1.0861282  
+Initial:      Log likelihood = -4.0528698
+Rescale:      Log likelihood = -4.0528698
+Rescale eq:   Log likelihood = -1.8317916
+Iteration 0:  Log likelihood = -1.8317916  (not concave)
+Iteration 1:  Log likelihood = -1.4170243  (not concave)
+Iteration 2:  Log likelihood =  -1.206974  (not concave)
+Iteration 3:  Log likelihood =  -1.181411  (not concave)
+Iteration 4:  Log likelihood = -1.1693458  (not concave)
+Iteration 5:  Log likelihood = -1.1613045  (not concave)
+Iteration 6:  Log likelihood = -1.1605093  (not concave)
+Iteration 7:  Log likelihood = -1.1534407  (not concave)
+Iteration 8:  Log likelihood = -1.1431655  (not concave)
+Iteration 9:  Log likelihood = -1.1413669  
+Iteration 10: Log likelihood = -1.1178157  (not concave)
+Iteration 11: Log likelihood = -1.0983373  
+Iteration 12: Log likelihood = -1.0892157  
+Iteration 13: Log likelihood = -1.0868483  
+Iteration 14: Log likelihood = -1.0861302  
+Iteration 15: Log likelihood = -1.0861282  
+Iteration 16: Log likelihood = -1.0861282  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -7204,26 +7206,26 @@ Warning: this may cause estimation to fail
 
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -4.0528698
-rescale:       log likelihood = -4.0528698
-rescale eq:    log likelihood = -1.8317916
-Iteration 0:   log likelihood = -1.8317916  (not concave)
-Iteration 1:   log likelihood = -1.4170243  (not concave)
-Iteration 2:   log likelihood =  -1.206974  (not concave)
-Iteration 3:   log likelihood =  -1.181411  (not concave)
-Iteration 4:   log likelihood = -1.1693458  (not concave)
-Iteration 5:   log likelihood = -1.1613045  (not concave)
-Iteration 6:   log likelihood = -1.1605093  (not concave)
-Iteration 7:   log likelihood = -1.1534407  (not concave)
-Iteration 8:   log likelihood = -1.1431655  (not concave)
-Iteration 9:   log likelihood = -1.1413669  
-Iteration 10:  log likelihood = -1.1178157  (not concave)
-Iteration 11:  log likelihood = -1.0983373  
-Iteration 12:  log likelihood = -1.0892157  
-Iteration 13:  log likelihood = -1.0868483  
-Iteration 14:  log likelihood = -1.0861302  
-Iteration 15:  log likelihood = -1.0861282  
-Iteration 16:  log likelihood = -1.0861282  
+Initial:      Log likelihood = -4.0528698
+Rescale:      Log likelihood = -4.0528698
+Rescale eq:   Log likelihood = -1.8317916
+Iteration 0:  Log likelihood = -1.8317916  (not concave)
+Iteration 1:  Log likelihood = -1.4170243  (not concave)
+Iteration 2:  Log likelihood =  -1.206974  (not concave)
+Iteration 3:  Log likelihood =  -1.181411  (not concave)
+Iteration 4:  Log likelihood = -1.1693458  (not concave)
+Iteration 5:  Log likelihood = -1.1613045  (not concave)
+Iteration 6:  Log likelihood = -1.1605093  (not concave)
+Iteration 7:  Log likelihood = -1.1534407  (not concave)
+Iteration 8:  Log likelihood = -1.1431655  (not concave)
+Iteration 9:  Log likelihood = -1.1413669  
+Iteration 10: Log likelihood = -1.1178157  (not concave)
+Iteration 11: Log likelihood = -1.0983373  
+Iteration 12: Log likelihood = -1.0892157  
+Iteration 13: Log likelihood = -1.0868483  
+Iteration 14: Log likelihood = -1.0861302  
+Iteration 15: Log likelihood = -1.0861282  
+Iteration 16: Log likelihood = -1.0861282  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -7255,26 +7257,26 @@ Note: using variables bfp1 bfp2 bconf bcons
 Note: 4 observations on 4 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -4.0528698
-rescale:       log likelihood = -4.0528698
-rescale eq:    log likelihood = -1.8317916
-Iteration 0:   log likelihood = -1.8317916  (not concave)
-Iteration 1:   log likelihood = -1.4170243  (not concave)
-Iteration 2:   log likelihood =  -1.206974  (not concave)
-Iteration 3:   log likelihood =  -1.181411  (not concave)
-Iteration 4:   log likelihood = -1.1693458  (not concave)
-Iteration 5:   log likelihood = -1.1613045  (not concave)
-Iteration 6:   log likelihood = -1.1605093  (not concave)
-Iteration 7:   log likelihood = -1.1534407  (not concave)
-Iteration 8:   log likelihood = -1.1431655  (not concave)
-Iteration 9:   log likelihood = -1.1413669  
-Iteration 10:  log likelihood = -1.1178157  (not concave)
-Iteration 11:  log likelihood = -1.0983373  
-Iteration 12:  log likelihood = -1.0892157  
-Iteration 13:  log likelihood = -1.0868483  
-Iteration 14:  log likelihood = -1.0861302  
-Iteration 15:  log likelihood = -1.0861282  
-Iteration 16:  log likelihood = -1.0861282  
+Initial:      Log likelihood = -4.0528698
+Rescale:      Log likelihood = -4.0528698
+Rescale eq:   Log likelihood = -1.8317916
+Iteration 0:  Log likelihood = -1.8317916  (not concave)
+Iteration 1:  Log likelihood = -1.4170243  (not concave)
+Iteration 2:  Log likelihood =  -1.206974  (not concave)
+Iteration 3:  Log likelihood =  -1.181411  (not concave)
+Iteration 4:  Log likelihood = -1.1693458  (not concave)
+Iteration 5:  Log likelihood = -1.1613045  (not concave)
+Iteration 6:  Log likelihood = -1.1605093  (not concave)
+Iteration 7:  Log likelihood = -1.1534407  (not concave)
+Iteration 8:  Log likelihood = -1.1431655  (not concave)
+Iteration 9:  Log likelihood = -1.1413669  
+Iteration 10: Log likelihood = -1.1178157  (not concave)
+Iteration 11: Log likelihood = -1.0983373  
+Iteration 12: Log likelihood = -1.0892157  
+Iteration 13: Log likelihood = -1.0868483  
+Iteration 14: Log likelihood = -1.0861302  
+Iteration 15: Log likelihood = -1.0861282  
+Iteration 16: Log likelihood = -1.0861282  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -7331,7 +7333,7 @@ bcons   .42983063   .96497212   -.9899645  -.74205767           1
 . 
 . log close
       name:  <unnamed>
-       log:  c:\ado\ian\mvmeta\testlogs\mvmeta_cscript.log
+       log:  c:\ian\git\mvmeta\testlogs\mvmeta_cscript.log
   log type:  text
- closed on:   8 Apr 2022, 11:17:24
+ closed on:  27 Feb 2025, 16:46:33
 -------------------------------------------------------------------------------

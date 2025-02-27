@@ -29,8 +29,10 @@ v1.7: changed showchol to showall
 Note that cscript sets linesize to 79
 */
 
+// LOCLa SETTING
+local mvmetadir c:\ian\git\mvmeta\
+
 // PRELIMINARIES
-local mvmetadir c:\ado\ian\mvmeta\
 cd "`mvmetadir'scripts"
 adopath ++ `mvmetadir'package
 cap log close
