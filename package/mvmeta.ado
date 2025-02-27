@@ -8,6 +8,7 @@
 		MC CIs are logit+Wald via new subroutine bincipct
 	all warnings are not in red; only fatal errors print in red
 	BUG FIX: corrected bar graph for pbest (mean rank and SUCRA were wrongly included)
+	BUG FIX: bubble with pct(numlist)
 version 4.0.2 # Ian White # 21apr2022
 	skip pi option if no Sigma
 	fix pbest problem in Stata12: variable names were lost
