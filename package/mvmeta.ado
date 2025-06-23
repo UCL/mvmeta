@@ -1,5 +1,7 @@
 /******************************************************************************
-*! version 4.0.2 # Ian White # 21apr2022
+*! version 4.0.3 # Ian White # 23junr2025
+	bubble plots the point estimates on top of the curves
+version 4.0.2 # Ian White # 21apr2022
 	skip pi option if no Sigma
 	fix pbest problem in Stata12: variable names were lost
 version 4.0.1 # Ian White # 07apr2022
@@ -2284,7 +2286,6 @@ local ly : var label `ymean'
 local lx : var label `xmean'
 if "`ly'"=="" local ly `ymean'
 if "`lx'"=="" local lx `xmean'
-local i 0
 
 if !mi("`group'") { 
     cap confirm numeric var `group'
@@ -2295,7 +2296,8 @@ if !mi("`group'") {
     }
 	qui levelsof `group', local(grouplevels)
 }
-local l 0
+local i 0 // counts pct values
+local l 0 // counts graphs
 foreach p of numlist `pct' {
     local ++i
     local a = sqrt(-2*log(1-`p'/100))
@@ -2304,22 +2306,26 @@ foreach p of numlist `pct' {
     qui replace `x'`i' = (`corr')*`y'`i' - sqrt(1-(`corr')^2)*`x'`i'
     qui replace `x'`i'=`xmean'+`xsd'*`x'`i'
     qui replace `y'`i'=`ymean'+`ysd'*`y'`i'
-    local s 0
+    local s 0 // counts groups
     if !mi("`group'") {
         foreach level in `grouplevels' {
             local ++s
             local cond `group'==`level'
-            local graphlist `graphlist' ///
-                (line `y'`i' `x'`i' if `cond', pstyle(p`s') c(l) cmissing(n) `lcol`s'' `lpatt`s'' `lwid`s'' `lopts') ///
-                (scatter `ymean' `xmean' if `cond' & _theta==0, pstyle(p`s') `mcol`s'' `mopts')
+            if `i'==1 { // plot point estimate
+				local scattergraphs `scattergraphs' ///
+					(scatter `ymean' `xmean' if `cond' & _theta==0, pstyle(p`s') `mcol`s'' `mopts')
+			}
             local ++l
-            if `i'==1 local legendorder `legendorder' `l'
-            if `i'==1 local legendlabel `legendlabel' label(`l' "`:label (`group') `level''")
-            local ++l
+            local linegraphs `linegraphs' ///
+                (line `y'`i' `x'`i' if `cond', pstyle(p`s') c(l) cmissing(n) `lcol`s'' `lpatt`s'' `lwid`s'' `lopts') 
+            if `i'==1 {
+				local legendorder `legendorder' `l'
+				local legendlabel `legendlabel' label(`l' "`:label (`group') `level''")
+			}
         }
     }
     else {
-        local graphlist `graphlist' (line `y'`i' `x'`i', cmissing(n) `lopts' `lcol`i'' `lpatt`i'' `lwid`s'' `mcol`i'')
+        local linegraphs `linegraphs' (line `y'`i' `x'`i', cmissing(n) `lopts' `lcol`i'' `lpatt`i'' `lwid`s'' `mcol`i'')
         local legend `legend' label(`i' "`p'%")
         local legendorder `legendorder' `i'
     }
@@ -2331,11 +2337,13 @@ if !mi("`group'") {
     foreach p of numlist `pct' {
         local note `note' `p'%
     }
-    local note note("Showing `note' confidence region(s)")
+	if wordcount("`pct'")>1 local ss s
+    local note note("Showing `note' confidence region`ss'")
 }
 else {
 	local i1=`i'+1
-    local graphlist `graphlist' (scatter `ymean' `xmean', pstyle(p`i1') `mcol`i1'' `mopts')
+    local scattergraphs `scattergraphs' (scatter `ymean' `xmean', pstyle(p`i1') `mcol`i1'' `mopts')
+		* NB point estimates are plotted last, to be seen on top
     local legendopt legend(`legend' order(`legendorder') title("Probability"))
 }
 if !mi("`ylab'") local options ytitle(`"`ylab'"') `options'
@@ -2349,7 +2357,7 @@ if !mi("`eform'") {
 }
 
 // GRAPH
-local command twoway `graphlist', `note' `legendopt' `options'
+local command twoway `linegraphs' `scattergraphs', `note' `legendopt' `options'
 if "`clear'"=="clear" {
     global F9 `command'
     di as text "Bubble graph data loaded into memory"

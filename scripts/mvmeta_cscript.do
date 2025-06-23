@@ -29,17 +29,18 @@ v1.7: changed showchol to showall
 Note that cscript sets linesize to 79
 */
 
+// USER-SPECIFIC SETTING
+global mvmetadir c:\ian\git\mvmeta
+
 // PRELIMINARIES
-local mvmetadir c:\ado\ian\mvmeta\
-cd "`mvmetadir'scripts"
-adopath ++ `mvmetadir'package
+cd "$mvmetadir/scripts"
+adopath ++ $mvmetadir/package
 cap log close
 set linesize 79
-log using "`mvmetadir'testlogs\mvmeta_cscript.log", replace
+log using "$mvmetadir/testlogs/mvmeta_cscript.log", replace
 
 version 12
 if c(stata_version)>=13 cls
-cscript mvmeta
 prog drop _all
 set more off
 set trace off
@@ -296,10 +297,10 @@ assert reldif(_se[y1],`se1') < 1E-7
 // CHECK THE STATA HELP FILES
 * runhelpfile is in scripts
 cap runhelpfile // just to load it
-cd "`mvmetadir'package"
+cd "$mvmetadir/package"
 runhelpfile using mvmeta.sthlp, skip(net)
 runhelpfile using mvmetademo_run.sthlp, skip(net)
-cd "`mvmetadir'scripts"
+cd "$mvmetadir/scripts"
 
 
 // CHECK WARNING OPTIONS WORK
@@ -334,7 +335,7 @@ assert $MVMETA_obserror==3
 
 // TIDY UP
 clear
-erase "`mvmetadir'scripts/z.dta
+erase "$mvmetadir/scripts/z.dta
 
 di as result _n "****************************************" ///
 	_n "*** MVMETA HAS PASSED ALL ITS TESTS ***" ///
