@@ -6,7 +6,7 @@ Author: Ian White
 
 Version: 4.0.3
 
-Date: 27feb2025
+Date: 23jun2025
 
 This package includes the `mvmeta_make` command which prepares data for `mvmeta`.
 
