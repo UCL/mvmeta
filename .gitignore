@@ -1,2 +1,3 @@
-
-~$mvmeta-to-do.xlsx
+.gitignore
+~$*.*
+*.stswp

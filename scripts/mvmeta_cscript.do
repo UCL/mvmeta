@@ -1,5 +1,6 @@
 /*
 MAIN TEST SCRIPT FOR MVMETA
+27feb2025 add test of bubble(pct(numlist))
 07apr2022 avoid mreldif(b,e(b)) & change version to allow Stata v12; include runhelpfile.ado
 01mar2022 added check of MVMETA_obserror
 08feb2022 added checks of warning() 
@@ -94,6 +95,7 @@ local wtrv wt(rv details format(%5.3f) keepmat(RV))
 local wtdpc wt(dpc details format(%5.3f) keepmat(DPC))
 local bubble bubble(name(bubble,replace) yline(0) xline(0) ///
 	col(blue green black =) lwidth(.2 = = .6) lpatt(solid = dash solid))
+local bubble2 bubble(pct(30(10)90))
 local forest forest(title(Forest plot) name(forest,replace) ///
 	xli(0) subtitle(,size(large)) ///
 	xlab(,labsize(large)) ylab(,labsize(large)) ///
@@ -104,7 +106,7 @@ local replayoptssep /// replay options to be run separately
 	showall "`forest'" eform eform(EFORM) nouncertainv print(bscov) ///
     print(bscorr) level(90) dof(n-2) i2 "pbest(min, seed(641))" "`pbestopt'" ///
 	nowt "`wtsd'" "`wtrv'" "`wtdpc'" testsigma qscalar randfix randfix(z*) ///
-	"`bubble'" pi "`pi'"
+	"`bubble'" "`bubble2'" pi "`pi'"
 
 local replayoptstog /// replay options to be run together
 	showall eform(EFORM) nouncertainv print(bscov) level(90) ///
