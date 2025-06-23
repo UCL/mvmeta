@@ -1,5 +1,7 @@
 /******************************************************************************
-*! version 4.0.2 # Ian White # 21apr2022
+*! version 4.0.3 # Ian White # 23junr2025
+	bubble plots the point estimates on top of the curves
+version 4.0.2 # Ian White # 21apr2022
 	skip pi option if no Sigma
 	fix pbest problem in Stata12: variable names were lost
 version 4.0.1 # Ian White # 07apr2022
@@ -2310,12 +2312,11 @@ foreach p of numlist `pct' {
             local ++s
             local cond `group'==`level'
             if `i'==1 { // plot point estimate
-				local ++l
-				local graphlist `graphlist' ///
+				local scattergraphs `scattergraphs' ///
 					(scatter `ymean' `xmean' if `cond' & _theta==0, pstyle(p`s') `mcol`s'' `mopts')
 			}
             local ++l
-            local graphlist `graphlist' ///
+            local linegraphs `linegraphs' ///
                 (line `y'`i' `x'`i' if `cond', pstyle(p`s') c(l) cmissing(n) `lcol`s'' `lpatt`s'' `lwid`s'' `lopts') 
             if `i'==1 {
 				local legendorder `legendorder' `l'
@@ -2324,7 +2325,7 @@ foreach p of numlist `pct' {
         }
     }
     else {
-        local graphlist `graphlist' (line `y'`i' `x'`i', cmissing(n) `lopts' `lcol`i'' `lpatt`i'' `lwid`s'' `mcol`i'')
+        local linegraphs `linegraphs' (line `y'`i' `x'`i', cmissing(n) `lopts' `lcol`i'' `lpatt`i'' `lwid`s'' `mcol`i'')
         local legend `legend' label(`i' "`p'%")
         local legendorder `legendorder' `i'
     }
@@ -2341,7 +2342,8 @@ if !mi("`group'") {
 }
 else {
 	local i1=`i'+1
-    local graphlist `graphlist' (scatter `ymean' `xmean', pstyle(p`i1') `mcol`i1'' `mopts')
+    local scattergraphs `scattergraphs' (scatter `ymean' `xmean', pstyle(p`i1') `mcol`i1'' `mopts')
+		* NB point estimates are plotted last, to be seen on top
     local legendopt legend(`legend' order(`legendorder') title("Probability"))
 }
 if !mi("`ylab'") local options ytitle(`"`ylab'"') `options'
@@ -2355,7 +2357,7 @@ if !mi("`eform'") {
 }
 
 // GRAPH
-local command twoway `graphlist', `note' `legendopt' `options'
+local command twoway `linegraphs' `scattergraphs', `note' `legendopt' `options'
 if "`clear'"=="clear" {
     global F9 `command'
     di as text "Bubble graph data loaded into memory"
