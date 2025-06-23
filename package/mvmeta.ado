@@ -6,7 +6,6 @@
 		BUG FIX: corrected MC SEs for mean rank and SUCRA
 		made pbest double 
 		MC CIs are logit+Wald via new subroutine bincipct
-	all warnings are not in red; only fatal errors print in red
 	BUG FIX: corrected bar graph for pbest (mean rank and SUCRA were wrongly included)
 	BUG FIX: bubble with pct(numlist)
 version 4.0.2 # Ian White # 21apr2022
@@ -458,7 +457,7 @@ forvalues r=1/`p' {
 
 if "`bsest'"=="`fixed'" {
 	if !mi("`bscovariance'") {
-		di as text "Warning: fixed option used: bscovariance() ignored"
+		`warn' "fixed option used: bscovariance() ignored"
 		local bscovariance
 	}
 	local jointcheck none
@@ -867,7 +866,7 @@ if mi(e(bsest)) { // if nothing to display, don't display anything
 }
 if "`e(wscorr)'"=="riley" {
     foreach opt in i2 qscalar testsigma randfix {
-        if !mi("``opt''") di as text "Warning: option `opt' is not available with wscorr(riley)"
+        if !mi("``opt''") `warn' "option `opt' is not available with wscorr(riley)"
         local `opt'
     }
 }
@@ -909,8 +908,8 @@ if "`estimates'"!="noestimates" {
             // here, _coef_table is better than ereturn display because it only exponentiates the first e(k_eform) equations - but older versions don't work with e(cmd) unset
             cap _coef_table, `eform' `levelopt' `cformat' `pformat' `sformat' `neq'
             if _rc {
-                di as text "Warning: _coef_table failed - you may be using a version older than 3.0.0"
-                di as text "Warning: all parameters will be exponentiated"
+                `warn' "_coef_table failed - you may be using a version older than 3.0.0"
+                `warn' "all parameters will be exponentiated"
                 ereturn display, `eform' `levelopt' `cformat' `pformat' `sformat' `neq' `coeflegend' 
             }
             else {
@@ -982,8 +981,8 @@ if ("`estimates'"!="noestimates" | "`printbscov'`printbscorr'"!="") & "`bsest'"!
 		forvalues r=1/`p' {
 			forvalues s=`r'/`p' {
 				if `s'<=`r' continue
-				if `corr'[`r',`s']>0.95 di as text "Warning: overall Riley correlation is near 1: estimates may be unstable"
-				if `corr'[`r',`s']<-0.95 di as text "Warning: overall Riley correlation is near -1: estimates may be unstable"
+				if `corr'[`r',`s']>0.95 `warn' "overall Riley correlation is near 1: estimates may be unstable"
+				if `corr'[`r',`s']<-0.95 `warn' "overall Riley correlation is near -1: estimates may be unstable"
 			}
 		}
 	}	
@@ -992,7 +991,7 @@ if ("`estimates'"!="noestimates" | "`printbscov'`printbscorr'"!="") & "`bsest'"!
 
 // PRINT WEIGHTS AND BOS
 if !mi("`wt'`wt2'") {
-    if "`e(parmtype)'"=="common" di as text "Warning: option wt() ignored - incompatible with commonparm"
+    if "`e(parmtype)'"=="common" `warn' "option wt() ignored - incompatible with commonparm"
     else mvmeta_wt, `wt2' `debug'
 }
 
@@ -1003,7 +1002,7 @@ if "`i2'"=="i2" {
         cap confirm matrix e(`mat')
         local error = cond(_rc,1,`error')
     }
-    if `error' di as text "Warning: method of moments failed when mvmeta ran, so I^2 cannot be computed"
+    if `error' `warn' "method of moments failed when mvmeta ran, so I^2 cannot be computed"
     else {
         // SET UP
         local z = invnorm((100+`level')/200)
@@ -1083,7 +1082,7 @@ if "`i2'"=="i2" {
                             local droppedterms yes
                             local droppedterm`r' " *"
                         }
-                        else di as text "Warning: nlcom failed and couldn't be fixed"
+                        else `warn' "nlcom failed and couldn't be fixed"
                     }
                     local tau sqrt(`tausq')
                 }
@@ -1147,7 +1146,7 @@ if "`i2'"=="i2" {
         local line7 as text _dup(`=`ylength1'+63') "{c -}"
 
         // OUTPUT BETWEEN-STUDY SDs AND I^2, WITH CIs
-        if "`e(cholnames)'"=="cholnames" di as text "Warning: sorry, i2 option is not available with cholnames"
+        if "`e(cholnames)'"=="cholnames" `warn' "sorry, i2 option is not available with cholnames"
         di as text _newline "Approximate confidence intervals for between-studies SDs and I^2:"
         di `line7'
         di as text "Variable" `col2' " SD" `col3' "[`level'% Conf. Interval]" `col5' " I^2" `col6' "[`level'% Conf. Interval]" _new `line7'
@@ -1235,13 +1234,13 @@ if !mi("`randfix'`randfix2'") {
     cap confirm matrix e(V_fixed)
     local noVfixed = _rc>0
     if "`e(bsest)'"=="" {
-        di as text "Warning: option randfix ignored - no estimation done"
+        `warn' "option randfix ignored - no estimation done"
     }
     else if "`e(bsest)'"=="fixed" {
-        di as text "Warning: option randfix ignored - not appropriate with fixed-effect analysis"
+        `warn' "option randfix ignored - not appropriate with fixed-effect analysis"
     }
     else if `noVfixed' {
-        di as text "Warning: option randfix ignored - mvmeta didn't estimate the fixed-effect model"
+        `warn' "option randfix ignored - mvmeta didn't estimate the fixed-effect model"
     }
     else {
         di _new as text "Multivariate R statistic"
@@ -1325,8 +1324,8 @@ if !missing(`"`forest'`forest2'"') {
 *** PREDICTION INTERVAL
 if !mi("`pi'`pi2'") {
 	cap confirm matrix e(Sigma)
-	if "`e(bsest)'"=="fixed" di as text "Warning: prediction intervals not reported - not meaningful after a fixed-effect model"
-	else if _rc di as text "Warning: intervals not reported - Sigma was not estimated"
+	if "`e(bsest)'"=="fixed" `warn' "prediction intervals not reported - not meaningful after a fixed-effect model"
+	else if _rc `warn' "intervals not reported - Sigma was not estimated"
 	else if !mi("`pi2'") mvmeta_pi, `pi2'
 	else if !mi("`pi'") mvmeta_pi
 }
@@ -1670,7 +1669,7 @@ if !mi("`bar'") {
     local graphcmd graph bar `pbest' if !`recordtype', `overrank' over(`treat') `byid' asy ytitle("Probability (%)") `stack' legend(`legendtitle') `options'
 }
 else if !mi("`line'") {
-    if `multid' di as text "Warning: graphs for multiple records will be overlaid"
+    if `multid' `warn' "graphs for multiple records will be overlaid"
     if !mi("`cumulative'") {
         sort `idnum' `treat' `rank'
         local pbestcum `pbest'cum
@@ -1833,9 +1832,9 @@ if wordcount("`sd' `rv' `dpc'")>1 {
     exit 198
 }
 if mi("`sd'`rv'`dpc'") local sd sd // SD is default
-if !mi("`clear'") & (mi("`sd'") | mi("`details'")) di as text "Warning: mvmeta_wt: option clear ignored (only relevant with sd and details options)"
-if !mi("`wide'") & (mi("`sd'") | mi("`details'")) di as text "Warning: mvmeta_wt: option wide ignored (only relevant with sd and details options)"
-if !mi("`unscaled'") & mi("`sd'") di as text "Warning: mvmeta_wt: option unscaled ignored (only relevant with sd option)"
+if !mi("`clear'") & (mi("`sd'") | mi("`details'")) `warn' "mvmeta_wt: option clear ignored (only relevant with sd and details options)"
+if !mi("`wide'") & (mi("`sd'") | mi("`details'")) `warn' "mvmeta_wt: option wide ignored (only relevant with sd and details options)"
+if !mi("`unscaled'") & mi("`sd'") `warn' "mvmeta_wt: option unscaled ignored (only relevant with sd option)"
 if mi("`format'") & !mi("`sd'`rv'") local format format(%6.1f)
 if mi("`e(V_uv)'") & !mi("`rv'") {
     di as error "mvmeta_wt: option rv is not allowed since univariate results were not found"
@@ -3092,7 +3091,7 @@ program define warnerror
 foreach thing in txt text result  res {
 	local 0 : subinstr local 0 "as `thing' " "as error ", all
 }
-di as text "Warning: " `0'
+di as error "Warning: " `0'
 end
 
 program define warntext
