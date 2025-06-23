@@ -1,5 +1,6 @@
 /*
 MAIN TEST SCRIPT FOR MVMETA
+23jun2025 add test of pbest(, mcci)
 27feb2025 add test of bubble(pct(numlist))
 07apr2022 avoid mreldif(b,e(b)) & change version to allow Stata v12; include runhelpfile.ado
 01mar2022 added check of MVMETA_obserror
@@ -334,6 +335,10 @@ replace S11=. in 3
 cap mvmeta y S
 assert _rc==459
 assert $MVMETA_obserror==3
+
+// 	TEST PBEST
+use smoking_for_mvmeta, clear
+mvmeta _y _S, bscovariance(exch 0.5) longparm suppress(uv mm) pbest(max in 1, mcci bar)
 
 // TIDY UP
 clear
