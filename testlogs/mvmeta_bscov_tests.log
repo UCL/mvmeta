@@ -1,0 +1,103 @@
+-------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  c:\ian\git\mvmeta/testlogs/mvmeta_bscov_tests.log
+  log type:  text
+ opened on:  24 Jun 2025, 13:17:39
+c(stata_version) = 18.5
+c(version) = 12
+c:\ian\git\mvmeta/package\mvmeta.ado
+*! version 4.0.3 # Ian White # 23jun2025
+c:\ian\git\mvmeta/package\mvmeta_make.ado
+*! version 4.1 # Ian White # 27jul2023
+
+. /*
+> Simple test file for mvmeta_bscov_*.ado
+> IW 15nov2021
+> */
+. 
+. use "$mvmetadir/package\berkey.dta", clear
+
+. mvmeta y V, id(trial) 
+Note: using method reml
+Note: using variables y1 y2
+Note: 5 observations on 2 variables
+Note: variance-covariance matrix is unstructured
+
+Initial:      Log likelihood =  1.7688025
+Rescale:      Log likelihood =  1.7688025
+Rescale eq:   Log likelihood =  2.0331186
+Iteration 0:  Log likelihood =  2.0331186  
+Iteration 1:  Log likelihood =  2.0800528  
+Iteration 2:  Log likelihood =  2.0823255  
+Iteration 3:  Log likelihood =  2.0823296  
+Iteration 4:  Log likelihood =  2.0823296  
+
+Multivariate meta-analysis
+Variance-covariance matrix = unstructured
+Method = reml                                  Number of dimensions    =     2
+Restricted log likelihood = 2.0823296          Number of observations  =     5
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+Overall_mean |
+          y1 |   .3534282    .061272     5.77   0.000     .2333372    .4735191
+          y2 |  -.3392152     .08927    -3.80   0.000    -.5141811   -.1642493
+------------------------------------------------------------------------------
+
+Estimated between-studies SDs and correlation matrix
+----------------------------------------------------
+           SD         y1         y2
+y1   .1083191          1          .
+y2  .18069681  .60879871          1
+----------------------------------------------------
+
+. 
+. mat sigma0 = 2*I(3)
+
+. global MVMETA_sigma0 sigma0
+
+. global MVMETA_p 2
+
+. 
+. mvmeta_bscov_equals, varparms()
+
+. mat est = r(Sigma)
+
+. assert abs(mreldif(est, sigma0)) < 1E-7
+
+. 
+. 
+. 
+. mat parms = (2)
+
+. mvmeta_bscov_proportional, varparms(parms)
+
+. 
+. mat true = 8*I(3)
+
+. mat est = r(Sigma)
+
+. assert abs(mreldif(est, true)) < 1E-7
+
+. 
+. 
+. 
+. mat eparms = (2, 0.4)
+
+. mvmeta_bscov_exchangeable, varparms(eparms)
+
+. 
+. mat true = 2^2*(J(2,2,0.4)+0.6*I(2))
+
+. mat est = r(Sigma)
+
+. assert abs(mreldif(est, true)) < 1E-7
+
+. 
+end of do-file
+mvmeta passed in mvmeta_bscov_tests.do
+      name:  <unnamed>
+       log:  c:\ian\git\mvmeta/testlogs/mvmeta_bscov_tests.log
+  log type:  text
+ closed on:  24 Jun 2025, 13:17:40
+-------------------------------------------------------------------------------

@@ -11,33 +11,6 @@ mvmeta_make_cscript.do: MAIN TEST SCRIPT FOR MVMETA_MAKE
 IW 2nov2021
 */
 
-// PRELIMINARIES
-local mvmetadir c:\ian\git\mvmeta\
-cd "`mvmetadir'scripts"
-adopath ++ `mvmetadir'package
-set linesize 108
-forvalues i=1/5 {
-	cap erase z`i'.dta
-}
-cap erase c:\temp\z.dta
-
-cap log close
-log using "`mvmetadir'testlogs\mvmeta_make_cscript.log", replace
-
-version 12
-if c(stata_version)>=13 cls
-cscript adofile mvmeta_make
-prog drop _all
-set more off
-set trace off
-
-
-// VIEW VERSION NUMBERS
-di c(stata_version)
-which mvmeta_make
-which mvmeta
-
-
 // SIMPLE DATA: COMPARE CLASSIC AND PREFIX SYNTAXES
 use mvmeta_make_testdata_reg, clear
 
@@ -216,10 +189,3 @@ forvalues i=1/5 {
 erase c:\temp\z.dta
 
 
-// REPORT SUCCESS
-di as result _n "********************************************" ///
-	_n "*** MVMETA_MAKE HAS PASSED ALL ITS TESTS ***" ///
-	_n "********************************************"
-
-
-log close

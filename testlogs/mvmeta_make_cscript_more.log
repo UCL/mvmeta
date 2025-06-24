@@ -1,42 +1,19 @@
-----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  c:\ian\git\mvmeta\testlogs\mvmeta_make_cscript_more.log
+       log:  c:\ian\git\mvmeta/testlogs/mvmeta_make_cscript_more.log
   log type:  text
- opened on:  28 Jul 2023, 18:02:09
-
-. 
-. version 16
-
-. if c(stata_version)>=13 cls
-
-. cscript adofile mvmeta_make
--------------------------------------------------------------------------BEGIN 
-
--> which mvmeta_make, usesysdir
-c:\ian\git\mvmeta\package\mvmeta_make.ado
+ opened on:  24 Jun 2025, 13:21:18
+c(stata_version) = 18.5
+c(version) = 12
+c:\ian\git\mvmeta/package\mvmeta.ado
+*! version 4.0.3 # Ian White # 23jun2025
+c:\ian\git\mvmeta/package\mvmeta_make.ado
 *! version 4.1 # Ian White # 27jul2023
 
-. prog drop _all
-
-. set more off
-
-. set trace off
-
-. 
-. 
-. // VIEW VERSION NUMBERS
-. di c(stata_version)
-17
-
-. which mvmeta_make
-c:\ian\git\mvmeta\package\mvmeta_make.ado
-*! version 4.1 # Ian White # 27jul2023
-
-. which mvmeta
-c:\ian\git\mvmeta\package\mvmeta.ado
-*! version 4.0.2 # Ian White # 21apr2022
-
-. 
+. /*
+> mvmeta_make_cscript_more.do
+> IW 27jul2023
+> */
 . 
 . // START TESTING
 . foreach model in "logit hisbpl" "regress sbpl" {
@@ -133,11 +110,11 @@ Using coefficients: _ItrtXage_1_30 _ItrtXage_1_45 _ItrtXage_1_70
 note: _Iagegp_45 omitted because of collinearity.
 note: _Iagegp_70 omitted because of collinearity.
 note: _ItrtXage_1_70 omitted because of collinearity.
-Iteration 0:   log likelihood = -432.83742  
-Iteration 1:   log likelihood = -392.97592  
-Iteration 2:   log likelihood = -384.32886  
-Iteration 3:   log likelihood = -384.30932  
-Iteration 4:   log likelihood = -384.30932  
+Iteration 0:  Log likelihood = -432.83742  
+Iteration 1:  Log likelihood = -392.97592  
+Iteration 2:  Log likelihood = -384.32886  
+Iteration 3:  Log likelihood = -384.30932  
+Iteration 4:  Log likelihood = -384.30932  
 
 Logistic regression                                     Number of obs =  1,530
                                                         LR chi2(4)    =  97.06
@@ -171,11 +148,11 @@ trial==ANBP: missing S_ItrtXage_1_70_ItrtXage_1_70
 note: _Iagegp_30 omitted because of collinearity.
 note: _Iagegp_70 omitted because of collinearity.
 note: _ItrtXage_1_30 omitted because of collinearity.
-Iteration 0:   log likelihood = -211.73146  
-Iteration 1:   log likelihood = -192.11002  
-Iteration 2:   log likelihood = -191.41031  
-Iteration 3:   log likelihood = -191.40765  
-Iteration 4:   log likelihood = -191.40765  
+Iteration 0:  Log likelihood = -211.73146  
+Iteration 1:  Log likelihood = -192.11002  
+Iteration 2:  Log likelihood = -191.41031  
+Iteration 3:  Log likelihood = -191.40765  
+Iteration 4:  Log likelihood = -191.40765  
 
 Logistic regression                                     Number of obs =    349
                                                         LR chi2(4)    =  40.65
@@ -221,11 +198,11 @@ Using coefficients: _ItrtXage_1_30 _ItrtXage_1_45 _ItrtXage_1_70
 note: _Iagegp_45 omitted because of collinearity.
 note: _Iagegp_70 omitted because of collinearity.
 note: _ItrtXage_1_70 omitted because of collinearity.
-Iteration 0:   log likelihood = -432.83742  
-Iteration 1:   log likelihood = -392.97592  
-Iteration 2:   log likelihood = -384.32886  
-Iteration 3:   log likelihood = -384.30932  
-Iteration 4:   log likelihood = -384.30932  
+Iteration 0:  Log likelihood = -432.83742  
+Iteration 1:  Log likelihood = -392.97592  
+Iteration 2:  Log likelihood = -384.32886  
+Iteration 3:  Log likelihood = -384.30932  
+Iteration 4:  Log likelihood = -384.30932  
 
 Logistic regression                                     Number of obs =  1,530
                                                         LR chi2(4)    =  97.06
@@ -479,19 +456,19 @@ Listing of added records:
 
 Analysis after augmentation:
 
-Iteration 0:   log likelihood = -432.83845  
-Iteration 1:   log likelihood = -392.97689  
-Iteration 2:   log likelihood = -384.33022  
-Iteration 3:   log likelihood = -384.31179  
-Iteration 4:   log likelihood = -384.31179  
-Iteration 5:   log likelihood = -384.31178  
-Iteration 6:   log likelihood = -384.31178  
-Iteration 7:   log likelihood = -384.31131  (backed up)
-Iteration 8:   log likelihood = -384.31119  (backed up)
-Iteration 9:   log likelihood = -384.31093  (backed up)
-Iteration 10:  log likelihood = -384.31077  (backed up)
-Iteration 11:  log likelihood =  -384.3102  
-Iteration 12:  log likelihood = -384.31017  
+Iteration 0:  Log likelihood = -432.83845  
+Iteration 1:  Log likelihood = -392.97689  
+Iteration 2:  Log likelihood = -384.33022  
+Iteration 3:  Log likelihood = -384.31179  
+Iteration 4:  Log likelihood = -384.31179  
+Iteration 5:  Log likelihood = -384.31178  
+Iteration 6:  Log likelihood = -384.31178  
+Iteration 7:  Log likelihood = -384.31131  (backed up)
+Iteration 8:  Log likelihood = -384.31119  (backed up)
+Iteration 9:  Log likelihood = -384.31093  (backed up)
+Iteration 10: Log likelihood = -384.31077  (backed up)
+Iteration 11: Log likelihood =  -384.3102  
+Iteration 12: Log likelihood = -384.31017  
 
 Logistic regression                                     Number of obs =  1,558
                                                         LR chi2(7)    =  97.06
@@ -518,11 +495,11 @@ trial==ANBP: perfect prediction has been fixed
 note: _Iagegp_30 omitted because of collinearity.
 note: _Iagegp_70 omitted because of collinearity.
 note: _ItrtXage_1_30 omitted because of collinearity.
-Iteration 0:   log likelihood = -211.73146  
-Iteration 1:   log likelihood = -192.11002  
-Iteration 2:   log likelihood = -191.41031  
-Iteration 3:   log likelihood = -191.40765  
-Iteration 4:   log likelihood = -191.40765  
+Iteration 0:  Log likelihood = -211.73146  
+Iteration 1:  Log likelihood = -192.11002  
+Iteration 2:  Log likelihood = -191.41031  
+Iteration 3:  Log likelihood = -191.40765  
+Iteration 4:  Log likelihood = -191.40765  
 
 Logistic regression                                     Number of obs =    349
                                                         LR chi2(4)    =  40.65
@@ -776,11 +753,11 @@ Listing of added records:
 
 Analysis after augmentation:
 
-Iteration 0:   log likelihood = -211.73209  
-Iteration 1:   log likelihood =  -192.1106  
-Iteration 2:   log likelihood = -191.41088  
-Iteration 3:   log likelihood = -191.40823  
-Iteration 4:   log likelihood = -191.40823  
+Iteration 0:  Log likelihood = -211.73209  
+Iteration 1:  Log likelihood =  -192.1106  
+Iteration 2:  Log likelihood = -191.41088  
+Iteration 3:  Log likelihood = -191.40823  
+Iteration 4:  Log likelihood = -191.40823  
 
 Logistic regression                                     Number of obs =    377
                                                         LR chi2(7)    =  40.65
@@ -817,11 +794,11 @@ Using coefficients: _Itrt_1 _ItrtXage_1_45 _ItrtXage_1_70
 
 note: _Iagegp_70 omitted because of collinearity.
 note: _ItrtXage_1_70 omitted because of collinearity.
-Iteration 0:   log likelihood = -432.83742  
-Iteration 1:   log likelihood = -392.97592  
-Iteration 2:   log likelihood = -384.32886  
-Iteration 3:   log likelihood = -384.30932  
-Iteration 4:   log likelihood = -384.30932  
+Iteration 0:  Log likelihood = -432.83742  
+Iteration 1:  Log likelihood = -392.97592  
+Iteration 2:  Log likelihood = -384.32886  
+Iteration 3:  Log likelihood = -384.30932  
+Iteration 4:  Log likelihood = -384.30932  
 
 Logistic regression                                     Number of obs =  1,530
                                                         LR chi2(4)    =  97.06
@@ -1042,14 +1019,14 @@ Listing of added records:
 
 Analysis after augmentation:
 
-Iteration 0:   log likelihood = -432.83832  
-Iteration 1:   log likelihood = -392.97679  
-Iteration 2:   log likelihood = -384.32992  
-Iteration 3:   log likelihood = -384.31042  
-Iteration 4:   log likelihood = -384.31024  
-Iteration 5:   log likelihood = -384.31012  
-Iteration 6:   log likelihood = -384.31009  
-Iteration 7:   log likelihood = -384.31008  
+Iteration 0:  Log likelihood = -432.83832  
+Iteration 1:  Log likelihood = -392.97679  
+Iteration 2:  Log likelihood = -384.32992  
+Iteration 3:  Log likelihood = -384.31042  
+Iteration 4:  Log likelihood = -384.31024  
+Iteration 5:  Log likelihood = -384.31012  
+Iteration 6:  Log likelihood = -384.31009  
+Iteration 7:  Log likelihood = -384.31008  
 
 Logistic regression                                     Number of obs =  1,554
                                                         LR chi2(6)    =  97.06
@@ -1074,11 +1051,11 @@ trial==ANBP: perfect prediction has been fixed
 
 note: _Iagegp_70 omitted because of collinearity.
 note: _ItrtXage_1_70 omitted because of collinearity.
-Iteration 0:   log likelihood = -211.73146  
-Iteration 1:   log likelihood = -192.11002  
-Iteration 2:   log likelihood = -191.41031  
-Iteration 3:   log likelihood = -191.40765  
-Iteration 4:   log likelihood = -191.40765  
+Iteration 0:  Log likelihood = -211.73146  
+Iteration 1:  Log likelihood = -192.11002  
+Iteration 2:  Log likelihood = -191.41031  
+Iteration 3:  Log likelihood = -191.40765  
+Iteration 4:  Log likelihood = -191.40765  
 
 Logistic regression                                     Number of obs =    349
                                                         LR chi2(4)    =  40.65
@@ -1299,11 +1276,11 @@ Listing of added records:
 
 Analysis after augmentation:
 
-Iteration 0:   log likelihood = -211.73201  
-Iteration 1:   log likelihood = -192.11059  
-Iteration 2:   log likelihood = -191.41088  
-Iteration 3:   log likelihood = -191.40823  
-Iteration 4:   log likelihood = -191.40823  
+Iteration 0:  Log likelihood = -211.73201  
+Iteration 1:  Log likelihood = -192.11059  
+Iteration 2:  Log likelihood = -191.41088  
+Iteration 3:  Log likelihood = -191.40823  
+Iteration 4:  Log likelihood = -191.40823  
 
 Logistic regression                                     Number of obs =    373
                                                         LR chi2(6)    =  40.65
@@ -2637,20 +2614,10 @@ Relative error is 4.344e-06
 
 . 
 . 
-. // REPORT SUCCESS
-. di as result _n "********************************************" ///
->         _n "*** MVMETA_MAKE HAS PASSED ALL ITS TESTS ***" ///
->         _n "********************************************"
-
-********************************************
-*** MVMETA_MAKE HAS PASSED ALL ITS TESTS ***
-********************************************
-
-. 
-. 
-. log close
+end of do-file
+mvmeta passed in mvmeta_make_cscript_more.do
       name:  <unnamed>
-       log:  c:\ian\git\mvmeta\testlogs\mvmeta_make_cscript_more.log
+       log:  c:\ian\git\mvmeta/testlogs/mvmeta_make_cscript_more.log
   log type:  text
- closed on:  28 Jul 2023, 18:02:13
+ closed on:  24 Jun 2025, 13:21:21
 -------------------------------------------------------------------------------

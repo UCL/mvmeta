@@ -3,33 +3,6 @@ mvmeta_make_cscript_more.do
 IW 27jul2023
 */
 
-// PRELIMINARIES
-local mvmetadir c:\ian\git\mvmeta\
-cd "`mvmetadir'scripts"
-adopath ++ `mvmetadir'package
-set linesize 100
-forvalues i=1/5 {
-	cap erase z`i'.dta
-}
-cap erase c:\temp\z.dta
-
-cap log close
-log using "`mvmetadir'testlogs\mvmeta_make_cscript_more.log", replace
-
-version 16
-if c(stata_version)>=13 cls
-cscript adofile mvmeta_make
-prog drop _all
-set more off
-set trace off
-
-
-// VIEW VERSION NUMBERS
-di c(stata_version)
-which mvmeta_make
-which mvmeta
-
-
 // START TESTING
 foreach model in "logit hisbpl" "regress sbpl" {
 	* load data
@@ -79,11 +52,3 @@ forvalues i=1/3 {
 	erase z`i'.dta
 }
 
-
-// REPORT SUCCESS
-di as result _n "********************************************" ///
-	_n "*** MVMETA_MAKE HAS PASSED ALL ITS TESTS ***" ///
-	_n "********************************************"
-
-
-log close

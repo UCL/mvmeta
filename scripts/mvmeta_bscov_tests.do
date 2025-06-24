@@ -3,10 +3,7 @@ Simple test file for mvmeta_bscov_*.ado
 IW 15nov2021
 */
 
-pda
-myadopath mvmeta
-
-use "C:\ado\ian\mvmeta\package\berkey.dta"
+use "$mvmetadir/package\berkey.dta", clear
 mvmeta y V, id(trial) 
 
 mat sigma0 = 2*I(3)
@@ -34,5 +31,3 @@ mvmeta_bscov_exchangeable, varparms(eparms)
 mat true = 2^2*(J(2,2,0.4)+0.6*I(2))
 mat est = r(Sigma)
 assert abs(mreldif(est, true)) < 1E-7
-
-di "mvmeta_bscov_*.ado files have passed these limited tests"

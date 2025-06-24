@@ -1,42 +1,28 @@
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  c:\ian\git\mvmeta\testlogs\mvmeta_make_cscript.log
+       log:  c:\ian\git\mvmeta/testlogs/mvmeta_make_cscript.log
   log type:  text
- opened on:   1 Aug 2023, 19:25:57
-
-. 
-. version 12
-
-. if c(stata_version)>=13 cls
-
-. cscript adofile mvmeta_make
--------------------------------------------------------------------------BEGIN 
-
--> which mvmeta_make, usesysdir
-c:\ian\git\mvmeta\package\mvmeta_make.ado
+ opened on:  24 Jun 2025, 13:21:00
+c(stata_version) = 18.5
+c(version) = 12
+c:\ian\git\mvmeta/package\mvmeta.ado
+*! version 4.0.3 # Ian White # 23jun2025
+c:\ian\git\mvmeta/package\mvmeta_make.ado
 *! version 4.1 # Ian White # 27jul2023
 
-. prog drop _all
-
-. set more off
-
-. set trace off
-
-. 
-. 
-. // VIEW VERSION NUMBERS
-. di c(stata_version)
-17
-
-. which mvmeta_make
-c:\ian\git\mvmeta\package\mvmeta_make.ado
-*! version 4.1 # Ian White # 27jul2023
-
-. which mvmeta
-c:\ian\git\mvmeta\package\mvmeta.ado
-*! version 4.0.2 # Ian White # 21apr2022
-
-. 
+. /*
+> mvmeta_make_cscript.do: MAIN TEST SCRIPT FOR MVMETA_MAKE
+> 01aug2023: added test of strata()
+> 27jul2023: added test of filepath in saving()
+> 21apr2022: added checks of ereturned results
+> 7apr2022: renamed mvmeta_make_cscript and automated log
+> 5apr2022: add tests of usevars, usecoefs, esave
+>         add test with survival data, including counts() and Stephen K's count
+> by()
+>         standardise line length
+> 28mar2022: major update to test prefix syntax
+> IW 2nov2021
+> */
 . 
 . // SIMPLE DATA: COMPARE CLASSIC AND PREFIX SYNTAXES
 . use mvmeta_make_testdata_reg, clear
@@ -197,13 +183,13 @@ Note: using variable yx
 Note: 3 observations on 1 variables
 Note: variance-covariance matrix is unstructured
 
-initial:       log likelihood = -2.4105811
-rescale:       log likelihood = -2.4105811
-rescale eq:    log likelihood = -2.4105811
-Iteration 0:   log likelihood = -2.4105811  
-Iteration 1:   log likelihood = -2.4094909  
-Iteration 2:   log likelihood = -2.4094884  
-Iteration 3:   log likelihood = -2.4094884  
+Initial:      Log likelihood = -2.4105811
+Rescale:      Log likelihood = -2.4105811
+Rescale eq:   Log likelihood = -2.4105811
+Iteration 0:  Log likelihood = -2.4105811  
+Iteration 1:  Log likelihood = -2.4094909  
+Iteration 2:  Log likelihood = -2.4094884  
+Iteration 3:  Log likelihood = -2.4094884  
 
 Multivariate meta-analysis
 Variance-covariance matrix = unstructured
@@ -515,11 +501,11 @@ Using coefficients: [1]x [2]x
 
 -> study==1
 
-Iteration 0:   log likelihood = -107.16772  
-Iteration 1:   log likelihood =  -100.9551  
-Iteration 2:   log likelihood = -100.87809  
-Iteration 3:   log likelihood = -100.87805  
-Iteration 4:   log likelihood = -100.87805  
+Iteration 0:  Log likelihood = -107.16772  
+Iteration 1:  Log likelihood =  -100.9551  
+Iteration 2:  Log likelihood = -100.87809  
+Iteration 3:  Log likelihood = -100.87805  
+Iteration 4:  Log likelihood = -100.87805  
 
 Multinomial logistic regression                         Number of obs =     98
                                                         LR chi2(2)    =  12.58
@@ -543,10 +529,10 @@ Log likelihood = -100.87805                             Pseudo R2     = 0.0587
 
 -> study==2
 
-Iteration 0:   log likelihood =  -107.5922  
-Iteration 1:   log likelihood = -106.24798  
-Iteration 2:   log likelihood = -106.24254  
-Iteration 3:   log likelihood = -106.24254  
+Iteration 0:  Log likelihood =  -107.5922  
+Iteration 1:  Log likelihood = -106.24798  
+Iteration 2:  Log likelihood = -106.24254  
+Iteration 3:  Log likelihood = -106.24254  
 
 Multinomial logistic regression                         Number of obs =     98
                                                         LR chi2(2)    =   2.70
@@ -570,10 +556,10 @@ Log likelihood = -106.24254                             Pseudo R2     = 0.0125
 
 -> study==3
 
-Iteration 0:   log likelihood = -103.10899  
-Iteration 1:   log likelihood = -101.90941  
-Iteration 2:   log likelihood = -101.90543  
-Iteration 3:   log likelihood = -101.90542  
+Iteration 0:  Log likelihood = -103.10899  
+Iteration 1:  Log likelihood = -101.90941  
+Iteration 2:  Log likelihood = -101.90543  
+Iteration 3:  Log likelihood = -101.90542  
 
 Multinomial logistic regression                         Number of obs =     98
                                                         LR chi2(2)    =   2.41
@@ -604,11 +590,11 @@ Using coefficients: [1]x [2]x
 
 -> study==1
 
-Iteration 0:   log likelihood = -107.16772  
-Iteration 1:   log likelihood =  -100.9551  
-Iteration 2:   log likelihood = -100.87809  
-Iteration 3:   log likelihood = -100.87805  
-Iteration 4:   log likelihood = -100.87805  
+Iteration 0:  Log likelihood = -107.16772  
+Iteration 1:  Log likelihood =  -100.9551  
+Iteration 2:  Log likelihood = -100.87809  
+Iteration 3:  Log likelihood = -100.87805  
+Iteration 4:  Log likelihood = -100.87805  
 
 Multinomial logistic regression                         Number of obs =     98
                                                         LR chi2(2)    =  12.58
@@ -632,10 +618,10 @@ Log likelihood = -100.87805                             Pseudo R2     = 0.0587
 
 -> study==2
 
-Iteration 0:   log likelihood =  -107.5922  
-Iteration 1:   log likelihood = -106.24798  
-Iteration 2:   log likelihood = -106.24254  
-Iteration 3:   log likelihood = -106.24254  
+Iteration 0:  Log likelihood =  -107.5922  
+Iteration 1:  Log likelihood = -106.24798  
+Iteration 2:  Log likelihood = -106.24254  
+Iteration 3:  Log likelihood = -106.24254  
 
 Multinomial logistic regression                         Number of obs =     98
                                                         LR chi2(2)    =   2.70
@@ -659,10 +645,10 @@ Log likelihood = -106.24254                             Pseudo R2     = 0.0125
 
 -> study==3
 
-Iteration 0:   log likelihood = -103.10899  
-Iteration 1:   log likelihood = -101.90941  
-Iteration 2:   log likelihood = -101.90543  
-Iteration 3:   log likelihood = -101.90542  
+Iteration 0:  Log likelihood = -103.10899  
+Iteration 1:  Log likelihood = -101.90941  
+Iteration 2:  Log likelihood = -101.90543  
+Iteration 3:  Log likelihood = -101.90542  
 
 Multinomial logistic regression                         Number of obs =     98
                                                         LR chi2(2)    =   2.41
@@ -693,11 +679,11 @@ Using coefficients: [1]x [2]x [2]_cons
 
 -> study==1
 
-Iteration 0:   log likelihood = -107.16772  
-Iteration 1:   log likelihood =  -100.9551  
-Iteration 2:   log likelihood = -100.87809  
-Iteration 3:   log likelihood = -100.87805  
-Iteration 4:   log likelihood = -100.87805  
+Iteration 0:  Log likelihood = -107.16772  
+Iteration 1:  Log likelihood =  -100.9551  
+Iteration 2:  Log likelihood = -100.87809  
+Iteration 3:  Log likelihood = -100.87805  
+Iteration 4:  Log likelihood = -100.87805  
 
 Multinomial logistic regression                         Number of obs =     98
                                                         LR chi2(2)    =  12.58
@@ -721,10 +707,10 @@ Log likelihood = -100.87805                             Pseudo R2     = 0.0587
 
 -> study==2
 
-Iteration 0:   log likelihood =  -107.5922  
-Iteration 1:   log likelihood = -106.24798  
-Iteration 2:   log likelihood = -106.24254  
-Iteration 3:   log likelihood = -106.24254  
+Iteration 0:  Log likelihood =  -107.5922  
+Iteration 1:  Log likelihood = -106.24798  
+Iteration 2:  Log likelihood = -106.24254  
+Iteration 3:  Log likelihood = -106.24254  
 
 Multinomial logistic regression                         Number of obs =     98
                                                         LR chi2(2)    =   2.70
@@ -748,10 +734,10 @@ Log likelihood = -106.24254                             Pseudo R2     = 0.0125
 
 -> study==3
 
-Iteration 0:   log likelihood = -103.10899  
-Iteration 1:   log likelihood = -101.90941  
-Iteration 2:   log likelihood = -101.90543  
-Iteration 3:   log likelihood = -101.90542  
+Iteration 0:  Log likelihood = -103.10899  
+Iteration 1:  Log likelihood = -101.90941  
+Iteration 2:  Log likelihood = -101.90543  
+Iteration 3:  Log likelihood = -101.90542  
 
 Multinomial logistic regression                         Number of obs =     98
                                                         LR chi2(2)    =   2.41
@@ -909,20 +895,20 @@ Performing EM optimization:
 
 Performing gradient-based optimization: 
 
-Iteration 0:   log restricted-likelihood = -584.10262  
-Iteration 1:   log restricted-likelihood = -583.57789  
-Iteration 2:   log restricted-likelihood = -583.57787  
+Iteration 0:  Log restricted-likelihood = -584.10262  
+Iteration 1:  Log restricted-likelihood = -583.57789  
+Iteration 2:  Log restricted-likelihood = -583.57787  
 
 Computing standard errors:
 
-Mixed-effects REML regression                   Number of obs     =        196
-Group variable: id                              Number of groups  =         98
-                                                Obs per group:
-                                                              min =          2
-                                                              avg =        2.0
-                                                              max =          2
-                                                Wald chi2(3)      =      18.03
-Log restricted-likelihood = -583.57787          Prob > chi2       =     0.0004
+Mixed-effects REML regression                        Number of obs    =    196
+Group variable: id                                   Number of groups =     98
+                                                     Obs per group:
+                                                                  min =      2
+                                                                  avg =    2.0
+                                                                  max =      2
+                                                     Wald chi2(3)     =  18.03
+Log restricted-likelihood = -583.57787               Prob > chi2      = 0.0004
 
 ------------------------------------------------------------------------------
            y | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
@@ -954,20 +940,20 @@ Performing EM optimization:
 
 Performing gradient-based optimization: 
 
-Iteration 0:   log restricted-likelihood = -584.10262  
-Iteration 1:   log restricted-likelihood = -583.57789  
-Iteration 2:   log restricted-likelihood = -583.57787  
+Iteration 0:  Log restricted-likelihood = -584.10262  
+Iteration 1:  Log restricted-likelihood = -583.57789  
+Iteration 2:  Log restricted-likelihood = -583.57787  
 
 Computing standard errors:
 
-Mixed-effects REML regression                   Number of obs     =        196
-Group variable: id                              Number of groups  =         98
-                                                Obs per group:
-                                                              min =          2
-                                                              avg =        2.0
-                                                              max =          2
-                                                Wald chi2(3)      =      18.03
-Log restricted-likelihood = -583.57787          Prob > chi2       =     0.0004
+Mixed-effects REML regression                        Number of obs    =    196
+Group variable: id                                   Number of groups =     98
+                                                     Obs per group:
+                                                                  min =      2
+                                                                  avg =    2.0
+                                                                  max =      2
+                                                     Wald chi2(3)     =  18.03
+Log restricted-likelihood = -583.57787               Prob > chi2      = 0.0004
 
 ------------------------------------------------------------------------------
            y | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
@@ -995,20 +981,20 @@ Performing EM optimization:
 
 Performing gradient-based optimization: 
 
-Iteration 0:   log restricted-likelihood = -581.56748  
-Iteration 1:   log restricted-likelihood = -581.36112  
-Iteration 2:   log restricted-likelihood = -581.36112  
+Iteration 0:  Log restricted-likelihood = -581.56748  
+Iteration 1:  Log restricted-likelihood = -581.36112  
+Iteration 2:  Log restricted-likelihood = -581.36112  
 
 Computing standard errors:
 
-Mixed-effects REML regression                   Number of obs     =        196
-Group variable: id                              Number of groups  =         98
-                                                Obs per group:
-                                                              min =          2
-                                                              avg =        2.0
-                                                              max =          2
-                                                Wald chi2(3)      =       5.92
-Log restricted-likelihood = -581.36112          Prob > chi2       =     0.1153
+Mixed-effects REML regression                        Number of obs    =    196
+Group variable: id                                   Number of groups =     98
+                                                     Obs per group:
+                                                                  min =      2
+                                                                  avg =    2.0
+                                                                  max =      2
+                                                     Wald chi2(3)     =   5.92
+Log restricted-likelihood = -581.36112               Prob > chi2      = 0.1153
 
 ------------------------------------------------------------------------------
            y | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
@@ -1036,21 +1022,21 @@ Performing EM optimization:
 
 Performing gradient-based optimization: 
 
-Iteration 0:   log restricted-likelihood = -593.71796  
-Iteration 1:   log restricted-likelihood = -592.65551  
-Iteration 2:   log restricted-likelihood = -592.65441  
-Iteration 3:   log restricted-likelihood = -592.65441  
+Iteration 0:  Log restricted-likelihood = -593.71796  
+Iteration 1:  Log restricted-likelihood = -592.65551  
+Iteration 2:  Log restricted-likelihood = -592.65441  
+Iteration 3:  Log restricted-likelihood = -592.65441  
 
 Computing standard errors:
 
-Mixed-effects REML regression                   Number of obs     =        196
-Group variable: id                              Number of groups  =         98
-                                                Obs per group:
-                                                              min =          2
-                                                              avg =        2.0
-                                                              max =          2
-                                                Wald chi2(3)      =      12.29
-Log restricted-likelihood = -592.65441          Prob > chi2       =     0.0064
+Mixed-effects REML regression                        Number of obs    =    196
+Group variable: id                                   Number of groups =     98
+                                                     Obs per group:
+                                                                  min =      2
+                                                                  avg =    2.0
+                                                                  max =      2
+                                                     Wald chi2(3)     =  12.29
+Log restricted-likelihood = -592.65441               Prob > chi2      = 0.0064
 
 ------------------------------------------------------------------------------
            y | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
@@ -1219,12 +1205,12 @@ mvmeta_make results are also loaded into memory
         Failure _d: d
   Analysis time _t: t
 
-Iteration 0:   log likelihood = -132.76835
-Iteration 1:   log likelihood = -116.83722
-Iteration 2:   log likelihood =  -116.5633
-Iteration 3:   log likelihood = -116.56305
+Iteration 0:  Log likelihood = -132.76835
+Iteration 1:  Log likelihood = -116.83722
+Iteration 2:  Log likelihood =  -116.5633
+Iteration 3:  Log likelihood = -116.56305
 Refining estimates:
-Iteration 0:   log likelihood = -116.56305
+Iteration 0:  Log likelihood = -116.56305
 
 Cox regression with no ties
 
@@ -1277,12 +1263,12 @@ Using coefficients: z x
         Failure _d: d
   Analysis time _t: t
 
-Iteration 0:   log likelihood = -132.76835
-Iteration 1:   log likelihood = -116.83722
-Iteration 2:   log likelihood =  -116.5633
-Iteration 3:   log likelihood = -116.56305
+Iteration 0:  Log likelihood = -132.76835
+Iteration 1:  Log likelihood = -116.83722
+Iteration 2:  Log likelihood =  -116.5633
+Iteration 3:  Log likelihood = -116.56305
 Refining estimates:
-Iteration 0:   log likelihood = -116.56305
+Iteration 0:  Log likelihood = -116.56305
 
 Cox regression with no ties
 
@@ -1305,12 +1291,12 @@ Log likelihood = -116.56305                             Prob > chi2   = 0.0000
         Failure _d: d
   Analysis time _t: t
 
-Iteration 0:   log likelihood = -165.91091
-Iteration 1:   log likelihood = -141.55233
-Iteration 2:   log likelihood = -141.45989
-Iteration 3:   log likelihood = -141.45984
+Iteration 0:  Log likelihood = -165.91091
+Iteration 1:  Log likelihood = -141.55233
+Iteration 2:  Log likelihood = -141.45989
+Iteration 3:  Log likelihood = -141.45984
 Refining estimates:
-Iteration 0:   log likelihood = -141.45984
+Iteration 0:  Log likelihood = -141.45984
 
 Cox regression with no ties
 
@@ -1333,13 +1319,13 @@ Log likelihood = -141.45984                             Prob > chi2   = 0.0000
         Failure _d: d
   Analysis time _t: t
 
-Iteration 0:   log likelihood = -178.14324
-Iteration 1:   log likelihood = -163.51634
-Iteration 2:   log likelihood = -162.61211
-Iteration 3:   log likelihood = -162.60463
-Iteration 4:   log likelihood = -162.60463
+Iteration 0:  Log likelihood = -178.14324
+Iteration 1:  Log likelihood = -163.51634
+Iteration 2:  Log likelihood = -162.61211
+Iteration 3:  Log likelihood = -162.60463
+Iteration 4:  Log likelihood = -162.60463
 Refining estimates:
-Iteration 0:   log likelihood = -162.60463
+Iteration 0:  Log likelihood = -162.60463
 
 Cox regression with no ties
 
@@ -1368,12 +1354,12 @@ Using coefficients: z x
         Failure _d: d
   Analysis time _t: t
 
-Iteration 0:   log likelihood = -132.76835
-Iteration 1:   log likelihood = -116.83722
-Iteration 2:   log likelihood =  -116.5633
-Iteration 3:   log likelihood = -116.56305
+Iteration 0:  Log likelihood = -132.76835
+Iteration 1:  Log likelihood = -116.83722
+Iteration 2:  Log likelihood =  -116.5633
+Iteration 3:  Log likelihood = -116.56305
 Refining estimates:
-Iteration 0:   log likelihood = -116.56305
+Iteration 0:  Log likelihood = -116.56305
 
 Cox regression with no ties
 
@@ -1396,12 +1382,12 @@ Log likelihood = -116.56305                             Prob > chi2   = 0.0000
         Failure _d: d
   Analysis time _t: t
 
-Iteration 0:   log likelihood = -165.91091
-Iteration 1:   log likelihood = -141.55233
-Iteration 2:   log likelihood = -141.45989
-Iteration 3:   log likelihood = -141.45984
+Iteration 0:  Log likelihood = -165.91091
+Iteration 1:  Log likelihood = -141.55233
+Iteration 2:  Log likelihood = -141.45989
+Iteration 3:  Log likelihood = -141.45984
 Refining estimates:
-Iteration 0:   log likelihood = -141.45984
+Iteration 0:  Log likelihood = -141.45984
 
 Cox regression with no ties
 
@@ -1424,13 +1410,13 @@ Log likelihood = -141.45984                             Prob > chi2   = 0.0000
         Failure _d: d
   Analysis time _t: t
 
-Iteration 0:   log likelihood = -178.14324
-Iteration 1:   log likelihood = -163.51634
-Iteration 2:   log likelihood = -162.61211
-Iteration 3:   log likelihood = -162.60463
-Iteration 4:   log likelihood = -162.60463
+Iteration 0:  Log likelihood = -178.14324
+Iteration 1:  Log likelihood = -163.51634
+Iteration 2:  Log likelihood = -162.61211
+Iteration 3:  Log likelihood = -162.60463
+Iteration 4:  Log likelihood = -162.60463
 Refining estimates:
-Iteration 0:   log likelihood = -162.60463
+Iteration 0:  Log likelihood = -162.60463
 
 Cox regression with no ties
 
@@ -1459,12 +1445,12 @@ Using coefficients: z x
         Failure _d: d
   Analysis time _t: t
 
-Iteration 0:   log likelihood = -132.76835
-Iteration 1:   log likelihood = -116.83722
-Iteration 2:   log likelihood =  -116.5633
-Iteration 3:   log likelihood = -116.56305
+Iteration 0:  Log likelihood = -132.76835
+Iteration 1:  Log likelihood = -116.83722
+Iteration 2:  Log likelihood =  -116.5633
+Iteration 3:  Log likelihood = -116.56305
 Refining estimates:
-Iteration 0:   log likelihood = -116.56305
+Iteration 0:  Log likelihood = -116.56305
 
 Cox regression with no ties
 
@@ -1487,12 +1473,12 @@ Log likelihood = -116.56305                             Prob > chi2   = 0.0000
         Failure _d: d
   Analysis time _t: t
 
-Iteration 0:   log likelihood = -165.91091
-Iteration 1:   log likelihood = -141.55233
-Iteration 2:   log likelihood = -141.45989
-Iteration 3:   log likelihood = -141.45984
+Iteration 0:  Log likelihood = -165.91091
+Iteration 1:  Log likelihood = -141.55233
+Iteration 2:  Log likelihood = -141.45989
+Iteration 3:  Log likelihood = -141.45984
 Refining estimates:
-Iteration 0:   log likelihood = -141.45984
+Iteration 0:  Log likelihood = -141.45984
 
 Cox regression with no ties
 
@@ -1515,13 +1501,13 @@ Log likelihood = -141.45984                             Prob > chi2   = 0.0000
         Failure _d: d
   Analysis time _t: t
 
-Iteration 0:   log likelihood = -178.14324
-Iteration 1:   log likelihood = -163.51634
-Iteration 2:   log likelihood = -162.61211
-Iteration 3:   log likelihood = -162.60463
-Iteration 4:   log likelihood = -162.60463
+Iteration 0:  Log likelihood = -178.14324
+Iteration 1:  Log likelihood = -163.51634
+Iteration 2:  Log likelihood = -162.61211
+Iteration 3:  Log likelihood = -162.60463
+Iteration 4:  Log likelihood = -162.60463
 Refining estimates:
-Iteration 0:   log likelihood = -162.60463
+Iteration 0:  Log likelihood = -162.60463
 
 Cox regression with no ties
 
@@ -1550,12 +1536,12 @@ Using coefficients: z x
         Failure _d: d
   Analysis time _t: t
 
-Iteration 0:   log likelihood = -132.76835
-Iteration 1:   log likelihood = -116.83722
-Iteration 2:   log likelihood =  -116.5633
-Iteration 3:   log likelihood = -116.56305
+Iteration 0:  Log likelihood = -132.76835
+Iteration 1:  Log likelihood = -116.83722
+Iteration 2:  Log likelihood =  -116.5633
+Iteration 3:  Log likelihood = -116.56305
 Refining estimates:
-Iteration 0:   log likelihood = -116.56305
+Iteration 0:  Log likelihood = -116.56305
 
 Cox regression with no ties
 
@@ -1578,12 +1564,12 @@ Log likelihood = -116.56305                             Prob > chi2   = 0.0000
         Failure _d: d
   Analysis time _t: t
 
-Iteration 0:   log likelihood = -165.91091
-Iteration 1:   log likelihood = -141.55233
-Iteration 2:   log likelihood = -141.45989
-Iteration 3:   log likelihood = -141.45984
+Iteration 0:  Log likelihood = -165.91091
+Iteration 1:  Log likelihood = -141.55233
+Iteration 2:  Log likelihood = -141.45989
+Iteration 3:  Log likelihood = -141.45984
 Refining estimates:
-Iteration 0:   log likelihood = -141.45984
+Iteration 0:  Log likelihood = -141.45984
 
 Cox regression with no ties
 
@@ -1606,13 +1592,13 @@ Log likelihood = -141.45984                             Prob > chi2   = 0.0000
         Failure _d: d
   Analysis time _t: t
 
-Iteration 0:   log likelihood = -178.14324
-Iteration 1:   log likelihood = -163.51634
-Iteration 2:   log likelihood = -162.61211
-Iteration 3:   log likelihood = -162.60463
-Iteration 4:   log likelihood = -162.60463
+Iteration 0:  Log likelihood = -178.14324
+Iteration 1:  Log likelihood = -163.51634
+Iteration 2:  Log likelihood = -162.61211
+Iteration 3:  Log likelihood = -162.60463
+Iteration 4:  Log likelihood = -162.60463
 Refining estimates:
-Iteration 0:   log likelihood = -162.60463
+Iteration 0:  Log likelihood = -162.60463
 
 Cox regression with no ties
 
@@ -1675,12 +1661,12 @@ file z4.dta saved
         Failure _d: d
   Analysis time _t: t
 
-Iteration 0:   log likelihood = -110.34613
-Iteration 1:   log likelihood = -95.482847
-Iteration 2:   log likelihood = -95.191162
-Iteration 3:   log likelihood = -95.190804
+Iteration 0:  Log likelihood = -110.34613
+Iteration 1:  Log likelihood = -95.482847
+Iteration 2:  Log likelihood = -95.191162
+Iteration 3:  Log likelihood = -95.190804
 Refining estimates:
-Iteration 0:   log likelihood = -95.190804
+Iteration 0:  Log likelihood = -95.190804
 
 Stratified Cox regression with no ties
 Strata variable: z
@@ -1709,12 +1695,12 @@ Using coefficients: x
         Failure _d: d
   Analysis time _t: t
 
-Iteration 0:   log likelihood = -110.34613
-Iteration 1:   log likelihood = -95.482847
-Iteration 2:   log likelihood = -95.191162
-Iteration 3:   log likelihood = -95.190804
+Iteration 0:  Log likelihood = -110.34613
+Iteration 1:  Log likelihood = -95.482847
+Iteration 2:  Log likelihood = -95.191162
+Iteration 3:  Log likelihood = -95.190804
 Refining estimates:
-Iteration 0:   log likelihood = -95.190804
+Iteration 0:  Log likelihood = -95.190804
 
 Stratified Cox regression with no ties
 Strata variable: z
@@ -1737,12 +1723,12 @@ Log likelihood = -95.190804                             Prob > chi2   = 0.0000
         Failure _d: d
   Analysis time _t: t
 
-Iteration 0:   log likelihood = -141.11359
-Iteration 1:   log likelihood = -120.66108
-Iteration 2:   log likelihood = -120.64271
-Iteration 3:   log likelihood = -120.64271
+Iteration 0:  Log likelihood = -141.11359
+Iteration 1:  Log likelihood = -120.66108
+Iteration 2:  Log likelihood = -120.64271
+Iteration 3:  Log likelihood = -120.64271
 Refining estimates:
-Iteration 0:   log likelihood = -120.64271
+Iteration 0:  Log likelihood = -120.64271
 
 Stratified Cox regression with no ties
 Strata variable: z
@@ -1765,13 +1751,13 @@ Log likelihood = -120.64271                             Prob > chi2   = 0.0000
         Failure _d: d
   Analysis time _t: t
 
-Iteration 0:   log likelihood = -149.56992
-Iteration 1:   log likelihood = -136.48088
-Iteration 2:   log likelihood = -135.51662
-Iteration 3:   log likelihood = -135.50821
-Iteration 4:   log likelihood = -135.50821
+Iteration 0:  Log likelihood = -149.56992
+Iteration 1:  Log likelihood = -136.48088
+Iteration 2:  Log likelihood = -135.51662
+Iteration 3:  Log likelihood = -135.50821
+Iteration 4:  Log likelihood = -135.50821
 Refining estimates:
-Iteration 0:   log likelihood = -135.50821
+Iteration 0:  Log likelihood = -135.50821
 
 Stratified Cox regression with no ties
 Strata variable: z
@@ -2010,20 +1996,11 @@ file z3.dta saved
 
 . 
 . 
-. // REPORT SUCCESS
-. di as result _n "********************************************" ///
->         _n "*** MVMETA_MAKE HAS PASSED ALL ITS TESTS ***" ///
->         _n "********************************************"
-
-********************************************
-*** MVMETA_MAKE HAS PASSED ALL ITS TESTS ***
-********************************************
-
 . 
-. 
-. log close
+end of do-file
+mvmeta passed in mvmeta_make_cscript.do
       name:  <unnamed>
-       log:  c:\ian\git\mvmeta\testlogs\mvmeta_make_cscript.log
+       log:  c:\ian\git\mvmeta/testlogs/mvmeta_make_cscript.log
   log type:  text
- closed on:   1 Aug 2023, 19:26:09
+ closed on:  24 Jun 2025, 13:21:18
 -------------------------------------------------------------------------------

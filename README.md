@@ -27,4 +27,4 @@ mvmeta_make version: 4.1, date 27jul2023
 You should be able to install this package from SSC.
 
 To install it from github, use
-- `net from https://raw.githubusercontent.com/UCL/mvmeta/master/package/`
+- `net from https://raw.githubusercontent.com/UCL/mvmeta/main/package/`

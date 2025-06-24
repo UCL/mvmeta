@@ -31,33 +31,6 @@ v1.7: changed showchol to showall
 Note that cscript sets linesize to 79
 */
 
-// USER-SPECIFIC SETTING
-global mvmetadir c:\ian\git\mvmeta
-
-// PRELIMINARIES
-cd "$mvmetadir/scripts"
-adopath ++ $mvmetadir/package
-cap log close
-set linesize 79
-log using "$mvmetadir/testlogs/mvmeta_cscript.log", replace
-
-version 12
-if c(stata_version)>=13 cls
-prog drop _all
-set more off
-set trace off
-pause off // on to check output in detail, off for fast run through
-global F5 exit;
-
-prog def dicmd
-noi di as input _newline(2) `"`0'"'
-`0'
-end
-
-// VERSION NUMBERS
-di c(stata_version)
-which mvmeta
-
 // SET UP DATA
 use telomerase2, clear
 gen id=_n
@@ -343,9 +316,3 @@ mvmeta _y _S, bscovariance(exch 0.5) longparm suppress(uv mm) pbest(max in 1, mc
 // TIDY UP
 clear
 erase "$mvmetadir/scripts/z.dta
-
-di as result _n "****************************************" ///
-	_n "*** MVMETA HAS PASSED ALL ITS TESTS ***" ///
-	_n "****************************************"
-
-log close
