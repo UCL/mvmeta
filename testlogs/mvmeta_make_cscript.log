@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  c:\ian\git\mvmeta/testlogs/mvmeta_make_cscript.log
   log type:  text
- opened on:  24 Jun 2025, 13:21:00
+ opened on:  24 Jun 2025, 14:24:46
 c(stata_version) = 18.5
 c(version) = 12
 c:\ian\git\mvmeta/package\mvmeta.ado
@@ -2002,5 +2002,5 @@ mvmeta passed in mvmeta_make_cscript.do
       name:  <unnamed>
        log:  c:\ian\git\mvmeta/testlogs/mvmeta_make_cscript.log
   log type:  text
- closed on:  24 Jun 2025, 13:21:18
+ closed on:  24 Jun 2025, 14:25:04
 -------------------------------------------------------------------------------
