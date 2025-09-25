@@ -50,7 +50,7 @@ Prefix syntax:
 where {it:mvmeta_make_options} are
 
 {phang}
-[{cmdab:sav:ing(}{it:savefile}{cmd:)}
+{cmdab:sav:ing(}{it:savefile}{cmd:)}
 {cmd:replace}
 {cmd:append}
 {cmd:clear}
@@ -73,7 +73,6 @@ where {it:mvmeta_make_options} are
 {cmdab:noaugl:ist}
 {cmdab:ppc:md(}{it:regcmd}[{it:,options}]{cmd:)}
 {cmd:hard}
-{it:regression_options}]
 
 and {it:regression_options} are any options allowed for {it:regression_command}.
 
