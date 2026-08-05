@@ -1,5 +1,5 @@
 {smcl}
-{* *! v4.0.2.1 2jun2023}{...}
+{* *! v4.0.4 05aug2026}{...}
 {vieweralsosee "mvmeta_make (if installed)" "mvmeta_make"}{...}
 {vieweralsosee "metan (if installed)" "metan"}{...}
 {vieweralsosee "metareg (if installed)" "metareg"}{...}
@@ -260,7 +260,7 @@ is derived as a weighted sum of data points.
 
 {phang}{cmd:format(}{it:fmt}{cmd:)} specifies the output format for all methods.
 
-{phang}{cmd:clear} ({cmd:sd} method only) loads the data for the table into memory.
+{phang}{cmd:clear} ({cmd:sd} method only) loads the data for the results table into memory.
 
 {phang}{cmd:keepmat(}{it:name}{cmd:)}  saves the matrices.
 With the {cmd:sd} method, three matrices, 
@@ -296,61 +296,72 @@ and the largest linear predictor is noted.
 For models without covariates, {cmd:pbest()} is only available if {cmd:longparm} was specified when the model was fitted.
 
 {p 4 4 2}
-The {it:suboptions} of {cmd:pbest()} are:
+The {it:suboptions} of {cmd:pbest()} controlling the calculation are:
 
-{phang}
+{phang2}
 {cmd:reps(}{it:#}{cmd:)} specifies the number of draws used. The default is 1000.
 
-{phang}
+{phang2}
 {cmd:zero} specifies that zero is to be considered as another linear predictor. 
 
-{phang}{cmd:gen(}{it:string}{cmd:)} specifies that the probabilities be saved in variables with prefix {it: string}. 
+{phang2}{cmd:gen(}{it:string}{cmd:)} specifies that the probabilities be saved in variables with prefix {it: string}. 
 
-{phang}{cmd:seed(}{it:#}{cmd:)} specifies the random number seed.
+{phang2}{cmd:seed(}{it:#}{cmd:)} specifies the random number seed.
 
-{phang}{opth format(%fmt)} specifies the output format.
+{phang2}{opth format(%fmt)} specifies the output format.
 
-{phang}{cmd:id(}{it:varname}{cmd:)} specifies an identifier for the output. 
+{phang2}{cmd:id(}{it:varname}{cmd:)} specifies an identifier for the output. 
 
-{phang}
+{phang2}
 {cmdab:pred:ict} ranks the true effects in a future study with the same covariates, 
 thus allowing for heterogeneity as well as parameter uncertainty, 
 as in the calculation of prediction intervals {help mvmeta##Higgins++09:(Higgins et al, 2009)}.
 The default behaviour is instead to rank linear predictors and does not allow for heterogeneity.
 
-{phang}{cmdab:best:only} requests only the probabilities of being the best treatment. 
+{phang2}{cmdab:best:only} requests only the probabilities of being the best treatment. 
 This can be misleading ({help mvmeta##Salanti++11:Salanti et al, 2011)}).
 The default is to report the probabilities for all ranks.
 
-{phang}{cmd:saving(}{it:filename}{cmd:)} writes the draws from the posterior distribution 
+{phang2}{cmd:saving(}{it:filename}{cmd:)} writes the draws from the posterior distribution 
 (indexed by the identifier and the replication number) to {it:filename}, 
 and {cmdab:rep:lace} allows this file to be overwritten.
 
-{phang}{cmd:clear} causes the summarised probabilities to be loaded into memory, 
+{phang2}{cmd:clear} causes the summarised probabilities to be loaded into memory, 
 so that the user can produce their own tabulations or graphs. This disables the {cmd:gen()} option.
 
-{phang}{cmd:bar} draws a bar graph of the probabilities.
+{phang2}{cmd:mcse} adds the Monte Carlo standard errors (MCSEs) to the results table.
 
-{phang}{cmd:line} draws a line graph of the probabilities.
+{phang2}{cmd:mcci} adds the Monte Carlo confidence intervals to the results table.
+These are computed by the Wald method (i.e. estimate +/- critical value times MCSE), 
+on the logit scale for probabilities and on the raw scale for mean rank and SUCRA.
 
-{phang}{cmdab:cum:ulative} changes the bar or line graph to show cumulative probabilties. 
+{phang2}{cmdab:mean:rank} adds the mean rank and the SUCRA {help mvmeta##Salanti++11:(Salanti et al, 2011)} 
+to the results table. 
+The SUCRA is the rescaled mean rank: it
+is 1 when a treatment is certain to be the best and 0 when a treatment is certain to be the worst.
+
+{phang2}{cmdab:tabdisp:options(}{it:string}{cmd:)} specifies options valid for {help tabdisp} which draws the results table.
+For example, {cmd:tabdispoptions(cellwidth(10))} changes the cell width in the results table.
+
+{p 4 4 2}
+The {it:suboptions} of {cmd:pbest()} controlling the graph are:
+
+{phang2}{cmd:bar} draws a bar graph of the probabilities.
+
+{phang2}{cmd:line} draws a line graph of the probabilities.
+
+{phang2}{cmdab:cum:ulative} changes the bar or line graph to show cumulative probabilities. 
 The rankogram of {help mvmeta##Salanti++11:Salanti et al (2011)}
 is produced by specifying this together with the {cmd:line} suboption.
 This option does not affect the tabulated results.
 
-{phang}{cmd:mcse} adds the Monte Carlo standard errors (MCSEs) to the tables.
+{phang2}{cmdab:treat:options(}{it:string}{cmd:)} is useful with option {cmd:bar}. 
+It specifies options for the treatment variable in the bar graph (see {help graph bar##over_subopts}).
+For example, {cmd:treatoptions(label(angle(45)))} draws the treatment labels at an angle.
 
-{phang}{cmd:mcci} adds the Monte Carlo confidence intervals to the tables.
-These are computed by the Wald method (i.e. estimate +/- critical value times MCSE), 
-on the logit scale for probabilities and on the raw scale for mean rank and SUCRA.
-
-{phang}{cmdab:mean:rank} adds the mean rank and the SUCRA {help mvmeta##Salanti++11:(Salanti et al, 2011)} 
-to the table. 
-The SUCRA is the rescaled mean rank: it
-is 1 when a treatment is certain to be the best and 0 when a treatment is certain to be the worst.
-
-{phang}{cmdab:tabdisp:options(}{it:string}{cmd:)} specifies options valid for {help tabdisp} which draws the results table.
-For example, {cmd:tabdispoptions(cellwidth(10))}.
+{phang2}Any other permitted options for {cmd:graph}.
+For example, {cmd:bar(1, col(black))} colours the first bar black, 
+or {cmd:legend(pos(3) col(1))} repositions the legend.
 
 
 {title:Output options: variance parameters}{marker outputoptionsvar}

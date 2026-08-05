@@ -1,5 +1,7 @@
 /******************************************************************************
-*! version 4.0.3 # Ian White # 23jun2025
+*! version 4.0.4 # Ian White # 05aug2026
+	add suboption pbest(,treatoptions())
+version 4.0.3 # Ian White # 23jun2025
 	work on Monte Carlo errors for pbest:
 		added mcci suboption 
 		BUG FIX: corrected MC CIs for pbest, line 
@@ -1339,11 +1341,13 @@ end
 program define pbest
 // Parse
 syntax anything [if] [in], [ ///
-    REPs(int 1000) zero gen(string) seed(int -1) format(string) /// documented
-    id(varname) PREDict BESTonly saving(string) replace clear bar line /// documented
-    CUMulative TABDISPoptions(string) mcse MEANrank /// documented
-    zeroname(string) STRIPprefix(string) rename(string) all mcci cilevel(cilevel) /// undocumented
-    title(passthru) note(passthru) *]
+    REPs(int 1000) zero gen(string) seed(int -1) format(string) /// documented calculation options
+    id(varname) PREDict BESTonly saving(string) replace /// documented calculation options
+    TABDISPoptions(string) mcse MEANrank clear /// documented calculation options
+    zeroname(string) STRIPprefix(string) rename(string) all mcci cilevel(cilevel) /// undocumented calculation options
+	bar line CUMulative TREAToptions(string) * /// documented graph options
+    title(passthru) note(passthru) /// implicit graph options
+	]
 local minmax `anything'
 if !inlist("`minmax'","min","max") {
     di as error "Syntax: pbest(min|max, [options])"
@@ -1666,7 +1670,7 @@ if !mi("`bar'") {
     else local legendtitle title("Treatment")
     if `multid' local byid by(`idnum', `title' `note')
     else local byid `title' `note'
-    local graphcmd graph bar `pbest' if !`recordtype', `overrank' over(`treat') `byid' asy ytitle("Probability (%)") `stack' legend(`legendtitle') `options'
+    local graphcmd graph bar `pbest' if !`recordtype', `overrank' over(`treat', `treatoptions') `byid' asy ytitle("Probability (%)") `stack' legend(`legendtitle') `options'
 }
 else if !mi("`line'") {
     if `multid' `warn' "graphs for multiple records will be overlaid"
